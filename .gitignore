@@ -18,8 +18,8 @@ Sublime Text/Backup
 
 
 
-Sublime Text/Data/Settings/Session
-Sublime Text/Packages/User/Package Control.last-run
-Sublime Text/Cache
-Sublime Text/Index
-Sublime Text/Local
+#Sublime Text/Data/Settings/Session
+#Sublime Text/Packages/User/Package Control.last-run
+#Sublime Text/Cache
+#Sublime Text/Index
+#Sublime Text/Local
