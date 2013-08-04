@@ -1,0 +1,1 @@
+Import-VisualStudioVars 2012

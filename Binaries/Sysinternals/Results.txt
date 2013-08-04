@@ -1,0 +1,13 @@
+
+PsExec v1.98 - Execute processes remotely
+Copyright (C) 2001-2010 Mark Russinovich
+Sysinternals - www.sysinternals.com
+
+
+Handle v3.51
+Copyright (C) 1997-2013 Mark Russinovich
+Sysinternals - www.sysinternals.com
+
+No matching handles found.
+Connecting to asnav-tfsbs-08...Starting PsExec service on asnav-tfsbs-08...Connecting with PsExec service on asnav-tfsbs-08...Copying handle.exe to asnav-tfsbs-08...Starting handle.exe on asnav-tfsbs-08...
+handle.exe exited on asnav-tfsbs-08 with error code 0.

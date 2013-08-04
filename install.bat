@@ -1,0 +1,15 @@
+@echo off
+
+whoami /groups | findstr /b BUILTIN\Administrators | findstr /c:"Enabled group" > nul && goto :isadministrator
+
+echo Error! Requires Administrator privileges
+goto :end
+
+:isadministrator
+
+pushd "%~dp0"
+powershell.exe -NoProfile -Command "Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope LocalMachine"
+powershell.exe -NoProfile -Command "Get-ChildItem .\Install -Include *.ps1 -Recurse | %% { & $_.FullName -InstallPath $pwd.Path }"
+
+:end
+pause
