@@ -2,17 +2,24 @@
 *.tmp
 *.log
 
+# OS generated files
+Thumbs.db
+
 # NuGet Packages Directory
 packages
 
 # Sublime Text
 *.pyc
-*.sublime-workspace
+*.cache
 *.sublime_session
-Sublime Text/Packages/Default/Startup.cache
-Sublime Text/Packages/User/Package Control.last-run
+*.sublime-workspace
+
 Sublime Text/Backup
+
+
+
+Sublime Text/Data/Settings/Session
+Sublime Text/Packages/User/Package Control.last-run
 Sublime Text/Cache
 Sublime Text/Index
 Sublime Text/Local
-Sublime Text/Packages/User/Package Control.cache
