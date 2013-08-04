@@ -1,0 +1,17 @@
+# Temp and Log files
+*.tmp
+*.log
+
+# NuGet Packages Directory
+packages
+
+# Sublime Text
+*.sublime-workspace
+*.sublime_session
+Sublime Text/Packages/Default/Startup.cache
+Sublime Text/Packages/User/Package Control.last-run
+Sublime Text/Backup
+Sublime Text/Cache
+Sublime Text/Index
+Sublime Text/Local
+Sublime Text/Packages/User/Package Control.cache

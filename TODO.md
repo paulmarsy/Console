@@ -1,3 +1,6 @@
+check two scripts
+private (machine specific) config area
+
 'remote' to run exe on another machine using psexec
 
 chocolatey - http://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx
