@@ -11,6 +11,9 @@ Thumbs.db
 # Folder config file
 Desktop.ini
 
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
 # NuGet Packages Directory
 packages/
 
@@ -28,5 +31,5 @@ Sublime Text/Data/Packages/*
 !Sublime Text/Data/Packages/PowerShell/
 !Sublime Text/Data/Packages/PowerShellUtils/
 !Sublime Text/Data/Packages/REG/
-#Sublime Text/Data/Packages/REG/*.cache
 !Sublime Text/Data/Packages/User/
+Sublime Text/Data/Packages/User/Package Control.last-run
