@@ -6,6 +6,7 @@
 packages
 
 # Sublime Text
+*.pyc
 *.sublime-workspace
 *.sublime_session
 Sublime Text/Packages/Default/Startup.cache
