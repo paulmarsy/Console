@@ -25,4 +25,3 @@ Sublime Text/Data/Packages/*
 !Sublime Text/Data/Packages/REG
 Sublime Text/Data/Packages/REG/*.cache
 !Sublime Text/Data/Packages/User
-Sublime Text/Data/Packages/User/Package Control.last-run
