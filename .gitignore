@@ -1,27 +1,32 @@
+# Temp directories
+tmp/
+
 # Temp and Log files
 *.tmp
 *.log
 
-# OS generated files
+# Windows image file caches
 Thumbs.db
 
+# Folder config file
+Desktop.ini
+
 # NuGet Packages Directory
-packages
+packages/
 
 # Sublime Text
 Sublime Text/**/*.pyc
 Sublime Text/**/*.cache
 
-Sublime Text/Data/Backup
-Sublime Text/Data/Pristine Packages
+Sublime Text/Data/Backup/
+Sublime Text/Data/Pristine Packages/
 Sublime Text/Data/Settings/*.sublime_session
 
-!Sublime Text/Data/Packages
 Sublime Text/Data/Packages/*
-!Sublime Text/Data/Packages/Git
-!Sublime Text/Data/Packages/Package Control
-!Sublime Text/Data/Packages/PowerShell
-!Sublime Text/Data/Packages/PowerShellUtils
-!Sublime Text/Data/Packages/REG
-Sublime Text/Data/Packages/REG/*.cache
-!Sublime Text/Data/Packages/User
+!Sublime Text/Data/Packages/Git/
+!Sublime Text/Data/Packages/Package Control/
+!Sublime Text/Data/Packages/PowerShell/
+!Sublime Text/Data/Packages/PowerShellUtils/
+!Sublime Text/Data/Packages/REG/
+#Sublime Text/Data/Packages/REG/*.cache
+!Sublime Text/Data/Packages/User/
