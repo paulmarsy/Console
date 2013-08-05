@@ -1,4 +1,5 @@
-function prompt {
+Set-Alias prompt Write-Prompt
+function Write-Prompt {
     $realLASTEXITCODE = $LASTEXITCODE
 
 	$windowsIdentity = [System.Security.Principal.WindowsIdentity]::GetCurrent()
