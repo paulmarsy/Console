@@ -7,8 +7,8 @@ if (Test-Path $profileSettingsFile) {
 else {
     $ProfileSettings = @{
         Git = @{
-            Name   = "Your Name"
-            Email  = "Your Email"
+            Name   = "Name"
+            Email  = "email@example.com"
         }
     }
 }
