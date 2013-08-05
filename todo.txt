@@ -2,7 +2,6 @@
 	if i uninstall does it really install?
 	how to install in silent mode
 	what other command lines are on the installer? or is it the exe?
-- history - only for successful commands 
 3 - https://github.com/naeemkhedarun/SlightlyPosher/blob/master/update.ps1
 4 - put in an update mechanism from github
 	that simple http client as a powershell module
