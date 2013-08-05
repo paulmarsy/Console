@@ -1,4 +1,4 @@
 Console
 =======
 
-An advanced Windows console
+An advanced PowerShell console

@@ -7,15 +7,6 @@ if (!(Test-Path $profileFolder)) {
 }
 (Get-Item $profileFolder -Force).Attributes = 'Hidden'
 
-"Creating new Profile Settings File..."
-$profileSettingsPath = Join-Path $profileFolder "ProfileSettings.ps1"
-New-Item $profileSettingsPath -Type File -Force | Out-Null
-Add-Content $profileSettingsPath @"
-New-Object PSObject -Property @{
-    Test   = `$False
-}
-"@
-
 "Hooking up to Profile File..."
 $generatedProfileToken = "<# Custom Profile Hook #>"
 
@@ -29,8 +20,11 @@ Add-Content $PROFILE.CurrentUserAllHosts @"
 $generatedProfileToken
 function Reset-Profile {
     Remove-Module Profile -ErrorAction SilentlyContinue
-    `$ProfileSettings = & "$profileSettingsPath"
-    Import-Module "$InstallPath\Modules\Profile\Profile.psd1" -ArgumentList "$InstallPath", `$ProfileSettings -Force -DisableNameChecking
+    `$profileSettingsFile = $(Join-Path $profileFolder "ProfileSettings.xml")
+    if (Test-Path `$profileSettingsFile) {
+        `$Global:ProfileSettings = Import-Clixml `$profileSettingsFile
+    }
+    Import-Module "$InstallPath\Modules\Profile\Profile.psd1" -ArgumentList "$InstallPath" -Force -DisableNameChecking
 }
 Reset-Profile
 "@
