@@ -17,8 +17,16 @@ New-Object PSObject -Property @{
 "@
 
 "Hooking up to Profile File..."
+$generatedProfileToken = "<# Custom Profile Hook #>"
+
+$PROFILE | Get-Member -MemberType NoteProperty | % { $PROFILE | Select-Object -ExpandProperty $_.Name } | ? { (Test-Path $_) -and ((Get-Content $_ | Select-Object -First 1) -ne $generatedProfileToken) } | % {
+    Write-Host -ForegroundColor Red "$_ already exists, backing up to $($_ + ".bak")"
+    Move-Item $_ ($_ + ".bak") -Force
+}
+
 New-Item $PROFILE.CurrentUserAllHosts -Type File -Force | Out-Null
 Add-Content $PROFILE.CurrentUserAllHosts @"
+$generatedProfileToken
 function Reset-Profile {
     Remove-Module Profile -ErrorAction SilentlyContinue
     `$ProfileSettings = & "$profileSettingsPath"
