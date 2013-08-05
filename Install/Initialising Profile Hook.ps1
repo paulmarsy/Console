@@ -22,7 +22,7 @@ Add-Content $PROFILE.CurrentUserAllHosts @"
 function Reset-Profile {
     Remove-Module Profile -ErrorAction SilentlyContinue
     `$ProfileSettings = & "$profileSettingsPath"
-    Import-Module "$InstallPath\Modules\Profile\Profile.psd1" -ArgumentList $InstallPath", `$ProfileSettings -Force -DisableNameChecking
+    Import-Module "$InstallPath\Modules\Profile\Profile.psd1" -ArgumentList "$InstallPath", `$ProfileSettings -Force -DisableNameChecking
 }
 Reset-Profile
 "@
