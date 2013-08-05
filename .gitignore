@@ -28,7 +28,6 @@ Sublime Text/Data/Settings/*.sublime_session
 Sublime Text/Data/Packages/*
 !Sublime Text/Data/Packages/Package Control/
 !Sublime Text/Data/Packages/PowerShell/
-!Sublime Text/Data/Packages/PowerShellUtils/
 !Sublime Text/Data/Packages/REG/
 !Sublime Text/Data/Packages/User/
 Sublime Text/Data/Packages/User/Package Control.last-run
