@@ -20,10 +20,6 @@ Add-Content $PROFILE.CurrentUserAllHosts @"
 $generatedProfileToken
 function Reset-Profile {
     Remove-Module Profile -ErrorAction SilentlyContinue
-    `$profileSettingsFile = $(Join-Path $profileFolder "ProfileSettings.xml")
-    if (Test-Path `$profileSettingsFile) {
-        `$Global:ProfileSettings = Import-Clixml `$profileSettingsFile
-    }
     Import-Module "$InstallPath\Modules\Profile\Profile.psd1" -ArgumentList "$InstallPath" -Force -DisableNameChecking
 }
 Reset-Profile

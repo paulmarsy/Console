@@ -9,7 +9,7 @@ goto :end
 
 pushd "%~dp0"
 powershell.exe -NoProfile -Command "Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope LocalMachine"
-powershell.exe -NoProfile -Command "Get-ChildItem .\Install -Include *.ps1 -Recurse | %% { & $_.FullName -InstallPath $pwd.Path }"
+powershell.exe -NoProfile -Command "Get-ChildItem .\Install -Filter *.ps1 | %% { & $_.FullName -InstallPath $pwd.Path }"
 
 :end
 pause

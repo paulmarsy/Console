@@ -1,12 +1,5 @@
-param($InstallPath)
-
-Remove-Item Alias:\su
-function su
-{
-    Start-Process -FilePath "$InstallPath\ConEmu\ConEmu.exe" -ArgumentList "/cmd powershell.exe" -Verb RunAs -WorkingDirectory $pwd
-}
-
-function sudo
+Set-Alias sudo Do-Superuser
+function Do-Superuser
 {
     [CmdletBinding()]
     param(

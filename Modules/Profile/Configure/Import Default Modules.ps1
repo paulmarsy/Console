@@ -18,9 +18,5 @@ Export-TabExpansionConfig
 & (Join-Path $env:LOCALAPPDATA "GitHub\shell.ps1")
 Import-Module (Join-Path $env:github_posh_git "posh-git.psm1") -Global
 $GitPromptSettings.EnableWindowTitle = "Windows PowerShell - Git - "
-<#
-May need to do if Git has some bugs:
-
 Enable-GitColors
 Start-SshAgent -Quiet
-#>
