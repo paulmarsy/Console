@@ -1,0 +1,23 @@
+1 - Install GitHub.ps1
+	if i uninstall does it really install?
+	how to install in silent mode
+	what other command lines are on the installer? or is it the exe?
+- history - only for successful commands 
+3 - https://github.com/naeemkhedarun/SlightlyPosher/blob/master/update.ps1
+4 - put in an update mechanism from github
+	that simple http client as a powershell module
+	able to have a one liner like at work?
+get my new script from gareth, can he install remote access stuff on my pc?
+look at what causes most slow down
+Home tech - finish off console-todo.txt (and port back to work), publish to github, update exes and reply to james's carbon email saying its like an updated posh console, do gets for psget, finish off cred man (upgrade and extra global shortcuts)
+
+test 'remote'
+re-write VSCleanup.exe in powershell 
+chocolatey - http://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx
+http://scriptcs.net/ - straight from powershell?
+sublime text thing for akamai netstore  access?
+send note (like on android) - powershell version       
+store cmd history (clean out errored commands)                                                                                                                                                                           
+
+
+

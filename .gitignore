@@ -4,6 +4,7 @@ tmp/
 # Temp and Log files
 *.tmp
 *.log
+*.bak
 
 # Windows image file caches
 Thumbs.db
