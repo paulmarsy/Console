@@ -1,3 +1,4 @@
+pre-req check script like work rather than trying to install everything
 - https://github.com/naeemkhedarun/SlightlyPosher/blob/master/update.ps1
 - put in an update mechanism from github
 	that simple http client as a powershell module
