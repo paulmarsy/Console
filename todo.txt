@@ -1,9 +1,5 @@
-1 - Install GitHub.ps1
-	if i uninstall does it really install?
-	how to install in silent mode
-	what other command lines are on the installer? or is it the exe?
-3 - https://github.com/naeemkhedarun/SlightlyPosher/blob/master/update.ps1
-4 - put in an update mechanism from github
+- https://github.com/naeemkhedarun/SlightlyPosher/blob/master/update.ps1
+- put in an update mechanism from github
 	that simple http client as a powershell module
 	able to have a one liner like at work?
 get my new script from gareth, can he install remote access stuff on my pc?
