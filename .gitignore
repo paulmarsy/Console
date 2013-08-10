@@ -1,13 +1,12 @@
-# Temp directories
+# Temp directories & files
 tmp/
-
-# Temp and Log files
 *.tmp
 *.log
 *.bak
 
 # Windows image file caches
 Thumbs.db
+ehthumbs.db
 
 # Folder config file
 Desktop.ini
@@ -15,15 +14,12 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
-# NuGet Packages Directory
-packages/
-
 # Sublime Text
 Sublime Text/**/*.pyc
 Sublime Text/**/*.cache
 
-Sublime Text/Data/Backup/
-Sublime Text/Data/Pristine Packages/
+Sublime Text/Data/Backup/*
+Sublime Text/Data/Pristine Packages/*
 Sublime Text/Data/Settings/*.sublime_session
 
 Sublime Text/Data/Packages/*
