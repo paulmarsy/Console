@@ -1,11 +1,15 @@
+param($InstallPath)
+
 Set-Alias remote Run-Remote
 function Run-Remote {
     [CmdletBinding()]
     param(
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory=$true,Position=0)]
         $ComputerName,
-        [Parameter(ValueFromRemainingArguments=$true)]
-        $command
+        [ValidateSet("PowerShell", "RDC")][Parameter(ParameterSetName="Interactive")]
+        $Location = "PowerShell",
+        [Parameter(ValueFromRemainingArguments=$true,ParameterSetName="Command")]
+        $Command
     )
 
     if ($command) { 
@@ -26,7 +30,10 @@ function Run-Remote {
             Remove-Item $psexecOutput -Force
         }
     }
-    else {
+    elseif ($location -eq "PowerShell") {
         Enter-PSSession -ComputerName $ComputerName
+    }
+    elseif ($location -eq "RDC"){
+        & mstsc /v:$ComputerName /edit (Join-Path $InstallPath "Support Files\Default.rdp")
     }
 }
