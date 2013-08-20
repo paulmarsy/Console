@@ -12,6 +12,9 @@ function Write-Prompt {
 
 	Write-Host -ForegroundColor $securityColour -NoNewLine "$path"
     Write-VcsStatus
+    if ($NestedPromptLevel -ne 0) {
+        Write-Host -ForegroundColor $securityColour -NoNewLine "($NestedPromptLevel)"
+    }
     Write-Host -ForegroundColor $securityColour -NoNewLine "$"
 
     $global:LASTEXITCODE = $realLASTEXITCODE

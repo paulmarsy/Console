@@ -1,19 +1,20 @@
+http://dotnetslackers.com/articles/net/Converting-a-PowerShell-Script-into-a-Module.aspx
+
+
+dot source vs import-module googlesss
+Import-DotNetType
+rework configsettings $script?
 pre-req check script like work rather than trying to install everything
-- https://github.com/naeemkhedarun/SlightlyPosher/blob/master/update.ps1
-- put in an update mechanism from github
-	that simple http client as a powershell module
-	able to have a one liner like at work?
-get my new script from gareth, can he install remote access stuff on my pc?
 look at what causes most slow down
-Home tech - finish off console-todo.txt (and port back to work), publish to github, update exes and reply to james's carbon email saying its like an updated posh console, do gets for psget, finish off cred man (upgrade and extra global shortcuts)
+update exes
+do tests for psget
+get-buildserver
 
 test 'remote'
-re-write VSCleanup.exe in powershell 
 chocolatey - http://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx
 http://scriptcs.net/ - straight from powershell?
-sublime text thing for akamai netstore  access?
 send note (like on android) - powershell version       
-store cmd history (clean out errored commands)                                                                                                                                                                           
-
+                                                                                                                                                                 
+finish off cred man (upgrade and extra global shortcuts)
 
 

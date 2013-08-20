@@ -20,3 +20,6 @@ Import-Module (Join-Path $env:github_posh_git "posh-git.psm1") -Global
 $GitPromptSettings.EnableWindowTitle = "Windows PowerShell - Git - "
 Enable-GitColors
 Start-SshAgent -Quiet
+
+# Microsoft Team Foundation Server 2012 Power Tools
+Import-Module (Join-Path $env:TFSPowerToolDir "Microsoft.TeamFoundation.PowerTools.PowerShell.dll") -Global

@@ -8,5 +8,6 @@
 	[
 		"Vintage"
 	],
-	"remember_open_files": false
+	"remember_open_files": false,
+	"close_windows_when_empty": true
 }
