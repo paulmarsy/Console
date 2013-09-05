@@ -2,7 +2,7 @@ function Get-BuildServer {
 	[CmdletBinding()]
 	param
 	(
-		[Parameter(Mandatory=$true)]$tfsServerUrl = $Global:ConsoleConfig.TFS.Server
+		[Parameter(Mandatory=$true)]$tfsServerUrl = $ProfileConfig.TFS.Server
 	)
 	
 	[System.Reflection.Assembly]::LoadWithPartialName("Microsoft.TeamFoundation.Client") | Out-Null
@@ -14,9 +14,4 @@ function Get-BuildServer {
 	$buildServer = $tpcFactory.GetService([type]"Microsoft.TeamFoundation.Build.Client.IBuildServer")
 	
 	return $buildServer
-}
-
-function Get-TFSProject {
-	or able to enumeate from build server?
-	# look up value in user's custom config system which should be in my docs or somewhere private
 }

@@ -1,5 +1,3 @@
-param($InstallPath)
-
 function Install-ConsoleFile {
     [CmdletBinding()]
     param(

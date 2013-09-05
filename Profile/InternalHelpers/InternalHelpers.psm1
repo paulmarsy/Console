@@ -1,20 +1,9 @@
-Set-Alias export Export-Helper
+param($InstallPath)
 
-function Export-Helper
-{
-  param ([parameter(mandatory=$true)] [validateset("function","variable")] $type,
-  [parameter(mandatory=$true)] $name,
-  [parameter(mandatory=$true)] $value)
-  if ($type -eq "function")
-   {
-     Set-item "function:script:$name" $value
-     Export-ModuleMember $name
-   }
-else
-   {
-     Set-Variable -scope Script $name $value
-     Export-ModuleMember -variable $name
-   }
-}
+$profileConfigFile = Join-Path (Split-Path $PROFILE.CurrentUserAllHosts) "ProfileConfig.xml"
 
-Export-ModuleMember -Alias export
+Get-ChildItem $PSScriptRoot -Filter *.ps1 | % { . $_.FullName }
+
+$ProfileConfig = Initialize-ProfileConfig
+
+Export-ModuleMember -Function * -Alias * -Cmdlet * -Variable ProfileConfig

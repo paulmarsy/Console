@@ -1,4 +1,4 @@
-export function Initialize-ProfileConfig {
+function Initialize-ProfileConfig {
     if (Test-Path $profileConfigFile) {
         $importedProfileConfig = Import-Clixml $profileConfigFile
     }

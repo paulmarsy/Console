@@ -1,11 +1,9 @@
-param($InstallPath)
-
 function UpdateGit {
     param(
         [Parameter(ValueFromRemainingArguments=$true)]$config
     )
-    & git config $config user.name $ConsoleConfig.Git.Name
-    & git config $config user.email $ConsoleConfig.Git.Email
+    & git config $config user.name $ProfileConfig.Git.Name
+    & git config $config user.email $ProfileConfig.Git.Email
     & git config $config core.ignorecase $True
     & git config $config core.autocrlf $True 
     & git config $config core.editor "'$(Join-Path $InstallPath "Sublime Text\sublime_text.exe")' -w"

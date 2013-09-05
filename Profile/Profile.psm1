@@ -1,13 +1,11 @@
 param($InstallPath)
-
-
-
+Set-StrictMode -Version Latest
 
 Import-Module (Join-Path $PSScriptRoot InternalHelpers)
-Import-Module (Join-Path $PSScriptRoot ProfileConfig) -ArgumentList $InstallPath 
-$global:t = get-module
 
-#Get-ChildItem "$PSScriptRoot\", "$PSScriptRoot\Configure", "$PSScriptRoot\ExportedModuleMembers" -Filter *.ps1 | Sort-Object DirectoryName, Name | % { . $_.FullName -InstallPath $InstallPath -ConsoleConfig $Global:ConsoleConfig }
+Get-ChildItem "$PSScriptRoot\Configure" -Filter *.ps1 | Sort-Object Name | % { . $_.FullName }
+
+Get-ChildItem "$PSScriptRoot\Exports" -Filter *.ps1 | Sort-Object DirectoryName, Name | % { & $_.FullName }
 
 #$includeFile = Join-Path ([System.Environment]::GetFolderPath("MyDocuments")) "include.ps1"
 #if (Test-Path $includeFile) {
@@ -15,4 +13,6 @@ $global:t = get-module
 #    . $includeFile -ConsoleConfig $Global:ConsoleConfig
 #}
 
-Export-ModuleMember -Function * -Alias * -Cmdlet * -Variable ProfileConfig
+#export var ProfileConfig
+
+Export-ModuleMember -Variable ProfileConfig

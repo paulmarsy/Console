@@ -1,5 +1,3 @@
-param($InstallPath)
-
 Remove-Item Alias:\su
 Set-Alias su Open-Superuser
 function Open-Superuser

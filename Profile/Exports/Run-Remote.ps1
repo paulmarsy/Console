@@ -1,5 +1,3 @@
-param($InstallPath)
-
 Set-Alias remote Run-Remote
 function Run-Remote {
     [CmdletBinding(DefaultParameterSetName="Interactive")]

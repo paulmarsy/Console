@@ -1,7 +1,15 @@
 http://dotnetslackers.com/articles/net/Converting-a-PowerShell-Script-into-a-Module.aspx
+https://www.simple-talk.com/dotnet/.net-tools/further-down-the-rabbit-hole-powershell-modules-and-encapsulation/
 
+https://github.com/mattifestation/PowerSploit
+https://github.com/adamdriscoll/PoshInternals
+https://github.com/dahlbyk/posh-git - make this as part of my console and dont reply on windows git
 
+install - sublime 'open folder'  explorer integration
 dot source vs import-module googlesss
+in the configure or install, create some 'win 7 taskbar tasks' for conemu?
+$PSEmailServer - set to gmail for home, set to the one at work?
+send note (like on android) - powershell version       
 Import-DotNetType
 rework configsettings $script?
 pre-req check script like work rather than trying to install everything
@@ -9,11 +17,12 @@ look at what causes most slow down
 update exes
 do tests for psget
 get-buildserver
+"give me ntfs permissions to this folder and -recursive" -Setacl.ps1
 
 test 'remote'
 chocolatey - http://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx
 http://scriptcs.net/ - straight from powershell?
-send note (like on android) - powershell version       
+
                                                                                                                                                                  
 finish off cred man (upgrade and extra global shortcuts)
 

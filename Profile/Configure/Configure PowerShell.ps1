@@ -1,0 +1,1 @@
+$Global:FormatEnumerationLimit = $ProfileConfig.PowerShell.FormatEnumerationLimit

@@ -20,3 +20,5 @@ function Write-Prompt {
     $global:LASTEXITCODE = $realLASTEXITCODE
 	return " "
 }
+Export-ModuleMember -Function Write-Prompt
+Export-ModuleMember -Alias prompt

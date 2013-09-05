@@ -1,5 +1,3 @@
-param($InstallPath)
-
 # PowerShell Community Extensions - http://pscx.codeplex.com/
 Import-Module Pscx -Global -ArgumentList @{
     TextEditor = "$InstallPath\Sublime Text\sublime_text.exe";
@@ -15,6 +13,7 @@ $PowerTabConfig.ShowBanner = $false
 Export-TabExpansionConfig 
 
 # GitHub Windows - http://windows.github.com/
+# Note: If this breaks again its something to do with running 'Git Shell' will fix it
 & (Join-Path $env:LOCALAPPDATA "GitHub\shell.ps1")
 Import-Module (Join-Path $env:github_posh_git "posh-git.psm1") -Global
 $GitPromptSettings.EnableWindowTitle = "Windows PowerShell - Git - "
