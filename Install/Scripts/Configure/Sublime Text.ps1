@@ -1,5 +1,3 @@
-param($InstallPath)
-
 "Configuring Sublime Text Explorer Integration..."
 New-Item "HKCU:\Software\Classes\*\shell\Sublime Text" -Force | Out-Null
 New-ItemProperty "HKCU:\Software\Classes\*\shell\Sublime Text" "Icon" -Value "$InstallPath\Sublime Text\sublime_text.exe,0" -Type String -Force | Out-Null

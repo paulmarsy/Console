@@ -1,2 +1,2 @@
 "Updating help..."
-Update-Help
+Update-Help -Force

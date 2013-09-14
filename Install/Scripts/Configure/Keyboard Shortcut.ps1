@@ -1,5 +1,3 @@
-param($InstallPath)
-
 $consoleShortcutFolder = Join-Path ([Environment]::GetFolderPath("StartMenu")) "_consoleHotkeys"
 if (Test-Path $consoleShortcutFolder) {
 	Remove-Item $consoleShortcutFolder -Force -Recurse

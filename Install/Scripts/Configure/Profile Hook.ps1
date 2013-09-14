@@ -1,5 +1,3 @@
-param($InstallPath)
-
 "Setting up PowerShell Profile Directory..."
 $profileFolder = Split-Path $PROFILE.CurrentUserAllHosts -Parent
 if (!(Test-Path $profileFolder)) {
@@ -11,7 +9,7 @@ if (!(Test-Path $profileFolder)) {
 $generatedProfileToken = "<# Custom Profile Hook #>"
 
 $PROFILE | Get-Member -MemberType NoteProperty | % { $PROFILE | Select-Object -ExpandProperty $_.Name } | ? { (Test-Path $_) -and ((Get-Content $_ | Select-Object -First 1) -ne $generatedProfileToken) } | % {
-    Write-Host -ForegroundColor Red "$_ already exists, backing up to $($_ + ".bak")"
+    Write-Host -ForegroundColor Red "$_ exists, backing up to $($_ + ".bak")"
     Move-Item $_ ($_ + ".bak") -Force
 }
 
