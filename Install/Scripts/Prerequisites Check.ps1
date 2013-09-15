@@ -14,32 +14,26 @@ $installedPrograms = & {    if ([System.Environment]::Is64BitOperatingSystem) {
 
 $allPreRequisitesMet = $true
 
-function _checkForInstall {
-    param(
-        $filter,
-        $description,
-        $downloadUrl
-    )
+function _genericCheck {
+    param($filter, $description, $downloadUrl)
     
     Write-Host "Checking for: $description..."
-    if (-not ($installedPrograms | ? { $_ -like $filter })) {
-        Write-Host "$description not installed, please downnload from $downloadUrl"
-        $allPreRequisitesMet = $false
+    if (& $filter) {
+        Write-Host "$description not installed, please downnload from: $downloadUrl"
+        $script:allPreRequisitesMet = $false
     }
 }
 
+function _checkForInstall {
+    param($name, $description, $downloadUrl)
+
+    _genericCheck { $null -eq ($installedPrograms | ? { $_ -like $name }) } $description $downloadUrl
+}
+
 function _checkForSnapin {
-    param(
-        $name,
-        $description,
-        $downloadUrl
-    )
-    
-    Write-Host "Checking for: $description..."
-    if (-not (Get-PSSnapin -Registered | ? { $_.Name -eq $name })) {
-        Write-Host "$description not installed, please downnload from $downloadUrl"
-        $allPreRequisitesMet = $false
-    }
+    param($name, $description, $downloadUrl)
+
+    _genericCheck { $null -eq (Get-PSSnapin -Registered | ? { $_.Name -eq $name }) } $description $downloadUrl
 }
 
 _checkForInstall    "GitHub" `

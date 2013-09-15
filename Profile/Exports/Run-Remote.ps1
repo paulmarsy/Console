@@ -6,7 +6,7 @@ function Run-Remote {
         $ComputerName,
         [ValidateSet("PowerShell", "RDC", "RDP")][Parameter(ParameterSetName="Interactive")]
         $InteractiveType = "PowerShell",
-        [Parameter(ValueFromRemainingArguments=$true,ParameterSetName="PsExecCommand")]
+        [Parameter(ValueFromRemainingArguments=$true,Mandatory=$true,ParameterSetName="PsExecCommand")]
         $Command
     )
 
