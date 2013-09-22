@@ -1,0 +1,38 @@
+exit
+cd /d  D:\Dropbox\Documents\GitHub\Console\Console\ConEmu\clink
+clink_x64.exe autorun --install
+cd /d D:\Dropbox\Documents\GitHub\Console\Console\ConEmu\clink
+clink_x64.exe autorun --install
+clink_x64.exe autorun --show
+clink_x64.exe autorun --uninstall
+clink_x64.exe autorun --show
+clink_x64.exe autorun --install
+clink_x64.exe autorun --show
+clink_x86.exe autorun --install
+clink_x64.exe autorun --show
+clink_x64.exe autorun --uninstall
+clink_x86.exe autorun --uninstall
+clink_x64.exe autorun --show
+exit
+cd\
+exit
+start
+exit
+start
+exit
+Add-Content $PROFILE.CurrentUserAllHosts `
+exit
+nuget update -self
+exit
+fciv.exe 
+fciv.exe -list
+fciv.exe ReadMe.txt 
+fciv.exe ReadMe.txt -v
+fciv.exe "D:\Dropbox\Documents\Software\Operating Systems\Windows 8.1"
+opbox\Deopbox\Deopbox\Deopbox\De
+kkkkkkk
+kkk
+opbox\De
+fciv.exe 
+fciv.exe "D:\Dropbox\Documents\Software\Operating Systems\Windows 8.1"
+fsum

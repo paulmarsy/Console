@@ -1,2 +1,3 @@
-"Updating help..."
-Update-Help -Force
+Invoke-InstallStep "Updating help" {
+	Update-Help -Force
+}

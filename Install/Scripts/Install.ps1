@@ -7,30 +7,37 @@ param (
 
 Set-StrictMode -Version Latest
 
-if ($PreReqCheck) {
-	"Checking for prerequisites..."
-	$prerequisitesMet = & ".\Prerequisites Check.ps1"
-	if (-not $prerequisitesMet) {
-		"ERROR: Prerequisites not met. Exiting installation."
-		exit 1
-	}
-}
+$global:MessageScope = 0
+Get-ChildItem ".\Install Helpers" -Filter *.ps1 | % { . $_.FullName }
 
 $InstallPath = Resolve-Path (Join-Path $pwd.Path '..\..\')
 
-if ($Specific) {
-	if ([System.Environment]::Is64BitProcess) { $type = "64bit" }
-	else { $type = "32bit" }
-
-	"Configuring {0} Bitness Console..." -f $type
-	Get-ChildItem ".\Specific Platform" | % {
-	    & $_.FullName
+switch ($PSCmdlet.ParameterSetName)
+{
+	"PreReqCheck" { 
+		Write-InstallMessage -EnterNewScope "Checking for prerequisites"
+		$prerequisitesMet = & ".\Prerequisites Check.ps1"
+		if (-not $prerequisitesMet) {
+			Write-InstallMessage -Type Error "Prerequisites not met. Exiting installation."
+			exit 1
+		}
+		Write-InstallMessage -Type Success "All prerequisites met"
 	}
-}
+	"Specific" {
+		if ([System.Environment]::Is64BitProcess) { $type = "64bit" }
+		else { $type = "32bit" }
 
-if ($Mixed) {
-	"Configuring Mixed Bitness Console..."
-	Get-ChildItem ".\Mixed Platform" | % {
-	    & $_.FullName
+		Write-InstallMessage -EnterNewScope ("Configuring {0} Bitness Settings" -f $type)
+		Push-Location "Specific Platform"
+		Get-ChildItem -Filter *.ps1 | Sort-Object Name | % { & $_.FullName }
+		Pop-Location
+		Write-InstallMessage -Type Success ("Configuring {0} Bitness Done" -f $type)
+	}
+	"Mixed"{
+		Write-InstallMessage -EnterNewScope "Configuring Mixed Bitness Settings"
+		Push-Location "Mixed Platform"
+		Get-ChildItem -Filter *.ps1 | Sort-Object Name | % { & $_.FullName }
+		Pop-Location
+		Write-InstallMessage -Type Success ("Configuring Mixed Bitness Done" -f $type)
 	}
 }

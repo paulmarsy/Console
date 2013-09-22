@@ -1,11 +1,17 @@
-http://technet.microsoft.com/en-us/library/dd347600.aspx
+http://gallery.technet.microsoft.com/scriptcenter/b66434f1-4b3f-4a94-8dc3-e406eb30b750
+^^ make exe to add conemu to taskbar and start screen in win 8, also to pin in start menu
 
+register sublime text 3
+cmd.exe prompt change
 
 -Configure-
-in the configure or install, create some 'win 7 taskbar tasks' for conemu? 1) No Profile 2) Admin 3) Normal
 $PSEmailServer - set to gmail for home, set to the one at work?
 
 -Profile-
+from posh-git in prompt
+    # Reset color, which can be messed up by Enable-GitColors
+    $Host.UI.RawUI.ForegroundColor = $GitPromptSettings.DefaultForegroundColor
+
 fix the export helper thing
 Import-DotNetType
 "give me ntfs permissions to this folder and -recursive" -Setacl.ps1

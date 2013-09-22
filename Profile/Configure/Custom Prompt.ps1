@@ -1,5 +1,5 @@
-Set-Alias prompt Write-Prompt
-function Write-Prompt {
+Set-Alias prompt Write-CustomPrompt
+function Write-CustomPrompt {
     $realLASTEXITCODE = $LASTEXITCODE
 
 	$windowsIdentity = [System.Security.Principal.WindowsIdentity]::GetCurrent()
@@ -20,5 +20,6 @@ function Write-Prompt {
     $global:LASTEXITCODE = $realLASTEXITCODE
 	return " "
 }
-Export-ModuleMember -Function Write-Prompt
-Export-ModuleMember -Alias prompt
+& $expTest -function Write-CustomPrompt -alias prompt
+#Export-ModuleMember -Function Write-CustomPrompt
+#Export-ModuleMember -Alias prompt

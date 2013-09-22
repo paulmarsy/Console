@@ -20,6 +20,7 @@ function Start-PowerShell {
             if ($64bitOs -and $64bitProcess) { "SysWOW64"; break }
             if ($64bitOs -and $32bitProcess) { "System32"; break }
             if ($32bitOs) { "System32"; break }
+        }
         "64bit" {
             if ($64bitOs -and $64bitProcess) { "System32"; break }
             if ($64bitOs -and $32bitProcess) { "Sysnative"; break }
