@@ -20,6 +20,6 @@ function Write-CustomPrompt {
     $global:LASTEXITCODE = $realLASTEXITCODE
 	return " "
 }
-& $expTest -function Write-CustomPrompt -alias prompt
+& $expTest -function "Write-CustomPrompt" -alias "prompt"
 #Export-ModuleMember -Function Write-CustomPrompt
 #Export-ModuleMember -Alias prompt

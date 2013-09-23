@@ -10,7 +10,7 @@ $expTest = {
 	if ($variable) { Export-ModuleMember -Variable $variable }
 }
 
-Get-ChildItem "$PSScriptRoot\Configure" -Filter *.ps1 | Sort-Object Name | % { . $_.FullName }
+Get-ChildItem "$PSScriptRoot\Configure" -Filter *.ps1 | Sort-Object Name | % { & $_.FullName }
 
 Get-ChildItem "$PSScriptRoot\Exports" -Filter *.ps1 | Sort-Object DirectoryName, Name | % { & $_.FullName }
 

@@ -1,7 +1,6 @@
 http://gallery.technet.microsoft.com/scriptcenter/b66434f1-4b3f-4a94-8dc3-e406eb30b750
 ^^ make exe to add conemu to taskbar and start screen in win 8, also to pin in start menu
 
-register sublime text 3
 cmd.exe prompt change
 
 -Configure-
@@ -24,6 +23,5 @@ send note (like on android) - powershell version
 https://github.com/abergs/RegExpBuilder
 https://github.com/mattifestation/PowerSploit
 https://github.com/adamdriscoll/PoshInternals
-update exes
 chocolatey - http://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx
 http://scriptcs.net/ - straight from powershell?

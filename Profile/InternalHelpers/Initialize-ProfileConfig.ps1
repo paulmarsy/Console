@@ -6,11 +6,11 @@ function Initialize-ProfileConfig {
     $ProfileConfig = New-ProfileConfig $importedProfileConfig
 
     Register-EngineEvent -SourceIdentifier PowerShell.Exiting -SupportEvent -Action {
-        Export-ProfileConfig
+        $ProfileConfig | Export-Clixml $ProfileConfig.General.ProfileConfigFile
     }
 
     $ExecutionContext.SessionState.Module.OnRemove = {
-        Export-ProfileConfig
+        $ProfileConfig | Export-Clixml $profileConfigFile
     }
 
     $ProfileConfig

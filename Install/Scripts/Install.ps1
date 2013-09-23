@@ -38,6 +38,6 @@ switch ($PSCmdlet.ParameterSetName)
 		Push-Location "Mixed Platform"
 		Get-ChildItem -Filter *.ps1 | Sort-Object Name | % { & $_.FullName }
 		Pop-Location
-		Write-InstallMessage -Type Success ("Configuring Mixed Bitness Done" -f $type)
+		Write-InstallMessage -Type Success "Configuring Mixed Bitness Done"
 	}
 }

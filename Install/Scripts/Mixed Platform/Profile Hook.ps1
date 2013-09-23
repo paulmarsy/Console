@@ -16,13 +16,14 @@ $PROFILE | Get-Member -MemberType NoteProperty | % { $PROFILE | Select-Object -E
 }
 
 Invoke-InstallStep "Creating Profile and adding hook" {
+	$profileModule = Join-Path $InstallPath "Profile\Profile.psd1"
 	New-Item $PROFILE.CurrentUserAllHosts -Type File -Force | Out-Null
 	Add-Content $PROFILE.CurrentUserAllHosts `
 @"
 $generatedProfileToken
 function Reset-Profile {
     Remove-Module Profile -ErrorAction SilentlyContinue
-    Import-Module "$InstallPath\Profile\Profile.psd1" -ArgumentList "$InstallPath" -Force -Global
+    Import-Module $profileModule -ArgumentList "$InstallPath" -Force -Global
 }
 Reset-Profile
 "@

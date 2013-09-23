@@ -1,9 +1,10 @@
 Set-Alias export Export-Helper
 function Export-Helper
 {
+	[CmdletBinding()]
 	param (
-		[parameter(mandatory=$true)] [validateset("function","alias","var")] $type,
-		[parameter(mandatory=$true)] $name,
+		[Parameter(Mandatory=$true)] [validateset("function","alias","var")] $type,
+		[Parameter(Mandatory=$true)] $name,
 		$value
 	)
 	# do switch here...

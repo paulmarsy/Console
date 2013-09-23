@@ -15,7 +15,6 @@ Export-TabExpansionConfig
 # GitHub Windows - http://windows.github.com/
 # Note: If this breaks again its something to do with running 'Git Shell' will fix it
 & (Join-Path $env:LOCALAPPDATA "GitHub\shell.ps1") -SkipSSHSetup
-#Import-Module (Join-Path $env:github_posh_git "posh-git.psm1") -Global
 Import-Module posh-git -Global
 $GitPromptSettings.EnableWindowTitle = "Windows PowerShell - Git - "
 Enable-GitColors

@@ -39,3 +39,13 @@ fsum
 exit
 chrome
 exit
+nslookup.exe
+nslookup.exe google.com
+.\nslookup.exe google.com
+.\nslookup.exe -h
+.\nslookup.exe -v
+.\nslookup.exe -?
+.\nslookup.exe /?
+.\nslookup.exe --help
+nsupdate
+exit
