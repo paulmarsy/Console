@@ -4,11 +4,11 @@
 	[
 		"Package Control"
 	],
-	"startup_sec": 0.5785905,
+	"startup_sec": 0.1013323,
 	"syntax":
 	{
 		"Plain text": 1,
-		"PowershellSyntax": 79
+		"PowershellSyntax": 80
 	},
 	"time": 1379860337
 }

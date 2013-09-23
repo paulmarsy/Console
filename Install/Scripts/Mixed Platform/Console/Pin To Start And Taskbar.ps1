@@ -7,3 +7,9 @@ Invoke-InstallStep "Setting up Console Start Shortcut" {
 	$consoleShortcut.Save()
 	[System.Runtime.Interopservices.Marshal]::ReleaseComObject($WshShell) | Out-Null
 }
+
+
+Invoke-InstallStep "Setting up Console Jump List Tasks" {
+	& $conEmuExecutable /UpdateJumpList /Exit
+}
+
