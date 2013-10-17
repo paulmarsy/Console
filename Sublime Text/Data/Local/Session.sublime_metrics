@@ -1,14 +1,7 @@
 {
-	"licensed": true,
-	"packages":
-	[
-		"Package Control"
-	],
-	"startup_sec": 0.361766,
 	"syntax":
 	{
-		"Plain text": 1,
-		"PowershellSyntax": 101
+		"PowershellSyntax": 4
 	},
-	"time": 1379946737
+	"time": 1381946126
 }

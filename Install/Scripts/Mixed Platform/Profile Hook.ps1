@@ -21,11 +21,11 @@ Invoke-InstallStep "Creating Profile and adding hook" {
 	Add-Content $PROFILE.CurrentUserAllHosts `
 @"
 $generatedProfileToken
-function Reset-Profile {
+function Reload-Profile {
     Remove-Module Profile -ErrorAction SilentlyContinue
     Import-Module $profileModule -ArgumentList "$InstallPath" -Force -Global
 }
-Reset-Profile
+Reload-Profile
 "@
 }
 

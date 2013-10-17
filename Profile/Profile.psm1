@@ -1,16 +1,16 @@
-param($InstallPath)
+ param($InstallPath)
 Set-StrictMode -Version Latest
 
 Import-Module (Join-Path $PSScriptRoot InternalHelpers)
 
 $expTest = {
-	param($function, $alias, $variable)
-	if ($function) { Export-ModuleMember -Function $function }
-	if ($alias) { Export-ModuleMember -Alias $alias }
-	if ($variable) { Export-ModuleMember -Variable $variable }
+	param($ht)
+	if ($ht.Alias) { $global:t = $ht; Set-Alias $ht.Alias.Name $ht.Alias.ResolvedCommandName; Export-ModuleMember -Alias $ht.Alias.Name }
+	if ($ht.Function) { echo "function"; Export-ModuleMember -Function $ht.Function }
+	#if ($ht.Variable) { echo "variable"; Export-ModuleMember -Variable $ht.Variable }
 }
 
-Get-ChildItem "$PSScriptRoot\Configure" -Filter *.ps1 | Sort-Object Name | % { & $_.FullName }
+Get-ChildItem "$PSScriptRoot\Configure" -Filter *.ps1 | Sort-Object Name | % { & $_.FullName } | % { & $expTest $_ }
 
 Get-ChildItem "$PSScriptRoot\Exports" -Filter *.ps1 | Sort-Object DirectoryName, Name | % { & $_.FullName }
 

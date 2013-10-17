@@ -20,6 +20,4 @@ function Write-CustomPrompt {
     $global:LASTEXITCODE = $realLASTEXITCODE
 	return " "
 }
-& $expTest -function "Write-CustomPrompt" -alias "prompt"
-#Export-ModuleMember -Function Write-CustomPrompt
-#Export-ModuleMember -Alias prompt
+return @{Alias = (gi alias:prompt); Function = (gi function:Write-CustomPrompt)}
