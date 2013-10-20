@@ -1,4 +1,5 @@
 param($InstallPath)
+Set-StrictMode -Version Latest
 
 $profileConfigFile = Join-Path (Split-Path $PROFILE.CurrentUserAllHosts) "ProfileConfig.xml"
 

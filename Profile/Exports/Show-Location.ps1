@@ -16,3 +16,4 @@ function Show-Location {
     }
 	& explorer $path
 }
+@{Function = "Show-Location"; Alias = "browse"}

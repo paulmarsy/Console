@@ -30,3 +30,4 @@ function Start-PowerShell {
 
     & "$env:windir\$sysFolder\WindowsPowerShell\v1.0\powershell.exe" $Switches
 }                   
+@{Function = "Start-PowerShell"}

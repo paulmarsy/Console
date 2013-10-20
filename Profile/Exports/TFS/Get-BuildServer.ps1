@@ -2,7 +2,7 @@ function Get-BuildServer {
 	[CmdletBinding()]
 	param
 	(
-		[Parameter(Mandatory=$true)]$tfsServerUrl = $ProfileConfig.TFS.Server
+		$tfsServerUrl = $ProfileConfig.TFS.Server
 	)
 	
 	[System.Reflection.Assembly]::LoadWithPartialName("Microsoft.TeamFoundation.Client") | Out-Null
@@ -15,3 +15,4 @@ function Get-BuildServer {
 	
 	return $buildServer
 }
+@{Function = "Get-BuildServer"}

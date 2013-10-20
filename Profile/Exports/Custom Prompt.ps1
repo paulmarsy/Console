@@ -20,4 +20,4 @@ function Write-CustomPrompt {
     $global:LASTEXITCODE = $realLASTEXITCODE
 	return " "
 }
-return @{Alias = (gi alias:prompt); Function = (gi function:Write-CustomPrompt)}
+@{Function = "Write-CustomPrompt"; Alias = "prompt"}

@@ -1,12 +1,12 @@
-Set-Alias remote Run-Remote
-function Run-Remote {
+Set-Alias remote Invoke-Remote
+function Invoke-Remote {
     [CmdletBinding(DefaultParameterSetName="Interactive")]
     param(
         [Parameter(Mandatory=$true,Position=0)]
         $ComputerName,
-        [ValidateSet("PowerShell", "RDC", "RDP")][Parameter(ParameterSetName="Interactive")]
+        [ValidateSet("PowerShell", "RDC", "RDP")][Parameter(ParameterSetName="Interactive",Position=1)]
         $InteractiveType = "PowerShell",
-        [Parameter(ValueFromRemainingArguments=$true,Mandatory=$true,ParameterSetName="PsExecCommand")]
+        [Parameter(ValueFromRemainingArguments=$true,Mandatory=$true,ParameterSetName="PsExecCommand",Position=2)]
         $Command
     )
 
@@ -34,3 +34,4 @@ function Run-Remote {
         & mstsc (Join-Path $InstallPath "Support Files\Default.rdp") /v:$ComputerName
     }
 }                   
+@{Function = "Invoke-Remote"; Alias = "remote"}

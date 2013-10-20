@@ -3,13 +3,13 @@ Invoke-InstallStep "Configuring Sublime Text Shell Integration" {
 	$sublimeLauncher = Join-Path $InstallPath "Sublime Text\SublimeLauncher.exe"
 	$sublimeIcon = Join-Path $InstallPath "Sublime Text\sublime_text.exe,0"
 
-	New-Item "HKCU:\Software\Classes\Directory\Background\shell\Sublime Text" -Force | Out-Null
-	New-ItemProperty "HKCU:\Software\Classes\Directory\Background\shell\Sublime Text" "Icon" -Value "$sublimeIcon" -Type String -Force | Out-Null
-	New-Item "HKCU:\Software\Classes\Directory\Background\shell\Sublime Text\command" -Value """$sublimeExecutable"" ""%V""" -Type String -Force | Out-Null
-
 	New-Item "HKCU:\Software\Classes\*\shell\Sublime Text" -Force | Out-Null
 	New-ItemProperty "HKCU:\Software\Classes\*\shell\Sublime Text" "Icon" -Value "$sublimeIcon" -Type String -Force | Out-Null
 	New-Item "HKCU:\Software\Classes\*\shell\Sublime Text\command" -Value """$sublimeExecutable"" ""%L""" -Type String -Force | Out-Null
+
+	New-Item "HKCU:\Software\Classes\Directory\Background\shell\Sublime Text" -Force | Out-Null
+	New-ItemProperty "HKCU:\Software\Classes\Directory\Background\shell\Sublime Text" "Icon" -Value "$sublimeIcon" -Type String -Force | Out-Null
+	New-Item "HKCU:\Software\Classes\Directory\Background\shell\Sublime Text\command" -Value """$sublimeExecutable"" ""%V""" -Type String -Force | Out-Null
 
 	New-Item "HKCU:\Software\Classes\Folder\shell\Sublime Text" -Force | Out-Null
 	New-ItemProperty "HKCU:\Software\Classes\Folder\shell\Sublime Text" "Icon" -Value "$sublimeIcon" -Type String -Force | Out-Null

@@ -9,7 +9,7 @@ $WshShell = New-Object -ComObject WScript.Shell
 Invoke-InstallStep "Setting up Console CTRL+SHIFT+S Shortcut" {
 	$consoleShortcutS = $WshShell.CreateShortcut((Join-Path $consoleShortcutFolder "Console-Ctrl-Shft-S.lnk"))
 	$consoleShortcutS.TargetPath = $conEmuExecutable
-	$consoleShortcutS.IconLocation = $conEmuIcon
+	$consoleShortcutS.IconLocation = $conEmuPowerShellIcon
 	$consoleShortcutS.Hotkey = "CTRL+SHIFT+S"
 	$consoleShortcutS.WorkingDirectory = "C:\"
 	$consoleShortcutS.Save()
@@ -18,7 +18,7 @@ Invoke-InstallStep "Setting up Console CTRL+SHIFT+S Shortcut" {
 Invoke-InstallStep "Setting up Console CTRL+SHIFT+C Shortcut" {
 	$consoleShortcutC = $WshShell.CreateShortcut((Join-Path $consoleShortcutFolder "Console-Ctrl-Shft-C.lnk"))
 	$consoleShortcutC.TargetPath = $conEmuExecutable
-	$consoleShortcutC.IconLocation = $conEmuIcon
+	$consoleShortcutC.IconLocation = $conEmuPowerShellIcon
 	$consoleShortcutC.Hotkey = "CTRL+SHIFT+C"
 	$consoleShortcutC.WorkingDirectory = "C:\"
 	$consoleShortcutC.Save()
