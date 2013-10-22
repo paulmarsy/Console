@@ -1,2 +1,0 @@
-Not the real '0.99.6.0' version as it is VERY out of date, instead using the direct source control version:
-Apr 24 2013 / 035310b4c93e
