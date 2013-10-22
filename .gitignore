@@ -13,3 +13,13 @@ Desktop.ini
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
+
+# Sublime Text
+Sublime Text/**/*.pyc
+Sublime Text/**/*.cache
+Sublime Text/**/*.last-run
+
+Sublime Text/Data/Cache/*
+Sublime Text/Data/Index/*
+Sublime Text/Data/Local/*
+!Sublime Text/Data/Local/License.sublime_license
