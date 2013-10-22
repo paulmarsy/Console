@@ -1,4 +1,10 @@
 {
+	"licensed": true,
+	"packages":
+	[
+		"Package Control"
+	],
+	"startup_sec": 0.1099689,
 	"syntax":
 	{
 		"PowershellSyntax": 8
