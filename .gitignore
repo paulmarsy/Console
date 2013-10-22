@@ -21,6 +21,8 @@ Sublime Text/**/*.cache
 Sublime Text/Data/Backup/*
 Sublime Text/Data/Pristine Packages/*
 Sublime Text/Data/Settings/*.sublime_session
+Sublime Text/Data/Local/*
+!Sublime Text/Data/Local/License.sublime_license
 
 Sublime Text/Data/Packages/*
 !Sublime Text/Data/Packages/Package Control/
