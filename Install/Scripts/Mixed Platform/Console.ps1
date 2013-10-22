@@ -1,6 +1,6 @@
 Write-InstallMessage -EnterNewScope "Configuring Console"
 
-$conEmuExecutable = Join-Path $InstallPath "Console\ConEmu64.exe"
+$conEmuExecutable = Join-Path $InstallPath "Third Party\Console\ConEmu64.exe"
 $conEmuCommandIcon = Join-Path $InstallPath "Support Files\Icons\CommandPrompt.ico"
 $conEmuPowerShellIcon = Join-Path $InstallPath "Support Files\Icons\PowerShellPrompt.ico"
 

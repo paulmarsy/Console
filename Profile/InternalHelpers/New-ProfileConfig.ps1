@@ -18,6 +18,12 @@ function New-ProfileConfig {
 		TFS = @{
 			Server					= $(if ($o.TFS.Server)							{ $o.TFS.Server }							else { "Your TFS Server URL" })
 		}
+		EMail = @{
+			From					= $(if ($o.EMail.From)							{ $o.EMail.From }							else { "email@example.com" })
+			Username				= $(if ($o.EMail.Username)						{ $o.EMail.Username }						else { "email@example.com" })
+			Password				= $(if ($o.EMail.Password)						{ $o.EMail.Password }						else { "Password1" })
+
+		}
 	}
 
 	$ProfileConfig

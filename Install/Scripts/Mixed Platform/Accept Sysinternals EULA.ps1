@@ -1,5 +1,5 @@
 Invoke-InstallStep "Accepting Sysinternals EULA" {
-	$sysinternalsDir = Join-Path $InstallPath "Binaries\Sysinternals"
+	$sysinternalsDir = Join-Path $InstallPath "Third Party\Binaries\Sysinternals"
 
 	New-Item "HKCU:\Software\Sysinternals" -Force | Out-Null
 

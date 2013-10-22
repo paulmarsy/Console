@@ -1,7 +1,7 @@
 Invoke-InstallStep "Configuring Sublime Text Shell Integration" {
-	$sublimeExecutable = Join-Path $InstallPath "Sublime Text\sublime_text.exe"
-	$sublimeLauncher = Join-Path $InstallPath "Sublime Text\SublimeLauncher.exe"
-	$sublimeIcon = Join-Path $InstallPath "Sublime Text\sublime_text.exe,0"
+	$sublimeExecutable = Join-Path $InstallPath "Third Party\Sublime Text\sublime_text.exe"
+	$sublimeLauncher = Join-Path $InstallPath "Third Party\Sublime Text\SublimeLauncher.exe"
+	$sublimeIcon = Join-Path $InstallPath "Third Party\Sublime Text\sublime_text.exe,0"
 
 	New-Item "HKCU:\Software\Classes\*\shell\Sublime Text" -Force | Out-Null
 	New-ItemProperty "HKCU:\Software\Classes\*\shell\Sublime Text" "Icon" -Value "$sublimeIcon" -Type String -Force | Out-Null

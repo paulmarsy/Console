@@ -31,7 +31,7 @@ function Invoke-Remote {
         Enter-PSSession -ComputerName $ComputerName
     }
     elseif ($InteractiveType -eq "RDC" -or $InteractiveType -eq "RDP") {
-        & mstsc (Join-Path $InstallPath "Support Files\Default.rdp") /v:$ComputerName
+        & mstsc (Join-Path $InstallPath "Support Files\MSTSC\Default.rdp") /v:$ComputerName
     }
 }                   
 @{Function = "Invoke-Remote"; Alias = "remote"}
