@@ -1,14 +1,7 @@
 {
-	"licensed": true,
-	"packages":
-	[
-		"Package Control"
-	],
-	"startup_sec": 0.1617825,
 	"syntax":
 	{
-		"Batch File": 70,
-		"PowershellSyntax": 146
+		"PowershellSyntax": 8
 	},
-	"time": 1382287187
+	"time": 1382376778
 }

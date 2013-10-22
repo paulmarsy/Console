@@ -1,0 +1,48 @@
+### Version 1.0.0.3
+
+Bugs fixed:
+* Removed CLR 4.5 dependency
+* Fix bug where console paste didn't display everything in some cases
+
+### Version 1.0.0.2
+
+New features:
+* Add a "demo mode" that shows keys pressed
+* Add ETW event source for demo mode, key logger, macro recorder etc.
+* Undo/redo
+* Get-PSReadlineOption cmdlet
+* Make specifying key handlers for builtins simpler
+* Current un-entered line is saved and recalled when cycling through history
+* Support syntax coloring of member names
+
+Bugs fixed:
+* Speed up pasting from the console
+* Fix coloring of some operators
+* Fix coloring in some command arguments
+* Ctrl-C is handled a little better
+
+Breaking changes:
+* CLR 4.5 is now required.
+* SetBufferState is gone because it doesn't support Undo/Redo
+
+### Version 1.0.0.1
+
+New features:
+* History imported when module is loaded
+* Ctrl+End/Ctrl+Home bindings emulate cmd
+* Arbitrary two key chords
+* Key handlers passed the invoking key and an optional argument
+* Made Ding public for custom handlers
+  
+Bugs fixed:
+* Alternate keyboards now supported
+* Ctrl-C now properly emulates cmd
+
+Breaking changes:
+* MinimumHistoryCommandLength parameter removed from Set-PSReadlineOption
+    - Can use this instead:
+        Set-PSReadlineOption -AddToHistoryHandler { $args[0].Length -gt 3 }
+
+### Version 1.0.0.0
+
+Initial release

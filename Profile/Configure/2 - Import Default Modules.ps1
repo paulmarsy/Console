@@ -7,10 +7,12 @@ Import-Module Pscx -Global -ArgumentList @{
 # Carbon - PowerShell DevOps module - http://get-carbon.org/
 Import-Module Carbon -Global
 
-# PowerTab - http://powertab.codeplex.com/
-Import-Module PowerTab -Global
-$PowerTabConfig.ShowBanner = $false
-Export-TabExpansionConfig 
+# PSReadline - https://github.com/lzybkr/PSReadLine
+if ($host.Name -eq 'ConsoleHost') {
+	Import-Module PSReadline -Global
+	Set-PSReadlineKeyHandler -Key Ctrl+C -ScriptBlock {}
+	Set-PSReadlineKeyHandler -Key Ctrl+V -ScriptBlock {}
+}
 
 # GitHub Windows - http://windows.github.com/
 & (Join-Path $env:LOCALAPPDATA "GitHub\shell.ps1") -SkipSSHSetup
