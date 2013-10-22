@@ -1,22 +1,3 @@
-http://gallery.technet.microsoft.com/scriptcenter/b66434f1-4b3f-4a94-8dc3-e406eb30b750
-^^ make exe to add conemu to taskbar and start screen in win 8, also to pin in start menu
-
-
--Configure-
-$PSEmailServer - set to gmail for home, set to the one at work?
-
--Profile-
-from posh-git in prompt
-    # Reset color, which can be messed up by Enable-GitColors
-    $Host.UI.RawUI.ForegroundColor = $GitPromptSettings.DefaultForegroundColor
-
-fix the export helper thing
-Import-DotNetType
-
-look at what causes most slow down
-send note (like on android) - powershell version
-
-
 -Third Party Modules / Utils-
 https://github.com/abergs/RegExpBuilder
 https://github.com/mattifestation/PowerSploit
