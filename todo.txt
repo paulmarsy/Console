@@ -1,6 +1,0 @@
--Third Party Modules / Utils-
-https://github.com/abergs/RegExpBuilder
-https://github.com/mattifestation/PowerSploit
-https://github.com/adamdriscoll/PoshInternals
-chocolatey - http://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx
-http://scriptcs.net/ - straight from powershell?
