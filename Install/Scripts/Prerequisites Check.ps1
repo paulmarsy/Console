@@ -54,8 +54,8 @@ _checkForInstall    "Windows Azure Powershell - *" `
                     "Windows Azure PowerShell" `
                     "https://github.com/WindowsAzure/azure-sdk-tools"
 
-_checkForSnapin     "Microsoft.TeamFoundation.PowerShell" `
-                    "Visual Studio Team Foundation Server 2013 Power Tools" `
-                    "http://visualstudiogallery.msdn.microsoft.com/f017b10c-02b4-4d6d-9845-58a06545627f"
+#_checkForSnapin     "Microsoft.TeamFoundation.PowerShell" `
+#                    "Visual Studio Team Foundation Server 2013 Power Tools" `
+#                    "http://visualstudiogallery.msdn.microsoft.com/f017b10c-02b4-4d6d-9845-58a06545627f"
 
 return $allPreRequisitesMet
