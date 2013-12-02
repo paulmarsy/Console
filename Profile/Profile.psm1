@@ -13,7 +13,10 @@ Get-ChildItem "$PSScriptRoot\Exports" -Filter *.ps1 -Recurse | Sort-Object Direc
 $includeFile = Join-Path ([System.Environment]::GetFolderPath("MyDocuments")) "include.ps1"
 if (Test-Path $includeFile) {
     Write-Host "Loading include file $includeFile..."
-    . $includeFile
+    . $includeFile | % {
+		if ($_["Function"]) { $_.Function | % { Write-Host "Loading function $_..."; Export-ModuleMember -Function $_ } }
+		if ($_["Alias"]) {	$_.Alias | % { Write-Host "Loading alias $_...";  Export-ModuleMember -Alias $_ } }
+	}
 }
 
 Export-ModuleMember -Variable ProfileConfig
