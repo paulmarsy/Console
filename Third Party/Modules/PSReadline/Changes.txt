@@ -1,11 +1,37 @@
+### Version 1.0.0.6
+
+New features:
+* CharacterSearch/CharacterSearchBackward
+* AcceptAndGetNext
+
+### Version 1.0.0.5
+
+New features:
+* Delimiter support in *Word functions
+* DigitArgument (Alt-0,Alt-1,Alt-2,...,Alt-9,Alt--) to pass numeric arguments
+* YankLastArg/YankNthArg to extract arguments from previous command lines
+* History search is now case insensitive with an option to make it case sensitive
+
+Bugs fixed:
+* Shift+Backspace works like Backspace
+* Ctrl+R with long search lines no longer causes big problems
+
+Behavior change:
+* Word functions now use delimiters.  The previous behavior is availble 
+  via a Shell*Word function, e.g. instead of KillWord, use ShellKillWord.
+
 ### Version 1.0.0.4
 
 New features:
+* Interactive history search (Ctrl+R)
 * Brace matching function added (GotoBrace)
+* Clear screen (Ctrl+L)
 
 Bugs fixed:
 * When showing possible completions, truncate at newline
 * Prompt before showing a large number of completions
+* Undo after paste works now
+* Long pause after clicking on X to close powershell is now fixed
 
 ### Version 1.0.0.3
 
