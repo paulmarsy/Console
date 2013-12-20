@@ -22,4 +22,7 @@ Enable-GitColors
 Start-SshAgent -Quiet
 
 # Microsoft Team Foundation Server 2013 Power Tools
-Import-Module (Join-Path $env:TFSPowerToolDir "Microsoft.TeamFoundation.PowerTools.PowerShell.dll") -Global
+$tfsPowerTools = Join-Path $env:TFSPowerToolDir "Microsoft.TeamFoundation.PowerTools.PowerShell.dll"
+if (Test-Path $tfsPowerTools) {
+	Import-Module $tfsPowerTools -Global
+}
