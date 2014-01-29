@@ -4,9 +4,6 @@ Import-Module Pscx -Global -ArgumentList @{
     CD_EchoNewLocation = $false
 }
 
-# Carbon - PowerShell DevOps module - http://get-carbon.org/
-Import-Module Carbon -Global
-
 # PSReadline - https://github.com/lzybkr/PSReadLine
 if ($host.Name -eq 'ConsoleHost') {
 	Import-Module PSReadline -Global
