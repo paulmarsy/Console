@@ -21,6 +21,13 @@ Invoke-InstallStep "Creating Profile and adding hook" {
 	Add-Content $PROFILE.CurrentUserAllHosts `
 @"
 $generatedProfileToken
+function Reset-PowerShell {
+	[System.Environment]::GetEnvironmentVariables("Machine").GetEnumerator() + [System.Environment]::GetEnvironmentVariables("User").GetEnumerator() | % {
+		[System.Environment]::SetEnvironmentVariable($_.Name, $_.Value, "Process")
+	}
+	& powershell.exe
+	exit
+}
 function Reload-Profile {
     Remove-Module Profile -ErrorAction SilentlyContinue
     Import-Module $profileModule -ArgumentList "$InstallPath" -Force -Global
