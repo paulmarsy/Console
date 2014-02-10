@@ -3,50 +3,56 @@ function Find-String {
 	param(
 		[Parameter(Position=0,Mandatory=$true)]$pattern,
 		$path = $pwd,
-		[switch]$regex,
 		[switch]$showContext,
 		[switch]$includeLargeFiles	
     )
 
 	$maxFileSizeToSearchInBytes = 1024*1024 # 1mb
-	$liesOfContext = 2
 
 	$priorPath = ""
 
-	$global:T = Get-ChildItem -Path $path -Recurse | 
+	Write-Host "Finding '$pattern' in $path...`n" -ForegroundColor White
+	Get-ChildItem -Path $path -Recurse | 
 		? { $_.PSIsContainer -eq $false -and ($includeLargeFiles -or $_.Length -le $maxFileSizeToSearchInBytes) } | 
-		Select-String -Pattern $pattern -AllMatches -SimpleMatch:$(!$regex) -Context $liesOfContext #|
-# 		% {
-# 	        if ($priorPath -ne $_.Path) {
-#             	Write-Host ("`n{0}" -f $_.RelativePath($path)) -foregroundColor Green
-#             	$priorPath = $_.Path
-#         	} elseif ($showContext) {
-#                 Write-Host "--"
-#         	}
+		Select-String -Pattern ([Regex]::Escape($pattern)) -AllMatches -Context 2 |
+		% {
+			# Display file name header
+			if (!$showContext -or $priorPath -ne $_.Path) {
+				Write-Host ($_.RelativePath($path)) -ForegroundColor Cyan -NoNewLine; Write-Host ":" -NoNewLine
+			}
 
-#             if ($showContext -and $_.Context.DisplayPreContext) {
-#             	$lines = ($_.LineNumber - $_.Context.DisplayPreContext.Length)..($_.LineNumber - 1)
-#         		for ($i = 0; $i -lt $_.Context.DisplayPreContext.length; $i++) {
-#         			Write-Host ("{0}: {1}" -f $lines[$i], $_.Context.DisplayPreContext[$i])
-#         		}
-#             }
-# $global:t += $_
-#             Write-Host ("{0}: " -f $_.LineNumber) -NoNewLine
-#             $index = 0
-#             foreach ($match in $_.Matches) {
-#                 #Write-Host $_.Line.SubString($index, $match.Index - $index) -NoNewLine
-#                 #Write-Host $match.Value -ForegroundColor Black -BackgroundColor Yellow -NoNewLine
-#                 $index = $match.Index + $match.Length
-#             }
-#             Write-Host $_.Line.SubString($index) 
+			if ($priorPath -eq $_.Path -and $showContext) { Write-Host "--" -NoNewLine }
+			elseif ($priorPath -ne $_.Path -and $showContext) { Write-Host }
+			else 
+			if ($showContext) { Write-Host }
+			$priorPath = $_.Path
 
-# 			if ($showContext -and $_.Context.DisplayPostContext) {
-# 				$lines = ($_.LineNumber + 1)..($_.LineNumber + $_.Context.DisplayPostContext.Length)
-# 	        	for ($i = 0; $i -lt $_.Context.DisplayPostContext.length; $i++) {
-# 	        		Write-Host ("{0}: {1}" -f $lines[$i], $_.Context.DisplayPostContext[$i])
-# 	        	}
-# 	  		}
-# 	  	}
+	     	# Display pre-context
+            if ($showContext -and $_.Context.DisplayPreContext) {
+            	$lines = ($_.LineNumber - $_.Context.DisplayPreContext.Length)..($_.LineNumber - 1)
+        		for ($i = 0; $i -lt $_.Context.DisplayPreContext.length; $i++) {
+        			Write-Host ("{0}: {1}" -f $lines[$i], $_.Context.DisplayPreContext[$i]) -ForegroundColor DarkGray
+        		}
+            }
+
+            # Display main result
+            Write-Host ("{0}: " -f $_.LineNumber) -NoNewLine
+            $index = 0
+            foreach ($match in $_.Matches) {
+                Write-Host $_.Line.SubString($index, $match.Index - $index) -NoNewLine
+                Write-Host $match.Value -ForegroundColor Black -BackgroundColor Yellow -NoNewLine
+                $index = $match.Index + $match.Length
+            }
+            Write-Host $_.Line.SubString($index)
+
+            # Display post-context
+			if ($showContext -and $_.Context.DisplayPostContext) {
+				$lines = ($_.LineNumber + 1)..($_.LineNumber + $_.Context.DisplayPostContext.Length)
+	        	for ($i = 0; $i -lt $_.Context.DisplayPostContext.length; $i++) {
+	        		Write-Host ("{0}: {1}" -f $lines[$i], $_.Context.DisplayPostContext[$i]) -ForegroundColor DarkGray
+	        	}
+	  		}
+	  	}
 }
 @{Function = "Find-String"}
 
