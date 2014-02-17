@@ -23,7 +23,7 @@ Invoke-InstallStep "Creating Profile and adding hook" {
 $generatedProfileToken
 function Reset-PowerShell {
 	[System.Environment]::GetEnvironmentVariables("Machine").GetEnumerator() + [System.Environment]::GetEnvironmentVariables("User").GetEnumerator() | % {
-		[System.Environment]::SetEnvironmentVariable($_.Name, $_.Value, "Process")
+		[System.Environment]::SetEnvironmentVariable(`$_.Name, `$_.Value, "Process")
 	}
 	& powershell.exe
 	exit
