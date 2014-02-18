@@ -1,4 +1,3 @@
-
 function Find-String {
     [CmdletBinding()]
 	param(
@@ -19,7 +18,11 @@ function Find-String {
 			Write-Host (Resolve-Path -Relative $_.Name) -ForegroundColor Cyan -NoNewLine
 			Write-Host ":"
 
+			$displaySeperator = $false
 			$_.Group | % {
+				if ($showContext -and $displaySeperator) { Write-Host "--" }
+				else { $displaySeperator = $true }
+
 		     	# Display pre-context
 	            if ($showContext -and $_.Context.DisplayPreContext) {
 	            	$lines = ($_.LineNumber - $_.Context.DisplayPreContext.Length)..($_.LineNumber - 1)
@@ -45,15 +48,8 @@ function Find-String {
 		        		Write-Host ("{0}: {1}" -f $lines[$i], $_.Context.DisplayPostContext[$i]) -ForegroundColor DarkGray
 		        	}
 		  		}
-
-		  		if ($showContext) {
-		  			Write-Host "--"
-		  		}
 		  	}
+		  	Write-Host
 	  	}
 }
 @{Function = "Find-String"}
-
-#http://mohundro.com/blog/2009/06/12/find-stringps1---ack-for-powershell/
-#https://github.com/drmohundro/Find-String/blob/master/Find-String.psm1
-#http://answers.oreilly.com/topic/1989-how-to-search-a-file-for-text-or-a-pattern-in-windows-powershell/
