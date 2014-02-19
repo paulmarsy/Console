@@ -15,7 +15,7 @@ function Find-String {
 		Select-String -Pattern ([Regex]::Escape($pattern)) -AllMatches -Context 2 |
 		Group-Object -Property Path |
 		% {
-			Write-Host (Resolve-Path -Relative $_.FullName) -ForegroundColor Cyan -NoNewLine
+			Write-Host (Resolve-Path -Relative $_.Name) -ForegroundColor Cyan -NoNewLine
 			Write-Host ":"
 
 			$displaySeperator = $false
