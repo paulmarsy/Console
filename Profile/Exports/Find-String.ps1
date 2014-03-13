@@ -3,6 +3,7 @@ function Find-String {
 	param(
 		[Parameter(Position=0,Mandatory=$true)]$pattern,
 		$path = $pwd,
+		$exclude = @("*.exe", "*.dll"),
 		[switch]$showContext,
 		[switch]$includeLargeFiles
     )
@@ -10,7 +11,7 @@ function Find-String {
 	$maxFileSizeToSearchInBytes = 1024*1024 # 1mb
 	
 	Write-Host "Finding '$pattern' in $path...`n" -ForegroundColor White
-	Get-ChildItem -Path $path -Recurse | 
+	Get-ChildItem -Path $path -Recurse -Exclude $exclude | 
 		? { $_.PSIsContainer -eq $false -and ($includeLargeFiles -or $_.Length -le $maxFileSizeToSearchInBytes) } | 
 		Select-String -Pattern ([Regex]::Escape($pattern)) -AllMatches -Context 2 |
 		Group-Object -Property Path |
