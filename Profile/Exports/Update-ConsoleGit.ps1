@@ -10,7 +10,7 @@ function Update-ConsoleGit {
     	& git add -A
     	& git commit -a -m $commitMessage
     	if ($pushToGitHub) {
-    		& git pull origin
+    		& git pull --rebase origin
     		& git push origin
     	}
     }
