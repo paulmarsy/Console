@@ -1,28 +1,33 @@
 function Update-ConsoleGit {
 	[CmdletBinding()]
 	param(
-		$commitMessage,
-		[switch]$pushToGitHub
+		[Parameter(ParameterSetName = "Status")][switch]$status,
+		[Parameter(ParameterSetName = "Commit")][ValidateNotNullOrEmpty()]$commitMessage,
+		[Parameter(ParameterSetName = "Commit")][switch]$dontSyncWithGitHub
     )
 
     Push-Location $ProfileConfig.General.InstallPath
     try {
-    	if (-not [string]::IsNullOrEmpty($commitMessage)) {
+    	if ($status) {
+    		& git status
+    	}
+    	else {
 	    	Write-Host -ForegroundColor Cyan "Commiting change to local git..."
 	    	& git add -A
 	    	if ($LASTEXITCODE -ne 0) { Write-Host -ForegroundColor Red "Error!"; return; }
 	    	& git commit -a -m $commitMessage
 	    	if ($LASTEXITCODE -ne 0) { Write-Host -ForegroundColor Red "Error!"; return; }
-		}
-    	if ($pushToGitHub) {
-    		Write-Host -ForegroundColor Cyan "Pulling changes from GitHub..."
-    		& git pull --rebase origin
-    		if ($LASTEXITCODE -ne 0) { Write-Host -ForegroundColor Red "Error!"; return; }
-    		Write-Host -ForegroundColor Cyan "Pushing changes to GitHub..."
-    		& git push origin
-    		if ($LASTEXITCODE -ne 0) { Write-Host -ForegroundColor Red "Error!"; return; }
-    	}
-    	Write-Host -ForegroundColor Green "Done."
+
+	    	if (-not $dontSyncWithGitHub) {
+	    		Write-Host -ForegroundColor Cyan "Pulling changes from GitHub..."
+	    		& git pull --rebase origin
+	    		if ($LASTEXITCODE -ne 0) { Write-Host -ForegroundColor Red "Error!"; return; }
+	    		Write-Host -ForegroundColor Cyan "Pushing changes to GitHub..."
+	    		& git push origin
+	    		if ($LASTEXITCODE -ne 0) { Write-Host -ForegroundColor Red "Error!"; return; }
+	    	}
+	    	Write-Host -ForegroundColor Green "Done."
+	    }
     }
 	finally {
 		Pop-Location
