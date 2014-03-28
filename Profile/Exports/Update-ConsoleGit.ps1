@@ -16,6 +16,7 @@ function Update-ConsoleGit {
     		Write-Host -ForegroundColor Cyan "Pushing changes to GitHub..."
     		& git push origin
     	}
+    	Write-Host -ForegroundColor Green "Done."
     }
 	finally {
 		Pop-Location
