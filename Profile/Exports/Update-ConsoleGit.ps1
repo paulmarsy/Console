@@ -14,9 +14,7 @@ function Update-ConsoleGit {
     	else {
 	    	Write-Host -ForegroundColor Cyan "Commiting change to local git..."
 	    	& git add -A
-	    	if ($LASTEXITCODE -ne 0) { Write-Host -ForegroundColor Red "Error!"; return; }
 	    	& git commit -a -m $commitMessage
-	    	if ($LASTEXITCODE -ne 0) { Write-Host -ForegroundColor Red "Error!"; return; }
 
 	    	if (-not $dontSyncWithGitHub) {
 	    		Write-Host -ForegroundColor Cyan "Pulling changes from GitHub..."
