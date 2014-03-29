@@ -1,9 +1,9 @@
-function Update-ConsoleGit {
-	[CmdletBinding()]
+function Sync-ConsoleWithGitHub {
+	[CmdletBinding(DefaultParameterSetName = "Commit")]
 	param(
-		[Parameter(ParameterSetName = "Status")][switch]$status,
-		[Parameter(ParameterSetName = "Commit")][ValidateNotNullOrEmpty()]$commitMessage,
-		[Parameter(ParameterSetName = "Commit")][switch]$dontSyncWithGitHub
+		[Parameter(ParameterSetName = "Commit", Position = 1)]$commitMessage,
+		[Parameter(ParameterSetName = "Commit")][switch]$dontSyncWithGitHub,
+		[Parameter(ParameterSetName = "Status")][switch]$status
     )
 
     Push-Location $ProfileConfig.General.InstallPath
@@ -12,9 +12,11 @@ function Update-ConsoleGit {
     		& git status
     	}
     	else {
-	    	Write-Host -ForegroundColor Cyan "Commiting change to local git..."
-	    	& git add -A
-	    	& git commit -a -m $commitMessage
+    		if (-not [string]::IsNullOrWhiteSpace($commitMessage)) {
+		    	Write-Host -ForegroundColor Cyan "Commiting change to local git..."
+		    	& git add -A
+		    	& git commit -a -m $commitMessage
+	    	}
 
 	    	if (-not $dontSyncWithGitHub) {
 	    		Write-Host -ForegroundColor Cyan "Pulling changes from GitHub..."
@@ -31,4 +33,4 @@ function Update-ConsoleGit {
 		Pop-Location
 	}
 }
-@{Function = "Update-ConsoleGit"}
+@{Function = "Sync-ConsoleWithGitHub"}
