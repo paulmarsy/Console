@@ -11,7 +11,7 @@ function Sync-ConsoleWithGitHub {
     try {
     	if ($status) {
     		& git status
-    	} else if ($discardChanges) {
+    	} elseif ($discardChanges) {
 			& git clean -df
 			& git checkout .
     	} else {
