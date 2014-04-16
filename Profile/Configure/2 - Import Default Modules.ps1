@@ -17,6 +17,9 @@ Import-Module posh-git -Global
 $GitPromptSettings.EnableWindowTitle = "Windows PowerShell - Git - "
 Enable-GitColors
 Start-SshAgent -Quiet
+Register-EngineEvent -SourceIdentifier PowerShell.Exiting -SupportEvent -Action {
+    Stop-SshAgent
+}
 
 # Microsoft Team Foundation Server 2013 Power Tools
 if ($env:TFSPowerToolDir) {
