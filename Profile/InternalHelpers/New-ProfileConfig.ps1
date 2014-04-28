@@ -6,6 +6,7 @@ function New-ProfileConfig {
 		General = @{
 			InstallPath				= $InstallPath
 			ProfileConfigFile		= $profileConfigFile
+			PowerShellScriptsFolder	= (Join-Path ([System.Environment]::GetFolderPath("MyDocuments")) "PowerShell Scripts")
 		}
 		PowerShell = @{
 			FormatEnumerationLimit	= $(if ($o.PowerShell.FormatEnumerationLimit)	{ $o.PowerShell.FormatEnumerationLimit }	else { -1 })

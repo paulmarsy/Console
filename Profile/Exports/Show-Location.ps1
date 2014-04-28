@@ -1,19 +1,30 @@
 Set-Alias browse Show-Location
 function Show-Location {
     [CmdletBinding()]
-	param(
-		[ValidateSet("InstallPath", "Profile", "CurrentDirectory", "Documents", "Computer")]
-        $location = "CurrentDirectory"
+    param(
+        [ValidateSet("InstallPath", "Profile", "CurrentDirectory", "PowerShellScripts", "Scripts", "Documents", "Computer")]
+        [Parameter(Position = 1)]$location = "CurrentDirectory",
+        [Parameter(ParameterSetName = "Shell")][switch]$shell,
+        [Parameter(ParameterSetName = "Shell")]$scriptBlock
     )
     
-	$path = switch ($location)
+    $path = switch ($location)
     {
-        "InstallPath" { "$InstallPath" }
+        "InstallPath" { $ProfileConfig.General.InstallPath }
         "Profile" { Split-Path $PROFILE }
         "CurrentDirectory" { $pwd }
+        "PowerShellScripts" { $ProfileConfig.General.PowerShellScriptsFolder }
+        "Scripts" { $ProfileConfig.General.PowerShellScriptsFolder }
         "Documents" { "::{450d8fba-ad25-11d0-98a8-0800361b1103}" }
         "Computer" { "::{20d04fe0-3aea-1069-a2d8-08002b30309d}" }
     }
-	& explorer $path
+    if (-not $shell) { & explorer $path }
+    else {
+    	Push-Location $path
+    	if ($scriptBlock) {
+			& $scriptBlock
+			Pop-Location
+    	}
+ }
 }
 @{Function = "Show-Location"; Alias = "browse"}

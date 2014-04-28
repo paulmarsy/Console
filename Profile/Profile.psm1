@@ -10,8 +10,8 @@ Get-ChildItem "$PSScriptRoot\Exports" -Filter *.ps1 -Recurse | Sort-Object Direc
 	if ($_["Alias"]) {	$_.Alias | % { Export-ModuleMember -Alias $_ } }
 }
 
-$includeFile = Join-Path ([System.Environment]::GetFolderPath("MyDocuments")) "include.ps1"
-if (Test-Path $includeFile) {
+$includeFile = Join-Path ([System.Environment]::GetFolderPath("MyDocuments")) "PowerShell Scripts\include.ps1"
+if ((Test-Path $includeFile) -and -not ([String]::IsNullOrWhiteSpace([IO.File]::ReadAllText($includeFile)))) {
     Write-Host "Loading include file $includeFile..."
     . $includeFile | % {
 		if ($_["Function"]) { $_.Function | % { Write-Host "Loading function $_..."; Export-ModuleMember -Function $_ } }
