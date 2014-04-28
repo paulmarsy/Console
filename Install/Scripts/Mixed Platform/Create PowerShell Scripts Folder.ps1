@@ -6,7 +6,8 @@ Invoke-InstallStep "Creating PowerShell Scripts Folder" {
 
 	$includeFile = Join-Path $userScriptsFolder "include.ps1"
 	if (-not (Test-Path $includeFile)) {
-		Write-InstallMessage "Creating empty include.ps1 file in PowerShell Scripts Folder"
-		Set-Content -LiteralPath $includeFile -Value $null
+		Invoke-InstallStep "Creating empty include.ps1 file in PowerShell Scripts Folder" {
+			Set-Content -LiteralPath $includeFile -Value $null
+		}
 	}
 }
