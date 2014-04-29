@@ -4,7 +4,7 @@
 RootModule = 'PSReadLine.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.0.7'
+ModuleVersion = '1.0.0.8'
 
 # ID used to uniquely identify this module
 GUID = '5714753b-2afd-4492-a5fd-01d9e2cff8b5'
@@ -22,7 +22,7 @@ Description = 'Great command line editing in the PowerShell console host'
 PowerShellVersion = '3.0'
 
 # Name of the Windows PowerShell host required by this module
-PowerShellHostName = 'ConsoleHost'
+# PowerShellHostName = 'ConsoleHost'
 
 # Minimum version of the Windows PowerShell host required by this module
 # PowerShellHostVersion = ''
