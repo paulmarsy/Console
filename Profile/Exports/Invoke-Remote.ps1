@@ -31,6 +31,16 @@ function Invoke-Remote {
         Enter-PSSession -ComputerName $ComputerName
     }
     elseif ($InteractiveType -eq "RDC" -or $InteractiveType -eq "RDP") {
+    	$localDevicesPath = "HKCU:\Software\Microsoft\Terminal Server Client\LocalDevices"
+    	if (-not (Test-Path $localDevicesPath)) {
+   			New-Item $localDevicesPath -Force | Out-Null
+   		}
+   		$localDevices = Get-Item $localDevicesPath
+   		if ($null -eq ($localDevices.GetValue($ComputerName))) {
+   			# Automatically accept the security warning for new connections if it hasnt been seen before
+   			New-ItemProperty $localDevicesPath $ComputerName -Value "5" -Type DWord -Force | Out-Null
+   		}
+    	
         & mstsc (Join-Path $InstallPath "Support Files\MSTSC\Default.rdp") /v:$ComputerName
     }
 }                   
