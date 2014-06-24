@@ -3,14 +3,15 @@ function Set-File
 {
     param (
         [Parameter(Mandatory=$true)]$path,
+        $content = $null,
         $time = (Get-Date)
     )
 
-    if (-not (Test-Path $path)) {
-        Set-Content -LiteralPath $path -Value $null
+    if (-not (Test-Path $path) -or ((Test-Path $path) -and $null -ne $content)) {
+        Set-Content -Path $path -Value $content
     }
     
-    Set-FileTime -LiteralPath $path -Accessed -Modified -Time $time -Force
+    Set-FileTime -Path $path -Accessed -Modified -Time $time -Force
 }
 
 @{Function = "Set-File"; Alias = "touch"}
