@@ -20,6 +20,9 @@ function Show-Location {
         "Computer" { "::{20d04fe0-3aea-1069-a2d8-08002b30309d}" }
         "GitHub" { & git config --get remote.origin.url }
     }
+    if ($location -eq "GitHub"){
+    
+    }
     if (-not $shell) { & explorer $path }
     else {
     	Push-Location $path
