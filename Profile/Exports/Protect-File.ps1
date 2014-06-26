@@ -16,7 +16,7 @@ function Protect-File {
 			Write-Error "Backup file ($backupFile) already exists, specify -Force parameter to overwrite"
 		}
 
-		Copy-Item -Source $path -Destination $backupFile -Force
+		Copy-Item -Path $path -Destination $backupFile -Force
 	}
 
 	$unEncryptedBytes = [System.IO.File]::ReadAllBytes($path)
