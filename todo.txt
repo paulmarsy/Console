@@ -1,0 +1,3 @@
+protect/unprotect without using aes and not windows api
+protect/unprotect file
+protect/unprotect folder
