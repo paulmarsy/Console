@@ -13,7 +13,7 @@ function UnProtect-File {
 	if ($SaveProtectedFile) {
 		$backupFile = [IO.Path]::ChangeExtension($path, $backupExtension)
 		if (-not $force -and (Test-Path $backupFile)) {
-			Write-Error "Backup file ($backupFile) already exists, specify -Force parameter to overwrite"
+			throw "Backup file ($backupFile) already exists, specify -Force parameter to overwrite"
 		}
 
 		Copy-Item -Path $path -Destination $backupFile -Force
