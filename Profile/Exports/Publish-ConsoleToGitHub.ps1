@@ -1,4 +1,4 @@
-function Sync-ConsoleWithGitHub {
+function Publish-ConsoleToGitHub {
 	[CmdletBinding(DefaultParameterSetName = "Commit")]
 	param(
 		[Parameter(ParameterSetName = "Status")][switch]$status,
@@ -36,4 +36,4 @@ function Sync-ConsoleWithGitHub {
 		Pop-Location
 	}
 }
-@{Function = "Sync-ConsoleWithGitHub"}
+@{Function = "Publish-ConsoleToGitHub"}
