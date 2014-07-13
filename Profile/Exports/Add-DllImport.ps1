@@ -9,7 +9,7 @@ function Add-DllImport {
 
 	$decodedParameters = $parameters | Join-String -Separator ', '
     $MethodDefinition = @"
-[DllImport("$($dll).dll", CharSet = CharSet.Auto)]
+[DllImport("$($dll).dll", CharSet = CharSet.Auto, SetLastError = true)]
 public static extern $returnType $methodName($decodedParameters);
 "@
 
