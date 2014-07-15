@@ -19,7 +19,7 @@ function _genericCheck {
     
     Write-InstallMessage "Checking for: $description"
     if (-not (& $filter)) {
-        Write-InstallMessage "$description not installed, please downnload from: $downloadUrl"
+        Write-InstallMessage "$description not installed, please downnload from: $downloadUrl or look in '\Install\Install Files'"
         $script:allPreRequisitesMet = $false
     }
 }
