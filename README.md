@@ -3,6 +3,12 @@ Console
 
 An advanced PowerShell console
 
+##### Installation
 
-1) Install the pre-requisites in \Install\Install Files
-2) Run Install.bat
+```
+Install the pre-requisites in \Install\Install Files
+Run Install.bat
+```
+
+##### License
+MIT
