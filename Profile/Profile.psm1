@@ -1,22 +1,25 @@
 param($InstallPath)
 Set-StrictMode -Version Latest
 
-Import-Module (Join-Path $PSScriptRoot InternalHelpers) -ArgumentList $InstallPath
+Import-Module (Join-Path $PSScriptRoot ProfileConfig) -ArgumentList $InstallPath
+Export-ModuleMember -Variable ProfileConfig
 
-Get-ChildItem "$PSScriptRoot\Configure" -Filter *.ps1 -Recurse | Sort-Object Name | % { & $_.FullName }
+Get-ChildItem "$PSScriptRoot\ModuleInitialization" -Filter *.ps1 -Recurse | Sort-Object Name | % { & $_.FullName }
 
-Get-ChildItem "$PSScriptRoot\Exports" -Filter *.ps1 -Recurse | Sort-Object DirectoryName, Name | % { . $_.FullName } | % {
-	if ($_["Function"]) { $_.Function | % { Export-ModuleMember -Function $_ } }
-	if ($_["Alias"]) {	$_.Alias | % { Export-ModuleMember -Alias $_ } }
-}
+Export-ModuleMember -Function (Get-ChildItem "$PSScriptRoot\Exports\Functions" -Filter *.ps1 -Recurse | % { . $_.FullName; $_.BaseName })
+Export-ModuleMember -Alias (Get-ChildItem "$PSScriptRoot\Exports\Aliases" -Filter *.ps1 -Recurse | % { . $_.FullName; $_.BaseName })
 
 $includeFile = Join-Path ([System.Environment]::GetFolderPath("MyDocuments")) "PowerShell Scripts\include.ps1"
 if ((Test-Path $includeFile) -and -not ([String]::IsNullOrWhiteSpace([IO.File]::ReadAllText($includeFile)))) {
     Write-Host "Loading include file $includeFile..."
-    . $includeFile | % {
-		if ($_["Function"]) { $_.Function | % { Write-Host "Loading function $_..."; Export-ModuleMember -Function $_ } }
-		if ($_["Alias"]) {	$_.Alias | % { Write-Host "Loading alias $_...";  Export-ModuleMember -Alias $_ } }
-	}
-}
+    $referenceFunctions =  Get-ChildItem function: | Select-Object -ExpandProperty Name
+    $referenceAliases = Get-ChildItem alias: | Select-Object -ExpandProperty Name
+    . $includeFile
+    $differenceFunctions =  Get-ChildItem function: | Select-Object -ExpandProperty Name
+    $differenceAliases = Get-ChildItem alias: | Select-Object -ExpandProperty Name
 
-Export-ModuleMember -Variable ProfileConfig
+    $includedFunctions = Compare-Object -ReferenceObject $referenceFunctions -DifferenceObject $differenceFunctions | Select-Object -ExpandProperty InputObject
+    $includedFunctions | % { Write-Host "Importing function $_..."; Export-ModuleMember -Function $_ } 
+    $includedAliases = Compare-Object -ReferenceObject $referenceAliases -DifferenceObject $differenceAliases | Select-Object -ExpandProperty InputObject
+    $includedAliases | % { Write-Host "Importing alias $_...";  Export-ModuleMember -Alias $_ }
+}

@@ -1,0 +1,1 @@
+Set-Alias cbp Clear-PSBreakpoint

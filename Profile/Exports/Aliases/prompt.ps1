@@ -1,0 +1,1 @@
+Set-Alias prompt Write-CustomPrompt
