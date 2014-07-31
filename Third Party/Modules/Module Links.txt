@@ -8,4 +8,5 @@ PSFTP:				http://gallery.technet.microsoft.com/scriptcenter/PowerShell-FTP-Clien
 PSReadline:			https://github.com/lzybkr/PSReadLine
 PSRemoteRegistry:	http://psremoteregistry.codeplex.com/
 SambaShares: 		http://psam.codeplex.com/
+Show-Ast			https://github.com/lzybkr/ShowPSAst
 SystemInfo: 		http://psam.codeplex.com/

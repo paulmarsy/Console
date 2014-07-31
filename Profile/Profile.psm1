@@ -4,7 +4,7 @@ Set-StrictMode -Version Latest
 Import-Module (Join-Path $PSScriptRoot ProfileConfig) -ArgumentList $InstallPath
 Export-ModuleMember -Variable ProfileConfig
 
-Get-ChildItem "$PSScriptRoot\ModuleInitialization" -Filter *.ps1 -Recurse | Sort-Object Name | % { & $_.FullName }
+Get-ChildItem "$PSScriptRoot\ModuleInitialization" -Filter *.ps1 -Recurse | Sort-Object FullName | % { & $_.FullName }
 
 Export-ModuleMember -Function (Get-ChildItem "$PSScriptRoot\Exports\Functions" -Filter *.ps1 -Recurse | % { . $_.FullName; $_.BaseName })
 Export-ModuleMember -Alias (Get-ChildItem "$PSScriptRoot\Exports\Aliases" -Filter *.ps1 -Recurse | % { . $_.FullName; $_.BaseName })
