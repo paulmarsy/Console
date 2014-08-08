@@ -26,9 +26,9 @@ if ((Test-Path $includeFile) -and -not ([String]::IsNullOrWhiteSpace([IO.File]::
     $differenceAliases = Get-ChildItem alias: | Select-Object -ExpandProperty Name
 
     $includedFunctions = Compare-Object -ReferenceObject $referenceFunctions -DifferenceObject $differenceFunctions | Select-Object -ExpandProperty InputObject
-    $includedFunctions | ? { $_ -notlike "_*" -and (Get-Command $_).ModuleName -eq "Profile" } | % { Write-Host "Importing function $_..."; Export-ModuleMember -Function $_ } 
+    $includedFunctions | ? { $_ -notlike "_*" -and (Get-Command $_).ModuleName -eq "AdvancedPowerShellConsole" } | % { Write-Host "Importing function $_..."; Export-ModuleMember -Function $_ } 
     $includedAliases = Compare-Object -ReferenceObject $referenceAliases -DifferenceObject $differenceAliases | Select-Object -ExpandProperty InputObject
-    $includedAliases | ? { $_ -notlike "_*" -and (Get-Command $_).ModuleName -eq "Profile" } |  % { Write-Host "Importing alias $_...";  Export-ModuleMember -Alias $_ }
+    $includedAliases | ? { $_ -notlike "_*" -and (Get-Command $_).ModuleName -eq "AdvancedPowerShellConsole" } |  % { Write-Host "Importing alias $_...";  Export-ModuleMember -Alias $_ }
 }
 
 Write-Host -ForegroundColor Green "PowerShell Console Module was successfully loaded."
