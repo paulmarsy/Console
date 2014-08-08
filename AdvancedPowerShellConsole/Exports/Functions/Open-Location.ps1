@@ -1,7 +1,7 @@
 function Open-Location {
     [CmdletBinding()]
     param(
-        [ValidateSet("InstallPath", "ProfileModule", "Profile", "Directory", "Folder", "PowerShellScripts", "Scripts", "Documents", "Desktop", "Computer", "ConsoleGitHub")]
+        [ValidateSet("InstallPath", "Profile", "AdvancedPowerShellConsoleModule", "Directory", "Folder", "PowerShellScripts", "Scripts", "Documents", "Desktop", "Computer", "ConsoleGitHub")]
         [Parameter(Position = 1)]$location = "CurrentDirectory",
         [Parameter(Position = 2)]$path = $pwd,
         [Parameter(ParameterSetName = "Shell")][switch]$shell,
@@ -13,7 +13,7 @@ function Open-Location {
     {
         "InstallPath" { $ProfileConfig.General.InstallPath }
         "Profile" { Split-Path $PROFILE }
-        "ProfileModule" { Get-Module Profile | select -ExpandProperty ModuleBase }
+        "AdvancedPowerShellConsoleModule" { Get-Module AdvancedPowerShellConsole | select -ExpandProperty ModuleBase }
         "Directory" { $path }
         "Folder" { $path }
         "PowerShellScripts" { $ProfileConfig.General.PowerShellScriptsFolder }

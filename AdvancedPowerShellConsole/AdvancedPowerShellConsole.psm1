@@ -30,3 +30,5 @@ if ((Test-Path $includeFile) -and -not ([String]::IsNullOrWhiteSpace([IO.File]::
     $includedAliases = Compare-Object -ReferenceObject $referenceAliases -DifferenceObject $differenceAliases | Select-Object -ExpandProperty InputObject
     $includedAliases | ? { $_ -notlike "_*" -and (Get-Command $_).ModuleName -eq "Profile" } |  % { Write-Host "Importing alias $_...";  Export-ModuleMember -Alias $_ }
 }
+
+Write-Host -ForegroundColor Green "PowerShell Console Module was successfully loaded."
