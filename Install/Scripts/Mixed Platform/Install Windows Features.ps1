@@ -72,6 +72,8 @@ Dism-Wrapper @(
 'IIS-HttpLogging'
 'IIS-RequestMonitor'
 'IIS-HttpTracing'
+'IIS-CustomLogging'
+'IIS-LoggingLibraries'
 
 # Performance Features
 'IIS-Performance'
