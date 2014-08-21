@@ -1,1 +1,1 @@
- Set-Alias remote Invoke-Remote
+ Set-Alias remote Connect-Remote
