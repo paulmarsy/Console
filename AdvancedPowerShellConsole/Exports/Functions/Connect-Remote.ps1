@@ -41,8 +41,8 @@ function Connect-Remote {
     elseif ($InteractiveType -eq "SSH") {
         if ($null -eq $Port) { $Port = 22 }
         $arguments = @($ComputerName, "-P $Port")
-        if ($null -ne $Username) { $arguments += "-l $Username" }
-        if ($null -ne $Password) { $arguments += "-pw $Password" }
+        if ($null -ne $Username) { $arguments += "-l `"$Username`"" }
+        if ($null -ne $Password) { $arguments += "-pw `"$Password`"" }
 
         Start-Process -FilePath "putty.exe" -ArgumentList $arguments
     }
