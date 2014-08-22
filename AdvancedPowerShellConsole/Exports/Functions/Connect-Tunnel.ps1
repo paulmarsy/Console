@@ -13,6 +13,7 @@ function Connect-Tunnel {
         $TunnelPort = $null,
         $TunnelUsername = $null,
         $TunnelPassword = $null,
+        $LocalPort = $null,
         $DestinationUsername = $null,
         $DestinationPassword = $null
     )
@@ -26,9 +27,10 @@ function Connect-Tunnel {
     	}
 	}
 
-	if ($null -eq $TunnelPort) { $TunnelPort = Get-Random -Minimum 10000 -Maximum 60000 }
+	if ($null -eq $LocalPort) { $LocalPort = Get-Random -Minimum 10000 -Maximum 60000 }
 
-    $plinkArguments = @($TunnelHost, "-C", "-N", "-v", "-L $("{0}:{1}:{2}" -f $TunnelPort, $DestinationHost, $DestinationPort)")
+    $plinkArguments = @($TunnelHost, "-C", "-N", "-v", "-L $("{0}:{1}:{2}" -f $LocalPort, $DestinationHost, $DestinationPort)")
+    if ($null -ne $TunnelPort) { $plinkArguments += "-P $TunnelPort" }
     if ($null -ne $TunnelUsername) { $plinkArguments += "-l `"$TunnelUsername`"" }
     if ($null -ne $TunnelPassword) { $plinkArguments += "-pw `"$TunnelPassword`"" }
 
@@ -39,13 +41,13 @@ function Connect-Tunnel {
     	$host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown") | Out-Null
     	Write-Host ("`nConnecting to {0}..." -f $DestinationHost)
 
-    	$remoteArguments = @{"ComputerName" = "localhost"; "InteractiveType" = $DestinationType; "Port" = $TunnelPort}
+    	$remoteArguments = @{"ComputerName" = "localhost"; "InteractiveType" = $DestinationType; "Port" = $LocalPort}
    		if ($null -ne $DestinationUsername) { $remoteArguments += @{"Username" = "`"$DestinationUsername`"" } }
     	if ($null -ne $DestinationPassword) { $remoteArguments += @{"Password" = "`"$DestinationPassword`"" } }
 
     	Connect-Remote @remoteArguments
 	} elseif ($PsCmdlet.ParameterSetName -eq "Port") {
-		Write-Host ("Tunnel started on {0}:{1} routing to {2}:{3}" -f $env:COMPUTERNAME, $TunnelPort, $DestinationHost, $DestinationPort)
+		Write-Host ("Tunnel started on {0}:{1} routing to {2}:{3}" -f $env:COMPUTERNAME, $LocalPort, $DestinationHost, $DestinationPort)
 	}
 
 	if (-not $LeaveTunnelOpen) {
