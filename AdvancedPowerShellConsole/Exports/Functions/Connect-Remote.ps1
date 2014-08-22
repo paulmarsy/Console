@@ -3,7 +3,7 @@ function Connect-Remote {
     param(
         [Parameter(Mandatory=$true,Position=0)]
         $ComputerName,
-        [ValidateSet("PowerShell", "RDC", "RDP", "SSH", "TELNET")][Parameter(ParameterSetName="Interactive",Position=1)]
+        [Parameter(ParameterSetName="Interactive",Position=1)][ValidateSet("PowerShell", "RDC", "RDP", "SSH", "TELNET")]
         $InteractiveType = "PowerShell",
         $Port = $null,
         $Username = $null,
