@@ -31,16 +31,19 @@ function Connect-Remote {
    			New-ItemProperty $localDevicesPath $ComputerName -Value "5" -Type DWord -Force | Out-Null
    		}
 
-        if ($null -eq $Port) { $Port = 3389 }
         if ($null -ne $Username -and $null -ne $Password) {
             & cmdkey /generic:TERMSRV/"$ComputerName" /user:"$Username" /pass:"$Password" | Out-Null
         }
     	
-        & mstsc (Join-Path $InstallPath "Support Files\MSTSC\Default.rdp") /v:$("$($ComputerName):$($Port)")
+    	if ($null -ne $Port) {
+	        & mstsc (Join-Path $InstallPath "Support Files\MSTSC\Default.rdp") /v:"$($ComputerName):$($Port)"
+        } else {
+        	& mstsc (Join-Path $InstallPath "Support Files\MSTSC\Default.rdp") /v:"$ComputerName"
+        }
     }
     elseif ($InteractiveType -eq "SSH") {
-        if ($null -eq $Port) { $Port = 22 }
-        $arguments = @($ComputerName, "-P $Port")
+        $arguments = @($ComputerName)
+        if ($null -ne $Port) { $arguments += "-P $Port" }
         if ($null -ne $Username) { $arguments += "-l `"$Username`"" }
         if ($null -ne $Password) { $arguments += "-pw `"$Password`"" }
 
