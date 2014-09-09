@@ -34,10 +34,10 @@ function Open-Location {
     elseif ($type -eq "Folder") {
 	    if (-not $shell) { & explorer $path }
 	    else {
-	    	Push-Location $path
+	    	Push-Location $path -StackName openLocation
 	    	if ($scriptBlock) {
 				& $scriptBlock
-				Pop-Location
+				Pop-Location -StackName openLocation
 	    	}
  		}
 	}
