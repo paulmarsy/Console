@@ -36,8 +36,12 @@ function Open-Location {
 	    else {
 	    	Push-Location $path -StackName openLocation
 	    	if ($scriptBlock) {
-				& $scriptBlock
-				Pop-Location -StackName openLocation
+                try {
+				    & $scriptBlock
+                }
+                finally {
+    				Pop-Location -StackName openLocation
+                }
 	    	}
  		}
 	}
