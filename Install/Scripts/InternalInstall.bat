@@ -5,7 +5,7 @@ TITLE Installing Console...
 
 CD /D %~dp0
 
-SET POWERSHELLSWITCHES=-NoProfile -NonInteractive -ExecutionPolicy RemoteSigned
+SET POWERSHELLSWITCHES=-NoProfile -ExecutionPolicy RemoteSigned
 
 powershell.exe %POWERSHELLSWITCHES% -File .\Install.ps1 -PreReqCheck
 IF ERRORLEVEL 1 GOTO END

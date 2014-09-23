@@ -1,7 +1,7 @@
 function Dism-Wrapper {
 	param($FeatureNames)
 	$output = $null
-	Invoke-InstallStep "Installing Windows Features...." {
+	Invoke-InstallStep "Microsoft Windows - Installing DISM Features...." {
 		$featureList = "/FeatureName:$([String]::Join(' /FeatureName:', $FeatureNames))"
 		$output = Invoke-Expression "dism.exe /Online /NoRestart /Quiet /Enable-Feature /All $featureList"
 	}
