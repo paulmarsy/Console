@@ -1,0 +1,1 @@
+Set-Alias sql Connect-SQL
