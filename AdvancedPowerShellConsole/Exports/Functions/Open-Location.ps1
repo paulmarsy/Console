@@ -2,21 +2,21 @@ function Open-Location {
     [CmdletBinding()]
     param(
         [ValidateSet("InstallPath", "Profile", "AdvancedPowerShellConsoleModule", "CurrentDirectory", "Directory", "Folder", "PowerShellScripts", "Scripts", "Documents", "Desktop", "Computer", "ConsoleGitHub")]
-        [Parameter(Position = 1)]$location = "CurrentDirectory",
-        [Parameter(Position = 2)]$path = $pwd,
-        [Parameter(ParameterSetName = "Shell")][switch]$shell,
-        [Parameter(ParameterSetName = "Shell")]$scriptBlock
+        [Parameter(Position = 1)]$Location = "CurrentDirectory",
+        [Parameter(Position = 2)]$Path = $pwd,
+        [Parameter(ParameterSetName = "Shell")][switch]$Shell,
+        [Parameter(ParameterSetName = "Shell")]$ScriptBlock
     )
     
     $type = "Folder"
-    $path = switch ($location)
+    $Path = switch ($Location)
     {
         "InstallPath" { $ProfileConfig.General.InstallPath }
         "Profile" { Split-Path $PROFILE }
         "AdvancedPowerShellConsoleModule" { Get-Module AdvancedPowerShellConsole | select -ExpandProperty ModuleBase }
         "CurrentDirectory" { $pwd }
-        "Directory" { $path }
-        "Folder" { $path }
+        "Directory" { $Path }
+        "Folder" { $Path }
         "PowerShellScripts" { $ProfileConfig.General.PowerShellScriptsFolder }
         "Scripts" { $ProfileConfig.General.PowerShellScriptsFolder }
         "Documents" { [Environment]::GetFolderPath( [Environment+SpecialFolder]::MyDocuments) }
@@ -30,14 +30,14 @@ function Open-Location {
 			$gitHubUrl
 		}
     }
-    if ($type -eq "URL") { Open-UrlWithDefaultBrowser -Url $path }
+    if ($type -eq "URL") { Open-UrlWithDefaultBrowser -Url $Path }
     elseif ($type -eq "Folder") {
-	    if (-not $shell) { & explorer $path }
+	    if (-not $Shell) { & explorer $Path }
 	    else {
-	    	Push-Location $path -StackName openLocation
-	    	if ($scriptBlock) {
+	    	Push-Location $Path -StackName openLocation
+	    	if ($ScriptBlock) {
                 try {
-				    & $scriptBlock
+				    & $ScriptBlock
                 }
                 finally {
     				Pop-Location -StackName openLocation

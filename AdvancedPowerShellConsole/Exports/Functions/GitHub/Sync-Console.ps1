@@ -1,27 +1,24 @@
-function Publish-ConsoleToGitHub {
+function Sync-Console {
 	[CmdletBinding(DefaultParameterSetName = "Commit")]
 	param(
-		[Parameter(ParameterSetName = "Status")][switch]$status,
-		[Parameter(ParameterSetName = "Discard")][switch]$discardChanges,
-		[Parameter(ParameterSetName = "Commit", Position = 1)]$commitMessage,
-		[Parameter(ParameterSetName = "Commit")][switch]$dontSyncWithGitHub
+		[Parameter(ParameterSetName = "Commit", Position = 1)]$CommitMessage,
+		[Parameter(ParameterSetName = "Commit")][switch]$DontSyncWithGitHub,
+		[Parameter(ParameterSetName = "Discard")][switch]$DiscardChanges
     )
 
     Push-Location $ProfileConfig.General.InstallPath
     try {
-    	if ($status) {
-    		& git status
-    	} elseif ($discardChanges) {
+    	if ($DiscardChanges) {
 			& git clean -df
 			& git checkout .
     	} else {
-    		if (-not [string]::IsNullOrWhiteSpace($commitMessage)) {
+    		if (-not [string]::IsNullOrWhiteSpace($CommitMessage)) {
 		    	Write-Host -ForegroundColor Cyan "Commiting change to local git..."
 		    	& git add -A
 		    	& git commit -a -m $commitMessage
 	    	}
 
-	    	if (-not $dontSyncWithGitHub) {
+	    	if (-not $DontSyncWithGitHub) {
 	    		Write-Host -ForegroundColor Cyan "Pulling changes from GitHub..."
 	    		& git pull --rebase origin
 	    		if ($LASTEXITCODE -ne 0) { Write-Host -ForegroundColor Red "Error!"; return; }
