@@ -25,32 +25,33 @@ function Sync-Console {
 		    	if (-not $Quiet) { Write-Host -ForegroundColor Cyan "Commiting change to local git..." }
 		    	& git add -A @argumentsVerbose | ? { -not $Quiet } | Write-Host
 		    	& git commit -a -m $commitMessage @argumentsBoth
+		    	if (-not $Quiet) { Write-Host -ForegroundColor Green "...Done." }
 	    	}
 
 	    	if (-not $DontSyncWithGitHub) {
-	    		if (-not $Quiet) { Write-Host -NoNewLine -ForegroundColor Cyan "Synchronizing with GitHub..." }
+	    		if (-not $Quiet) { Write-Host -ForegroundColor Cyan "Synchronizing with GitHub..." }
 	    		& git remote @argumentsVerbose update | Out-Null
 
 	    		$local = & git rev-parse `@
 	    		$remote = & git rev-parse `@`{u`}
 	    		$base = & git merge-base `@ `@`{u`}
 
-	    		if (-not $Quiet) { Write-Host -ForegroundColor Green " Done." }
+	    		if (-not $Quiet) { Write-Host -ForegroundColor Green "...Done." }
 
 	    		if ($local -eq $remote) {
 	    			if (-not $Quiet) { Write-Host -ForegroundColor Green "Local Git Repo is in sync with Github." }
 	    		} else {
 	    			if ($remote -ne $base) {
-	    				if (-not $Quiet) { Write-Host -NoNewLine -ForegroundColor Cyan "Pulling changes from GitHub..." }
+	    				if (-not $Quiet) { Write-Host -ForegroundColor Cyan "Pulling changes from GitHub..." }
 	    				& git pull --rebase origin @argumentsBoth
-	    				if ($LASTEXITCODE -ne 0) { Write-Host -ForegroundColor Red " Error pulling changes from GitHub!"; return; }
-						elseif (-not $Quiet) { Write-Host -ForegroundColor Green " Done." }
+	    				if ($LASTEXITCODE -ne 0) { Write-Host -ForegroundColor Red "Error pulling changes from GitHub!"; return; }
+						elseif (-not $Quiet) { Write-Host -ForegroundColor Green "...Done." }
 	    			}
 	    			if ($local -ne $base) {
-	    				if (-not $Quiet) { Write-Host -NoNewLine -ForegroundColor Cyan "Pushing changes to GitHub..." }
+	    				if (-not $Quiet) { Write-Host -ForegroundColor Cyan "Pushing changes to GitHub..." }
 	    				& git push origin @argumentsBoth
-	    				if ($LASTEXITCODE -ne 0) { Write-Host -ForegroundColor Red " Error pushing changed to GitHub!"; return; }
-	    				elseif (-not $Quiet) { Write-Host -ForegroundColor Green " Done." }
+	    				if ($LASTEXITCODE -ne 0) { Write-Host -ForegroundColor Red "Error pushing changed to GitHub!"; return; }
+	    				elseif (-not $Quiet) { Write-Host -ForegroundColor Green "...Done." }
 	    			}
 	    		}
 	    	}
