@@ -29,14 +29,14 @@ function Sync-Console {
 
 	    	if (-not $DontSyncWithGitHub) {
 	    		if (-not $Quiet) { Write-Host -ForegroundColor Cyan "Synchronizing with GitHub..." }
-	    		& git remote update @argumentsVerbose | Out-Null
+	    		& git remote @argumentsVerbose update | Out-Null
 
 	    		$local = & git rev-parse `@
 	    		$remote = & git rev-parse `@`{u`}
 	    		$base = & git merge-base `@ `@`{u`}
 
 	    		if ($local -eq $remote) {
-	    			if (-not $Quiet) { Write-Host -ForegroundColor Green "Local Console is in sync with Github." }
+	    			if (-not $Quiet) { Write-Host -ForegroundColor Green "Local Git Repo is in sync with Github." }
 	    		} else {
 	    			$pullNeeded = $local -eq $base
 	    			$pushNeeded = $remote -eq $base
