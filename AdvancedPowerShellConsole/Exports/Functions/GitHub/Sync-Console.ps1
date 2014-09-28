@@ -23,7 +23,7 @@ function Sync-Console {
     	if ($PsCmdlet.ParameterSetName -eq "Commit") {
     		if (-not [string]::IsNullOrWhiteSpace($CommitMessage)) {
 		    	if (-not $Quiet) { Write-Host -ForegroundColor Cyan "Commiting change to local git..." }
-		    	& git add -A @argumentsVerbose
+		    	& git add -A @argumentsVerbose | ? { -not $Quiet } | Write-Host
 		    	& git commit -a -m $commitMessage @argumentsBoth
 	    	}
 
