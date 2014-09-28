@@ -4,5 +4,7 @@ function Receive-Thread {
         [Parameter(Mandatory=$true,Position=0,ValueFromPipeline=$true)]$State
     )
 
-    return ($State.Host.EndInvoke($State.AsyncWaitHandle))
+    $result = $State.Host.EndInvoke($State.AsyncWaitHandle)
+    $State.Streams = $State.Host.Streams
+    return $result
 }

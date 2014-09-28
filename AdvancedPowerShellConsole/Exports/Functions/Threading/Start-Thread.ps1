@@ -5,17 +5,17 @@ function Start-Thread {
         $ArgumentList
     )
 
-    $powerShellHost = [PowerShell]::Create($Host.Runspace.InitialSessionState)
+    $powerShellHost = [PowerShell]::Create()
     $script = $powerShellHost.AddScript($ScriptBlock)
 
     if ($null -ne $ScriptBlock.Ast.ParamBlock -and $null -ne $ArgumentList) {
         $i = -1
         $ScriptBlock.Ast.ParamBlock.Parameters.Name.VariablePath | ? { $null -ne $_ -and $null -ne $ArgumentList[$i]} | % {    
             $i++
-            $script.AddParameter(($_.ToString()), $ArgumentList[$i])
+            $script.AddParameter(($_.ToString()), $ArgumentList[$i]) | Out-Null
         }
     }
-    $ArgumentList | % { $script.AddArgument($_) }
+    $ArgumentList | % { $script.AddArgument($_) } | Out-Null
     $asyncWaitHandle = $powerShellHost.BeginInvoke()
     return @{
         Host = $powerShellHost
