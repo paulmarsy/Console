@@ -9,6 +9,8 @@ Get-ChildItem "$PSScriptRoot\ModuleInitialization" -Filter *.ps1 -Recurse | Sort
 Export-ModuleMember -Function (Get-ChildItem "$PSScriptRoot\Exports\Functions" -Filter *.ps1 -Recurse | % { . $_.FullName; $_.BaseName })
 Export-ModuleMember -Alias (Get-ChildItem "$PSScriptRoot\Exports\Aliases" -Filter *.ps1 -Recurse | % { . $_.FullName; $_.BaseName })
 
+#Sync-Console
+
 $powerShellScriptsFolder = Join-Path ([System.Environment]::GetFolderPath("MyDocuments")) "PowerShell Scripts"
 $includeFile = Join-Path $powerShellScriptsFolder "include.ps1"
 if ((Test-Path $includeFile) -and -not ([String]::IsNullOrWhiteSpace([IO.File]::ReadAllText($includeFile)))) {
