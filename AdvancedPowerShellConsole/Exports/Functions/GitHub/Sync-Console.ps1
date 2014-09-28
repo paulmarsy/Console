@@ -30,7 +30,7 @@ function Sync-Console {
 
 	    	if (-not $DontSyncWithGitHub) {
 	    		if (-not $Quiet) { Write-Host -ForegroundColor Cyan "Synchronizing with GitHub..." }
-	    		& git remote @argumentsVerbose update | Out-Null
+	    		& git remote --verbose update | Out-Null
 
 	    		$local = & git rev-parse `@
 	    		$remote = & git rev-parse `@`{u`}
