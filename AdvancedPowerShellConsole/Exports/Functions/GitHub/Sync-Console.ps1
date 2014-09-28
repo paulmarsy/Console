@@ -16,10 +16,11 @@ function Sync-Console {
     	if ($Quiet) { $argumentsQuiet += @("--quiet") }
     	$argumentsBoth = $argumentsVerbose + $argumentsQuiet
 
-    	if ($DiscardChanges) {
+    	if ($PsCmdlet.ParameterSetName -eq "Discard") {
 			& git clean -df @argumentsQuiet
 			& git checkout . @argumentsQuiet
-    	} else {
+    	} 
+    	if ($PsCmdlet.ParameterSetName -eq "Commit") {
     		if (-not [string]::IsNullOrWhiteSpace($CommitMessage)) {
 		    	if (-not $Quiet) { Write-Host -ForegroundColor Cyan "Commiting change to local git..." }
 		    	& git add -A @argumentsVerbose
@@ -27,8 +28,8 @@ function Sync-Console {
 	    	}
 
 	    	if (-not $DontSyncWithGitHub) {
-	    		if (-not $Quiet) { Write-Host -ForegroundColor Cyan "Pulling changes from GitHub..." }
-	    		& git remote update @argumentsVerbose
+	    		if (-not $Quiet) { Write-Host -ForegroundColor Cyan "Synchronizing with GitHub..." }
+	    		& git remote update @argumentsVerbose | Out-Null
 
 	    		$local = & git rev-parse `@
 	    		$remote = & git rev-parse `@`{u`}
