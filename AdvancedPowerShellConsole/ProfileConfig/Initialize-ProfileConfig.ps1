@@ -3,15 +3,19 @@ function Initialize-ProfileConfig {
         $importedProfileConfig = Import-Clixml $profileConfigFile
     }
 
-    $ProfileConfig = New-ProfileConfig $importedProfileConfig
+    $newProfileConfig = New-ProfileConfig -OverrideProfileConfig $importedProfileConfig
 
     Register-EngineEvent -SourceIdentifier PowerShell.Exiting -SupportEvent -Action {
-        $ProfileConfig | Export-Clixml $ProfileConfig.General.ProfileConfigFile
+         Get-Variable -Name ProfileConfig -ValueOnly -Scope Global | Export-Clixml $ProfileConfig.General.ProfileConfigFile
     }
 
     $ExecutionContext.SessionState.Module.OnRemove = {
-        $ProfileConfig | Export-Clixml $profileConfigFile
+        Get-Variable -Name ProfileConfig -ValueOnly -Scope Global | Export-Clixml $profileConfigFile
     }
 
-    $ProfileConfig
+    if (Test-Path Variable:Global:ProfileConfig) {
+        Remove-Variable -Name ProfileConfig -Scope Global -Force
+    }
+
+    New-Variable -Name ProfileConfig -Description "Contains configuration global information for the Advanced PowerShell Console" -Value $newProfileConfig -Scope Global -Option Readonly
 }

@@ -2,14 +2,14 @@ param($InstallPath)
 Set-StrictMode -Version Latest
 
 Import-Module (Join-Path $PSScriptRoot ProfileConfig) -ArgumentList $InstallPath
-Export-ModuleMember -Variable ProfileConfig
+Export-ModuleMember -Function Sync-ProfileConfig
 
 Get-ChildItem "$PSScriptRoot\ModuleInitialization" -Filter *.ps1 -Recurse | Sort-Object FullName | % { & $_.FullName }
 
 Export-ModuleMember -Function (Get-ChildItem "$PSScriptRoot\Exports\Functions" -Filter *.ps1 -Recurse | % { . $_.FullName; $_.BaseName })
 Export-ModuleMember -Alias (Get-ChildItem "$PSScriptRoot\Exports\Aliases" -Filter *.ps1 -Recurse | % { . $_.FullName; $_.BaseName })
 
-Sync-Console -AutoReloadAdvancedPowerShellConsole -DontPushToGitHub
+Sync-Console -DontPushToGitHub -AutoUpdateAdvancedPowerShellConsole
 
 $powerShellScriptsFolder = Join-Path ([System.Environment]::GetFolderPath("MyDocuments")) "PowerShell Scripts"
 $includeFile = Join-Path $powerShellScriptsFolder "include.ps1"
@@ -33,4 +33,4 @@ if ((Test-Path $includeFile) -and -not ([String]::IsNullOrWhiteSpace([IO.File]::
     $includedAliases | ? { $_ -notlike "_*" -and (Get-Command $_).ModuleName -eq "AdvancedPowerShellConsole" } |  % { Write-Host "Importing alias $_...";  Export-ModuleMember -Alias $_ }
 }
 
-Write-Host -ForegroundColor Green "PowerShell Console Module was successfully loaded."
+Write-Host -ForegroundColor Green "PowerShell Console Module has been successfully loaded."

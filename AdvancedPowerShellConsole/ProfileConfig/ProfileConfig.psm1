@@ -4,6 +4,6 @@ $profileConfigFile = Join-Path (Split-Path $PROFILE.CurrentUserAllHosts) "Profil
 
 Get-ChildItem $PSScriptRoot -Filter *.ps1 | % { . $_.FullName }
 
-$ProfileConfig = Initialize-ProfileConfig
+Initialize-ProfileConfig
 
-Export-ModuleMember -Function * -Alias * -Cmdlet * -Variable ProfileConfig
+Export-ModuleMember -Function Sync-ProfileConfig

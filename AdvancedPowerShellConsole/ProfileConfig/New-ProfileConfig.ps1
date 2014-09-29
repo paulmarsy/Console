@@ -1,31 +1,42 @@
 function New-ProfileConfig {
-	param($overrideProfileConfig)
-	$o = $overrideProfileConfig
+	param($OverrideProfileConfig)
+	$o = $OverrideProfileConfig
 
-	$ProfileConfig = @{
+	. (Join-Path $InstallPath "AdvancedPowerShellConsole\Exports\Functions\Invoke-Ternary.ps1")
+	. (Join-Path $InstallPath "AdvancedPowerShellConsole\Exports\Aliases\U+003F`&U+003A.ps1")
+
+	$newProfileConfig = @{
 		General = @{
-			InstallPath				= $InstallPath
-			ProfileConfigFile		= $profileConfigFile
-			PowerShellScriptsFolder	= (Join-Path ([System.Environment]::GetFolderPath("MyDocuments")) "PowerShell Scripts")
+			InstallPath								= $InstallPath
+			PowerShellProfileHookFile				= $PROFILE.CurrentUserAllHosts
+			ProfileConfigFile						= $profileConfigFile
+			PowerShellScriptsFolder					= (Join-Path ([System.Environment]::GetFolderPath("MyDocuments")) "PowerShell Scripts")
+		}
+		AdvancedPowerShellConsoleVersion = @{
+			Current									= Get-Content -Path $PROFILE.CurrentUserAllHosts | Select-Object -Index 1
+			Available								= Get-Content -Path (Join-Path $InstallPath "Install\Install.Version")
 		}
 		PowerShell = @{
-			FormatEnumerationLimit	= $(if ($o.PowerShell.FormatEnumerationLimit)	{ $o.PowerShell.FormatEnumerationLimit }	else { -1 })
-			PSEmailServer			= $(if ($o.PowerShell.PSEmailServer)			{ $o.PowerShell.PSEmailServer }				else { "" })
+			FormatEnumerationLimit	= ?: -NotNullCheck { $o.PowerShell.FormatEnumerationLimit }	{ $o.PowerShell.FormatEnumerationLimit }	{ -1 }
+			PSEmailServer			= ?: -NotNullCheck { $o.PowerShell.PSEmailServer }			{ $o.PowerShell.PSEmailServer }				{ "" }
 		}
 		Git = @{
-			Name					= $(if ($o.Git.Name)							{ $o.Git.Name }								else { "Your Name" })
-			Email					= $(if ($o.Git.Email)							{ $o.Git.Email }							else { "email@example.com" })
+			Name					= ?: -NotNullCheck { $o.Git.Name }							{ $o.Git.Name }								{ "Your Name" }
+			Email					= ?: -NotNullCheck { $o.Git.Email }							{ $o.Git.Email }							{ "email@example.com" }
 		}
 		TFS = @{
-			Server					= $(if ($o.TFS.Server)							{ $o.TFS.Server }							else { "Your TFS Server URL" })
+			Server					= ?: -NotNullCheck { $o.TFS.Server }						{ $o.TFS.Server }							{ "Your TFS Server URL" }
 		}
 		EMail = @{
-			From					= $(if ($o.EMail.From)							{ $o.EMail.From }							else { "email@example.com" })
-			Username				= $(if ($o.EMail.Username)						{ $o.EMail.Username }						else { "email@example.com" })
-			Password				= $(if ($o.EMail.Password)						{ $o.EMail.Password }						else { "Password1" })
+			From					= ?: -NotNullCheck { $o.EMail.From }						{ $o.EMail.From }							{ "email@example.com" }
+			Username				= ?: -NotNullCheck { $o.EMail.Username }					{ $o.EMail.Username }						{ "email@example.com" }
+			Password				= ?: -NotNullCheck { $o.EMail.Password }					{ $o.EMail.Password }						{ "Password1" }
 
 		}
 	}
 
-	$ProfileConfig
+	# Post Processing
+	$newProfileConfig.AdvancedPowerShellConsoleVersion.UpToDate = $newProfileConfig.AdvancedPowerShellConsoleVersion.Current -eq $newProfileConfig.AdvancedPowerShellConsoleVersion.Available
+
+	return $newProfileConfig
 }
