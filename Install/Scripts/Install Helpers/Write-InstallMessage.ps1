@@ -2,7 +2,7 @@ function Write-InstallMessage {
 	[CmdletBinding(DefaultParameterSetName="Default")]
 	param (
 		[Parameter(Mandatory=$true)]$InstallMessage,
-		[ValidateSet("Default","Success","Warning","Error")]
+		[ValidateSet("Default","Info","Success","Warning","Error")]
 		$Type = "Default",
 		[switch]$EnterNewScope
 	)
@@ -14,6 +14,9 @@ function Write-InstallMessage {
 		}
 		"Success" {
 			Write-Host -ForegroundColor Green $InstallMessage
+		}
+		"Info" {
+			Write-Host -ForegroundColor Yellow "INFO: $InstallMessage"	
 		}
 		"Warning" {
 			Write-Host -ForegroundColor Yellow "WARNING: $InstallMessage"
