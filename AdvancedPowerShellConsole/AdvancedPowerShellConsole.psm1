@@ -2,7 +2,7 @@ param($InstallPath)
 Set-StrictMode -Version Latest
 
 Import-Module (Join-Path $PSScriptRoot ProfileConfig) -ArgumentList $InstallPath
-Export-ModuleMember -Function Sync-ProfileConfig
+Export-ModuleMember -Function @("Sync-ProfileConfig", "Get-ProtectedProfileConfigSetting", "Set-ProtectedProfileConfigSetting", "Get-RootProtectedProfileConfigSettings")
 
 Get-ChildItem "$PSScriptRoot\ModuleInitialization" -Filter *.ps1 -Recurse | Sort-Object FullName | % { & $_.FullName }
 
