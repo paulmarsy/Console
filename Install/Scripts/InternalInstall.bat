@@ -3,13 +3,12 @@
 MODE CON: COLS=120 LINES=35
 TITLE Installing Console...
 
-rem CD /D %~dp0
+CD /D %~dp0
 
 SET POWERSHELLSWITCHES=-NoProfile -ExecutionPolicy RemoteSigned
 SET COMMANDLINEARGS=%*
 
 powershell.exe %POWERSHELLSWITCHES% -File .\Install.ps1 -DisplayInfo 
-
 powershell.exe %POWERSHELLSWITCHES% -File .\Install.ps1 -PreReqCheck 
 
 IF ERRORLEVEL 1 GOTO END

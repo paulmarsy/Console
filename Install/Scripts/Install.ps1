@@ -58,7 +58,7 @@ switch ($PSCmdlet.ParameterSetName)
 			if ($null -eq $WorkingDirectory) {
 				$WorkingDirectory = Split-Path -Qualifier $InstallPath
 			}
-			Start-Process -FilePath "$(Join-Path $InstallPath "Third Party\Console\ConEmu64.exe")" -ArgumentList "/cmd powershell.exe -NoExit -WorkingDirectory $WorkingDirectory"
+			Start-Process -FilePath "$(Join-Path $InstallPath "Third Party\Console\ConEmu64.exe")" -ArgumentList "/cmd powershell.exe -NoExit" -WorkingDirectory $WorkingDirectory
 		}
 	}
 }
