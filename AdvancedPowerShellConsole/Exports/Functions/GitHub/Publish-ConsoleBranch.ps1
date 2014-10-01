@@ -1,4 +1,4 @@
-function Show-ConsoleStatus {
+function Publish-ConsoleBranch {
 	[CmdletBinding()]
 	param(
 		[switch]$IncludeIgnored
@@ -6,7 +6,7 @@ function Show-ConsoleStatus {
 
     Push-Location $ProfileConfig.General.InstallPath
     try {
-		_updateGitHub | Out-Null
+    	Start-Process -FilePath "git.exe" -ArgumentList "remote update" -WindowStyle Hidden -Wait
 
 		Write-Host -ForegroundColor Cyan "Remote tracking branches..."
 		& git branch --remotes
