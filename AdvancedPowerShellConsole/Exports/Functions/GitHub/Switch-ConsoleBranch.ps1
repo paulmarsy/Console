@@ -6,18 +6,14 @@ function Switch-ConsoleBranch {
 
     Push-Location $ProfileConfig.General.InstallPath
     try {
-    	Start-Process -FilePath "git.exe" -ArgumentList "remote update" -WindowStyle Hidden -Wait
-
-		Write-Host -ForegroundColor Cyan "Remote tracking branches..."
-		& git branch --remotes
-
-		Write-Host -ForegroundColor Cyan "`nLocal branches..."
-		& git branch --list
-
-		Write-Host -ForegroundColor Cyan "`nShow uncommited changes..."
-    	$optionalArguments = @()
-    	if ($IncludeIgnored) { $optionalArguments += @("--ignored") }
-		& git status --short --branch --untracked-files=all @optionalArguments
+		$uncommitedChanges = & git status --porcelain 2>$null | Measure-Object -Line | Select-Object -ExpandProperty Lines
+		if ($uncommitedChanges -gt 0) {
+			$autoCheckin = Show-ConfirmationPrompt -Caption "You have uncommited changes in the current branch" -Message "Do you want to check them in now?"
+			if ($autoCheckin) {
+				$commitMessage = Read-Host -Prompt "Commit message"
+				Sync-Console -CommitMessage $commitMessage -DontSyncWithGitHub
+			}
+		}
     }
 	finally {
 		Pop-Location
