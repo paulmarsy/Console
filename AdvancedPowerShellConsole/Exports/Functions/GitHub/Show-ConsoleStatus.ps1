@@ -4,8 +4,8 @@ function Show-ConsoleStatus {
 		[switch]$IncludeIgnored
     )
 
-    Push-Location $ProfileConfig.General.InstallPath
-    try {
+	_enterConsoleWorkingDirectory {
+		param($IncludeIgnored)
 		_updateGitHub | Out-Null
 
 		Write-Host -ForegroundColor Cyan "Remote tracking branches..."
@@ -14,12 +14,11 @@ function Show-ConsoleStatus {
 		Write-Host -ForegroundColor Cyan "`nLocal branches..."
 		& git branch --list
 
+		Write-Host -ForegroundColor Cyan "`nBranch structure..."
+
 		Write-Host -ForegroundColor Cyan "`nShow uncommited changes..."
     	$optionalArguments = @()
     	if ($IncludeIgnored) { $optionalArguments += @("--ignored") }
 		& git status --short --branch --untracked-files=all @optionalArguments
-    }
-	finally {
-		Pop-Location
-	}
+    } $IncludeIgnored
 }

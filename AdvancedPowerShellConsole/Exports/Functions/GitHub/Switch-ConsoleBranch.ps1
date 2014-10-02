@@ -1,21 +1,27 @@
 function Switch-ConsoleBranch {
 	[CmdletBinding()]
 	param(
-		$BranchName
+		$BranchName = "master"
     )
 
-    Push-Location $ProfileConfig.General.InstallPath
-    try {
-		$uncommitedChanges = & git status --porcelain 2>$null | Measure-Object -Line | Select-Object -ExpandProperty Lines
-		if ($uncommitedChanges -gt 0) {
+	_enterConsoleWorkingDirectory {
+		param($BranchName)
+		if (_getNumberOfUncommitedChanges -gt 0) {
 			$autoCheckin = Show-ConfirmationPrompt -Caption "You have uncommited changes in the current branch" -Message "Do you want to check them in now?"
 			if ($autoCheckin) {
 				$commitMessage = Read-Host -Prompt "Commit message"
 				Sync-Console -CommitMessage $commitMessage -DontSyncWithGitHub
+			} else {
+				Write-Host -ForegroundColor Red "ERROR: Cannot switch branch while there are uncommited changes"
+				return
 			}
 		}
-    }
-	finally {
-		Pop-Location
-	}
+		if (_getNumberOfUncommitedChanges -gt 0) {
+			Write-Host -ForegroundColor Red "ERROR: There are still uncommited changes in the workspace, unable to switch branch this has been manually resolved"
+			return
+		}
+
+
+
+    } $BranchName
 }
