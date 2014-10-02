@@ -5,19 +5,23 @@ function Invoke-Ternary {
 		[Parameter(ParameterSetName="NullCheck")][switch]$NullCheck,
 		[Parameter(ParameterSetName="NotNullCheck")][switch]$NotNullCheck,
 		[Parameter(Mandatory=$true,Position=0)][scriptblock]$Predicate,
-		[Parameter(Mandatory=$true,Position=1)][scriptblock]$TrueValue,
-		[Parameter(Mandatory=$true,Position=2)][scriptblock]$FalseValue
+		[Parameter(Position=1)][scriptblock]$TrueValue,
+		[Parameter(Position=2)][scriptblock]$FalseValue
 	)
 
-	$result = & $Predicate
+	$evaluation = & $Predicate
 	if ($NullCheck -or $NotNullCheck) {
 		switch ($null -eq $result) {
-			$true { if ($NullCheck) { return (& $TrueValue) } elseif ($NotNullCheck) { return (& $FalseValue) } }
-			$false { if ($NullCheck) { return (& $FalseValue) } elseif ($NotNullCheck) { return (& $TrueValue) } }
+			$true { if ($NullCheck) { $result = $true } elseif ($NotNullCheck) { $result = $false } }
+			$false { if ($NullCheck) { $result = $false } elseif ($NotNullCheck) { $result = $true } }
 		}	
 	} else {
-		if ($true -eq $result) { return (& $TrueValue) }
-		elseif ($false -eq $result) { return (& $FalseValue) }
+		if ($true -eq $result) { $result = $true  }
+		elseif ($false -eq $result) { $result = $false }
 		else { throw "Predicate function ($($Predicate.Ast.ToString())) did not return a boolean value" }
 	}
+
+	if ($true -eq $result -and $null -ne $TrueValue) { return (& $TrueValue) }
+	elseif ($false -eq $result -and $null -ne $FalseValue) { return (& $FalseValue) }
+	else { return $null }
 }
