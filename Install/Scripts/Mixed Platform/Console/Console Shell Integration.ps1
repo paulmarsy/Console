@@ -7,8 +7,6 @@
 	$link = $_
 	Invoke-InstallStep "Configuring '$($link.Name)' Shell Integration" {
 		@("*", "Directory\Background", "Folder", "Drive") | % { 
-			# -cur_console:n + directory\background and *
-			# folder + drive = target
 			New-Item "HKCU:\Software\Classes\$_\shell\$($link.Name)" -Force | Out-Null
 			New-ItemProperty "HKCU:\Software\Classes\$_\shell\$($link.Name)" "Icon" -Value $link.Icon -Type String -Force | Out-Null
 			New-Item "HKCU:\Software\Classes\$_\shell\$($link.Name)\command" -Value $link.Command -Type String -Force | Out-Null
