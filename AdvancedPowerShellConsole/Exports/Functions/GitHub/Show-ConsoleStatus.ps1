@@ -16,6 +16,9 @@ function Show-ConsoleStatus {
 
 		Write-Host -ForegroundColor Cyan "`nBranch structure..."
 
+		$currentBranch = & git rev-parse --abbrev-ref HEAD
+		Write-Host -ForegroundColor Cyan "`nCurrently on branch $currentBranch"
+
 		Write-Host -ForegroundColor Cyan "`nShow uncommited changes..."
     	$optionalArguments = @()
     	if ($IncludeIgnored) { $optionalArguments += @("--ignored") }
