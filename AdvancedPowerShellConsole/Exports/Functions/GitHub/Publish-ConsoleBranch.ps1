@@ -11,5 +11,10 @@ function Publish-ConsoleBranch {
 		Switch-ConsoleBranch -BranchName $ParentBranchName
 
 		& git merge $ChildBranchName
+
+		& git branch -d $ChildBranchName
+
+		Sync-Console
+
 	} @($ChildBranchName, $ParentBranchNam)
 }
