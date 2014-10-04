@@ -8,7 +8,10 @@ function Show-ConsoleStatus {
 		param($IncludeIgnored)
 		_updateGitHub | Out-Null
 
-		Write-Host -ForegroundColor Cyan "Remote tracking branches..."
+		$currentBranch = & git rev-parse --abbrev-ref HEAD
+		Write-Host -ForegroundColor Magenta "Currently on branch $currentBranch"
+
+		Write-Host -ForegroundColor Cyan "`nRemote tracking branches..."
 		& git branch --remotes | Write-Host
 
 		Write-Host -ForegroundColor Cyan "`nLocal branches..."
@@ -16,12 +19,9 @@ function Show-ConsoleStatus {
 
 		Write-Host -ForegroundColor Cyan "`nBranch structure..."
 
-		$currentBranch = & git rev-parse --abbrev-ref HEAD
-		Write-Host -ForegroundColor Cyan "`nCurrently on branch $currentBranch"
-
 		Write-Host -ForegroundColor Cyan "`nShow uncommited changes..."
     	$optionalArguments = @()
     	if ($IncludeIgnored) { $optionalArguments += @("--ignored") }
 		& git status --short --branch --untracked-files=all @optionalArguments | Write-Host
-    } $IncludeIgnored
+    } $IncludeIgnored | Write-Host
 }

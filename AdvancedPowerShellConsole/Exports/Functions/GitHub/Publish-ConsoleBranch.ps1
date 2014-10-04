@@ -18,5 +18,5 @@ function Publish-ConsoleBranch {
 		& git push origin :$ChildBranchName | Write-Host
 
 		Sync-Console
-	} @($ChildBranchName, $ParentBranchName)
+	} @($ChildBranchName, $ParentBranchName) | Write-Host
 }
