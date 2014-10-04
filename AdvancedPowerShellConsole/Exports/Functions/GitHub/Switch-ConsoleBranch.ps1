@@ -25,5 +25,5 @@ function Switch-ConsoleBranch {
 
 		Write-Host -ForegroundColor Cyan "Switching to new branch..."
 		& git checkout $BranchName
-    } $@($BranchName, $CreateNew, $Force, $PsCmdlet)
+    } @($BranchName, $CreateNew, $Force, $PsCmdlet)
 }
