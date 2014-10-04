@@ -13,17 +13,17 @@ function Switch-ConsoleBranch {
 		_checkBranchForUncommitedFiles
 
 		if ($PsCmdlet.ParameterSetName -eq "NewBranch") {
-			 & git branch $NewBranchName (?: { $Force.IsPresent } { "--force" })
-			 & git push origin $NewBranchName
+			Write-Host -ForegroundColor Cyan "Creating branch $NewBranchName..."
+			& git branch $NewBranchName (?: { $Force.IsPresent } { "--force" })
+			
+			Write-Host -ForegroundColor Cyan "Publishing branch to GitHub..."
+			& git push -u origin $NewBranchName
+			Sync-Console
 
-			 Sync-Console
-
-			 $BranchName = $NewBranchName
+			$BranchName = $NewBranchName
 		}
 
 		Write-Host -ForegroundColor Cyan "Switching to new branch..."
 		& git checkout $BranchName
-
-
     } $@($BranchName, $CreateNew, $Force, $PsCmdlet)
 }
