@@ -18,6 +18,5 @@ function Merge-ConsoleBranch {
 		& git push origin :$ChildBranchName | Write-Host
 
 		Sync-Console
-
 	} @($ChildBranchName, $ParentBranchName)
 }
