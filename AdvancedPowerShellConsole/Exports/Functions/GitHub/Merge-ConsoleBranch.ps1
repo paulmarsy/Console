@@ -15,5 +15,5 @@ function Merge-ConsoleBranch {
 
 		Sync-Console
 
-	} @($ChildBranchName, $ParentBranchNam)
+	} @($ChildBranchName, $ParentBranchName)
 }
