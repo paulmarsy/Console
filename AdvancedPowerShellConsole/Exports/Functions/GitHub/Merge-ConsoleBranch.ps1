@@ -11,7 +11,7 @@ function Merge-ConsoleBranch {
 
 		Write-Host -ForegroundColor Cyan "Merging branch $ChildBranchName into $ParentBranchName..."
 		& git merge $ChildBranchName | Write-Host
-		Sync-Console -CommitMessage "Merging branch $ChildBranchName into $ParentBranchName" -PushToGitHub
+		Sync-Console -CommitMessage "Merging branch $ChildBranchName into $ParentBranchName"
 
 		Write-Host -ForegroundColor Cyan "Deleting branch $ChildBranchName..."
 		& git branch -d $ChildBranchName | Write-Host
