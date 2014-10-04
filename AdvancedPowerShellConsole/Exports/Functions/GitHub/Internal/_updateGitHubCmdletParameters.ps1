@@ -12,7 +12,7 @@ function _updateGitHubCmdletParameters {
             }
         }
 
-        updateGitHubCmdletValidateSetParameters "Merge-ConsoleBranch" @("ParentBranchName", "ChildBranchName")
+        updateGitHubCmdletValidateSetParameters "Publish-ConsoleBranch" @("ParentBranchName", "ChildBranchName")
         updateGitHubCmdletValidateSetParameters "Switch-ConsoleBranch" @("BranchName")
 	}
 }
