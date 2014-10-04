@@ -25,5 +25,5 @@ function Switch-ConsoleBranch {
 
 		Write-Host -ForegroundColor Cyan "Switching to $(?: { $CreateNewBranch.IsPresent } { "new " })branch $BranchName..."
 		& git checkout $BranchName
-    } @($BranchName, $NewBranchName, $Force, $PsCmdlet) | Out-Null
+    } @($BranchName, $NewBranchName, $Force, $PsCmdlet)
 }
