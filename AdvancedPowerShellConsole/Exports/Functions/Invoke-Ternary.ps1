@@ -11,13 +11,13 @@ function Invoke-Ternary {
 
 	$evaluation = & $Predicate
 	if ($NullCheck -or $NotNullCheck) {
-		switch ($null -eq $result) {
+		switch ($null -eq $evaluation) {
 			$true { if ($NullCheck) { $result = $true } elseif ($NotNullCheck) { $result = $false } }
 			$false { if ($NullCheck) { $result = $false } elseif ($NotNullCheck) { $result = $true } }
 		}	
 	} else {
-		if ($true -eq $result) { $result = $true  }
-		elseif ($false -eq $result) { $result = $false }
+		if ($true -eq $evaluation) { $result = $true  }
+		elseif ($false -eq $evaluation) { $result = $false }
 		else { throw "Predicate function ($($Predicate.Ast.ToString())) did not return a boolean value" }
 	}
 

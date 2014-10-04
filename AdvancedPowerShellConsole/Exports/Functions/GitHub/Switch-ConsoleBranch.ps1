@@ -18,7 +18,7 @@ function Switch-ConsoleBranch {
 			
 			Write-Host -ForegroundColor Cyan "Publishing branch to GitHub..."
 			& git push -u origin $NewBranchName
-			Sync-Console
+			#Sync-Console
 
 			$BranchName = $NewBranchName
 		}
