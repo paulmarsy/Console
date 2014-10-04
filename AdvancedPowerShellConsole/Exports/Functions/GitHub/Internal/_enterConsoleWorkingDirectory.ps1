@@ -15,7 +15,7 @@ function _enterConsoleWorkingDirectory {
     		throw "Install Path ($workingDirectory) is not a Git repository, this is a fatal error and may require reinstallation"
     	}
     	
-    	$ScriptBlock.Invoke($ArgumentList) | Out-Null
+    	$ScriptBlock.Invoke($ArgumentList) | Write-Output
     }
 	finally {
 		Pop-Location

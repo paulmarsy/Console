@@ -18,12 +18,11 @@ function Switch-ConsoleBranch {
 			
 			Write-Host -ForegroundColor Cyan "Publishing branch to GitHub..."
 			& git push -u origin $NewBranchName
-			#Sync-Console
 
 			$BranchName = $NewBranchName
 		}
 
 		Write-Host -ForegroundColor Cyan "Switching to $(?: { $CreateNewBranch.IsPresent } { "new " })branch $BranchName..."
 		& git checkout $BranchName
-    } @($BranchName, $NewBranchName, $Force, $PsCmdlet)
+    } @($BranchName, $NewBranchName, $Force, $PsCmdlet) | Write-Host
 }
