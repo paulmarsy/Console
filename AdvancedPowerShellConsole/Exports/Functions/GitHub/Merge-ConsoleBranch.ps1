@@ -14,6 +14,7 @@ function Merge-ConsoleBranch {
 
 		Write-Host -ForegroundColor Cyan "Deleting branch $ChildBranchName..."
 		& git branch -d $ChildBranchName | Write-Host
+		& git push origin :$ChildBranchName | Write-Host
 
 		Sync-Console
 
