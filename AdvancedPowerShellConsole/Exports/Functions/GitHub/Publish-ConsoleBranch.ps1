@@ -1,4 +1,4 @@
-function Merge-ConsoleBranch {
+function Publish-ConsoleBranch {
 	param(
 		[Parameter(Mandatory=$true,Position=0)][ValidateSet("master")]$ChildBranchName,
 		[Parameter(Position=1)][ValidateSet("master")]$ParentBranchName = "master"
