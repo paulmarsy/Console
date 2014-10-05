@@ -1,7 +1,7 @@
-function _updateGitHub {
+function _updateGitHubRemotes {
     _enterConsoleWorkingDirectory {
     	$outputPath = [System.IO.Path]::GetTempFileName()
-    	Start-Process -FilePath "git.exe" -ArgumentList "remote --verbose update" -WindowStyle Hidden -Wait -RedirectStandardOutput $outputPath
+    	Start-Process -FilePath "git.exe" -ArgumentList "remote --verbose update --prune" -WindowStyle Hidden -Wait -RedirectStandardOutput $outputPath
     	$output = Get-Content -Path $outputPath
     	Remove-Item -Path $outputPath
 

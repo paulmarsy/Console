@@ -7,16 +7,14 @@ function Publish-ConsoleBranch {
 	_enterConsoleWorkingDirectory {
 		param($ChildBranchName, $ParentBranchName)
 
-		Switch-ConsoleBranch -BranchName $ParentBranchName
+		Merge-ConsoleBranch -SourceBranchName $ChildBranchName -DestinationBranchName $ParentBranchName -DontSyncWithGitHub
 
-		Write-Host -ForegroundColor Cyan "Merging branch $ChildBranchName into $ParentBranchName..."
-		& git merge $ChildBranchName | Write-Host
-		& git push origin $ChildBranchName | Write-Host
+		Sync-ConsoleWithGitHub
 
 		Write-Host -ForegroundColor Cyan "Deleting branch $ChildBranchName..."
 		& git branch -d $ChildBranchName | Write-Host
-		& git push origin :$ChildBranchName | Write-Host
+		& git push origin --delete $ChildBranchName | Write-Host
 
-		Sync-Console
+		Sync-ConsoleWithGitHub
 	} @($ChildBranchName, $ParentBranchName) | Write-Host
 }

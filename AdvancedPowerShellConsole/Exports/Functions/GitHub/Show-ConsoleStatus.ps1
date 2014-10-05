@@ -6,10 +6,10 @@ function Show-ConsoleStatus {
 
 	_enterConsoleWorkingDirectory {
 		param($IncludeIgnored)
-		_updateGitHub | Out-Null
+		_updateGitHubRemotes | Out-Null
 
-		$currentBranch = & git rev-parse --abbrev-ref HEAD
-		Write-Host -ForegroundColor Magenta "Currently on branch $currentBranch"
+		Write-Host -ForegroundColor Cyan "Currently on branch:"
+		Write-Host -ForegroundColor Red "`t$(_getCurrentBranch)"
 
 		Write-Host -ForegroundColor Cyan "`nRemote tracking branches..."
 		& git branch --remotes | Write-Host
