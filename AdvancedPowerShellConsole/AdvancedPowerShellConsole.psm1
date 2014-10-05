@@ -16,7 +16,7 @@ $functions + $aliases | % { . ($_.FullName) }
 Export-ModuleMember -Function ($functions | ? { $_ -notlike $exportExclusionPattern } | % { $_.BaseName })
 Export-ModuleMember -Alias  ($aliases | ? { $_ -notlike $exportExclusionPattern } | % { $_.BaseName })
 
-Sync-Console -DontPushToGitHub -AutoUpdateAdvancedPowerShellConsole
+Sync-ConsoleWithGItHub -DontPushToGitHub -AutoUpdateAdvancedPowerShellConsole
 
 $powerShellScriptsFolder = Join-Path ([System.Environment]::GetFolderPath("MyDocuments")) "PowerShell Scripts"
 $includeFile = Join-Path $powerShellScriptsFolder "include.ps1"
