@@ -28,10 +28,11 @@ function New-ProfileConfig {
 			Server					= ?: -NotNullCheck { $o.TFS.Server }						{ $o.TFS.Server }							{ "Your TFS Server URL" }
 		}
 		EMail = @{
-			From					= ?: -NotNullCheck { $o.EMail.From }						{ $o.EMail.From }							{ "email@example.com" }
-			Username				= ?: -NotNullCheck { $o.EMail.Username }					{ $o.EMail.Username }						{ "email@example.com" }
-			Password				= ?: -NotNullCheck { $o.EMail.Password }					{ $o.EMail.Password }						{ "Password1" }
-
+			SystemAccountName		= ?: -NotNullCheck { $o.EMail.SystemAccountName }			{ $o.EMail.SystemAccountName }				{ "Default" }
+		}
+		ProtectedConfig = @{
+			CurrentUser				= ?: -NotNullCheck { $o.ProtectedConfig.CurrentUser }		{ $o.ProtectedConfig.CurrentUser }			{ $null }
+			LocalMachine			= ?: -NotNullCheck { $o.ProtectedConfig.LocalMachine }		{ $o.ProtectedConfig.LocalMachine }			{ $null }
 		}
 	}
 
