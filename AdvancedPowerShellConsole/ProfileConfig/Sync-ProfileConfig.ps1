@@ -10,7 +10,7 @@ function Sync-ProfileConfig {
 		$installPath = $ProfileConfig.General.InstallPath
 
 		Remove-Module $module -ErrorAction SilentlyContinue
-		Import-Module $module.Path -ArgumentList $installPath
+		Import-Module $module.Path -ArgumentList $installPath -Global
 
 		if (-not $Quiet) { Write-Host -ForegroundColor Green "Done." }
 	}

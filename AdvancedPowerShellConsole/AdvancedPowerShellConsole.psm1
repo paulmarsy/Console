@@ -1,8 +1,7 @@
 param($InstallPath)
 Set-StrictMode -Version Latest
 
-Import-Module (Join-Path $PSScriptRoot ProfileConfig) -ArgumentList $InstallPath
-Export-ModuleMember -Function @("Sync-ProfileConfig", "Get-ProtectedProfileConfigSetting", "Set-ProtectedProfileConfigSetting", "Get-RootProtectedProfileConfigSettings")
+Import-Module (Join-Path $PSScriptRoot ProfileConfig) -ArgumentList $InstallPath -Global
 
 $exportExclusionPattern = "_*.ps1"
 
