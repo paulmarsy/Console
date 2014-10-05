@@ -2,9 +2,9 @@ function Switch-ConsoleBranch {
 	[CmdletBinding(DefaultParameterSetName="ExistingBranch")]
 	param(
 		[Parameter(ParameterSetName="ExistingBranch", Position = 0)][ValidateSet("master")]$BranchName = "master",
-		[Parameter(ParameterSetName="NewBranch", Position = 0)]$NewBranchName,
-		[Parameter(ParameterSetName="NewBranch", Mandatory = $true)][switch]$CreateNewBranch,
-		[Parameter(ParameterSetName="NewBranch")][switch]$Force
+		[Parameter(ParameterSetName="NewBranch", Mandatory = $true, Position = 0)][ValidateSet("master")]$ParentBranchName,
+		[Parameter(ParameterSetName="NewBranch", Mandatory = $true, Position = 1)]$ChildBranchName,
+		[Parameter(ParameterSetName="NewBranch", Mandatory = $true)][switch]$CreateNewBranch
     )
 
 	_enterConsoleWorkingDirectory {
@@ -12,9 +12,17 @@ function Switch-ConsoleBranch {
 	
 		_checkBranchForUncommitedFiles
 
+		& git checkout $BranchName
+
 		if ($PsCmdlet.ParameterSetName -eq "NewBranch") {
 			Write-Host -ForegroundColor Cyan "Creating new branch $NewBranchName..."
-			& git branch $NewBranchName (?: { $Force.IsPresent } { "--force" })
+			& git push origin origin:refs/heads/$NewBranchName
+			_updateGitHubRemotes
+			
+
+
+
+			& git branch --track $NewBranchName (?: { $Force.IsPresent } { "--force" })
 			
 			Write-Host -ForegroundColor Cyan "Publishing branch to GitHub..."
 			& git push -u origin $NewBranchName
