@@ -3,7 +3,7 @@ function Switch-ConsoleBranch {
 	param(
 		[Parameter(ParameterSetName="ExistingBranch", Position = 0)][ValidateSet("master")]$BranchName = "master",
 		[Parameter(ParameterSetName="NewBranch", Mandatory = $true, Position = 0)][ValidateSet("master")]$ParentBranchName,
-		[Parameter(ParameterSetName="NewBranch", Mandatory = $true, Position = 1)]$ChildBranchName,
+		[Parameter(ParameterSetName="NewBranch", Mandatory = $true, Position = 1)]$NewBranchName,
 		[Parameter(ParameterSetName="NewBranch", Mandatory = $true)][switch]$CreateNewBranch
     )
 
@@ -12,21 +12,17 @@ function Switch-ConsoleBranch {
 	
 		_checkBranchForUncommitedFiles
 
-		& git checkout $BranchName
-
 		if ($PsCmdlet.ParameterSetName -eq "NewBranch") {
-			Write-Host -ForegroundColor Cyan "Creating new branch $NewBranchName..."
-			& git push origin origin:refs/heads/$NewBranchName
-			_updateGitHubRemotes
+			& git checkout $ParentBranchName | Write-Host
+
+			Write-Host -ForegroundColor Cyan "Creating remote branch $NewBranchName on GitHub..."
+			& git push origin origin:refs/heads/$NewBranchName | Write-Host
+			_updateGitHubRemotes | Write-Host
 			
+			Write-Host -ForegroundColor Cyan "Creating local branch $NewBranchName..."
+			& git branch --set-upstream-to=origin/$NewBranchName $NewBranchName | Write-Host
 
-
-
-			& git branch --track $NewBranchName (?: { $Force.IsPresent } { "--force" })
-			
-			Write-Host -ForegroundColor Cyan "Publishing branch to GitHub..."
-			& git push -u origin $NewBranchName
-
+			Sync-ConsoleWithGitHub
 			$BranchName = $NewBranchName
 		}
 

@@ -9,7 +9,7 @@ function Show-ConsoleStatus {
 		_updateGitHubRemotes | Out-Null
 
 		Write-Host -ForegroundColor Cyan "Currently on branch:"
-		Write-Host -ForegroundColor Red "`t$(_getCurrentLocalBranch)"
+		Write-Host -ForegroundColor Red "`t$(_getCurrentBranch)"
 
 		Write-Host -ForegroundColor Cyan "`nRemote tracking branches..."
 		& git branch --remotes | Write-Host

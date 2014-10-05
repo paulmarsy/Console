@@ -7,7 +7,7 @@ function _checkBranchForUncommitedFiles {
                 Write-Host -ForegroundColor Red "ERROR: Commit message cannot be empty"
                 return $false
             }
-            Sync-Console -CommitMessage $commitMessage -DontSyncWithGitHub
+            Sync-ConsoleWithGitHub -CommitMessage $commitMessage -DontSyncWithGitHub
             if (_getNumberOfUncommitedChanges -gt 0) {
                 Write-Host -ForegroundColor Red "ERROR: There are still uncommited changes in the workspace, please manually resolve before continuing"
                 return $false
