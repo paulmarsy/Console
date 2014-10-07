@@ -2,9 +2,6 @@ function New-ProfileConfig {
 	param($OverrideProfileConfig)
 	$o = $OverrideProfileConfig
 
-	. (Join-Path $InstallPath "AdvancedPowerShellConsole\Exports\Functions\Invoke-Ternary.ps1")
-	. (Join-Path $InstallPath "AdvancedPowerShellConsole\Exports\Aliases\U+003F`&U+003A.ps1")
-
 	$newProfileConfig = @{
 		General = @{
 			InstallPath								= $InstallPath
@@ -17,22 +14,20 @@ function New-ProfileConfig {
 			Available								= Get-Content -Path (Join-Path $InstallPath "Install\Install.Version")
 		}
 		PowerShell = @{
-			FormatEnumerationLimit	= ?: -NotNullCheck { $o.PowerShell.FormatEnumerationLimit }	{ $o.PowerShell.FormatEnumerationLimit }	{ -1 }
-			PSEmailServer			= ?: -NotNullCheck { $o.PowerShell.PSEmailServer }			{ $o.PowerShell.PSEmailServer }				{ "" }
+			FormatEnumerationLimit	= ?: { $o.PowerShell.FormatEnumerationLimit }	{ $o.PowerShell.FormatEnumerationLimit }	{ -1 } 						-NotNullCheck 
+			PSEmailServer			= ?: { $o.PowerShell.PSEmailServer }			{ $o.PowerShell.PSEmailServer }				{ "" }						-NotNullCheck 
 		}
 		Git = @{
-			Name					= ?: -NotNullCheck { $o.Git.Name }							{ $o.Git.Name }								{ "Your Name" }
-			Email					= ?: -NotNullCheck { $o.Git.Email }							{ $o.Git.Email }							{ "email@example.com" }
+			Name					= ?: { $o.Git.Name }							{ $o.Git.Name }								{ "Your Name" }				-NotNullCheck 
+			Email					= ?: { $o.Git.Email }							{ $o.Git.Email }							{ "email@example.com" }		-NotNullCheck 
 		}
 		TFS = @{
-			Server					= ?: -NotNullCheck { $o.TFS.Server }						{ $o.TFS.Server }							{ "Your TFS Server URL" }
+			Server					= ?: { $o.TFS.Server }							{ $o.TFS.Server }							{ "Your TFS Server URL" } 	-NotNullCheck 
 		}
-		EMail = @{
-			From					= ?: -NotNullCheck { $o.EMail.From }						{ $o.EMail.From }							{ "email@example.com" }
-			Username				= ?: -NotNullCheck { $o.EMail.Username }					{ $o.EMail.Username }						{ "email@example.com" }
-			Password				= ?: -NotNullCheck { $o.EMail.Password }					{ $o.EMail.Password }						{ "Password1" }
-
-		}
+		ProtectedConfig = @{
+			CurrentUser				= ?: { $o.ProtectedConfig.CurrentUser }			{ $o.ProtectedConfig.CurrentUser }			{ $null }					-NotNullCheck 
+			LocalMachine			= ?: { $o.ProtectedConfig.LocalMachine }		{ $o.ProtectedConfig.LocalMachine }			{ $null }					-NotNullCheck 
+		}  
 	}
 
 	# Post Processing

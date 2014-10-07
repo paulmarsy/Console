@@ -5,12 +5,14 @@ function Initialize-ProfileConfig {
 
     $newProfileConfig = New-ProfileConfig -OverrideProfileConfig $importedProfileConfig
 
-    Register-EngineEvent -SourceIdentifier PowerShell.Exiting -SupportEvent -Action {
-         Get-Variable -Name ProfileConfig -ValueOnly -Scope Global | Export-Clixml $ProfileConfig.General.ProfileConfigFile
+    Register-EngineEvent -SourceIdentifier ([System.Management.Automation.PsEngineEvent]::Exiting) -SupportEvent -Action {
+        $config = Get-Variable -Name ProfileConfig -ValueOnly -Scope Global
+        $config | Export-Clixml $config.General.ProfileConfigFile
     }
 
     $ExecutionContext.SessionState.Module.OnRemove = {
-        Get-Variable -Name ProfileConfig -ValueOnly -Scope Global | Export-Clixml $profileConfigFile
+        $config = Get-Variable -Name ProfileConfig -ValueOnly -Scope Global
+        $config | Export-Clixml $config.General.ProfileConfigFile
     }
 
     if (Test-Path Variable:Global:ProfileConfig) {
