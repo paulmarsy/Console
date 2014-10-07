@@ -8,7 +8,7 @@ function Switch-ConsoleBranch {
     )
 
 	_enterConsoleWorkingDirectory {
-		param($BranchName, $NewBranchName, $Force, $PsCmdlet)
+		param($BranchName, $CreateNewBranch, $ParentBranchName, $NewBranchName, $PsCmdlet)
 	
 		_checkBranchForUncommitedFiles
 
@@ -28,5 +28,5 @@ function Switch-ConsoleBranch {
 
 		Write-Host -ForegroundColor Cyan "Switching to $(?: { $CreateNewBranch.IsPresent } { "new " })branch $BranchName..."
 		& git checkout $BranchName
-    } @($BranchName, $NewBranchName, $Force, $PsCmdlet) | Write-Host
+    } @($BranchName, $CreateNewBranch, $ParentBranchName, $NewBranchName, $PsCmdlet) | Write-Host
 }
