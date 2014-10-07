@@ -1,12 +1,12 @@
 function Invoke-Ternary {
 	[CmdletBinding(DefaultParameterSetName="PredicateCheck")]
 	param(
-		[Parameter(ParameterSetName="PredicateCheck")][switch]$PredicateCheck,
-		[Parameter(ParameterSetName="NullCheck")][switch]$NullCheck,
-		[Parameter(ParameterSetName="NotNullCheck")][switch]$NotNullCheck,
 		[Parameter(Mandatory=$true,Position=0)][scriptblock]$Predicate,
 		[Parameter(Position=1)][scriptblock]$TrueValue,
-		[Parameter(Position=2)][scriptblock]$FalseValue
+		[Parameter(Position=2)][scriptblock]$FalseValue,
+		[Parameter(ParameterSetName="PredicateCheck")][switch]$PredicateCheck,
+		[Parameter(ParameterSetName="NullCheck")][switch]$NullCheck,
+		[Parameter(ParameterSetName="NotNullCheck")][switch]$NotNullCheck
 	)
 
 	$evaluation = & $Predicate
