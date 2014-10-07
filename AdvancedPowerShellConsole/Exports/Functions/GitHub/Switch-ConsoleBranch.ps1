@@ -2,9 +2,9 @@ function Switch-ConsoleBranch {
 	[CmdletBinding(DefaultParameterSetName="ExistingBranch")]
 	param(
 		[Parameter(ParameterSetName="ExistingBranch", Position = 0)][ValidateSet("master")]$BranchName = "master",
-		[Parameter(ParameterSetName="NewBranch", Mandatory = $true, Position = 0)][ValidateSet("master")]$ParentBranchName,
-		[Parameter(ParameterSetName="NewBranch", Mandatory = $true, Position = 1)]$NewBranchName,
-		[Parameter(ParameterSetName="NewBranch", Mandatory = $true)][switch]$CreateNewBranch
+		[Parameter(ParameterSetName="NewBranch", Mandatory = $true, Position = 0)][switch]$CreateNewBranch,
+		[Parameter(ParameterSetName="NewBranch", Mandatory = $true, Position = 1)][ValidateSet("master")]$ParentBranchName,
+		[Parameter(ParameterSetName="NewBranch", Mandatory = $true, Position = 2)]$NewBranchName,
     )
 
 	_enterConsoleWorkingDirectory {
