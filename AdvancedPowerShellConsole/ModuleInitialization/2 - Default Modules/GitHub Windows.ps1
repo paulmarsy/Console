@@ -4,6 +4,6 @@ Import-Module posh-git -Global
 $GitPromptSettings.EnableWindowTitle = "Windows PowerShell - Git - "
 Enable-GitColors
 Start-SshAgent -Quiet
-Register-EngineEvent -SourceIdentifier PowerShell.Exiting -SupportEvent -Action {
+Register-EngineEvent -SourceIdentifier ([System.Management.Automation.PsEngineEvent]::Exiting) -SupportEvent -Action {
     Stop-SshAgent
 }
