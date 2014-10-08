@@ -4,17 +4,19 @@ function Publish-ConsoleBranch {
 		[Parameter(Position=1)][ValidateSet("master")]$ParentBranchName = "master"
     )
 
-	_enterConsoleWorkingDirectory {
+	_workOnConsoleWorkingDirectory {
 		param($ChildBranchName, $ParentBranchName)
+
+		if ((Assert-ConsoleIsInSync -Quiet -AssertIsFatal) -eq $false) { return }
 
 		Merge-ConsoleBranch -SourceBranchName $ChildBranchName -DestinationBranchName $ParentBranchName -DontSyncWithGitHub
 
 		Sync-ConsoleWithGitHub
 
 		Write-Host -ForegroundColor Cyan "Deleting branch $ChildBranchName..."
-		& git branch -d $ChildBranchName | Write-Host
-		& git push origin --delete $ChildBranchName | Write-Host
+		_invokeGitCommand "branch -d $ChildBranchName"
+		_invokeGitCommand "push origin --delete $ChildBranchName"
 
 		Sync-ConsoleWithGitHub
-	} @($ChildBranchName, $ParentBranchName) | Write-Host
+	} @($ChildBranchName, $ParentBranchName)
 }

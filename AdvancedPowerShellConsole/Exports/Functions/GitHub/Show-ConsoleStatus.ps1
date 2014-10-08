@@ -4,24 +4,22 @@ function Show-ConsoleStatus {
 		[switch]$IncludeIgnored
     )
 
-	_enterConsoleWorkingDirectory {
+	_workOnConsoleWorkingDirectory {
 		param($IncludeIgnored)
-		_updateGitHubRemotes | Out-Null
+		_invokeGitCommand "remote --verbose update --prune" -Quiet
 
 		Write-Host -ForegroundColor Cyan "Currently on branch:"
 		Write-Host -ForegroundColor Red "`t$(_getCurrentBranch)"
 
 		Write-Host -ForegroundColor Cyan "`nRemote tracking branches..."
-		& git branch --remotes | Write-Host
+		_invokeGitCommand "branch --remotes"
 
 		Write-Host -ForegroundColor Cyan "`nLocal branches..."
-		& git branch --list | Write-Host
+		_invokeGitCommand "branch --list"
 
 		Write-Host -ForegroundColor Cyan "`nBranch structure..."
 
 		Write-Host -ForegroundColor Cyan "`nShow uncommited changes..."
-    	$optionalArguments = @()
-    	if ($IncludeIgnored) { $optionalArguments += @("--ignored") }
-		& git status --short --branch --untracked-files=all @optionalArguments | Write-Host
-    } $IncludeIgnored | Write-Host
+		_invokeGitCommand "status --short --branch --untracked-files=all $(?: { $IncludeIgnored } { "--ignored" })"
+    } $IncludeIgnored
 }

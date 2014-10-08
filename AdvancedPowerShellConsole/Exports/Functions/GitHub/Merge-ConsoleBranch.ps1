@@ -5,8 +5,10 @@ function Merge-ConsoleBranch {
 		[switch]$DontSyncWithGitHub
     )
 
-	_enterConsoleWorkingDirectory {
+	_workOnConsoleWorkingDirectory {
 		param($SourceBranchName, $DestinationBranchName)
+
+		if ((Assert-ConsoleIsInSync -Quiet -AssertIsFatal) -eq $false) { return }
 
 		$currentBranch = _getCurrentBranch
 		if ($null -ne $DestinationBranchName -or $currentBranch -ne $DestinationBranchName) {
@@ -14,7 +16,7 @@ function Merge-ConsoleBranch {
 		}
 
 		Write-Host -ForegroundColor Cyan "Merging branch $SourceBranchName into $DestinationBranchName..."
-		& git merge --verbose $SourceBranchName | Write-Host
+		_invokeGitCommand "merge --verbose $SourceBranchName"
 
 		if (-not $DontSyncWithGitHub) {
 			Sync-ConsoleWithGitHub
@@ -23,5 +25,5 @@ function Merge-ConsoleBranch {
 		if ($currentBranch -ne $DestinationBranchName) {
 			Switch-ConsoleBranch -BranchName $currentBranch
 		}
-	} @($SourceBranchName, $DestinationBranchName) | Write-Host
+	} @($SourceBranchName, $DestinationBranchName)
 }

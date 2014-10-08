@@ -23,7 +23,9 @@ $aliases = Get-ChildItem (Join-Path $PSScriptRoot "Exports\Aliases") -Filter *.p
 
 $functions + $aliases | % { . $_.FullName }
 
-Sync-ConsoleWithGitHub -DontPushToGitHub -UpdateConsole Auto
+if (Assert-ConsoleIsInSync) {
+	Sync-ConsoleWithGitHub -DontPushToGitHub -UpdateConsole Auto
+}
 
 $exportExclusionPattern = "_*.ps1"
 

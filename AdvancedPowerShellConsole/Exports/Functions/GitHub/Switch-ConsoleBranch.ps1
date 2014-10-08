@@ -7,26 +7,26 @@ function Switch-ConsoleBranch {
 		[Parameter(ParameterSetName="NewBranch", Mandatory = $true, Position = 2)]$NewBranchName
     )
 
-	_enterConsoleWorkingDirectory {
+	_workOnConsoleWorkingDirectory {
 		param($BranchName, $CreateNewBranch, $ParentBranchName, $NewBranchName, $PsCmdlet)
 	
-		_checkBranchForUncommitedFiles
+		if ((Assert-ConsoleIsInSync -Quiet -AssertIsFatal) -eq $false) { return }
 
 		if ($PsCmdlet.ParameterSetName -eq "NewBranch") {
-			& git checkout $ParentBranchName | Write-Host
+			_invokeGitCommand "checkout $ParentBranchName"
 
 			Write-Host -ForegroundColor Cyan "Creating remote branch $NewBranchName on GitHub..."
-			& git push origin origin:refs/heads/$NewBranchName | Write-Host
-			_updateGitHubRemotes | Write-Host
+			_invokeGitCommand "push origin origin:refs/heads/$NewBranchName"
+			_invokeGitCommand "remote --verbose update --prune" -Quiet
 			
 			Write-Host -ForegroundColor Cyan "Creating local branch $NewBranchName..."
-			& git branch --set-upstream-to=origin/$NewBranchName $NewBranchName | Write-Host
+			_invokeGitCommand "branch --set-upstream-to=origin/$NewBranchName $NewBranchName"
 
 			Sync-ConsoleWithGitHub
 			$BranchName = $NewBranchName
 		}
 
 		Write-Host -ForegroundColor Cyan "Switching to $(?: { $CreateNewBranch.IsPresent } { "new " })branch $BranchName..."
-		& git checkout $BranchName
-    } @($BranchName, $CreateNewBranch, $ParentBranchName, $NewBranchName, $PsCmdlet) | Write-Host
+		_invokeGitCommand "checkout $BranchName"
+    } @($BranchName, $CreateNewBranch, $ParentBranchName, $NewBranchName, $PsCmdlet)
 }
