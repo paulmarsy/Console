@@ -19,6 +19,6 @@ function Save-ConsoleChanges {
     	Write-Host -ForegroundColor Cyan "Commiting local Console Git changes..."
 
 		_invokeGitCommand "add -A"
-		_invokeGitCommand "commit -a -m $CommitMessage"
+		_invokeGitCommand "commit -a -m ""$CommitMessage"""
 	} $CommitMessage
 }
