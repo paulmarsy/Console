@@ -20,7 +20,7 @@ function Switch-ConsoleBranch {
 			_invokeGitCommand "remote --verbose update --prune" -Quiet
 			
 			Write-Host -ForegroundColor Cyan "Creating local branch $NewBranchName..."
-			_invokeGitCommand "branch --set-upstream-to=origin/$NewBranchName $NewBranchName"
+			_invokeGitCommand "branch $NewBranchName origin/$NewBranchName"
 
 			Sync-ConsoleWithGitHub
 			$BranchName = $NewBranchName
