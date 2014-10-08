@@ -3,14 +3,15 @@ function Switch-ConsoleBranch {
 	param(
 		[Parameter(ParameterSetName="ExistingBranch", Position = 0)][ValidateSet("master")]$BranchName = "master",
 		[Parameter(ParameterSetName="NewBranch", Mandatory = $true, Position = 0)][switch]$CreateNewBranch,
-		[Parameter(ParameterSetName="NewBranch", Mandatory = $true, Position = 1)][ValidateSet("master")]$ParentBranchName,
-		[Parameter(ParameterSetName="NewBranch", Mandatory = $true, Position = 2)]$NewBranchName
+		[Parameter(ParameterSetName="NewBranch", Mandatory = $true, Position = 1)]$NewBranchName,
+		[Parameter(ParameterSetName="NewBranch", Position = 2)][ValidateSet("master")]$ParentBranchName = "master",
+		$ScriptBlock
     )
 
 	_workOnConsoleWorkingDirectory {
 		param($BranchName, $CreateNewBranch, $ParentBranchName, $NewBranchName, $PsCmdlet)
 	
-		if ((Assert-ConsoleIsInSync -Quiet -AssertIsFatal) -eq $false) { return }
+		$currentBranch = _getCurrentBranch
 
 		if ($PsCmdlet.ParameterSetName -eq "NewBranch") {
 			_invokeGitCommand "checkout $ParentBranchName"
@@ -20,7 +21,7 @@ function Switch-ConsoleBranch {
 			_invokeGitCommand "remote --verbose update --prune" -Quiet
 			
 			Write-Host -ForegroundColor Cyan "Creating local branch $NewBranchName..."
-			_invokeGitCommand "branch --set-upstream-to=origin/$NewBranchName $NewBranchName"
+			_invokeGitCommand "branch $NewBranchName origin/$NewBranchName"
 
 			Sync-ConsoleWithGitHub
 			$BranchName = $NewBranchName
@@ -28,5 +29,12 @@ function Switch-ConsoleBranch {
 
 		Write-Host -ForegroundColor Cyan "Switching to $(?: { $CreateNewBranch.IsPresent } { "new " })branch $BranchName..."
 		_invokeGitCommand "checkout $BranchName"
+
+		if ($ScriptBlock) {
+			$ScriptBlock.Invoke()
+			if ($currentBranch -ne $BranchName) {
+				_invokeGitCommand "checkout $currentBranch"
+			}
+		}
     } @($BranchName, $CreateNewBranch, $ParentBranchName, $NewBranchName, $PsCmdlet)
 }

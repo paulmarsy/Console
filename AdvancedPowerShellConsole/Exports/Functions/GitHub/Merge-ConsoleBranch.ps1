@@ -1,7 +1,7 @@
 function Merge-ConsoleBranch {
 	param(
 		[Parameter(Mandatory=$true, Position=0)][ValidateSet("master")]$SourceBranchName,
-		[Parameter(Position=1)][ValidateSet("master")]$DestinationBranchName,
+		[Parameter(Mandatory=$true, Position=1)][ValidateSet("master")]$DestinationBranchName,
 		[switch]$DontSyncWithGitHub
     )
 
@@ -11,7 +11,7 @@ function Merge-ConsoleBranch {
 		if ((Assert-ConsoleIsInSync -Quiet -AssertIsFatal) -eq $false) { return }
 
 		$currentBranch = _getCurrentBranch
-		if ($null -ne $DestinationBranchName -or $currentBranch -ne $DestinationBranchName) {
+		if ($currentBranch -ne $DestinationBranchName) {
 			Switch-ConsoleBranch -BranchName $DestinationBranchName
 		}
 
