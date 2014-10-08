@@ -10,8 +10,8 @@ function New-ProfileConfig {
 			PowerShellScriptsFolder					= (Join-Path ([System.Environment]::GetFolderPath("MyDocuments")) "PowerShell Scripts")
 		}
 		AdvancedPowerShellConsoleVersion = @{
-			Current									= Get-Content -Path $PROFILE.CurrentUserAllHosts | Select-Object -Index 1
-			Available								= Get-Content -Path (Join-Path $InstallPath "Install\Install.Version")
+			Current									= Get-Content -Path (Join-Path (Split-Path $PROFILE.CurrentUserAllHosts -Parent) "Version.txt")
+			Available								= Get-Content -Path (Join-Path $InstallPath "Install\Version.txt")
 		}
 		PowerShell = @{
 			FormatEnumerationLimit	= ?: { $o.PowerShell.FormatEnumerationLimit }	{ $o.PowerShell.FormatEnumerationLimit }	{ -1 } 						-NotNullCheck 
