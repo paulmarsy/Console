@@ -13,7 +13,6 @@ function _invokeGitCommand {
 	}
 	if ($Quiet) { $arguments += @{"WindowStyle" = "Hidden"} }
 	else { $arguments += @{"NoNewWindow" = $true } }
-	$global:t = $arguments
     $gitProcess = Start-Process @arguments
     if ($gitProcess.ExitCode -ne 0) {
     	throw "Git command returned exit code: $LASTEXITCODE"
