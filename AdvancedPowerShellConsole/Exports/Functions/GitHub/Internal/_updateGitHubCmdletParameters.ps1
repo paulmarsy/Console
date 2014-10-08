@@ -1,8 +1,9 @@
 function _updateGitHubCmdletParameters {
-    _enterConsoleWorkingDirectory {
+    _workOnConsoleWorkingDirectory {
         # Update the cmdlet's ValidateSet's with local branches
         $localBranchNames =  & git branch | % { $_.Remove(0, 2) }
         if ($LASTEXITCODE -ne 0) { throw "Git command returned exit code: $LASTEXITCODE" }
+        
         function updateGitHubCmdletValidateSetParameters {
             param($CmdletName, $Parameters)
 

@@ -25,6 +25,8 @@ $functions + $aliases | % { . $_.FullName }
 
 if (Assert-ConsoleIsInSync) {
 	Sync-ConsoleWithGitHub -DontPushToGitHub -UpdateConsole Auto
+} else {
+	_updateGitHubCmdletParameters
 }
 
 $exportExclusionPattern = "_*.ps1"
