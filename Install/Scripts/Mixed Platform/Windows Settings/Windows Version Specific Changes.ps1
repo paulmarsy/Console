@@ -14,9 +14,11 @@ if ($windowsVersion.Major -eq 6) {
 if ($null -eq $windowsChangeSet) {
 	Write-InstallMessage -Type Info "No version specific for your operating system ($([System.Environment]::OSVersion.VersionString))"
 } else {
-	Invoke-InstallStep "Installing Windows changes for $windowsChangeSet" { 
-		Get-ChildItem -Path "$(Join-Path "Windows Settings\Version Specific Changes" $windowsChangeSet)" -Filter *.ps1 | Sort-Object Name | % { & $_.FullName }
-	}
+	Write-InstallMessage -EnterNewScope "Installing Windows changes for $windowsChangeSet"
+	
+	Get-ChildItem -Path "$(Join-Path "Windows Settings\Version Specific Changes" $windowsChangeSet)" -Filter *.ps1 | Sort-Object Name | % { & $_.FullName }
+	
+	Exit-Scope
 }
 
 Exit-Scope
