@@ -9,30 +9,13 @@ function Remove-ConsoleBranch {
     	return
     }
 
-	# _workOnConsoleWorkingDirectory {
-	# 	param($BranchName, $Force)
+	_workOnConsoleWorkingDirectory {
+		param($BranchName)
 	
-	# 	_invokeGitCommand "branch -D $ChildBranchName"
-
-	# 	Sync-ConsoleWithGitHub
-		
-	# 	if ((Assert-ConsoleIsInSync -Quiet -AssertIsFatal) -eq $false) { return }
-
-	# 	if ($PsCmdlet.ParameterSetName -eq "NewBranch") {
-	# 		_invokeGitCommand "checkout $ParentBranchName"
-
-	# 		Write-Host -ForegroundColor Cyan "Creating remote branch $NewBranchName on GitHub..."
-	# 		_invokeGitCommand "push origin origin:refs/heads/$NewBranchName"
-	# 		_invokeGitCommand "remote --verbose update --prune" -Quiet
-			
-	# 		Write-Host -ForegroundColor Cyan "Creating local branch $NewBranchName..."
-	# 		_invokeGitCommand "branch --set-upstream-to=origin/$NewBranchName $NewBranchName"
-
-	# 		Sync-ConsoleWithGitHub
-	# 		$BranchName = $NewBranchName
-	# 	}
-
-	# 	Write-Host -ForegroundColor Cyan "Switching to $(?: { $CreateNewBranch.IsPresent } { "new " })branch $BranchName..."
-	# 	_invokeGitCommand "checkout $BranchName"
- #    } @($BranchName, $Force)
+		Write-Host -ForegroundColor Cyan "Removing branch $BranchName..."
+		_invokeGitCommand "branch -D $BranchName"
+		_invokeGitCommand "push origin --delete $BranchName"
+		_invokeGitCommand "remote update --prune" -Quiet
+		_updateGitHubCmdletParameters
+    } @($BranchName)
 }
