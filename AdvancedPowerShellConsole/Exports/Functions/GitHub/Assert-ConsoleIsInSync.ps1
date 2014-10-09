@@ -15,5 +15,5 @@ function Assert-ConsoleIsInSync {
     		if ($AssertIsFatal) { Write-Host -ForegroundColor Red "Unable to continue, use Save-ConsoleChanges to commit the changes and retry"}
     		return $false
     	}
-    } @($Quiet, $AssertIsFatal)
+    } @($Quiet, $AssertIsFatal) -ReturnValue
 }
