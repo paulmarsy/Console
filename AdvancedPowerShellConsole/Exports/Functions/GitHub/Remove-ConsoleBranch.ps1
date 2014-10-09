@@ -4,6 +4,11 @@ function Remove-ConsoleBranch {
 		[switch]$Force
     )
 
+    if (-not $Force) {
+		Write-Host -ForegroundColor Red "ERROR: To delete a branch you must specify the -Force flag for confirmartion"
+		return
+    }
+
     if ($BranchName -eq "master") {
     	Write-Host -ForegroundColor Red "ERROR: You can't delete the master branch!"
     	return
