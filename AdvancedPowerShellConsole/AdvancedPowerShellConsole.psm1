@@ -37,3 +37,12 @@ Export-ModuleMember -Alias  ($aliases | ? { $_ -notlike $exportExclusionPattern 
 . (Join-Path $PSScriptRoot "Import Custom PowerShell Scripts.ps1") -ExportExclusionPattern $exportExclusionPattern
 
 Write-Host -ForegroundColor Green "Advanced PowerShell Console Module successfully loaded"
+
+$advancedPowerShellConsoleStartUpMessage = [System.Environment]::GetEnvironmentVariable("AdvancedPowerShellConsoleStartUpMessage", [System.EnvironmentVariableTarget]::Process)
+if (-not [string]::IsNullOrWhiteSpace($advancedPowerShellConsoleRestartMessage)) {
+	$verticalLine = 1..10 | % { "*" } | Join-String
+	$horizontalLine = [string]::Concat((1..($verticalLine.Length * 2 + 2 + $Message.Length) | % { "*" }))
+	$formattedMessage = "$horizontalLine`n$verticalLine $Message $verticalLine`n$horizontalLine"
+
+	Write-Host -ForegroundColor Red $formattedMessage
+}
