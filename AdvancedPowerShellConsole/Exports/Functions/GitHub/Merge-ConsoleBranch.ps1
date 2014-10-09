@@ -16,6 +16,7 @@ function Merge-ConsoleBranch {
 		}
 
 		Write-Host -ForegroundColor Cyan "Merging branch $SourceBranchName into $DestinationBranchName..."
+		_invokeGitCommand "merge --verbose origin/$SourceBranchName"
 		_invokeGitCommand "merge --verbose $SourceBranchName"
 
 		if (-not $DontSyncWithGitHub) {
