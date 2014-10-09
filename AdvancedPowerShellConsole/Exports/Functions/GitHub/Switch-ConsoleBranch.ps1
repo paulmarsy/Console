@@ -9,11 +9,11 @@ function Switch-ConsoleBranch {
     )
 
 	_workOnConsoleWorkingDirectory {
-		param($BranchName, $CreateNewBranch, $ParentBranchName, $NewBranchName, $PsCmdlet)
+		param($BranchName, $CreateNewBranch, $ParentBranchName, $NewBranchName)
 	
 		$currentBranch = _getCurrentBranch
 
-		if ($PsCmdlet.ParameterSetName -eq "NewBranch") {
+		if ($CreateNewBranch) {
 			_invokeGitCommand "checkout $ParentBranchName"
 
 			Write-Host -ForegroundColor Cyan "Creating remote branch $NewBranchName on GitHub..."
@@ -27,7 +27,7 @@ function Switch-ConsoleBranch {
 			$BranchName = $NewBranchName
 		}
 
-		Write-Host -ForegroundColor Cyan "Switching to $(?: { $CreateNewBranch.IsPresent } { "new " })branch $BranchName..."
+		Write-Host -ForegroundColor Cyan "Switching to $(?: { $CreateNewBranch } { "new " })branch $BranchName..."
 		_invokeGitCommand "checkout $BranchName"
 
 		if ($ScriptBlock) {
@@ -36,5 +36,5 @@ function Switch-ConsoleBranch {
 				_invokeGitCommand "checkout $currentBranch"
 			}
 		}
-    } @($BranchName, $CreateNewBranch, $ParentBranchName, $NewBranchName, $PsCmdlet)
+    } @($BranchName, $CreateNewBranch, $ParentBranchName, $NewBranchName)
 }

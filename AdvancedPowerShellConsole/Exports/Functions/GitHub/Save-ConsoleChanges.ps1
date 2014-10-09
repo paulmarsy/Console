@@ -1,6 +1,6 @@
 function Save-ConsoleChanges {
 	param(
-		$CommitMessage
+		[Parameter(ValueFromRemainingArguments=$true)]$CommitMessage
     )
 
 	_workOnConsoleWorkingDirectory {
