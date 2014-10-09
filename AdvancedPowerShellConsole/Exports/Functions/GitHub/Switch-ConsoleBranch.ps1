@@ -26,7 +26,7 @@ function Switch-ConsoleBranch {
 			$BranchName = $NewBranchName
 		}
 
-		Write-Host -ForegroundColor Cyan "Switching to $(?: { $CreateNewBranch } { "new " })branch $BranchName..."
+		Write-Host -ForegroundColor Cyan "Switching to $(?: { $CreateNewBranch } { "new " } -NotNullCheck)branch $BranchName..."
 		_invokeGitCommand "checkout $BranchName"
     } @($BranchName, $CreateNewBranch, $ParentBranchName, $NewBranchName)
 }
