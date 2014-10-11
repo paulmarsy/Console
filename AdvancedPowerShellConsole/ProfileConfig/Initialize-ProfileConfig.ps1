@@ -11,7 +11,7 @@ function Initialize-ProfileConfig {
     }
 
     $ExecutionContext.SessionState.Module.OnRemove = {
-        Unregister-Event -SubscriptionId $eventJob.Id
+        $eventJob | Stop-Job -PassThru | Remove-Job
 
         $config = Get-Variable -Name ProfileConfig -ValueOnly -Scope Global
         $config | Export-Clixml $config.General.ProfileConfigFile
