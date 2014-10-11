@@ -15,4 +15,6 @@ $advancedPowerShellConsolePath = [System.Environment]::GetEnvironmentVariable("A
 if (-not [string]::IsNullOrWhiteSpace($advancedPowerShellConsolePath)) {
     Set-Location -Path $advancedPowerShellConsolePath
     [System.Environment]::SetEnvironmentVariable("AdvancedPowerShellConsolePath", $null, [System.EnvironmentVariableTarget]::Process)
+} else {
+	Set-Location -Path (Join-Path $env:SystemDrive "\")
 }
