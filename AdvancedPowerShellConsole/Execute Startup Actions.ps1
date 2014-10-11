@@ -4,7 +4,9 @@ if (-not [string]::IsNullOrWhiteSpace($advancedPowerShellConsoleStartUpMessage))
     $horizontalLine = [string]::Concat((1..($verticalLine.Length * 2 + 2 + $advancedPowerShellConsoleStartUpMessage.Length) | % { "*" }))
     $formattedMessage = "$horizontalLine`n$verticalLine $advancedPowerShellConsoleStartUpMessage $verticalLine`n$horizontalLine"
 
+    Write-Host
     Write-Host -ForegroundColor Red $formattedMessage
+	Write-Host
 
     [System.Environment]::SetEnvironmentVariable("AdvancedPowerShellConsoleStartUpMessage", $null, [System.EnvironmentVariableTarget]::Process)
 }
