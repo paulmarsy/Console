@@ -2,7 +2,8 @@ function Convert-DataSizeToHumanReadbleFormat {
 	param(
 		[long]$Size,
 		[ValidateSet("Bits", "Bytes")]$Type = "Bytes",
-		[ValidateRange(0,15)]$Precision = "2"
+		[ValidateRange(0,15)]$Precision = "2",
+		[ValidateSet("N/A", "PerSecond", "PerMinute", "PerHour")]$Rate = "N/A"
 	)
 
 	$suffixes = @("b", "kb", "mb", "gb", "tb", "pb", "eb") | % { 
@@ -10,6 +11,21 @@ function Convert-DataSizeToHumanReadbleFormat {
 		switch ($Type) {
 			"Bits" { [System.Globalization.CultureInfo]::CurrentCulture.TextInfo.ToTitleCase($suffix) }
 			"Bytes" { $suffix.ToUpper() }
+		}
+	}
+
+	if ($Rate -ne "N/A") {
+		$suffixes = $suffixes | % {
+			$suffix = $_
+			if ($Type -eq "Bits") {
+				$suffix += "it"
+			}
+			switch ($Rate) {
+				"PerSecond" { $suffix += "/s" }
+				"PerMinute" { $suffix += "/m" }
+				"PerHour" { $suffix += "/h" }
+			}
+			return $suffix
 		}
 	}
 
