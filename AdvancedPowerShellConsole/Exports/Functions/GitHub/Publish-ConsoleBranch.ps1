@@ -11,7 +11,7 @@ function Publish-ConsoleBranch {
 
 		Merge-ConsoleBranch -SourceBranchName $ChildBranchName -DestinationBranchName $ParentBranchName
 
-		Switch-ConsolBranch -BranchName $ParentBranchName
+		Switch-ConsoleBranch -BranchName $ParentBranchName
 
 		Write-Host -ForegroundColor Cyan "Deleting branch $ChildBranchName..."
 		_invokeGitCommand "branch -d $ChildBranchName"
