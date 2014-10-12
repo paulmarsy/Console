@@ -1,6 +1,6 @@
 param($ExportExclusionPattern)
 
-$includeFile = $ProfileConfig.General.ProfileHookFile
+$includeFile = Join-Path $ProfileConfig.General.PowerShellScriptsFolder "include.ps1"
 if ((Test-Path $includeFile) -and -not ([String]::IsNullOrWhiteSpace([IO.File]::ReadAllText($includeFile)))) {
 	Write-Host
 

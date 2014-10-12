@@ -20,7 +20,7 @@ UpdateGit --global
 As $env:HOME has been set to D:\Dropbox\
 #>
 
-$gitFileLocation = Join-Path $ProfileFolder.General.ProfileFolder "gitconfig"
+$gitFileLocation = Join-Path $ProfileConfig.General.ProfileFolder "gitconfig"
 if (-not (Test-Path $gitFileLocation)) {
     New-Item $gitFileLocation -Type File -Force | Out-Null
 } 
