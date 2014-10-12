@@ -6,7 +6,7 @@ function UpdateGit {
     & git config $config user.email $ProfileConfig.Git.Email
     & git config $config core.ignorecase $True
     & git config $config core.autocrlf $True 
-    & git config $config core.editor "'$(Join-Path $InstallPath "Sublime Text\sublime_text.exe")' -w"
+    & git config $config core.editor "'$(Join-Path $InstallPath "Third Party\Sublime Text\sublime_text.exe")' -w"
     & git config $config diff.renames $True
     & git config $config diff.tool bc4
     & git config $config merge.tool bc3
@@ -20,5 +20,9 @@ UpdateGit --global
 As $env:HOME has been set to D:\Dropbox\
 #>
 
-UpdateGit --system
-UpdateGit --file "$env:USERPROFILE\.gitconfig"
+$gitFileLocation = Join-Path $ProfileFolder.General.ProfileFolder "gitconfig"
+if (-not (Test-Path $gitFileLocation)) {
+    New-Item $gitFileLocation -Type File -Force | Out-Null
+} 
+
+UpdateGit --file "$gitFileLocation"

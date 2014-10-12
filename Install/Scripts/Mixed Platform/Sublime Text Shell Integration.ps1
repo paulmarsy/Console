@@ -18,3 +18,14 @@ Invoke-InstallStep "Configuring Sublime Text Shell Integration" {
 	New-Item "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Notepad.exe" -Force | Out-Null
 	New-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Notepad.exe" "Debugger" -Value """$sublimeLauncher"" -z" -Type String -Force | Out-Null
 }
+
+Invoke-InstallStep "Setting up Sublime Text Start Shortcut" {
+	$sublimeTextExecutable = Join-Path $InstallPath "Third Party\Sublime Text\sublime_text.exe"
+
+	$WshShell = New-Object -ComObject WScript.Shell
+	$consoleShortcut = $WshShell.CreateShortcut((Join-Path ([Environment]::GetFolderPath("StartMenu")) "Sublime Text.lnk"))
+	$consoleShortcut.TargetPath = $sublimeTextExecutable
+	$consoleShortcut.IconLocation = $sublimeTextExecutable
+	$consoleShortcut.Save()
+	[System.Runtime.Interopservices.Marshal]::ReleaseComObject($WshShell) | Out-Null
+}

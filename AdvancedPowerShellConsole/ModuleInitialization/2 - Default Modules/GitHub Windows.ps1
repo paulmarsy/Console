@@ -9,5 +9,5 @@ $eventJob = Register-EngineEvent -SourceIdentifier ([System.Management.Automatio
     Stop-SshAgent
 }
 $ExecutionContext.SessionState.Module.OnRemove = {
-	Unregister-Event -SubscriptionId $eventJob.Id
+	$eventJob | Stop-Job -PassThru | Remove-Job
 }.GetNewClosure()

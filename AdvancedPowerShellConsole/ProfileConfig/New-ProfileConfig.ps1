@@ -5,9 +5,11 @@ function New-ProfileConfig {
 	$newProfileConfig = @{
 		General = @{
 			InstallPath								= $InstallPath
-			PowerShellProfileHookFile				= $PROFILE.CurrentUserAllHosts
-			ProfileConfigFile						= $profileConfigFile
+			ProfileFolder							= (Split-Path $PROFILE.CurrentUserAllHosts -Parent)
+			ProfileHookFile							= $PROFILE.CurrentUserAllHosts
+			ProfileConfigFile						= $ProfileConfigFile
 			PowerShellScriptsFolder					= (Join-Path ([System.Environment]::GetFolderPath("MyDocuments")) "PowerShell Scripts")
+			PowerShellScratchpadFolder				= (Join-Path ([System.Environment]::GetFolderPath("MyDocuments")) "PowerShell Scratchpad")
 		}
 		AdvancedPowerShellConsoleVersion = @{
 			Current									= Get-Content -Path (Join-Path (Split-Path $PROFILE.CurrentUserAllHosts -Parent) "Version.txt")
