@@ -9,9 +9,9 @@ function Publish-ConsoleBranch {
 
 		if ((Assert-ConsoleIsInSync -Quiet -AssertIsFatal) -eq $false) { return }
 
-		Merge-ConsoleBranch -SourceBranchName $ChildBranchName -DestinationBranchName $ParentBranchName -DontSyncWithGitHub
+		Merge-ConsoleBranch -SourceBranchName $ChildBranchName -DestinationBranchName $ParentBranchName
 
-		Sync-ConsoleWithGitHub
+		Switch-ConsolBranch -BranchName $ParentBranchName
 
 		Write-Host -ForegroundColor Cyan "Deleting branch $ChildBranchName..."
 		_invokeGitCommand "branch -d $ChildBranchName"
