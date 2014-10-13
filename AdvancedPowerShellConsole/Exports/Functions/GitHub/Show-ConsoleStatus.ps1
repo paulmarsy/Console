@@ -1,7 +1,7 @@
 function Show-ConsoleStatus {
 	[CmdletBinding()]
 	param(
-		[switch]$Detailed.
+		[switch]$Detailed,
 		[switch]$IncludeIgnored
     )
 
