@@ -8,8 +8,6 @@ function Sync-ConsoleWithGitHub {
 	$reloadNeeded = $false
 	try {
 		_workOnConsoleWorkingDirectory {
-			param($DontPullFromGitHub, $DontPushToGitHub, [ref]$reloadNeeded)
-
 			Write-Host -ForegroundColor Cyan "Updating Git remotes from GitHub..."
 			_invokeGitCommand "remote --verbose update --prune"
 
@@ -18,6 +16,10 @@ function Sync-ConsoleWithGitHub {
 	   		$currentBranch = _getCurrentBranch
 
 	   		# Create local branch of remote tracking branches if they dont exist
+	   		# Remove local branch if its been deleted from remote
+	   		# Go over each local branch and merge from origin/? to branch, then merge otherway then push?
+
+
 			$local = & git --% rev-parse @
 			$remote = & git --% rev-parse @{u}
 			$base = & git --% merge-base @ @{u}
@@ -28,14 +30,14 @@ function Sync-ConsoleWithGitHub {
 				if ($remote -ne $base -and -not $DontPullFromGitHub) {
 					Write-Host -ForegroundColor Cyan "Pulling Console changes from GitHub into Local Git repo..."
 					_invokeGitCommand "pull --rebase origin"
-					$reloadNeeded.Value = $true
+					$reloadNeeded = $true
 				}
 				if ($local -ne $base -and -not $DontPushToGitHub) {
 					Write-Host -ForegroundColor Cyan "Pushing Console changes from Local Git repo into GitHub..."
 					_invokeGitCommand "push origin"
 				}
 			}
-	    } @($DontPullFromGitHub, $DontPushToGitHub, [ref]$reloadNeeded)
+	    }
 	}
 	finally {
 		_updateGitHubCmdletParameters

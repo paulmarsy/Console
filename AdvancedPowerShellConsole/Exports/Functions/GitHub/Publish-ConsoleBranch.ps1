@@ -5,8 +5,6 @@ function Publish-ConsoleBranch {
     )
 
 	_workOnConsoleWorkingDirectory {
-		param($ChildBranchName, $ParentBranchName)
-
 		if ((Assert-ConsoleIsInSync -Quiet -AssertIsFatal) -eq $false) { return }
 
 		Merge-ConsoleBranch -SourceBranchName $ChildBranchName -DestinationBranchName $ParentBranchName
@@ -18,5 +16,5 @@ function Publish-ConsoleBranch {
 		_invokeGitCommand "push origin --delete $ChildBranchName"
 
 		Sync-ConsoleWithGitHub
-	} @($ChildBranchName, $ParentBranchName)
+	}
 }

@@ -1,7 +1,6 @@
 function _workOnConsoleWorkingDirectory {
 	param(
 		[Parameter(Mandatory=$true, Position = 0)][scriptblock]$ScriptBlock,
-        [Parameter(Position = 1)]$ArgumentList = $null,
         [switch]$ReturnValue
     )
 
@@ -20,7 +19,7 @@ function _workOnConsoleWorkingDirectory {
     		throw "Install Path ($workingDirectory) is not a Git repository, this is a fatal error and may require reinstallation"
     	}
 
-    	$ScriptBlock.Invoke($ArgumentList) | ? { $ReturnValue } | Write-Output
+    	$ScriptBlock.Invoke() | ? { $ReturnValue } | Write-Output
     }
 	finally {
         if ($directoryChanged) {

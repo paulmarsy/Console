@@ -6,8 +6,6 @@ function Merge-ConsoleBranch {
     )
 
 	_workOnConsoleWorkingDirectory {
-		param($SourceBranchName, $DestinationBranchName)
-
 		if ((Assert-ConsoleIsInSync -Quiet -AssertIsFatal) -eq $false) { return }
 
 		$currentBranch = _getCurrentBranch
@@ -26,5 +24,5 @@ function Merge-ConsoleBranch {
 		if ($currentBranch -ne $DestinationBranchName) {
 			Switch-ConsoleBranch -BranchName $currentBranch
 		}
-	} @($SourceBranchName, $DestinationBranchName)
+	}
 }

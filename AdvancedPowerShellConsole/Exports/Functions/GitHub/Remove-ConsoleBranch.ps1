@@ -15,8 +15,6 @@ function Remove-ConsoleBranch {
     }
 
 	_workOnConsoleWorkingDirectory {
-		param($BranchName)
-
 		if ($BranchName -eq (_getCurrentBranch)) {
 			Write-Host -ForegroundColor Yellow "Can't remove branch $BranchName as it is in use, switching to the master branch..."
 			Switch-ConsoleBranch -BranchName "master"
@@ -27,5 +25,5 @@ function Remove-ConsoleBranch {
 		_invokeGitCommand "push origin --delete $BranchName"
 		_invokeGitCommand "remote update --prune" -Quiet
 		_updateGitHubCmdletParameters
-    } @($BranchName)
+    }
 }

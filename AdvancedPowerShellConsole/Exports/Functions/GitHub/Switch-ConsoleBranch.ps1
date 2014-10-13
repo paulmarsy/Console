@@ -9,8 +9,6 @@ function Switch-ConsoleBranch {
     )
 
 	_workOnConsoleWorkingDirectory {
-		param($BranchName, $CreateNewBranch, $ParentBranchName, $NewBranchName, $ScriptBlock)
-	
 		$currentBranch = _getCurrentBranch
 
 		if ($CreateNewBranch) {
@@ -36,5 +34,5 @@ function Switch-ConsoleBranch {
 				_invokeGitCommand "checkout $currentBranch"
 			}
 		}
-    } @($BranchName, $CreateNewBranch, $ParentBranchName, $NewBranchName, $ScriptBlock)
+    }
 }

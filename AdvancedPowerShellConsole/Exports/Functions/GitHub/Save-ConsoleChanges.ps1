@@ -4,8 +4,6 @@ function Save-ConsoleChanges {
     )
 
 	_workOnConsoleWorkingDirectory {
-		param($CommitMessage)
-
 		if ((_getNumberOfUncommitedChanges) -eq 0) {
 			Write-Host -ForegroundColor Red "ERROR: There are no changes to commit to Git"
 			return
@@ -20,5 +18,5 @@ function Save-ConsoleChanges {
 
 		_invokeGitCommand "add -A"
 		_invokeGitCommand "commit -a -m ""$CommitMessage"""
-	} $CommitMessage
+	}
 }
