@@ -5,9 +5,6 @@ if (Get-ChildItem -Path $ProfileConfig.General.PowerShellTempFolder) {
 	)), 1)
 
 	if ($clearPowerShellTempFolder -eq 0) {
-		Push-Location $ProfileConfig.General.PowerShellUserFolder
-		Remove-Item $ProfileConfig.General.PowerShellTempFolder -Force -Recurse
-		New-Item $ProfileConfig.General.PowerShellTempFolder -Type Directory -Force | Out-Null
-		Pop-Location
+		Get-ChildItem -Path $ProfileConfig.General.PowerShellTempFolder -Recurse | Remove-Item -Force
 	}
 }
