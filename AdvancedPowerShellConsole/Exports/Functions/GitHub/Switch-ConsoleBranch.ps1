@@ -4,13 +4,10 @@ function Switch-ConsoleBranch {
 		[Parameter(ParameterSetName="ExistingBranch", Position = 0)][ValidateSet("master")]$BranchName = "master",
 		[Parameter(ParameterSetName="NewBranch", Mandatory = $true, Position = 0)][switch]$CreateNewBranch,
 		[Parameter(ParameterSetName="NewBranch", Mandatory = $true, Position = 1)]$NewBranchName,
-		[Parameter(ParameterSetName="NewBranch", Position = 2)][ValidateSet("master")]$ParentBranchName = "master",
-		$ScriptBlock
+		[Parameter(ParameterSetName="NewBranch", Position = 2)][ValidateSet("master")]$ParentBranchName = "master"
     )
 
 	_workOnConsoleWorkingDirectory {
-		$currentBranch = _getCurrentBranch
-
 		if ($CreateNewBranch) {
 			_invokeGitCommand "checkout $ParentBranchName"
 
@@ -27,12 +24,5 @@ function Switch-ConsoleBranch {
 
 		Write-Host -ForegroundColor Cyan "Switching to $(?: { $CreateNewBranch.IsPresent } { "new " })branch $BranchName..."
 		_invokeGitCommand "checkout $BranchName"
-
-		if ($ScriptBlock) {
-			$ScriptBlock.Invoke()
-			if ($currentBranch -ne $BranchName) {
-				_invokeGitCommand "checkout $currentBranch"
-			}
-		}
     }
 }
