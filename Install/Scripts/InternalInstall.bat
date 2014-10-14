@@ -1,22 +1,22 @@
 @ECHO OFF
 
-MODE CON: COLS=120 LINES=35
-TITLE Installing Console...
+MODE CON: COLS=120 LINES=50
+TITLE Installing Advanced PowerShell Console...
 
 CD /D %~dp0
 
-SET POWERSHELLSWITCHES=-NoProfile -ExecutionPolicy RemoteSigned
+SET POWERSHELLSWITCHES=-NoProfile -ExecutionPolicy RemoteSigned -File .\Install.ps1
 SET COMMANDLINEARGS=%*
 
-powershell.exe %POWERSHELLSWITCHES% -File .\Install.ps1 -DisplayInfo 
-powershell.exe %POWERSHELLSWITCHES% -File .\Install.ps1 -PreReqCheck 
-
+powershell.exe %POWERSHELLSWITCHES% -DisplayInfo 
+powershell.exe %POWERSHELLSWITCHES% -PreReqCheck
 IF ERRORLEVEL 1 GOTO END
 
-%SystemRoot%\SysWOW64\WindowsPowerShell\v1.0\powershell.exe %POWERSHELLSWITCHES% -File .\Install.ps1 -Specific
-%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe %POWERSHELLSWITCHES% -File .\Install.ps1 -Specific
-powershell.exe %POWERSHELLSWITCHES% -File .\Install.ps1 -Mixed
-powershell.exe %POWERSHELLSWITCHES% -File .\Install.ps1 -Finalize %COMMANDLINEARGS%
+powershell.exe %POWERSHELLSWITCHES% -AdvancedPowerShellConsoleUserFolders
+%SystemRoot%\SysWOW64\WindowsPowerShell\v1.0\powershell.exe %POWERSHELLSWITCHES% -Specific
+%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe %POWERSHELLSWITCHES% -Specific
+powershell.exe %POWERSHELLSWITCHES% -Mixed
+powershell.exe %POWERSHELLSWITCHES% -Finalize %COMMANDLINEARGS%
 
 :END
 PAUSE

@@ -1,6 +1,6 @@
 param($ExportExclusionPattern)
 
-$includeFile = Join-Path $ProfileConfig.General.PowerShellScriptsFolder "include.ps1"
+$includeFile = Join-Path $ProfileConfig.General.PowerShellUserScriptsFolder "include.ps1"
 if ((Test-Path $includeFile) -and -not ([String]::IsNullOrWhiteSpace([IO.File]::ReadAllText($includeFile)))) {
 	Write-Host
 
@@ -8,7 +8,7 @@ if ((Test-Path $includeFile) -and -not ([String]::IsNullOrWhiteSpace([IO.File]::
     $referenceFunctions =  Get-ChildItem function: | Select-Object -ExpandProperty Name
     $referenceAliases = Get-ChildItem alias: | Select-Object -ExpandProperty Name
     try {
-        Push-Location $ProfileConfig.General.PowerShellScriptsFolder
+        Push-Location $ProfileConfig.General.PowerShellUserScriptsFolder
         . $includeFile
     }
     finally {

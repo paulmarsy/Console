@@ -15,6 +15,6 @@ function Sync-ProfileConfig {
 		if (-not $Quiet) { Write-Host -ForegroundColor Green "Done." }
 	}
 	catch {
-		Write-Host -ForegroundColor Red "Error$(?: { $Quiet } { " synchronizing ProfileConfig" } -NullCheck)! $_"
+		Write-Host -ForegroundColor Red "`nError synchronizing ProfileConfig! $_"
 	}
 }

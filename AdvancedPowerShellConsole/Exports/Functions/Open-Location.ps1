@@ -1,7 +1,7 @@
 function Open-Location {
     [CmdletBinding()]
     param(
-        [ValidateSet("InstallPath", "Profile", "AdvancedPowerShellConsoleModule", "CurrentDirectory", "Directory", "Folder", "PowerShellScripts", "Scripts", "Documents", "Desktop", "Computer", "ConsoleGitHub")]
+        [ValidateSet("InstallPath", "Profile", "AdvancedPowerShellConsoleModule", "CurrentDirectory", "Directory", "Folder", "PowerShellUserFolder", "UserFolder", "PowerShellScripts", "Scripts", "Documents", "Desktop", "Computer", "ConsoleGitHub")]
         [Parameter(Position = 1)]$Location = "CurrentDirectory",
         [Parameter(Position = 2)]$Path = $pwd,
         [Parameter(ParameterSetName = "Shell")][switch]$Shell,
@@ -17,8 +17,10 @@ function Open-Location {
         "CurrentDirectory" { $pwd }
         "Directory" { $Path }
         "Folder" { $Path }
-        "PowerShellScripts" { $ProfileConfig.General.PowerShellScriptsFolder }
-        "Scripts" { $ProfileConfig.General.PowerShellScriptsFolder }
+        "PowerShellUserFolder" { $ProfileConfig.General.PowerShellUserFolder }
+        "UserFolder" { $ProfileConfig.General.PowerShellUserFolder }
+        "PowerShellScripts" { $ProfileConfig.General.PowerShellUserScriptsFolder }
+        "Scripts" { $ProfileConfig.General.PowerShellUserScriptsFolder }
         "Documents" { [Environment]::GetFolderPath( [Environment+SpecialFolder]::MyDocuments) }
         "Desktop" {  [Environment]::GetFolderPath([Environment+SpecialFolder]::Desktop) }
         "Computer" { "::{20d04fe0-3aea-1069-a2d8-08002b30309d}" }

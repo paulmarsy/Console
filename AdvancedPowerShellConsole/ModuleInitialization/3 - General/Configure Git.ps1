@@ -13,17 +13,6 @@ function UpdateGit {
     & git config $config --add pager.log false
 }
 
-<#
-UpdateGit --file "$env:USERPROFILE\.gitconfig"
-Is used instead of:
-UpdateGit --global
-
-As $env:HOME has been set to D:\Dropbox\
-#>
-
-$gitFileLocation = Join-Path $ProfileConfig.General.ProfileFolder "gitconfig"
-if (-not (Test-Path $gitFileLocation)) {
-    New-Item $gitFileLocation -Type File -Force | Out-Null
-} 
+$gitFileLocation = Join-Path $ProfileConfig.General.PowerShellAppSettingsFolder "Gitconfig"
 
 UpdateGit --file "$gitFileLocation"

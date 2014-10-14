@@ -1,9 +1,9 @@
 @(
-	@{Name = "Open PowerShell";					Command = """$conEmuExecutable"" /cmd {PowerShell}";					Icon = $conEmuPowerShellIcon; },
-	@{Name = "Open PowerShell (No Profile)";	Command = """$conEmuExecutable"" /cmd {PowerShell (No Profile)}";		Icon = $conEmuPowerShellIcon; },
-	@{Name = "Open PowerShell (Administrator)";	Command = """$conEmuExecutable"" /cmd {PowerShell (Administrator)}";	Icon = $conEmuPowerShellIcon; },
-	@{Name = "Open Command";					Command = """$conEmuExecutable"" /cmd {Command}";						Icon = $conEmuCommandIcon; },
-	@{Name = "Open Command (Administrator)";	Command = """$conEmuExecutable"" /cmd {Command (Administrator)}";		Icon = $conEmuCommandIcon;}
+	@{Name = "Open PowerShell";					Command = """$ConEmuExecutablePath"" /cmd {PowerShell}";					Icon = $conEmuPowerShellIcon; },
+	@{Name = "Open PowerShell (No Profile)";	Command = """$ConEmuExecutablePath"" /cmd {PowerShell (No Profile)}";		Icon = $conEmuPowerShellIcon; },
+	@{Name = "Open PowerShell (Administrator)";	Command = """$ConEmuExecutablePath"" /cmd {PowerShell (Administrator)}";	Icon = $conEmuPowerShellIcon; },
+	@{Name = "Open Command";					Command = """$ConEmuExecutablePath"" /cmd {Command}";						Icon = $conEmuCommandIcon; },
+	@{Name = "Open Command (Administrator)";	Command = """$ConEmuExecutablePath"" /cmd {Command (Administrator)}";		Icon = $conEmuCommandIcon;}
 ) | % {
 	$link = $_
 	Invoke-InstallStep "Configuring '$($link.Name)' Shell Integration" {

@@ -5,5 +5,5 @@ Invoke-InstallStep "Pinning Console to Taskbar" {
 }
 
 Invoke-InstallStep "Setting up Console Jump List Tasks" {
-	& $conEmuExecutable /UpdateJumpList /Exit
+	& $ConEmuExecutablePath /UpdateJumpList /Exit
 }

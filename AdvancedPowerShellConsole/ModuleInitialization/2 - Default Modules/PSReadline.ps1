@@ -1,5 +1,5 @@
 # PSReadline - https://github.com/lzybkr/PSReadLine
-if ($host.Name -eq 'ConsoleHost') {
+if ($Host.Name -eq 'ConsoleHost') {
 	Import-Module PSReadline -Global
 	Set-PSReadlineKeyHandler -Key Ctrl+C -Function CopyOrCancelLine
 	Set-PSReadlineKeyHandler -Key Ctrl+Shift+Home -Function ScrollDisplayTop
