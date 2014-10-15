@@ -48,7 +48,7 @@ Invoke-InstallStep "Tokenizing Initialisation Functions" {
 	}
 }
 
-Invoke-InstallStep "Setting Advanced PowerShell Console enabled flag on..." {
+Invoke-InstallStep "Setting Advanced PowerShell Console enabled flag on" {
 	Set-Content -Path $enabledFlagFile -Value $null
 	if (Test-Path $disabledFlagFile) {
 		Remove-Item $disabledFlagFile -Force
