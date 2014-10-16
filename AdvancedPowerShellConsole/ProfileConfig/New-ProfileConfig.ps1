@@ -13,8 +13,8 @@ function New-ProfileConfig {
 			PowerShellTempFolder					= $AdvancedPowerShellConsoleTempFolder
 		}
 		AdvancedPowerShellConsoleVersion = @{
-			Current									= Get-Content -Path (Join-Path $AdvancedPowerShellConsoleAppSettingsFolder "Version.txt")
-			Available								= Get-Content -Path (Join-Path $InstallPath "Install\Version.txt")
+			Current									= Get-Content -Path (Join-Path $AdvancedPowerShellConsoleAppSettingsFolder "Version.semver")
+			Available								= Get-Content -Path (Join-Path $InstallPath "Install\Version.semver")
 		}
 		PowerShell = @{
 			FormatEnumerationLimit	= ?: { $o.PowerShell.FormatEnumerationLimit }	{ $o.PowerShell.FormatEnumerationLimit }	{ -1 } 						-NotNullCheck 

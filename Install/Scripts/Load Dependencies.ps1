@@ -1,5 +1,5 @@
 New-Variable -Scope Global -Name MessageScope -Value 0
-New-Variable -Scope Global -Name InstallPath -Value (Resolve-Path (Join-Path $pwd.Path '..\..\'))
+New-Variable -Scope Global -Name InstallPath -Value (Resolve-Path (Join-Path $PSScriptRoot '..\..\'))
 if ([System.Environment]::Is64BitProcess) { New-Variable -Scope Global -Name ProcessArchitecture -Value "64bit" }
 else { New-Variable -Scope Global -Name ProcessArchitecture -Value "32bit" }
 New-Variable -Scope Global -Name AdvancedPowerShellConsoleUserFolder -Value (Join-Path ([System.Environment]::GetFolderPath("MyDocuments")) "Advanced PowerShell Console")
@@ -7,8 +7,8 @@ New-Variable -Scope Global -Name AdvancedPowerShellConsoleAppSettingsFolder -Val
 New-Variable -Scope Global -Name AdvancedPowerShellConsoleAppSettingsFunctionsFolder -Value (Join-Path $AdvancedPowerShellConsoleAppSettingsFolder "Functions")
 New-Variable -Scope Global -Name AdvancedPowerShellConsoleUserScriptsFolder -Value (Join-Path $AdvancedPowerShellConsoleUserFolder "User Scripts")
 New-Variable -Scope Global -Name AdvancedPowerShellConsoleTempFolder -Value (Join-Path $AdvancedPowerShellConsoleUserFolder "Temp")
-New-Variable -Scope Global -Name AdvancedPowerShellConsoleVersion -Value (Get-Content -Path "..\Version.txt")
-New-Variable -Scope Global -Name AdvancedPowerShellConsoleVersionFile -Value (Join-Path $AdvancedPowerShellConsoleAppSettingsFolder "Version.txt")
+New-Variable -Scope Global -Name AdvancedPowerShellConsoleVersion -Value (Get-Content -Path "..\Version.semver")
+New-Variable -Scope Global -Name AdvancedPowerShellConsoleVersionFile -Value (Join-Path $AdvancedPowerShellConsoleAppSettingsFolder "Version.semver")
 
 New-Variable -Scope Global -Name ConEmuExecutablePath -Value (Join-Path $InstallPath "Third Party\Console\ConEmu64.exe")
 
