@@ -21,7 +21,8 @@ function Open-Location {
         )][Parameter(Position = 0)]$Location = "CurrentDirectory",
         [Parameter(Position = 1)]$Path = $pwd,
         [Parameter(ParameterSetName = "Shell")][switch]$Shell,
-        [Parameter(ParameterSetName = "Shell")]$ScriptBlock
+        [Parameter(ParameterSetName = "Shell")]$ScriptBlock,
+        [Parameter(ParameterSetName = "SublimeText")][switch]$SublimeText
     )
     
     $type = "Folder"
@@ -52,8 +53,7 @@ function Open-Location {
     }
     if ($type -eq "URL") { Open-UrlWithDefaultBrowser -Url $Path }
     elseif ($type -eq "Folder") {
-	    if (-not $Shell) { & explorer $Path }
-	    else {
+	    if ($Shell) {
 	    	Push-Location $Path -StackName openLocation
 	    	if ($ScriptBlock) {
                 try {
@@ -63,6 +63,12 @@ function Open-Location {
     				Pop-Location -StackName openLocation
                 }
 	    	}
+ 		}
+ 		elseif ($SublimeText) {
+ 			Edit-File $Path
+ 		}
+ 		else {
+ 			& explorer $Path
  		}
 	}
 }
