@@ -7,8 +7,8 @@ Invoke-InstallStep "Creating App Settings Folders" {
 
 $functionsFolder = Join-Path $AdvancedPowerShellConsoleAppSettingsFolder "Functions"
 $initFile = Join-Path $AdvancedPowerShellConsoleAppSettingsFolder "Init.ps1"
-$enabledFlagFile = Join-Path $AdvancedPowerShellConsoleAppSettingsFolder "AdvancedPowerShellConsole.Enabled"
-$disabledFlagFile = Join-Path $AdvancedPowerShellConsoleAppSettingsFolder "AdvancedPowerShellConsole.Disabled"
+$enabledFlagFile = Join-Path $AdvancedPowerShellConsoleAppSettingsFolder "AdvancedPowerShellConsole.Enabled.status"
+$disabledFlagFile = Join-Path $AdvancedPowerShellConsoleAppSettingsFolder "AdvancedPowerShellConsole.Disabled.status"
 
 Invoke-InstallStep "Creating Initialisation Functions" {
 	if (Test-Path $functionsFolder) {
