@@ -1,5 +1,5 @@
 function Reload-AdvancedPowerShellConsole {
 	param([switch]$Force)
-	Stop-AdvancedPowerShellConsole -Force:$Force
+	Stop-AdvancedPowerShellConsole
 	Start-AdvancedPowerShellConsole -Force:$Force
 }
