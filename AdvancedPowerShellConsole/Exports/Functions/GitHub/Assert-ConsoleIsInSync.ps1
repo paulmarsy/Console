@@ -3,7 +3,8 @@ function Assert-ConsoleIsInSync {
 		[switch]$Quiet,
 		[switch]$AssertIsFatal
 	)
-	_workOnConsoleWorkingDirectory {
+	
+    _workOnConsoleWorkingDirectory {
 		$uncommitedChanges = _getNumberOfUncommitedChanges
     	if ($uncommitedChanges -eq 0) {
     		if (-not $Quiet) { Write-Host -ForegroundColor Green "Branch $(_getCurrentBranch) has no uncommited changes" }
@@ -13,5 +14,5 @@ function Assert-ConsoleIsInSync {
     		if ($AssertIsFatal) { Write-Host -ForegroundColor Red "Unable to continue, use Save-ConsoleChanges to commit the changes and retry" }
     		return $false
     	}
-    }
+    } -ReturnValue
 }
