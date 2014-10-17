@@ -26,6 +26,8 @@ $exportExclusionPattern = "_*.ps1"
 Export-ModuleMember -Function ($functions | ? { $_ -notlike $exportExclusionPattern } | % { $_.BaseName })
 Export-ModuleMember -Alias  ($aliases | ? { $_ -notlike $exportExclusionPattern } | % { $_.BaseName })
 
-. (Join-Path $PSScriptRoot "Import Custom PowerShell Scripts.ps1") -ExportExclusionPattern $exportExclusionPattern
+Write-Host
+Import-UserScripts -ExportExclusionPattern $exportExclusionPattern -ModuleInit
+Write-Host
 
 Write-Host -ForegroundColor Green "Advanced PowerShell Console Module successfully loaded"
