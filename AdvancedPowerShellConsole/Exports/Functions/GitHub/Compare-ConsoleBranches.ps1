@@ -5,6 +5,6 @@ function Compare-ConsoleBranches {
     )
 
 	_workOnConsoleWorkingDirectory {
-		_invokeGitCommand "diff $LeftBranchName..$RightBranchName"
+		_invokeGitCommand "diff --colour=always $LeftBranchName..$RightBranchName"
 	}
 }
