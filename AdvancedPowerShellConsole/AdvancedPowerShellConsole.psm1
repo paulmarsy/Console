@@ -12,7 +12,7 @@ $aliases = Get-ChildItem (Join-Path $PSScriptRoot "Exports\Aliases") -Filter *.p
 $functions + $aliases | % { . $_.FullName }
 
 if (Test-NetworkStatus) {
-	if (Assert-ConsoleIsInSync) {
+	if (Assert-ConsoleIsInSync -Quiet) {
 		Sync-ConsoleWithGitHub -DontPushToGitHub -UpdateConsole Auto
 	} else {
 		_updateGitHubCmdletParameters
