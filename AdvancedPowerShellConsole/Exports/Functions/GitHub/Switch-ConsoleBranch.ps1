@@ -4,7 +4,8 @@ function Switch-ConsoleBranch {
 		[Parameter(ParameterSetName="ExistingBranch", Position = 0)][ValidateSet("master")]$BranchName = "master",
 		[Parameter(ParameterSetName="NewBranch", Mandatory = $true, Position = 0)][switch]$CreateNewBranch,
 		[Parameter(ParameterSetName="NewBranch", Mandatory = $true, Position = 1)]$NewBranchName,
-		[Parameter(ParameterSetName="NewBranch", Position = 2)][ValidateSet("master")]$ParentBranchName = "master"
+		[Parameter(ParameterSetName="NewBranch", Position = 2)][ValidateSet("master")]$ParentBranchName = "master",
+		[switch]$Quiet
     )
 
 	_workOnConsoleWorkingDirectory {
@@ -13,16 +14,15 @@ function Switch-ConsoleBranch {
 
 			Write-Host -ForegroundColor Cyan "Creating remote branch $NewBranchName on GitHub..."
 			_invokeGitCommand "push origin origin:refs/heads/$NewBranchName"
-			_invokeGitCommand "remote --verbose update --prune" -Quiet
+			_invokeGitCommand "fetch origin $NewBranchName"
 			
 			Write-Host -ForegroundColor Cyan "Creating local branch $NewBranchName..."
 			_invokeGitCommand "branch $NewBranchName origin/$NewBranchName"
-
-			Sync-ConsoleWithGitHub
+			
 			$BranchName = $NewBranchName
 		}
 
-		Write-Host -ForegroundColor Cyan "Switching to $(?: { $CreateNewBranch.IsPresent } { "new " })branch $BranchName..."
-		_invokeGitCommand "checkout $BranchName"
+		if (-not $Quiet) { Write-Host -ForegroundColor Cyan "Switching to $(?: { $CreateNewBranch.IsPresent } { "new " })branch $BranchName..." }
+		_invokeGitCommand "checkout $BranchName" -Quiet:$Quiet
     }
 }

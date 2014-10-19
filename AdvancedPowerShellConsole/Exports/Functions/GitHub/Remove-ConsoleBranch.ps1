@@ -16,8 +16,8 @@ function Remove-ConsoleBranch {
 
 	_workOnConsoleWorkingDirectory {
 		if ($BranchName -eq (_getCurrentBranch)) {
-			Write-Host -ForegroundColor Yellow "Can't remove branch $BranchName as it is in use, switching to the master branch..."
-			Switch-ConsoleBranch -BranchName "master"
+			Write-Host -ForegroundColor Yellow "Can't remove branch $BranchName as currently checked out, switching to the master branch..."
+			Switch-ConsoleBranch -BranchName master -Quiet
 		}
 	
 		Write-Host -ForegroundColor Cyan "Removing branch $BranchName..."
