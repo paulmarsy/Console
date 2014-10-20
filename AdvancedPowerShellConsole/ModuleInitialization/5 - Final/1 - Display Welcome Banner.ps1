@@ -1,6 +1,7 @@
 $machineIpProperties = [System.Net.NetworkInformation.IPGlobalProperties]::GetIPGlobalProperties()
 $networkConnectionProfile = Get-NetConnectionProfile
 
+Write-Host
 Write-Host -NoNewline -ForegroundColor DarkGreen ([Environment]::UserDomainName)
 Write-Host -NoNewline -ForegroundColor Gray "\"
 Write-Host -NoNewline -ForegroundColor Green ([Environment]::UserName)
