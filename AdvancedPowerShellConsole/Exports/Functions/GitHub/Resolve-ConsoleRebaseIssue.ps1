@@ -1,6 +1,6 @@
 function Resolve-ConsoleRebaseIssue {
 	param(
-		[Parameter(Mandatory=$true, Position = 0)][ValidateSet("Continue", "Skip", "Abort")]$Resolution,
+		[Parameter(Position = 0)][ValidateSet("Continue", "Skip", "Abort")]$Resolution = "Continue",
 		[Parameter(Position = 1, ValueFromRemainingArguments=$true)]$CommitMessage
     )
 
