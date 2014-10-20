@@ -12,7 +12,21 @@ $ExecutionContext.SessionState.Module.OnRemove = {
 	$eventJob | Stop-Job -PassThru | Remove-Job
 }.GetNewClosure()
 
+
+
+# Stop pull requests from being fetched
+& git.exe config --system --unset-all remote.origin.fetch .*refs\/pull\/\*.*:.*\/origin\/pr\/\*.*
+
 $gitConfigFileLocation = Join-Path $ProfileConfig.General.PowerShellAppSettingsFolder "Gitconfig.config"
+
+try {
+	Push-Location $ProfileConfig.General.InstallPath
+	& git.exe config --local "include.path" $gitConfigFileLocation
+}
+finally {
+	Pop-Location
+}
+
 function SetGitConfig {
 	param(
 		$Name,
@@ -31,6 +45,3 @@ SetGitConfig "diff.renames" "true"
 SetGitConfig "diff.tool" "bc4"
 SetGitConfig "merge.tool" "bc3"
 SetGitConfig "pager.log" "false"
-
-# Stop pull requests from being fetched
-& git.exe config --system --unset-all remote.origin.fetch .*refs\/pull\/\*.*:.*\/origin\/pr\/\*.*
