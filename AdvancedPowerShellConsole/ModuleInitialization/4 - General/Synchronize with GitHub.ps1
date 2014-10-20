@@ -1,7 +1,8 @@
 if (Test-NetworkStatus) {
-	if (Assert-ConsoleIsInSync -Quiet) {
+=	if (Assert-ConsoleIsInSync -Quiet) {
 		Sync-ConsoleWithGitHub -DontPushToGitHub -UpdateConsole Auto
 	} else {
+		Sync-ConsoleWithGitHub -DontPushToGitHub -DontPullFromGitHub
 		_updateGitHubCmdletParameters
 	}
 } else {

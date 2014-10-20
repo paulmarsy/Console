@@ -12,6 +12,10 @@ function New-ProfileConfig {
 			PowerShellUserScriptsFolder				= $AdvancedPowerShellConsoleUserScriptsFolder
 			PowerShellTempFolder					= $AdvancedPowerShellConsoleTempFolder
 		}
+		Module = @{
+			ExportedFunctions						= @()
+			ExportedAliases							= @()
+		}
 		AdvancedPowerShellConsoleVersion = @{
 			Current									= Get-Content -Path (Join-Path $AdvancedPowerShellConsoleAppSettingsFolder "Version.semver")
 			Available								= Get-Content -Path (Join-Path $InstallPath "Install\Version.semver")
