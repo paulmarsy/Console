@@ -15,10 +15,11 @@ function New-ProfileConfig {
 		Module = @{
 			ExportedFunctions						= @()
 			ExportedAliases							= @()
-		}
-		AdvancedPowerShellConsoleVersion = @{
-			Current									= Get-Content -Path (Join-Path $AdvancedPowerShellConsoleAppSettingsFolder "Version.semver")
-			Available								= Get-Content -Path (Join-Path $InstallPath "Install\Version.semver")
+			Version 								= @{
+														Current		= Get-Content -Path (Join-Path $AdvancedPowerShellConsoleAppSettingsFolder "Version.semver")
+														Available	= Get-Content -Path (Join-Path $InstallPath "Install\Version.semver")
+														IsUpToDate	= { $ProfileConfig.Module.Version.Current -eq $ProfileConfig.Module.Version.Available }
+													}
 		}
 		PowerShell = @{
 			FormatEnumerationLimit	= ?: { $o.PowerShell.FormatEnumerationLimit }	{ $o.PowerShell.FormatEnumerationLimit }	{ -1 } 						-NotNullCheck 
@@ -36,9 +37,6 @@ function New-ProfileConfig {
 			LocalMachine			= ?: { $o.ProtectedConfig.LocalMachine }		{ $o.ProtectedConfig.LocalMachine }			{ $null }					-NotNullCheck 
 		}  
 	}
-
-	# Post Processing
-	$newProfileConfig.AdvancedPowerShellConsoleVersion.UpToDate = $newProfileConfig.AdvancedPowerShellConsoleVersion.Current -eq $newProfileConfig.AdvancedPowerShellConsoleVersion.Available
 
 	return $newProfileConfig
 }
