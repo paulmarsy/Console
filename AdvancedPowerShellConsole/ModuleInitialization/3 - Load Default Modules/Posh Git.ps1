@@ -32,6 +32,5 @@ SetGitConfig "diff.tool" "bc4"
 SetGitConfig "merge.tool" "bc3"
 SetGitConfig "pager.log" "false"
 
-
 # Stop pull requests from being fetched
 & git.exe config --system --unset-all remote.origin.fetch .*refs\/pull\/\*.*:.*\/origin\/pr\/\*.*
