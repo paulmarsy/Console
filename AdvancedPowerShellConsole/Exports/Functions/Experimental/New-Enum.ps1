@@ -15,6 +15,6 @@ function New-Enum {
   if ($SetFlagsAttribute) { $flagsAttribute = "[System.Flags]" }
   else { $flagsAttribute = [String]::Empty }
 
-  $decodedMembers = $Members | % { $_ } | Join-String -Separator ','
+  $decodedMembers = $Members | Join-String -Separator ','
   Add-Type -TypeDefinition "$flagsAttribute public enum $Name { $decodedMembers }"
 }

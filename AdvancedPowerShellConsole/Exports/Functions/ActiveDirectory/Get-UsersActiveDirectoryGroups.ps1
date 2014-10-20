@@ -9,7 +9,7 @@ function Get-UsersActiveDirectoryGroups {
 	Add-Type -AssemblyName System.DirectoryServices.AccountManagement            
 	$ct = [System.DirectoryServices.AccountManagement.ContextType]::Domain            
 	$user = [System.DirectoryServices.AccountManagement.Principal]::FindByIdentity($ct,$userName)            
-	$usergroups = $user.GetGroups() | Select-Object Name | % { $_.Name }
+	$usergroups = $user.GetGroups() | Select-Object Name | % Name
 	
 	if ($comparisonUsername) {
 		Compare-Object $usergroups (Get-UsersActiveDirectoryGroups $comparisonUsername) | % {

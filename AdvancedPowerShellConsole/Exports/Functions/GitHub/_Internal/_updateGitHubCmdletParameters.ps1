@@ -7,7 +7,7 @@ function _updateGitHubCmdletParameters {
 
             $ValidValuesField = [System.Management.Automation.ValidateSetAttribute].GetField("validValues", [System.Reflection.BindingFlags]::NonPublic -bor [System.Reflection.BindingFlags]::Instance)
 
-            Get-Command -Name $CmdletName | % { $_.Parameters.Values } | ? { $Parameters -contains $_.Name } | % { $_.Attributes } | ? { $_ -is [System.Management.Automation.ValidateSetAttribute] } | % {
+            Get-Command -Name $CmdletName | % Parameters | % Values | ? { $Parameters -contains $_.Name } | % Attributes | ? { $_ -is [System.Management.Automation.ValidateSetAttribute] } | % {
                 $ValidValuesField.SetValue($_, ([string[]]$branchNames))
             }
         }
