@@ -1,7 +1,8 @@
 function _invokeGitCommand {
 	param(
 		$Command,
-		[switch]$Quiet
+		[switch]$Quiet,
+		[switch]$NonFatalError
 	)
 
 	$arguments = @{
@@ -15,6 +16,7 @@ function _invokeGitCommand {
 	else { $arguments += @{"NoNewWindow" = $true } }
     $gitProcess = Start-Process @arguments
     if ($gitProcess.ExitCode -ne 0) {
-    	throw "Git command ($Command) returned exit code: $($gitProcess.ExitCode)"
+    	if ($NonFatalError) { return $gitProcess.ExitCode }
+    	else { throw "Git command ($Command) returned exit code: $($gitProcess.ExitCode)" }
     }
 }
