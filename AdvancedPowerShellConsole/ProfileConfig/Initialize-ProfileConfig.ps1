@@ -7,6 +7,7 @@ function Initialize-ProfileConfig {
 
     $eventJob = Register-EngineEvent -SourceIdentifier ([System.Management.Automation.PsEngineEvent]::Exiting) -Action {
         $config = Get-Variable -Name ProfileConfig -ValueOnly -Scope Global
+        $config.Remove("Temp")
         $config | Export-Clixml $config.Module.ProfileConfigFile
     }
 
@@ -14,6 +15,7 @@ function Initialize-ProfileConfig {
         $eventJob | Stop-Job -PassThru | Remove-Job
 
         $config = Get-Variable -Name ProfileConfig -ValueOnly -Scope Global
+        $config.Remove("Temp")
         $config | Export-Clixml $config.Module.ProfileConfigFile
     }.GetNewClosure()
 

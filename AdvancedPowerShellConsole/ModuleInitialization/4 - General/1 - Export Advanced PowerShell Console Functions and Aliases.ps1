@@ -6,5 +6,7 @@ $aliases | % { . $_.FullName }
 
 $exportExclusionPattern = "_*.ps1"
 
-$ProfileConfig.Module.ExportedFunctions = $functions | ? { $_ -notlike $exportExclusionPattern } | % BaseName
-$ProfileConfig.Module.ExportedAliases = $aliases | ? { $_ -notlike $exportExclusionPattern } | % BaseName
+$ProfileConfig.Temp.ModuleExports = @{
+	Functions = ($functions | ? { $_ -notlike $exportExclusionPattern } | % BaseName)
+	Aliases = ($aliases | ? { $_ -notlike $exportExclusionPattern } | % BaseName)
+}
