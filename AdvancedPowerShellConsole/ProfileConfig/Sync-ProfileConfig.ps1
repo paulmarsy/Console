@@ -7,7 +7,7 @@ function Sync-ProfileConfig {
 	
 	try {
 		$module = $ExecutionContext.SessionState.Module
-		$installPath = $ProfileConfig.General.InstallPath
+		$installPath = $ProfileConfig.Module.InstallPath
 
 		Remove-Module $module
 		Import-Module $module.Path -ArgumentList $installPath -Global

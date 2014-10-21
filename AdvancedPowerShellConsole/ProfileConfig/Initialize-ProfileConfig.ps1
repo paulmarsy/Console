@@ -7,14 +7,14 @@ function Initialize-ProfileConfig {
 
     $eventJob = Register-EngineEvent -SourceIdentifier ([System.Management.Automation.PsEngineEvent]::Exiting) -Action {
         $config = Get-Variable -Name ProfileConfig -ValueOnly -Scope Global
-        $config | Export-Clixml $config.General.ProfileConfigFile
+        $config | Export-Clixml $config.Module.ProfileConfigFile
     }
 
     $ExecutionContext.SessionState.Module.OnRemove = {
         $eventJob | Stop-Job -PassThru | Remove-Job
 
         $config = Get-Variable -Name ProfileConfig -ValueOnly -Scope Global
-        $config | Export-Clixml $config.General.ProfileConfigFile
+        $config | Export-Clixml $config.Module.ProfileConfigFile
     }.GetNewClosure()
 
     if (Test-Path Variable:Global:ProfileConfig) {

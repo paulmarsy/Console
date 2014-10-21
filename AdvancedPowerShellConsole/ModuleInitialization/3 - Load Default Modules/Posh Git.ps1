@@ -17,10 +17,10 @@ $ExecutionContext.SessionState.Module.OnRemove = {
 # Stop pull requests from being fetched
 & git.exe config --system --unset-all remote.origin.fetch .*refs\/pull\/\*.*:.*\/origin\/pr\/\*.*
 
-$gitConfigFileLocation = Join-Path $ProfileConfig.General.PowerShellAppSettingsFolder "Gitconfig.config"
+$gitConfigFileLocation = Join-Path $ProfileConfig.Module.AppSettingsFolder "Gitconfig.config"
 
 try {
-	Push-Location $ProfileConfig.General.InstallPath
+	Push-Location $ProfileConfig.Module.InstallPath
 	& git.exe config --local "include.path" $gitConfigFileLocation
 }
 finally {

@@ -1,4 +1,4 @@
-if (Get-ChildItem -Path $ProfileConfig.General.PowerShellTempFolder) {
+if (Get-ChildItem -Path $ProfileConfig.General.TempFolder) {
 	Write-Host
 	$clearPowerShellTempFolder = $Host.UI.PromptForChoice("Clear PowerShell Temp Folder", "Files detected in the PowerShell Temp folder, do you want to remove them?", ([System.Management.Automation.Host.ChoiceDescription[]](
 		(New-Object System.Management.Automation.Host.ChoiceDescription "&Yes", "Clear the PowerShell Temp folder"),
@@ -6,7 +6,7 @@ if (Get-ChildItem -Path $ProfileConfig.General.PowerShellTempFolder) {
 	)), 1)
 
 	if ($clearPowerShellTempFolder -eq 0) {
-		Get-ChildItem -Path $ProfileConfig.General.PowerShellTempFolder -Recurse | Remove-Item -Force
+		Get-ChildItem -Path $ProfileConfig.General.TempFolder -Recurse | Remove-Item -Force
 	}
 	Write-Host
 }

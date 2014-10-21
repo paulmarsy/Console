@@ -4,22 +4,26 @@ function New-ProfileConfig {
 
 	$newProfileConfig = @{
 		General = @{
-			InstallPath								= $InstallPath
-			ProfileHookFile							= $PROFILE.CurrentUserAllHosts
-			ProfileConfigFile						= $ProfileConfigFile
-			PowerShellUserFolder					= $AdvancedPowerShellConsoleUserFolder
-			PowerShellAppSettingsFolder				= $AdvancedPowerShellConsoleAppSettingsFolder
-			PowerShellUserScriptsFolder				= $AdvancedPowerShellConsoleUserScriptsFolder
-			PowerShellTempFolder					= $AdvancedPowerShellConsoleTempFolder
+			UserFolder								= $AdvancedPowerShellConsoleUserFolder
+			TempFolder								= $AdvancedPowerShellConsoleTempFolder
 		}
 		Module = @{
-			ExportedFunctions						= @()
-			ExportedAliases							= @()
+			ProfileHookFile							= $PROFILE.CurrentUserAllHosts
+			ProfileConfigFile						= $ProfileConfigFile
+			InstallPath								= $InstallPath
+			AppSettingsFolder						= $AdvancedPowerShellConsoleAppSettingsFolder
+			#ExportedFunctions						= @()
+			#ExportedAliases						= @()
 			Version 								= @{
 														Current		= Get-Content -Path (Join-Path $AdvancedPowerShellConsoleAppSettingsFolder "Version.semver")
 														Available	= Get-Content -Path (Join-Path $InstallPath "Install\Version.semver")
 														IsUpToDate	= { $ProfileConfig.Module.Version.Current -eq $ProfileConfig.Module.Version.Available }
 													}
+		}
+		UserScripts = @{
+			Folder									= $AdvancedPowerShellConsoleUserScriptsFolder
+			#Functions								= @()
+			#Aliases								= @()
 		}
 		PowerShell = @{
 			FormatEnumerationLimit	= ?: { $o.PowerShell.FormatEnumerationLimit }	{ $o.PowerShell.FormatEnumerationLimit }	{ -1 } 						-NotNullCheck 

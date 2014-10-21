@@ -4,7 +4,7 @@ function _workOnConsoleWorkingDirectory {
         [switch]$ReturnValue
     )
 
-	$workingDirectory = $ProfileConfig.General.InstallPath
+	$workingDirectory = $ProfileConfig.Module.InstallPath
 	if (-not (Test-Path $workingDirectory)) {
 		throw "Unable to locate Console Install Path ($workingDirectory), this is a fatal error and may require reinstallation"
 	}
