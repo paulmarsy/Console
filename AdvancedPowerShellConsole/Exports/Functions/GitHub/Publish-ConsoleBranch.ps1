@@ -5,7 +5,10 @@ function Publish-ConsoleBranch {
     )
 
 	_workOnConsoleWorkingDirectory {
-		if ((Assert-ConsoleIsInSync -Quiet -AssertIsFatal) -eq $false) { return }
+		if (-not (Assert-ConsoleIsInSync)) {
+			Write-Host -ForegroundColor Red "Unable to publish branch while there are uncommited changes, use Save-ConsoleChanges or Undo-ConsoleChanges to stabilise the workspace before retrying" 
+			return
+		}
 
 		Sync-ConsoleWithGitHub
 

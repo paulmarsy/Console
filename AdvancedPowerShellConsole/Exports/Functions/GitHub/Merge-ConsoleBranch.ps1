@@ -5,7 +5,10 @@ function Merge-ConsoleBranch {
     )
 
 	_workOnConsoleWorkingDirectory {
-		if ((Assert-ConsoleIsInSync -Quiet -AssertIsFatal) -eq $false) { return }
+		if (-not (Assert-ConsoleIsInSync)) { 
+			Write-Host -ForegroundColor Red "Unable to merge branches while there are uncommited changes, use Save-ConsoleChanges or Undo-ConsoleChanges to stabilise the workspace before retrying" 
+			return
+		}
 
 		$currentBranch = _getCurrentBranch
 		if ($currentBranch -ne $DestinationBranchName) {
