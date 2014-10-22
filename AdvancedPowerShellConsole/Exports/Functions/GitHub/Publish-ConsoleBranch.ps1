@@ -3,6 +3,11 @@ function Publish-ConsoleBranch {
 		[Parameter(Mandatory=$true,Position=0)][ValidateSet("master")]$ChildBranchName,
 		[Parameter(Position=1)][ValidateSet("master")]$ParentBranchName = "master"
     )
+    
+    if (-not (Test-NetworkStatus)) {
+		Write-Host -ForegroundColor Red "ERROR: Unable to continue without network connectivity"
+		return
+    }
 
 	_workOnConsoleWorkingDirectory {
 		if (-not (Assert-ConsoleIsInSync)) {

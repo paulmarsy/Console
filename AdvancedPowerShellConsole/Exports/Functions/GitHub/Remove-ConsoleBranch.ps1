@@ -4,6 +4,11 @@ function Remove-ConsoleBranch {
 		[switch]$Force
     )
 
+    if (-not (Test-NetworkStatus)) {
+		Write-Host -ForegroundColor Red "ERROR: Unable to continue without network connectivity"
+		return
+    }
+
     if (-not $Force) {
 		Write-Host -ForegroundColor Red "ERROR: To delete a branch you must specify the -Force flag for confirmartion"
 		return

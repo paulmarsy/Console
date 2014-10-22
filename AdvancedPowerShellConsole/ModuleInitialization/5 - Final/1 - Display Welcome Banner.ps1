@@ -14,7 +14,11 @@ if (Test-NetworkStatus) {
 	Write-Host -NoNewline -ForegroundColor Gray " ("
 	Write-Host -NoNewline -ForegroundColor DarkGreen $networkConnectionProfile.NetworkCategory
 	Write-Host -NoNewline -ForegroundColor Gray ")"
-	Write-Host
+}
+
+Write-Host
+
+if (Test-NetworkStatus) {
 	Write-Host -NoNewline "Connected to network '"
 	Write-Host -NoNewline -ForegroundColor DarkGreen $networkConnectionProfile.Name
 	Write-Host -NoNewline "' over "
@@ -22,4 +26,5 @@ if (Test-NetworkStatus) {
 	Write-Host "IPv4 Connectivity: $($networkConnectionProfile.IPv4Connectivity)"
 	Write-Host "IPv6 Connectivity: $($networkConnectionProfile.IPv6Connectivity)"
 }
+
 Write-Host

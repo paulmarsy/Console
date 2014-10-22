@@ -3,7 +3,6 @@ if (Test-NetworkStatus) {
 		Sync-ConsoleWithGitHub -DontPushToGitHub -UpdateConsole Auto
 	} else {
 		Sync-ConsoleWithGitHub -DontPushToGitHub -DontPullFromGitHub
-		_updateGitHubCmdletParameters
 	}
 } else {
 	Write-Host -ForegroundColor Red "Unable to synchronise with GitHub due to a lack of network connectivity"

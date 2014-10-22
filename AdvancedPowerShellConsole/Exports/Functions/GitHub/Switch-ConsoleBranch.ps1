@@ -8,6 +8,11 @@ function Switch-ConsoleBranch {
 		[switch]$Quiet
     )
 
+	if ($CreateNewBranch -and -not (Test-NetworkStatus)) {
+		Write-Host -ForegroundColor Red "ERROR: Unable to continue without network connectivity"
+		return
+    }
+
 	_workOnConsoleWorkingDirectory {
 		if ($CreateNewBranch) {
 			_invokeGitCommand "checkout $ParentBranchName"
