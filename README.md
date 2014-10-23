@@ -1,7 +1,7 @@
 Console
 =======
 
-An advanced PowerShell console
+A PowerShell console
 
 ##### Installation
 
