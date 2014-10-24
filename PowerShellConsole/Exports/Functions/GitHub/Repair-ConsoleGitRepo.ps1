@@ -21,10 +21,10 @@ function Repair-ConsoleGitRepo {
 		}
 
 		Write-Host -ForegroundColor Green "Git garbage collection..."
-		_invokeGitCommand "gc --prune --verbose --aggressive --auto"
+		_invokeGitCommand "gc --prune --aggressive --auto"
 
 		Write-Host -ForegroundColor Green "Git pruning unreachable objects in the object database..."
-		_invokeGitCommand "prune --progress"
+		_invokeGitCommand "prune --progress --verbose"
 
 		Write-Host -ForegroundColor Green "Git pruning unreachable objects in pack files..."
 		_invokeGitCommand "prune-packed"
