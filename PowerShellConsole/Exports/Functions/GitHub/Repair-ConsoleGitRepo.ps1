@@ -5,7 +5,7 @@ function Repair-ConsoleGitRepo {
 		try {
 			$gitProcesses = Get-Process -Name "git"
 
-			Write-Host -NoNewLine -ForegroundColor Green ("Killing {0} Git processes... " -f ($gitProcesses | Measure-Object -Line | Select-Object -ExpandPropertu Line))
+			Write-Host -NoNewLine -ForegroundColor Green ("Killing {0} Git processes... " -f ($gitProcesses | Measure-Object -Line | Select-Object -ExpandProperty Line))
 			$gitProcesses | Stop-Process -Force
 			Write-Host -ForegroundColor Green "Done"
 		}
