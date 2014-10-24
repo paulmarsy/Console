@@ -20,6 +20,10 @@ function Show-ConsoleStatus {
 				Write-Host
 				Write-Host -ForegroundColor Cyan "Git Origin Configuration..."
 				_invokeGitCommand "remote --verbose show origin"
+
+				Write-Host
+				Write-Host -ForegroundColor Cyan "Git Statistics..."
+				_invokeGitCommand "count-objects --verbose --human-readable"
 			} 
 
 			Write-Host
