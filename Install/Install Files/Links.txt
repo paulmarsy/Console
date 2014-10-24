@@ -1,2 +1,3 @@
 https://github.com/Azure/azure-sdk-tools/releases
 http://git-scm.com/download/win
+http://www.syntevo.com/smartgit/
