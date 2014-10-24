@@ -23,7 +23,7 @@ Invoke-InstallStep "Adding hook to PowerShell Profile" {
 	}
 
 	New-Item $profileToHookInto -Type File -Force | Out-Null
-	Set-Content -Path $profileToHookInto -Value `
+	Set-Content -Path $profileToHookInto -Encoding UTF8 -Value `
 @"
 $($PowerShellConsoleHookToken)
 
