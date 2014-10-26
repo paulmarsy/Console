@@ -1,7 +1,8 @@
 function Merge-ConsoleBranch {
 	param(
 		[Parameter(Mandatory=$true, Position=0)][ValidateSet("master")]$SourceBranchName,
-		[Parameter(Mandatory=$true, Position=1)][ValidateSet("master")]$DestinationBranchName
+		[Parameter(Mandatory=$true, Position=1)][ValidateSet("master")]$DestinationBranchName,
+		[switch]$Quiet
     )
 
 	_workOnConsoleWorkingDirectory {
@@ -12,14 +13,14 @@ function Merge-ConsoleBranch {
 
 		$currentBranch = _getCurrentBranch
 		if ($currentBranch -ne $DestinationBranchName) {
-			Switch-ConsoleBranch -BranchName $DestinationBranchName -Quiet
+			Switch-ConsoleBranch -BranchName $DestinationBranchName -Quiet:$Quiet
 		}
 
 		Write-Host -ForegroundColor Cyan "Merging branch $SourceBranchName into $DestinationBranchName..."
 		_invokeGitCommand "merge --verbose $SourceBranchName"
 
 		if ($currentBranch -ne $DestinationBranchName) {
-			Switch-ConsoleBranch -BranchName $currentBranch -Quiet
+			Switch-ConsoleBranch -BranchName $currentBranch -Quiet:$Quiet
 		}
 	}
 }
