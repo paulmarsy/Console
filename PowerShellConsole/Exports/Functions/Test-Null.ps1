@@ -19,7 +19,7 @@ function Test-Null {
 				"NullOrWhiteSpace" { [string]::IsNullOrWhiteSpace($current) }
 			}
 			
-			if ($Not) { $shouldSkip = -not $shouldSkip }
+			if (-not $Not) { $shouldSkip = -not $shouldSkip }
 
 			if ($shouldSkip) { continue }
 			else { return $current }
