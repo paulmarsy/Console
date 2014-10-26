@@ -13,8 +13,18 @@ Dism-Wrapper @(
 # Telnet Client
 'TelnetClient'
 
-# Hyper-V Module for Windows PowerShell
+# Hyper-V Management Tools
+'Microsoft-Hyper-V'
+'Microsoft-Hyper-V-All'
+'Microsoft-Hyper-V-Tools-All'
+'Microsoft-Hyper-V-Management-Clients'
 'Microsoft-Hyper-V-Management-PowerShell'
+
+# Windows Process Activation Service
+'WAS-WindowsActivationService'
+'WAS-NetFxEnvironment'
+'WAS-ConfigurationAPI'
+'WAS-ProcessModel'
 
 # .NET Framework 3.5 (includes .NET 2.0 and 3.0)
 'NetFx3'
@@ -28,7 +38,6 @@ Dism-Wrapper @(
 # WCF Services
 'WCF-Services45'
 'WCF-HTTP-Activation45'
-'WCF-MSMQ-Activation45'
 'WCF-Pipe-Activation45'
 'WCF-TCP-Activation45'
 'WCF-TCP-PortSharing45'
