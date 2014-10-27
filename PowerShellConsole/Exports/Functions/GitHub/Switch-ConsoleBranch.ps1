@@ -28,6 +28,6 @@ function Switch-ConsoleBranch {
 		}
 
 		if (-not $Quiet) { Write-Host -ForegroundColor Cyan "Switching to $(?: { $CreateNewBranch.IsPresent } { "new " })branch $BranchName..." }
-		_invokeGitCommand "checkout $BranchName" -Quiet:$Quiet
+		_invokeGitCommand "checkout $BranchName" -Quiet
     }
 }
