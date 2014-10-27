@@ -21,6 +21,10 @@ function _workOnConsoleWorkingDirectory {
 
     	$ScriptBlock.Invoke() | ? { $ReturnValue } | Write-Output
     }
+    catch {
+        Write-Host -ForegroundColor Red "ERROR: $($_.Exception.InnerException.Message)"
+        throw "Unable to continue Git command"
+    }
 	finally {
         if ($directoryChanged) {
 		  Pop-Location
