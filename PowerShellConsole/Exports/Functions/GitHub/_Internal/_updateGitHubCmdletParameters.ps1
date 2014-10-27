@@ -1,6 +1,6 @@
 function _updateGitHubCmdletParameters {
     _workOnConsoleWorkingDirectory {
-        $branchNames = (_getLocalBranches) + (_getRemoteBranches)
+        [array]$branchNames = (_getLocalBranches) + (_getRemoteBranches)
         
         function updateGitHubCmdletValidateSetParameters {
             param($CmdletName, $Parameters)
