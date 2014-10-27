@@ -1,0 +1,12 @@
+[submodule "Third Party/PowerShell Modules/Pester"]
+	path = Third Party/PowerShell Modules/Pester
+	url = https://github.com/pester/Pester
+[submodule "Third Party/PowerShell Modules/posh-git"]
+	path = Third Party/PowerShell Modules/posh-git
+	url = https://github.com/dahlbyk/posh-git
+[submodule "Third Party/PowerShell Modules/psake"]
+	path = Third Party/PowerShell Modules/psake
+	url = https://github.com/psake/psake
+[submodule "Third Party/PowerShell Modules/Show-Ast"]
+	path = Third Party/PowerShell Modules/Show-Ast
+	url = https://github.com/lzybkr/ShowPSAst
