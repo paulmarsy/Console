@@ -4,14 +4,13 @@ function _workOnConsoleWorkingDirectory {
         [switch]$ReturnValue
     )
 
-	$workingDirectory = $ProfileConfig.Module.InstallPath
+	$workingDirectory = $ProfileConfig.Module.InstallPath.TrimEnd("\")
 	if (-not (Test-Path $workingDirectory)) {
 		throw "Unable to locate Console Install Path ($workingDirectory), this is a fatal error and may require reinstallation"
 	}
-    $directoryChanged = $false
-    if ($pwd -ne $workingDirectory) {
+    $currentDirectory = $PWD.Path.TrimEnd("\")
+    if ($currentDirectory -ne $workingDirectory) {
         Push-Location $workingDirectory
-        $directoryChanged = $true
     }
     try {
     	$gitDirectory = & git rev-parse --git-dir
@@ -26,7 +25,7 @@ function _workOnConsoleWorkingDirectory {
         throw "Unable to continue Git command"
     }
 	finally {
-        if ($directoryChanged) {
+        if ($currentDirectory -ne $workingDirectory) {
 		  Pop-Location
         }
 	}
