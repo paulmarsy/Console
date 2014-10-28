@@ -28,7 +28,7 @@ function Remove-ConsoleBranch {
 		Write-Host -ForegroundColor Cyan "Removing branch $BranchName..."
 		_invokeGitCommand "branch -D $BranchName"
 		_invokeGitCommand "push origin --delete $BranchName"
-		_invokeGitCommand "remote update --prune" -Quiet
+		_updateGitRemotes -Quiet
 		_updateGitHubCmdletParameters
     }
 }

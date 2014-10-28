@@ -7,7 +7,7 @@ function Show-ConsoleStatus {
     )
 
 	_workOnConsoleWorkingDirectory {
-		_invokeGitCommand "remote --verbose update --prune" -Quiet
+		_updateGitRemotes -Quiet
 
 		$currentBranch = _getCurrentBranch
 
