@@ -8,3 +8,4 @@ Export-ModuleMember -Function $ProfileConfig.Temp.ModuleExports.Functions -Alias
 
 Write-Host
 Write-Host -ForegroundColor Green "PowerShell Console Module successfully loaded"
+Write-Host -ForegroundColor DarkGreen "`t Use 'Show-PowerShellConsoleHelp' for a list of available commands"
