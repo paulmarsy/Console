@@ -10,7 +10,8 @@ function _getSecurityContext {
 
 function _writePrompt {
     param ($Object)
-
+    
+    Write-Host -ForegroundColor (_getSecurityContext) -NoNewLine -Object $Object
 }
 
 Set-Item -Path Function:\prompt -Value {
