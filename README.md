@@ -19,4 +19,4 @@ Thanks to many projects referenced in this PowerShell Console
 * [Command line binaries added to the PATH](https://github.com/paulmarsy/Console/tree/master/Third%20Party/Binaries)
 
 ### License
-[MIT](http://www.opensource.org/licenses/MIT)
+[MIT](https://github.com/paulmarsy/Console/raw/master/LICENSE)
