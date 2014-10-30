@@ -11,34 +11,37 @@ function _getSecurityContext {
 function _writePrompt {
     param ($Object)
 
-    Write-Host -ForegroundColor (_getSecurityContext) -NoNewLine -Object $Object
+    Write-Host -ForegroundColor (_getSecurityContext) -NoNewLine -Object "$Object "
 }
 
 Set-Item -Path Function:\prompt -Value {
     [CmdletBinding()]
     param ()
 
-    $realLASTEXITCODE = $LASTEXITCODE
+    try {
+        $realLASTEXITCODE = $LASTEXITCODE
 
-    if ($PSCmdlet.GetVariableValue("PSDebugContext")) {
-       _writePrompt "[DBG] "
+        if ($PSCmdlet.GetVariableValue("PSDebugContext")) {
+           _writePrompt "[DBG]"
+        }
+
+        if (Split-Path -Resolve $PWD -Parent | Is NullOrWhiteSpace -Bool) { $path = Split-Path $PWD -Qualifier }
+        else { $path = Split-Path $PWD -Parent | Get-ChildItem -Filter (Split-Path $PWD -Leaf) -Force | Select-Object -ExpandProperty Name }
+
+        if ($path) {
+            _writePrompt $path
+            Write-VcsStatus
+        } else {
+            _writePrompt "<Invalid Path>"
+        }
+
+        if ($NestedPromptLevel -ne 0) {
+            _writePrompt " ($NestedPromptLevel)"
+        }
+
+            return "$ "
     }
-
-    if ((Split-Path $pwd -NoQualifier) -eq "\") { $path = Split-Path $pwd -Qualifier }
-    else { $path = Split-Path $pwd -Parent | Get-ChildItem -Filter (Split-Path $pwd -Leaf) -Force | Select-Object -ExpandProperty Name }
-
-    if ($path) {
-        _writePrompt $path
-        Write-VcsStatus
-    } else {
-        _writePrompt "<Invalid Path>"
+    finally {
+        $global:LASTEXITCODE = $realLASTEXITCODE    
     }
-
-    if ($NestedPromptLevel -ne 0) {
-        _writePrompt " ($NestedPromptLevel)"
-    }
-
-    $global:LASTEXITCODE = $realLASTEXITCODE
-    
-    return "$ "
 }

@@ -6,7 +6,8 @@ function Test-Null {
 		[Parameter(Mandatory = $true, Position = 0)]
 		$Type,
 
-		[switch]$Not
+		[switch]$Not,
+		[switch]$Bool
 	)
 	
 	PROCESS {
@@ -21,6 +22,8 @@ function Test-Null {
 			
 			if (-not $Not) { $shouldSkip = -not $shouldSkip }
 
+			if ($Bool) { return (-not $shouldSkip) }
+			
 			if ($shouldSkip) { continue }
 			else { return $current }
 		}
