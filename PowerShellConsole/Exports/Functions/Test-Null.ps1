@@ -11,20 +11,25 @@ function Test-Null {
 	)
 	
 	PROCESS {
+		if ($null -eq $InputObject -and $Bool) {
+			if ($Not) { return $false }
+			else { return $true }
+		}
+
 		$InputObject | foreach {
 			$current = $_
 			
-			$shouldSkip = switch ($Type) {
+			$result = switch ($Type) {
 				"Null" { $null -eq $current }
 				"NullOrEmpty" { [string]::IsNullOrEmpty($current) }
 				"NullOrWhiteSpace" { [string]::IsNullOrWhiteSpace($current) }
 			}
 			
-			if (-not $Not) { $shouldSkip = -not $shouldSkip }
+			if (-not $Not) { $result = -not $result }
 
-			if ($Bool) { return (-not $shouldSkip) }
+			if ($Bool) { return (-not $result) }
 			
-			if ($shouldSkip) { continue }
+			if ($result) { continue }
 			else { return $current }
 		}
 	}
