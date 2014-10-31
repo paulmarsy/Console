@@ -1,9 +1,15 @@
+if (-not (Test-Path Function:\TabExpansion2)) {
+	Write-Warning "Unable to hook insert hook into PowerShell's TabExpansion"
+}
+
 $ProfileConfig.Temp.TabExpansion2 = @{
 	CustomArgumentCompleters = @{}
 	NativeArgumentCompleters = @{}
 	ResultProcessors = @()
 	InputProcessors = @()
 }
+
+Copy-Item Function:\TabExpansion2 Function:\TabExpansion2Backup -Force
 
 Set-Item -Path Function:\TabExpansion2 -Value {
 	<# Options include:
