@@ -6,19 +6,25 @@ function Invoke-Ternary {
 		[Parameter(Position=2)][scriptblock]$FalseValue,
 		[Parameter(ParameterSetName="PredicateCheck")][switch]$PredicateCheck,
 		[Parameter(ParameterSetName="NullCheck")][switch]$NullCheck,
-		[Parameter(ParameterSetName="NotNullCheck")][switch]$NotNullCheck
+		[switch]$Not
 	)
 
 	$evaluation = & $Predicate
-	if ($NullCheck -or $NotNullCheck) {
-		switch ($null -eq $evaluation) {
-			$true { if ($NullCheck) { $result = $true } elseif ($NotNullCheck) { $result = $false } }
-			$false { if ($NullCheck) { $result = $false } elseif ($NotNullCheck) { $result = $true } }
-		}	
+	if ($PSCmdlet.ParameterSetName -eq "NullCheck") {
+		$result = ($null -eq $evaluation)
+	} elseif ($PSCmdlet.ParameterSetName -eq "PredicateCheck") {
+		$result = switch ($evaluation) {
+			$true { $true }
+			$false { $false }
+			default { throw "Predicate function ($($Predicate.Ast.ToString())) did not return a boolean value" }
+		}
+
 	} else {
-		if ($true -eq $evaluation) { $result = $true  }
-		elseif ($false -eq $evaluation) { $result = $false }
-		else { throw "Predicate function ($($Predicate.Ast.ToString())) did not return a boolean value" }
+		throw "Unknown check"
+	}
+
+	if ($Not) {
+		$result = -not $result
 	}
 
 	if ($true -eq $result -and $null -ne $TrueValue) { return (& $TrueValue) }
