@@ -5,11 +5,9 @@ if (-not (Test-Path Function:\TabExpansion2)) {
 $ProfileConfig.Temp.TabExpansion2 = @{
 	CustomArgumentCompleters = @{}
 	NativeArgumentCompleters = @{}
-	ResultProcessors = @()
-	InputProcessors = @()
 }
 
-Copy-Item Function:\TabExpansion2 Function:\TabExpansion2Backup -Force
+Copy-Item -Path Function:\TabExpansion2 -Destination Function:Global:\TabExpansion2Backup -Force
 
 Set-Item -Path Function:\TabExpansion2 -Value {
 	<# Options include:
@@ -47,8 +45,8 @@ Set-Item -Path Function:\TabExpansion2 -Value {
 
 	End
 	{
-
 		$options += $ProfileConfig.Temp.TabExpansion2
+
 		if ($PSCmdlet.ParameterSetName -eq 'ScriptInputSet')
 		{
 			$result = [System.Management.Automation.CommandCompletion]::CompleteInput($inputScript, $cursorColumn, $options)
