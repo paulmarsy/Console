@@ -10,7 +10,7 @@ New-Variable -Scope Global -Name PowerShellConsoleTempFolder -Value (Join-Path $
 New-Variable -Scope Global -Name PowerShellConsoleVersion -Value (Get-Content -Path "..\Version.semver")
 New-Variable -Scope Global -Name PowerShellConsoleVersionFile -Value (Join-Path $PowerShellConsoleAppSettingsFolder "Version.semver")
 
-New-Variable -Scope Global -Name ConEmuExecutablePath -Value (Join-Path $InstallPath "Third Party\Console\ConEmu64.exe")
+New-Variable -Scope Global -Name ConEmuExecutablePath -Value (Join-Path $InstallPath "Third Party\ConEmu\ConEmu64.exe")
 
 if (Test-Path $PowerShellConsoleVersionFile) {
 	New-Variable -Scope Global -Name InstalledPowerShellConsoleVersion -Value (Get-Content $PowerShellConsoleVersionFile)
