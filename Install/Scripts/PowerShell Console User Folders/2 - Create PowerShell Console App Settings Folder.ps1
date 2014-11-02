@@ -20,7 +20,7 @@ Invoke-InstallStep "Creating Initialisation Functions" {
 	New-Item $initFile -Type File -Force | Out-Null
 	Set-Content -Path $initFile -Value `
 @"
-Get-ChildItem -Path "$functionsFolder" -Filter "*.ps1" | % { . "$(`$_.FullName)" }
+Get-ChildItem -Path "$functionsFolder" -Filter "*.ps1" | % { . "`$(`$_.FullName)" }
 
 Start-PowerShellConsole
 "@
