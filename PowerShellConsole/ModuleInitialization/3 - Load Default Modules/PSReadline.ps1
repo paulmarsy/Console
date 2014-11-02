@@ -1,4 +1,3 @@
-# PSReadline - https://github.com/lzybkr/PSReadLine
 if ($Host.Name -eq 'ConsoleHost') {
 	Import-Module PSReadline -Global
 	Set-PSReadlineOption -ShowToolTips

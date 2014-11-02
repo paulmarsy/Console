@@ -1,4 +1,3 @@
-# GitHub Windows - http://windows.github.com/
 & (Join-Path $env:LOCALAPPDATA "GitHub\shell.ps1") -SkipSSHSetup
 Import-Module posh-git -Global
 $GitPromptSettings.EnableWindowTitle = "Windows PowerShell - Git - "
@@ -11,8 +10,6 @@ $eventJob = Register-EngineEvent -SourceIdentifier ([System.Management.Automatio
 $ExecutionContext.SessionState.Module.OnRemove = {
 	$eventJob | Stop-Job -PassThru | Remove-Job
 }.GetNewClosure()
-
-
 
 # Stop pull requests from being fetched
 & git.exe config --system --unset-all remote.origin.fetch .*refs\/pull\/\*.*:.*\/origin\/pr\/\*.*

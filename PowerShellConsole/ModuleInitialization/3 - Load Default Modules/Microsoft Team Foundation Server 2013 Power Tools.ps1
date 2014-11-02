@@ -1,4 +1,3 @@
-# Microsoft Team Foundation Server 2013 Power Tools
 if (Test-Path Env:TFSPowerToolDir) {
 	$tfsPowerTools = Join-Path $env:TFSPowerToolDir "Microsoft.TeamFoundation.PowerTools.PowerShell.dll"
 	Import-Module $tfsPowerTools -Global
