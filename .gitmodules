@@ -10,3 +10,15 @@
 [submodule "Third Party/PowerShell Modules/Show-Ast"]
 	path = Third Party/PowerShell Modules/Show-Ast
 	url = https://github.com/lzybkr/ShowPSAst
+[submodule "Third Party/PowerShell Modules/SnippetPx"]
+	path = Third Party/PowerShell Modules/SnippetPx
+	url = https://github.com/KirkMunro/SnippetPx
+[submodule "Third Party/PowerShell Modules/TypePx"]
+	path = Third Party/PowerShell Modules/TypePx
+	url = https://github.com/KirkMunro/TypePx
+[submodule "Third Party/PowerShell Modules/HistoryPx"]
+	path = Third Party/PowerShell Modules/HistoryPx
+	url = https://github.com/KirkMunro/HistoryPx
+[submodule "Third Party/PowerShell Modules/DebugPx"]
+	path = Third Party/PowerShell Modules/DebugPx
+	url = https://github.com/KirkMunro/DebugPx
