@@ -20,9 +20,8 @@ Invoke-InstallStep "Creating Initialisation Functions" {
 	New-Item $initFile -Type File -Force | Out-Null
 	Set-Content -Path $initFile -Value `
 @"
-Get-ChildItem -Path "$functionsFolder" -Filter *.ps1 | % { . `$_.FullName }
+Get-ChildItem -Path "$functionsFolder" -Filter "*.ps1" | % { . "$(`$_.FullName)" }
 
-Test-PowerShellConsoleFlagFile
 Start-PowerShellConsole
 "@
 }
@@ -48,7 +47,7 @@ Invoke-InstallStep "Tokenizing Initialisation Functions" {
 	}
 }
 
-Invoke-InstallStep "Setting PowerShell Console enabled flag on" {
+Invoke-InstallStep "Setting PowerShell Console enabled flag" {
 	Set-Content -Path $enabledFlagFile -Value $null
 	if (Test-Path $disabledFlagFile) {
 		Remove-Item $disabledFlagFile -Force
