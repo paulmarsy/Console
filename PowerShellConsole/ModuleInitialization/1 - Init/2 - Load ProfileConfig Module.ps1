@@ -1,1 +1,1 @@
-Import-Module (Join-Path $PSScriptRoot "..\..\ProfileConfig") -ArgumentList $InstallPath -Global
+Import-Module (Join-Path $ExecutionContext.SessionState.Module.ModuleBase "ProfileConfig") -ArgumentList $InstallPath -Global

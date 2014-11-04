@@ -1,8 +1,7 @@
 Write-InstallMessage -EnterNewScope "Configuring PowerShell Console Hook"
 
 $PowerShellConsoleHookToken = "<# PowerShellConsole Hook #>"
-$profileToHookInto = $PROFILE.CurrentUserAllHosts
-$profileFolder = Split-Path $profileToHookInto -Parent
+$profileFolder = Split-Path $PowerShellConsoleContstants.HookFile -Parent
 
 Invoke-InstallStep "Setting up PowerShell Profile Directory" {
 	if (!(Test-Path $profileFolder)) {
@@ -12,22 +11,22 @@ Invoke-InstallStep "Setting up PowerShell Profile Directory" {
 }
 
 Invoke-InstallStep "Adding hook to PowerShell Profile" {
-	if (Test-Path $profileToHookInto) {
-		$token = Get-Content $profileToHookInto | Select-Object -First 1
+	if (Test-Path $PowerShellConsoleContstants.HookFile) {
+		$token = Get-Content $PowerShellConsoleContstants.HookFile | Select-Object -First 1
 	 	if ($token -ne $PowerShellConsoleHookToken) {
-	 		$profileBackupPath = Join-Path $PowerShellConsoleUserScriptsFolder ("$([IO.Path]::GetFileName($profileToHookInto)).bak")
-	    	Write-InstallMessage -Type Warning "Existing $profileToHookInto file exists, backing up to $profileBackupPath"
-	    	Copy-Item $profileToHookInto $profileBackupPath
+	 		$profileBackupPath = Join-Path $PowerShellConsoleContstants.UserFolders.UserScriptsFolder ("$([IO.Path]::GetFileName($PowerShellConsoleContstants.HookFile)).bak")
+	    	Write-InstallMessage -Type Warning "Existing $($PowerShellConsoleContstants.HookFile) file exists, backing up to $profileBackupPath"
+	    	Copy-Item $PowerShellConsoleContstants.HookFile $profileBackupPath
 		}
-		Remove-Item $profileToHookInto -Force
+		Remove-Item $PowerShellConsoleContstants.HookFile -Force
 	}
 
-	New-Item $profileToHookInto -Type File -Force | Out-Null
-	Set-Content -Path $profileToHookInto -Encoding UTF8 -Value `
+	New-Item $PowerShellConsoleContstants.HookFile -Type File -Force | Out-Null
+	Set-Content -Path $PowerShellConsoleContstants.HookFile -Encoding UTF8 -Value `
 @"
 $($PowerShellConsoleHookToken)
 
-. "$(Join-Path $PowerShellConsoleAppSettingsFolder 'Init.ps1')"
+. "$(Join-Path $PowerShellConsoleContstants.UserFolders.AppSettingsFolder 'Init.ps1')"
 "@
 }
 

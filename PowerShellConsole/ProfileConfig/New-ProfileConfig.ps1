@@ -18,20 +18,18 @@ function New-ProfileConfig {
 	return @{
 		<################################################## Auto-generated Configuration Settings		##################################################>
 		General = @{
-			UserFolder								= $PowerShellConsoleUserFolder
-			TempFolder								= (Join-Path $PowerShellConsoleUserFolder "Temp")
-			UserScriptsFolder						= (Join-Path $PowerShellConsoleUserFolder "User Scripts")
+			UserFolder								= $PowerShellConsoleConstants.UserFolders.Root
+			TempFolder								= $PowerShellConsoleConstants.UserFolders.TempFolder
+			UserScriptsFolder						= $PowerShellConsoleConstants.UserFolders.UserScriptsFolder
+			UserScriptsIncludeFile					= $PowerShellConsoleConstants.UserFolders.UserScriptsIncludeFile
+			UserScriptsAutoFolder					= $PowerShellConsoleConstants.UserFolders.UserScriptsAutoFolder
 		}
 		Module = @{
-			ProfileHookFile							= $PROFILE.CurrentUserAllHosts
+			ProfileHookFile							= $PowerShellConsoleConstants.HookFile
 			ProfileConfigFile						= $ProfileConfigFile
-			InstallPath								= $InstallPath
-			AppSettingsFolder						= $PowerShellConsoleAppSettingsFolder
-			Version 								= @{
-														Current		= Get-Content -Path (Join-Path $PowerShellConsoleAppSettingsFolder "Version.semver")
-														Available	= Get-Content -Path (Join-Path $InstallPath "Install\Version.semver")
-														IsUpToDate	= { $ProfileConfig.Module.Version.Current -eq $ProfileConfig.Module.Version.Available }
-													}
+			InstallPath								= $PowerShellConsoleConstants.InstallPath
+			AppSettingsFolder						= $PowerShellConsoleConstants.UserFolders.AppSettingsFolder
+			Version 								= $PowerShellConsoleConstants.Version
 		}
 		Temp = @{
 			# ConnectionManager

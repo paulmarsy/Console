@@ -1,3 +1,3 @@
 Invoke-InstallStep "Updating installed version file" {
-	Set-Content -Path $PowerShellConsoleVersionFile -Value $PowerShellConsoleVersion
+	Set-Content -Path $PowerShellConsoleContstants.Version.InstalledFile -Value $PowerShellConsoleContstants.Version.CurrentVersion
 }
