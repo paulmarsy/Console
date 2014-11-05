@@ -1,5 +1,5 @@
-if (-not (Test-Path Function:\TabExpansion2)) {
-	Write-Warning "Unable to hook insert hook into PowerShell's TabExpansion"
+if (Test-Path Function:TabExpansion2) {
+	Copy-Item -Path Function:TabExpansion2 -Destination Function:Global:TabExpansion2Backup -Force
 }
 
 $ProfileConfig.Temp.TabExpansion2 = @{
@@ -7,9 +7,8 @@ $ProfileConfig.Temp.TabExpansion2 = @{
 	NativeArgumentCompleters = @{}
 }
 
-Copy-Item -Path Function:\TabExpansion2 -Destination Function:Global:\TabExpansion2Backup -Force
 
-Set-Item -Path Function:\TabExpansion2 -Value {
+New-Item -Path Function:Global:TabExpansion2 -Force -Value ([ScriptBlock]::Create({
 	<# Options include:
 	   RelativeFilePaths - [bool]
 	       Always resolve file paths using Resolve-Path -Relative.
@@ -58,4 +57,4 @@ Set-Item -Path Function:\TabExpansion2 -Value {
 
 		return $result
 	}
-}
+}))
