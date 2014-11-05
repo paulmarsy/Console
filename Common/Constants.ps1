@@ -6,7 +6,10 @@ $UserScriptsFolder = Join-Path $UserFolder "User Scripts"
 
 $Constants = @{
 	InstallPath = $ConsoleRoot
-	HookFile = $PROFILE.CurrentUserAllHosts
+	HookFiles = @{
+		PowerShell = $PROFILE.CurrentUserAllHosts
+		CommandPrompt = (Join-Path $ConsoleRoot "CommandPromptConsole\Init.bat")
+	}
 	UserFolders = @{
 		Root = $UserFolder
 		AppSettingsFolder = $AppSettingsFolder

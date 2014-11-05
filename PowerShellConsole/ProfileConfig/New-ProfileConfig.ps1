@@ -25,7 +25,7 @@ function New-ProfileConfig {
 			UserScriptsAutoFolder					= $PowerShellConsoleConstants.UserFolders.UserScriptsAutoFolder
 		}
 		Module = @{
-			ProfileHookFile							= $PowerShellConsoleConstants.HookFile
+			ProfileHookFile							= $PowerShellConsoleConstants.HookFiles.PowerShell
 			ProfileConfigFile						= $ProfileConfigFile
 			InstallPath								= $PowerShellConsoleConstants.InstallPath
 			AppSettingsFolder						= $PowerShellConsoleConstants.UserFolders.AppSettingsFolder

@@ -1,7 +1,7 @@
 Write-InstallMessage -EnterNewScope "Configuring PowerShell Console Hook"
 
 $PowerShellConsoleHookToken = "<# PowerShellConsole Hook #>"
-$profileFolder = Split-Path $PowerShellConsoleContstants.HookFile -Parent
+$profileFolder = Split-Path $PowerShellConsoleContstants.HookFiles.PowerShell -Parent
 
 Invoke-InstallStep "Setting up PowerShell Profile Directory" {
 	if (!(Test-Path $profileFolder)) {
@@ -11,18 +11,18 @@ Invoke-InstallStep "Setting up PowerShell Profile Directory" {
 }
 
 Invoke-InstallStep "Adding hook to PowerShell Profile" {
-	if (Test-Path $PowerShellConsoleContstants.HookFile) {
-		$token = Get-Content $PowerShellConsoleContstants.HookFile | Select-Object -First 1
+	if (Test-Path $PowerShellConsoleContstants.HookFiles.PowerShell) {
+		$token = Get-Content $PowerShellConsoleContstants.HookFiles.PowerShell | Select-Object -First 1
 	 	if ($token -ne $PowerShellConsoleHookToken) {
 	 		$profileBackupPath = Join-Path $PowerShellConsoleContstants.UserFolders.UserScriptsFolder ("$([IO.Path]::GetFileName($PowerShellConsoleContstants.HookFile)).bak")
-	    	Write-InstallMessage -Type Warning "Existing $($PowerShellConsoleContstants.HookFile) file exists, backing up to $profileBackupPath"
-	    	Copy-Item $PowerShellConsoleContstants.HookFile $profileBackupPath
+	    	Write-InstallMessage -Type Warning "Existing $($PowerShellConsoleContstants.HookFiles.PowerShell) file exists, backing up to $profileBackupPath"
+	    	Copy-Item $PowerShellConsoleContstants.HookFiles.PowerShell $profileBackupPath
 		}
-		Remove-Item $PowerShellConsoleContstants.HookFile -Force
+		Remove-Item $PowerShellConsoleContstants.HookFiles.PowerShell -Force
 	}
 
-	New-Item $PowerShellConsoleContstants.HookFile -Type File -Force | Out-Null
-	Set-Content -Path $PowerShellConsoleContstants.HookFile -Encoding UTF8 -Value `
+	New-Item $PowerShellConsoleContstants.HookFiles.PowerShell -Type File -Force | Out-Null
+	Set-Content -Path $PowerShellConsoleContstants.HookFiles.PowerShell -Encoding UTF8 -Value `
 @"
 $($PowerShellConsoleHookToken)
 
