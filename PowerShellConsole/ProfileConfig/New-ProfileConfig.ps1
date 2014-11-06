@@ -44,7 +44,7 @@ function New-ProfileConfig {
 		Git = @{
 			Name					= (OverridableConfigSetting "Git.Name"								"Your Name")
 			Email					= (OverridableConfigSetting "Git.Email"								"email@example.com")
-			LastAutoSyncTickTime	= (([long](OverridableConfigSetting "Git.LastSyncTickTime"			0)))
+			LastAutoSyncTickTime	= (([long](OverridableConfigSetting "Git.LastAutoSyncTickTime"		0)))
 			SyncIntervalInSeconds	= ([int](OverridableConfigSetting "Git.SyncIntervalInSeconds"		(60 * 60 * 24)))
 		}
 		TFS = @{
