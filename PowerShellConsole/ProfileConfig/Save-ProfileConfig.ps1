@@ -4,5 +4,5 @@ function Save-ProfileConfig {
         
         @("General", "Module", "Temp") | % { $config.Remove($_) }
         
-		ConvertTo-Json -InputObject $config -Compress  | Set-Content -Path $configFile
+		ConvertTo-Json -InputObject $config -Compress | Set-Content -Path $configFile
 }

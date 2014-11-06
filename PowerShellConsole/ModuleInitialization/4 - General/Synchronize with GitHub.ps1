@@ -1,1 +1,1 @@
-Sync-ConsoleWithGitHub -DontPushToGitHub -UpdateConsole Auto -Quiet
+Sync-ConsoleWithGitHub -DontPushToGitHub -UpdateConsole Auto -Quiet -AutoSync
