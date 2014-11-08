@@ -1,4 +1,4 @@
-function Restart-Console {
+function Restart-PowerShellConsole {
 	param(
 		$Message = "PowerShell Console has been restarted",
 		[switch]$Su

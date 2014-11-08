@@ -1,4 +1,4 @@
 function Open-Superuser
 {
-	Restart-Console -Su
+	Restart-PowerShellConsole -Su
 }

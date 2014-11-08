@@ -1,4 +1,4 @@
-function Reinstall-Console {
+function Install-PowerShellConsole {
 	param(
 		[switch]$AutomatedReinstall
 	)

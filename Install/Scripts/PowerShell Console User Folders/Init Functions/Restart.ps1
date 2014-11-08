@@ -1,1 +1,1 @@
-Set-Alias restart Restart-Console
+Set-Alias -Name Restart -Value Restart-PowerShellConsole
