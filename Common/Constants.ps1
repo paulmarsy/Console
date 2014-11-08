@@ -29,17 +29,21 @@ $Constants = @{
 	}
 }
 
-$Constants.Version.CurrentVersion = Get-Content -Path $Constants.Version.CurrentFile
-if (Test-Path $Constants.Version.InstalledFile) {
-	$Constants.Version.InstalledVersion = Get-Content -Path $Constants.Version.InstalledFile
-} else {
-	$Constants.Version.InstalledVersion = "Not Installed"
-}
-if ($Constants.Version.InstalledVersion -eq $Constants.Version.CurrentVersion) {
-	$Constants.Version.CurrentVersionInstalled = $true
-} else {
-	$Constants.Version.CurrentVersionInstalled = $false
-}
+$version = $Constants.Version
+$Constants.Version.Update = {
+	$version.CurrentVersion = Get-Content -Path $version.CurrentFile
+	if (Test-Path $version.InstalledFile) {
+		$version.InstalledVersion = Get-Content -Path $version.InstalledFile
+	} else {
+		$version.InstalledVersion = "Not Installed"
+	}
+	if ($version.InstalledVersion -eq $version.CurrentVersion) {
+		$version.CurrentVersionInstalled = $true
+	} else {
+		$version.CurrentVersionInstalled = $false
+	}
+}.GetNewClosure()
+$Constants.Version.Update.Invoke()
 
 if ([System.Environment]::Is64BitProcess) {
 	$Constants.ProcessArchitecture = "x64" 
