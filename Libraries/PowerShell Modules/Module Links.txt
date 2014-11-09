@@ -1,0 +1,16 @@
+DebugPx:			https://github.com/KirkMunro/DebugPx
+HistoryPx:			https://github.com/KirkMunro/HistoryPx
+Kerberos:			http://gallery.technet.microsoft.com/scriptcenter/Keberos-Module-3a6ab12a
+NTFSSecurity:		https://ntfssecurity.codeplex.com/
+Pester:				https://github.com/pester/Pester
+posh-git:			https://github.com/dahlbyk/posh-git
+psake:				https://github.com/psake/psake
+Pscx:				https://pscx.codeplex.com/
+PSFTP:				http://gallery.technet.microsoft.com/scriptcenter/PowerShell-FTP-Client-db6fe0cb
+PSReadline:			https://github.com/lzybkr/PSReadLine
+PSRemoteRegistry:	http://psremoteregistry.codeplex.com/
+SambaShares: 		http://psam.codeplex.com/
+Show-Ast			https://github.com/lzybkr/ShowPSAst
+SnippetPx:			https://github.com/KirkMunro/SnippetPx
+SystemInfo: 		http://psam.codeplex.com/
+TypePx:				https://github.com/KirkMunro/TypePx
