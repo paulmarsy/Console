@@ -4,5 +4,5 @@ function Install-PowerShellConsole {
 	)
 	
 	Start-Process -FilePath "##HStartPath##" -ArgumentList "/ELEVATE """"##InternalInstallFile##"" -StartAfterInstall $(if ($AutomatedReinstall) { "-AutomatedReinstall" }) """
-	$Host.SetShouldExit(0)
+	[System.Environment]::Exit(0)
 }

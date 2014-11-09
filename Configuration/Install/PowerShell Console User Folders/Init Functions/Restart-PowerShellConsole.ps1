@@ -8,5 +8,5 @@ function Restart-PowerShellConsole {
 	[System.Environment]::SetEnvironmentVariable("PowerShellConsoleStartUpPath", $PWD.Path, [System.EnvironmentVariableTarget]::Process)
 
     Start-Process -FilePath "##ConEmuExecutablePath##" -ArgumentList "/cmd $(if ($Su) { "{PowerShell (Administrator)}" } else { "{PowerShell}" })"
-	$Host.SetShouldExit(0)
+	[System.Environment]::Exit(0)
 }
