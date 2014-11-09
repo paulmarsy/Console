@@ -37,7 +37,7 @@ SetGitConfig "user.name" $ProfileConfig.Git.Name
 SetGitConfig "user.email" $ProfileConfig.Git.Email
 SetGitConfig "core.ignorecase" "true"
 SetGitConfig "core.autocrlf" "true" 
-SetGitConfig "core.editor" "'$(Join-Path $InstallPath "Third Party\Sublime Text\sublime_text.exe")' -w"
+SetGitConfig "core.editor" "'$(Join-Path $ConsoleRoot "Libraries\Sublime Text\sublime_text.exe")' -w"
 SetGitConfig "diff.renames" "true"
 SetGitConfig "diff.tool" "bc4"
 SetGitConfig "merge.tool" "bc3"

@@ -1,4 +1,4 @@
 Import-Module Pscx -Global -ArgumentList @{
-    TextEditor = (Join-Path $InstallPath "Third Party\Sublime Text\sublime_text.exe")
+    TextEditor = (Join-Path $ConsoleRoot "Libraries\Sublime Text\sublime_text.exe")
     CD_EchoNewLocation = $false
 }

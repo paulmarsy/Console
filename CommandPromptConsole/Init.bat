@@ -1,6 +1,6 @@
 @ECHO OFF
 
-"%~dp0..\Third Party\Binaries\IsAdmin.exe" -q
+"%~dp0..\Libraries\Binaries\IsAdmin.exe" -q
 if %ERRORLEVEL% == 1 (
   SET PROMPTCOLOR=31
 ) else (

@@ -15,12 +15,12 @@ Desktop.ini
 $RECYCLE.BIN/
 
 # Sublime Text
-Third Party/Sublime Text/**/__pycache__/
-Third Party/Sublime Text/**/*.py[cod]
-Third Party/Sublime Text/**/*.cache
-Third Party/Sublime Text/**/*.last-run
+Libraries/Sublime Text/**/__pycache__/
+Libraries/Sublime Text/**/*.py[cod]
+Libraries/Sublime Text/**/*.cache
+Libraries/Sublime Text/**/*.last-run
 
-Third Party/Sublime Text/Data/Cache/*
-Third Party/Sublime Text/Data/Index/*
-Third Party/Sublime Text/Data/Local/*
-!Third Party/Sublime Text/Data/Local/License.sublime_license
+Libraries/Sublime Text/Data/Cache/*
+Libraries/Sublime Text/Data/Index/*
+Libraries/Sublime Text/Data/Local/*
+!Libraries/Sublime Text/Data/Local/License.sublime_license
