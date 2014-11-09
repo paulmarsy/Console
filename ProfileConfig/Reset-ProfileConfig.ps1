@@ -8,10 +8,9 @@ function Reset-ProfileConfig {
 	
 	try {
 		$module = $ExecutionContext.SessionState.Module
-		$installPath = $ProfileConfig.Module.InstallPath
 
 		Remove-Module $module
-		Import-Module $module.Path -ArgumentList $installPath -Global
+		Import-Module $module.Path -Global
 
 		if (-not $Quiet) { Write-Host -ForegroundColor Green "Done." }
 	}
