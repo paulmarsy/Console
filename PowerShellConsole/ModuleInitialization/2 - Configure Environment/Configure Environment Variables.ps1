@@ -1,7 +1,7 @@
 # Update PATH to reference 'Binaries' directory and subdirectories
-$env:Path += ";" + (Join-Path $InstallPath "Third Party\Binaries") + ";" + ((Get-ChildItem (Join-Path $InstallPath "Third Party\Binaries") | ? { $_.psIsContainer } | Select-Object -ExpandProperty FullName) -Join ";")
-$env:Path = $env:Path.Trim(';')
+$Path = $Env:PATH + ";" + (Join-Path $ConsoleRoot "Libraries\Binaries") + ";" + (((Get-ChildItem (Join-Path $ConsoleRoot "Libraries\Binaries") | ? { $_.psIsContainer } | Select-Object -ExpandProperty FullName) -Join ";").Trim(';'))
+[System.Environment]::SetEnvironmentVariable("PATH", $Path, [System.EnvironmentVariableTarget]::Process)
 
 # Update PSModulePath to reference 'PowerShell Modules' directory
-$env:PSModulePath += ";" + (Join-Path $InstallPath "Third Party\PowerShell Modules")
-$env:PSModulePath = $env:PSModulePath.Trim(';')
+$PSModulePath = $Env:PSModulePath + ";" + (Join-Path $ConsoleRoot "Libraries\PowerShell Modules")
+[System.Environment]::SetEnvironmentVariable("PSModulePath", $PSModulePath, [System.EnvironmentVariableTarget]::Process)
