@@ -1,13 +1,13 @@
 {
-	"close_windows_when_empty": true,
+	"close_windows_when_empty": false,
 	"dictionary": "Packages/Language - English/en_GB.dic",
 	"font_face": "Consolas",
 	"font_size": 11,
 	"highlight_line": true,
 	"hot_exit": false,
-	"ignored_packages":
-	[
-		"Vintage"
-	],
-	"remember_open_files": false
+	"draw_white_space": "all",
+	"highlight_modified_tabs": true,
+	"remember_open_files": false,
+	"folder_exclude_patterns": [],
+	"file_exclude_patterns": []
 }
