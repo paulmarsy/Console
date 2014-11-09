@@ -12,4 +12,4 @@ Get-ChildItem $PSScriptRoot -Filter *.ps1 | % { . $_.FullName }
 
 Initialize-ProfileConfig
 
-Export-ModuleMember -Function @("Reset-ProfileConfig", "Get-ProtectedProfileConfigSetting", "Set-ProtectedProfileConfigSetting")
+Export-ModuleMember -Function @("Reset-ProfileConfig", "Get-ProtectedProfileConfigSetting", "Set-ProtectedProfileConfigSetting", "Test-ProtectedProfileConfigSetting")
