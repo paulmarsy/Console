@@ -1,6 +1,6 @@
-param($InstallPath)
-
 Set-StrictMode -Version Latest
+
+$ConsoleRoot = Resolve-Path -Path (Join-Path $PSScriptRoot "..\") | % Path
 
 Get-ChildItem (Join-Path $PSScriptRoot "ModuleInitialization") -Filter *.ps1 -Recurse | Sort-Object FullName | % { . $_.FullName }
 

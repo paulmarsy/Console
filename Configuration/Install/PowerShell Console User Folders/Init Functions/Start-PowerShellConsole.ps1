@@ -17,5 +17,5 @@ function Start-PowerShellConsole {
 	    return
 	}
 
-	Import-Module "##PowerShellConsoleModulePath##" -ArgumentList "##InstallPath##" -Force -Global
+	Import-Module "##PowerShellConsoleModulePath##" -Force -Global
 }
