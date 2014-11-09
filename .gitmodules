@@ -10,9 +10,6 @@
 [submodule "Libraries/PowerShell Modules/Show-Ast"]
 	path = Libraries/PowerShell Modules/Show-Ast
 	url = https://github.com/lzybkr/ShowPSAst
-[submodule "Libraries/PowerShell Modules/SnippetPx"]
-	path = Libraries/PowerShell Modules/SnippetPx
-	url = https://github.com/KirkMunro/SnippetPx
 [submodule "Libraries/PowerShell Modules/TypePx"]
 	path = Libraries/PowerShell Modules/TypePx
 	url = https://github.com/KirkMunro/TypePx
