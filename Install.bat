@@ -1,2 +1,3 @@
 @ECHO OFF
-"Third Party\Binaries\hstart64.exe" /ELEVATE "%~dp0\Install\Scripts\InternalInstall.bat"
+
+"Libraries\Binaries\Hstart\hstart64.exe" /ELEVATE "%~dp0\Configuration\Install\InternalInstall.bat"
