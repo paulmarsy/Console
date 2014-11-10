@@ -1,18 +1,45 @@
 function Send-PushBullet
 {
 	param(
-		[Parameter(Mandatory=$true)]$Message
+		$Title = "Sent from PowerShell",
+		[Parameter(Mandatory=$true, ValueFromRemainingArguments=$true)][string]$Message
 	)
 
-	if (-not (Test-ProtectedProfileConfigSetting -Name "PushBulletAccessToken")) {
-		Write-Host -ForegroundColor Red "ERROR: Access Token not set, use Set-PushBulletAccessToken to set it"
-		return
+	DynamicParam
+    {
+        $paramDictionary = New-Object System.Management.Automation.RuntimeDefinedParameterDictionary
+        $attributeCollection = New-Object -Type System.Collections.ObjectModel.Collection[System.Attribute]
+
+        $defaultParameter = New-Object System.Management.Automation.ParameterAttribute
+        $defaultParameter.ParameterSetName = "__AllParameterSets"                
+        $attributeCollection.Add($defaultParameter)
+
+        $deviceListAttribute = New-Object System.Management.Automation.ValidateSetAttribute -ArgumentList (Get-PushBulletDevices)
+		$attributeCollection.Add($deviceListAttribute)
+
+        $deviceParameter = New-Object System.Management.Automation.RuntimeDefinedParameter('Device', [string], $attributeCollection)
+        $paramDictionary.Add('Device', $deviceParameter)
+
+        return $paramDictionary
+    }
+
+	PROCESS {
+		$body = @{type = "note"; title = $Title;  body = $Message }
+		if ($PSBoundParameters.ContainsKey("Device")) {
+			$body.device_iden = _Get-PushBulletDevices | ? Name -eq $PSBoundParameters.Device | % Id
+		}
+		$bodyJson = ConvertTo-Json -InputObject $body -Compress
+
+		Write-Host -ForegroundColor Gray "Sending PushBullet: $Title - $Message"
+
+		$result = _Send-PushBulletApiRequest -Method Post -Uri "https://api.pushbullet.com/v2/pushes" -Body $bodyJson
+		if ($null -eq $result) { return }
+
+		if ($result.Active -eq "True") {
+			Write-Host -ForegroundColor Green "PushBullet successfully sent"
+		} else {
+			Write-Host -ForegroundColor Red "Unknown state of PushBullet API call, result:"
+			Format-List -InputObject $result | Out-Host
+		}
 	}
-
-	$accessToken = New-Object -Type System.Management.Automation.PSCredential ((Get-ProtectedProfileConfigSetting -Name "PushBulletAccessToken"), (New-Object -Type System.Security.SecureString))
-
-	$message = ConvertTo-Json -InputObject @{type = "note"; title = "PowerShell";  body = $Message } -Compress
-	Invoke-RestMethod -Method Post -Uri "https://api.pushbullet.com/v2/pushes" -Credential $accessToken -Headers @{"Content-Type" = "application/json"} -Body $message | Out-Null
-
-	Write-Host -ForegroundColor Green "PushBullet sent."
 }
