@@ -22,3 +22,6 @@
 [submodule "Libraries/PowerShell Modules/DebugPx"]
 	path = Libraries/PowerShell Modules/DebugPx
 	url = https://github.com/KirkMunro/DebugPx
+[submodule "Libraries/PowerShell Modules/poke"]
+	path = Libraries/PowerShell Modules/poke
+	url = https://github.com/oising/poke.git
