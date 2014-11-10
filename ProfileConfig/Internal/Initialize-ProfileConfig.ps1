@@ -12,12 +12,15 @@ function Initialize-ProfileConfig {
     $newProfileConfig = New-ProfileConfig -OverrideProfileConfig $importedProfileConfig
     New-Variable -Name ProfileConfig -Description "Contains configuration global information for the PowerShell Console" -Value $newProfileConfig -Scope Global -Option Readonly
 
-    $saveProfileConfig = Get-Item -Path Function:\Save-ProfileConfig
-    $eventJob = Register-EngineEvent -SourceIdentifier ([System.Management.Automation.PsEngineEvent]::Exiting) -Action $saveProfileConfig.ScriptBlock
+    $destructor = {
+        Save-ProfileConfig -Quiet
+    }
+
+    $psEngineExitEventJob = Register-EngineEvent -SourceIdentifier ([System.Management.Automation.PsEngineEvent]::Exiting) -Action $destructor
 
     $ExecutionContext.SessionState.Module.OnRemove = {
-        $eventJob | Stop-Job -PassThru | Remove-Job
+        $psEngineExitEventJob | Stop-Job -PassThru | Remove-Job
 
-        $saveProfileConfig.ScriptBlock.Invoke()
+        $destructor.Invoke()
     }.GetNewClosure()
 }

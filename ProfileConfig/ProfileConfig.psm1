@@ -8,8 +8,14 @@ $ConsoleRoot = Resolve-Path -Path (Join-Path $PSScriptRoot "..\") | % Path
 $PowerShellConsoleConstants = & (Join-Path $ConsoleRoot "Constants.ps1")
 $ProfileConfigFile = Join-Path $PowerShellConsoleConstants.UserFolders.AppSettingsFolder "ProfileConfig.json"
 
-Get-ChildItem $PSScriptRoot -Filter *.ps1 | % { . $_.FullName }
+Get-ChildItem $PSScriptRoot -Filter *.ps1  -Recurse| % { . $_.FullName }
 
 Initialize-ProfileConfig
 
-Export-ModuleMember -Function @("Reset-ProfileConfig", "Get-ProtectedProfileConfigSetting", "Set-ProtectedProfileConfigSetting", "Test-ProtectedProfileConfigSetting")
+Export-ModuleMember -Function @(
+	"Get-ProfileConfig"
+	"Save-ProfileConfig"
+	"Get-ProtectedProfileConfigSetting"
+	"Set-ProtectedProfileConfigSetting"
+	"Test-ProtectedProfileConfigSetting"
+)

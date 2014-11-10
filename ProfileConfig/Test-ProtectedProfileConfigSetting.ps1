@@ -5,5 +5,5 @@ function Test-ProtectedProfileConfigSetting {
 		[Parameter(Position=1)][System.Security.Cryptography.DataProtectionScope]$Scope = [System.Security.Cryptography.DataProtectionScope]::CurrentUser
 	)
 
-	return ($null -ne (Get-RootProtectedProfileConfigSettings -Scope $Scope | Select-Object -Property $Name))
+	return ($null -ne (Get-ProtectedProfileConfigSetting -Name $Name -Scope $Scope))
 }
