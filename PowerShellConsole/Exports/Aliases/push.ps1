@@ -1,0 +1,1 @@
+Set-Alias push Send-PushBullet
