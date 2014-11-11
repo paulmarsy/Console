@@ -2,7 +2,7 @@ function Send-PushBullet
 {
 	param(
 		$Title = "Sent from PowerShell",
-		[Parameter(Mandatory=$true, ValueFromRemainingArguments=$true)][string]$Message
+		[Parameter(Mandatory=$true, Position = 0, ValueFromRemainingArguments=$true)][string]$Message
 	)
 
 	DynamicParam

@@ -1,6 +1,14 @@
 function _Get-PushBulletDevices {
-	$result = _Send-PushBulletApiRequest -Method Get -Uri "https://api.pushbullet.com/v2/devices"
-	if ($null -eq $result) { return }
+	if (-not ($ProfileConfig.Temp.ContainsKey("PushBulletDevices"))) {
+		$result = _Send-PushBulletApiRequest -Method Get -Uri "https://api.pushbullet.com/v2/devices"
+		if ($null -eq $result) { return }
 
-	return ($result.devices | ? { $_.active -eq "True" -and $_.pushable -eq "True" } | % { @{Name = $_.nickname; Id = $_.iden} })
+		$powershellSymbols = Get-PowerShellSymbols
+
+		$ProfileConfig.Temp.PushBulletDevices = $result.devices | 
+												? { $_.active -eq "True" -and $_.pushable -eq "True" } | 
+												% { @{Name = (Remove-PowerShellSymbols $_.nickname); Id = $_.iden} }
+	}
+
+	return $ProfileConfig.Temp.PushBulletDevices
 }
