@@ -1,6 +1,6 @@
-Update-TypeData	-TypeName "System.String" `
+Update-TypeData	-TypeName System.String `
 				-MemberType ScriptMethod `
-				-MemberName "RemoveString"  `
+				-MemberName RemoveString  `
 				-Force `
 				-Value {
 					param($StringToRemove)
