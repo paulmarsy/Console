@@ -1,8 +1,0 @@
-NTFSSecurity:	https://ntfssecurity.codeplex.com/
-posh-git:		https://github.com/dahlbyk/posh-git
-psake:			https://github.com/psake/psake
-Pscx:			https://pscx.codeplex.com/
-PSFTP:			http://gallery.technet.microsoft.com/scriptcenter/PowerShell-FTP-Client-db6fe0cb
-PSReadline:		https://github.com/lzybkr/PSReadLine
-SambaShares: 	http://psam.codeplex.com/
-SystemInfo: 	http://psam.codeplex.com/
