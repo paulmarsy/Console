@@ -39,3 +39,7 @@ SetGitConfig "diff.renames" "true"
 SetGitConfig "diff.tool" "bc4"
 SetGitConfig "merge.tool" "bc3"
 SetGitConfig "pager.log" "false"
+
+$gitHubForWindowsInstallPath = Get-ItemProperty -Path "HKCU:\Software\Classes\github-windows\shell\open\command" | % "(default)" | Split-Path -Parent | % Trim '"'
+
+& (Join-Path $gitHubForWindowsInstallPath GitHub.exe) --set-up-ssh
