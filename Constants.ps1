@@ -28,6 +28,7 @@ $Constants = @{
 		SublimeText = (Join-Path $ConsoleRoot "Libraries\Sublime Text\sublime_text.exe")
 		Hstart = (Join-Path $ConsoleRoot "Libraries\Binaries\Hstart\hstart64.exe")
 	}
+	GitInstallPath = (Join-Path ${Env:ProgramFiles(x86)} "Git")
 }
 
 $version = $Constants.Version
