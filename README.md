@@ -6,17 +6,21 @@ A PowerShell Console by [Paul Marston](https://github.com/paulmarsy)
 
 1. Clone the Git repository
 <big><pre>& (Join-Path ${Env:ProgramFiles(x86)} "Git\bin\git.exe") clone --recursive [https://github.com/paulmarsy/Console.git](https://github.com/paulmarsy/Console)</pre></big>
-2. Install the pre-requisites in [.\Install Files](https://github.com/paulmarsy/Console/tree/master/Install%20Files)
+2. Install the pre-requisites in [.\Install Files](https://github.com/paulmarsy/ConsoleInstallFiles)
 3. Run .\Install.bat
+
+### Uninstallation
+
+1. Run .\Uninstall.bat
 
 ### Contributors
 
 Thanks to many projects referenced in this PowerShell Console
-* [Prerequisite Installs](https://github.com/paulmarsy/Console/tree/master/Install%20Files)
+* [Prerequisite Install Files](https://github.com/paulmarsy/ConsoleInstallFiles)
 * [ConEmu](https://github.com/Maximus5/ConEmu)
 * [Sublime Text](http://www.sublimetext.com/)
-* [PowerShell Modules](https://github.com/paulmarsy/Console/blob/master/Libraries/PowerShell%20Modules)
-* [Command line binaries added to the PATH](https://github.com/paulmarsy/Console/tree/master/Libraries/Binaries)
+* [PowerShell Modules](https://github.com/paulmarsy/ConsoleLibraries/tree/master/PowerShell%20Modules)
+* [Binaries added to the PATH](https://github.com/paulmarsy/ConsoleLibraries/tree/master/Binaries)
 
 ### License
 [MIT](https://github.com/paulmarsy/Console/raw/master/LICENSE)
