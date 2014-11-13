@@ -5,7 +5,7 @@ A PowerShell Console by [Paul Marston](https://github.com/paulmarsy)
 ### Installation
 
 1. Clone the Git repository
-<big><pre>git.exe clone --recursive [https://github.com/paulmarsy/Console.git](https://github.com/paulmarsy/Console)</pre></big>
+<big><pre>& (Join-Path ${Env:ProgramFiles(x86)} "Git\bin\git.exe") clone --recursive [https://github.com/paulmarsy/Console.git](https://github.com/paulmarsy/Console)</pre></big>
 2. Install the pre-requisites in [.\Install Files](https://github.com/paulmarsy/Console/tree/master/Install%20Files)
 3. Run .\Install.bat
 
