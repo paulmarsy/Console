@@ -1,3 +1,6 @@
 [submodule "Libraries"]
 	path = Libraries
 	url = https://github.com/paulmarsy/ConsoleLibraries.git
+[submodule "InstallFiles"]
+	path = InstallFiles
+	url = https://github.com/paulmarsy/ConsoleInstallFiles.git
