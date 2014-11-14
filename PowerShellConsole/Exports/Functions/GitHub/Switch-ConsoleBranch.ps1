@@ -8,13 +8,13 @@ function Switch-ConsoleBranch {
 		[switch]$Quiet
     )
 
-	if ($CreateNewBranch -and -not (Test-NetworkStatus)) {
-		Write-Host -ForegroundColor Red "ERROR: Unable to continue without network connectivity"
-		return
-    }
-
 	_workOnConsoleWorkingDirectory {
 		if ($CreateNewBranch) {
+			if (-not (Test-NetworkStatus)) {
+				Write-Host -ForegroundColor Red "ERROR: Unable to continue without network connectivity"
+				return
+			}
+
 			_invokeGitCommand "checkout $ParentBranchName"
 
 			Write-Host -ForegroundColor Cyan "Creating remote branch $NewBranchName on GitHub..."
@@ -28,6 +28,12 @@ function Switch-ConsoleBranch {
 		}
 
 		if (-not $Quiet) { Write-Host -ForegroundColor Cyan "Switching to $(?: { $CreateNewBranch.IsPresent } { "new " })branch $BranchName..." }
+		$previousBranchSubmodules = [array]_getSubmodulePaths
 		_invokeGitCommand "checkout $BranchName" -Quiet
+		_invokeGitCommand "submodule update --init --force --recursive" -Quiet
+		$newBranchSubmodules = [array]_getSubmodulePaths
+		Compare-Object -ReferenceObject $previousBranchSubmodules -DifferenceObject $newBranchSubmodules | ? SideIndicator -eq "<=" | % InputObject | % {
+			Remove-Item -Path $_ -Recurse -Force
+		}
     }
 }

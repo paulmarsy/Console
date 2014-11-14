@@ -18,24 +18,32 @@ function _invokeGitCommand {
 		$arguments += @{ "RedirectStandardOutput" = $standardOutput }
 		$standardError = [System.IO.Path]::GetTempFileName()
 		$arguments += @{ "RedirectStandardError" = $standardError }
-		
+
+		$cleanup = {
+			if (Test-Path $standardOutput) { Remove-Item $standardOutput -Force }
+			if (Test-Path $standardError) { Remove-Item $standardError -Force }
+		}		
+	} else {
+		$cleanup = {}
 	}
 
     $gitProcess = Start-Process @arguments
-
-    if ($Quiet -and (Test-Path $standardOutput)) {
-    	Remove-Item $standardOutput -Force
-    }
     
     if ($gitProcess.ExitCode -ne 0 -and $null -ne $gitProcess.ExitCode) {
-    	if ($NonFatalError) { return $gitProcess.ExitCode }
+    	if ($NonFatalError) {
+    		& $cleanup
+    		return $gitProcess.ExitCode
+    	}
     	else {
     		$errorMessage = "Git command ($Command) returned exit code: $($gitProcess.ExitCode)"
     		if ($Quiet) {
     			$errorMessage += "`nCommand Output: $(Get-Content $standardOutput)"
     			$errorMessage += "`nError Message: $(Get-Content $standardError)"
     		}
+    		& $cleanup
     		throw $errorMessage
     	}
+    } else {
+		& $cleanup
     }
 }

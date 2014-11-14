@@ -36,6 +36,10 @@ function Show-ConsoleStatus {
 		}
 
 		Write-Host
+		Write-Host -ForegroundColor Cyan "Submodules..."
+		_getSubmoduleNames | % { Write-Host " $_" }
+
+		Write-Host
 		Write-Host -ForegroundColor Cyan "Branch structure..."
 		$branchStructureCommand = "log --color --date-order --graph --oneline --decorate --no-walk"
 		if (-not $OnlyThisBranch) {

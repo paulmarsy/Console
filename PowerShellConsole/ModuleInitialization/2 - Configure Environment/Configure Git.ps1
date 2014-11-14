@@ -37,6 +37,8 @@ SetGitConfig "core.autocrlf" "true"
 SetGitConfig "core.editor" "'$($PowerShellConsoleConstants.Executables.SublimeText)' -w"
 SetGitConfig "diff.renames" "true"
 SetGitConfig "diff.tool" "bc4"
+SetGitConfig "diff.submodule" "log"
+SetGitConfig "status.submodulesummary" 1
 SetGitConfig "merge.tool" "bc3"
 SetGitConfig "pager.log" "false"
 

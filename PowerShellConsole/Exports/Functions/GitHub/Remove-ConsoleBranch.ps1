@@ -29,6 +29,5 @@ function Remove-ConsoleBranch {
 		_invokeGitCommand "branch -D $BranchName"
 		_invokeGitCommand "push origin --delete $BranchName"
 		_updateGitRemotes -Quiet
-		_updateGitHubCmdletParameters
     }
 }
