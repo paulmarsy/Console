@@ -37,7 +37,7 @@ function Show-ConsoleStatus {
 
 		Write-Host
 		Write-Host -ForegroundColor Cyan "Submodules..."
-		_getSubmoduleNames | % { Write-Host " $_" }
+		_getSubmodulePaths | % { Write-Host " $_" }
 
 		Write-Host
 		Write-Host -ForegroundColor Cyan "Branch structure..."

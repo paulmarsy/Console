@@ -28,10 +28,10 @@ function Switch-ConsoleBranch {
 		}
 
 		if (-not $Quiet) { Write-Host -ForegroundColor Cyan "Switching to $(?: { $CreateNewBranch.IsPresent } { "new " })branch $BranchName..." }
-		$previousBranchSubmodules = [array]_getSubmodulePaths
+		[array]$previousBranchSubmodules = _getSubmodulePaths
 		_invokeGitCommand "checkout $BranchName" -Quiet
 		_invokeGitCommand "submodule update --init --force --recursive" -Quiet
-		$newBranchSubmodules = [array]_getSubmodulePaths
+		[array]$newBranchSubmodules = _getSubmodulePaths
 		Compare-Object -ReferenceObject $previousBranchSubmodules -DifferenceObject $newBranchSubmodules | ? SideIndicator -eq "<=" | % InputObject | % {
 			Remove-Item -Path $_ -Recurse -Force
 		}
