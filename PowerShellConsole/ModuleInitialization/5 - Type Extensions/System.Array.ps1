@@ -6,7 +6,7 @@ Update-TypeData	-TypeName $type `
 				-Force `
 				-Value {
 					$uniqueArray = {@()}.Invoke()
-					$this | %
+					$this | % {
 						if ($uniqueArray.Contains($_)) { return }
 						else { $uniqueArray.Add($_) }
 					}
