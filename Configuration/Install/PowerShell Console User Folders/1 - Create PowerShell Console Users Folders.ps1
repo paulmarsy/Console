@@ -1,19 +1,22 @@
 Invoke-InstallStep "Creating Users Folder" {
 	if (Test-Path $PowerShellConsoleContstants.UserFolders.Root) {
-		$userFolder = Get-Item $PowerShellConsoleContstants.UserFolders.Root -Force
+		$userFolder = Get-Item -Path $PowerShellConsoleContstants.UserFolders.Root -Force
 	}
 	else {
-		$userFolder = New-Item $PowerShellConsoleContstants.UserFolders.Root -Type Directory -Force
+		$userFolder = New-Item -Path $PowerShellConsoleContstants.UserFolders.Root -Type Directory -Force
 	}
 
-	$userFolder.Attributes = @([System.IO.FileAttributes]::ReadOnly,[System.IO.FileAttributes]::System)
+	$userFolder.Attributes = @([System.IO.FileAttributes]::ReadOnly, [System.IO.FileAttributes]::System)
 }
 
 Invoke-InstallStep "Customising Users Folder's appearance" {
-	$desktopIniFile = $PowerShellConsoleContstants.UserFolders.Root desktop.ini
-	Copy-Item -Path (Join-Path $PowerShellConsoleContstants.ConsoleRoot "Libraries\Icons\PowerShellUserFolder-desktop.ini") -Destination $desktopIniFile -Force
+	$desktopIniPath = Join-Path $PowerShellConsoleContstants.UserFolders.Root "desktop.ini"
+	Copy-Item -Path (Join-Path $PowerShellConsoleContstants.InstallPath "Libraries\Icons\PowerShellUserFolder-desktop.ini") -Destination $desktopIniPath -Force
 
-	$desktopIniText = [System.IO.File]::ReadAllText($desktopIniFile)
+	$desktopIniText = [System.IO.File]::ReadAllText($desktopIniPath)
 	$desktopIniText = $desktopIniText.Replace("##InstallPath##", $PowerShellConsoleContstants.InstallPath)
-	[System.IO.File]::WriteAllText($desktopIniFilee, $desktopIniText)
+	[System.IO.File]::WriteAllText($desktopIniPath, $desktopIniText)
+
+	$desktopIniFile = Get-Item -Path $desktopIniPath -Force
+	$desktopIniFile.Attributes = @([System.IO.FileAttributes]::ReadOnly, [System.IO.FileAttributes]::System, [System.IO.FileAttributes]::Hidden)
 }
