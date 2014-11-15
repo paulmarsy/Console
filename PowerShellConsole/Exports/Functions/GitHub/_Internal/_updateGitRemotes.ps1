@@ -3,9 +3,8 @@ function _updateGitRemotes {
         [switch]$Quiet
     )
     _workOnConsoleWorkingDirectory {
-    	$updateCommand = "remote --verbose update --prune"
-        _invokeGitCommand $updateCommand -Quiet:$Quiet
-        _invokeGitCommand "submodule foreach --recursive git $updateCommand" -Quiet:$Quiet
+        _invokeGitCommand "remote --verbose update --prune" -Quiet:$Quiet
+        _invokeGitCommand "submodule foreach --recursive git remote update --prune" -Quiet:$Quiet
         _updateGitHubCmdletParameters
 	}
 }
