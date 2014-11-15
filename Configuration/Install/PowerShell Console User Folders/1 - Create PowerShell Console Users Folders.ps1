@@ -11,6 +11,11 @@ Invoke-InstallStep "Creating Users Folder" {
 
 Invoke-InstallStep "Customising Users Folder's appearance" {
 	$desktopIniPath = Join-Path $PowerShellConsoleContstants.UserFolders.Root "desktop.ini"
+	if (Test-Path $desktopIniPath) {
+		$existingDesktopIniFile = Get-Item -Path $desktopIniPath
+		$existingDesktopIniFile.Attributes = [System.IO.FileAttributes]::Normal
+		Remove-Item -Path $existingDesktopIniFile -Force
+	}
 	Copy-Item -Path (Join-Path $PowerShellConsoleContstants.InstallPath "Libraries\Icons\PowerShellUserFolder-desktop.ini") -Destination $desktopIniPath -Force
 
 	$desktopIniText = [System.IO.File]::ReadAllText($desktopIniPath)
