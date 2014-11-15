@@ -8,7 +8,7 @@ function _invokeGitCommand {
 	$arguments = @{
 		"FilePath" = "git.exe"
 		"ArgumentList" = $Command
-		"WorkingDirectory" = $ProfileConfig.Module.InstallPath
+		"WorkingDirectory" = $PWD.Path
 		"Wait" = $true
 		"PassThru" = $true
 		"NoNewWindow" = $true
