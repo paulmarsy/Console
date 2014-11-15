@@ -1,4 +1,4 @@
-Invoke-InstallStep "Updating SmartGit settings directory" {
+Invoke-InstallStep "Redirecting SmartGit settings directory" {
 
 	$smartGitCustomSettingsPath = Join-Path $PowerShellConsoleContstants.UserFolders.AppSettingsFolder "SmartGit"
 	if (-not (Test-Path $smartGitCustomSettingsPath)) {
