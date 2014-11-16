@@ -15,7 +15,7 @@ function Find-String {
 	Get-ChildItem -Path $Path -Recurse -ErrorAction SilentlyContinue -ErrorVariable +searchErrors | 
 		? { $_.PSIsContainer -eq $false -and ($IncludeLargeFiles -or $_.Length -le $maxFileSizeToSearchInBytes) } | 
 		? {
-			$byteArray = Get-Content  $file.FullName -Encoding Byte  -TotalCount 1024
+			$byteArray = Get-Content -Path $_ -Encoding Byte -TotalCount 1KB
 			if ($byteArray -contains 0) { return $false }
 			else { return $true }
 		} |
