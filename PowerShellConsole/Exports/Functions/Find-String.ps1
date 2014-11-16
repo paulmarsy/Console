@@ -3,18 +3,22 @@ function Find-String {
 	param(
 		[Parameter(Position=0,Mandatory=$true)]$Pattern,
 		$Path = $PWD,
-		$Exclude = @("*.exe", "*.dll"),
 		[switch]$ShowContext,
 		[switch]$IncludeLargeFiles
     )
 
-	$maxFileSizeToSearchInBytes = 1024*1024 # 1mb
+	$maxFileSizeToSearchInBytes = 1MB
 	
 	$searchErrors = @()
 
 	Write-Host "Finding '$Pattern' in $Path...`n" -ForegroundColor White
-	Get-ChildItem -Path $Path -Recurse -Exclude $Exclude -ErrorAction SilentlyContinue -ErrorVariable +searchErrors | 
+	Get-ChildItem -Path $Path -Recurse -ErrorAction SilentlyContinue -ErrorVariable +searchErrors | 
 		? { $_.PSIsContainer -eq $false -and ($IncludeLargeFiles -or $_.Length -le $maxFileSizeToSearchInBytes) } | 
+		? {
+			$byteArray = Get-Content  $file.FullName -Encoding Byte  -TotalCount 1024
+			if ($byteArray -contains 0) { return $false }
+			else { return $true }
+		} |
 		Select-String -Pattern ([Regex]::Escape($Pattern)) -AllMatches -Context 2 -ErrorAction SilentlyContinue -ErrorVariable +searchErrors  |
 		Group-Object -Property Path |
 		% {
