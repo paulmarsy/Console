@@ -12,7 +12,7 @@ Invoke-InstallStep "Creating Users Folder" {
 Invoke-InstallStep "Customising Users Folder's appearance" {
 	$desktopIniPath = Join-Path $PowerShellConsoleContstants.UserFolders.Root "desktop.ini"
 	if (Test-Path $desktopIniPath) {
-		$existingDesktopIniFile = Get-Item -Path $desktopIniPath
+		$existingDesktopIniFile = Get-Item -Path $desktopIniPath -Force
 		$existingDesktopIniFile.Attributes = [System.IO.FileAttributes]::Normal
 		Remove-Item -Path $existingDesktopIniFile -Force
 	}
