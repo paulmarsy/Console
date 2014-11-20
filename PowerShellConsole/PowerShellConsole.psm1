@@ -1,21 +1,19 @@
 Set-StrictMode -Version Latest
 
-$ConsoleRoot = Resolve-Path -Path (Join-Path $PSScriptRoot "..\") | % Path
+$InstallPath = Get-Item -Path Env:\PowerShellConsoleInstallPath | % Value
 
 $ModuleFastInit = & (Join-Path $PSScriptRoot "Helpers\Module Fast-Init Check.ps1")
 
-#if (-not $ModuleFastInit) { $profileHistoryStart = Get-History | Select-Object -Last 1 -ExpandProperty Id }
-Get-ChildItem -Path (Join-Path $PSScriptRoot "ModuleInitialization") | ? PSIsContainer | Sort-Object -Property Name | 
+if (-not $ModuleFastInit) { Import-Module (Join-Path $PSScriptRoot "Helpers\Profiler.psm1") }
+Get-Item -Path (Join-Path $PSScriptRoot "ModuleInitialization") -PipelineVariable ModuleInitializationDir | Get-ChildItem | ? PSIsContainer | Sort-Object -Property Name | 
 	% { Get-ChildItem -Path $_.FullName -Recurse -Filter "*.ps1" |
 		Sort-Object -Property @{Expression = { $_.Directory.Name -eq "Required" }; Ascending = $false}, Name  | % {
 			if ($ModuleFastInit -and $_.Directory.Name -ne "Required") { return }
+			if (-not $ModuleFastInit) { Set-ProfilerStep Begin ($_.FullName.Substring($ModuleInitializationDir.FullName.Length + 1)) }
 			. "$($_.FullName)"
+			if (-not $ModuleFastInit) { Set-ProfilerStep End }
 		}
 	}
-#if (-not $ModuleFastInit) {
-	#$profileHistoryEnd = Get-History | Select-Object -Last 1 -ExpandProperty Id
-	#& (Join-Path $PSScriptRoot "Helpers\Module Profiler.ps1") -HistoryStartId $profileHistoryStart -HistoryEndId $profileHistoryEnd
-#}
 
 & (Join-Path $PSScriptRoot "Helpers\Module Destructor.ps1")
 
