@@ -2,37 +2,22 @@ Set-StrictMode -Version Latest
 
 $ConsoleRoot = Resolve-Path -Path (Join-Path $PSScriptRoot "..\") | % Path
 
-$profiler = @{
-	RawData = ({@()}.Invoke())
-}
-$moduleInitialization = Join-Path $PSScriptRoot "ModuleInitialization"
-Get-ChildItem -Path $moduleInitialization -Filter *.ps1 -Recurse | Sort-Object FullName | % {
-	$profiledItem = @{
-		FullName = $_.FullName
-		Start = ([System.DateTime]::Now.Ticks)
+$ModuleFastInit = & (Join-Path $PSScriptRoot "Helpers\Module Fast-Init Check.ps1")
+
+#if (-not $ModuleFastInit) { $profileHistoryStart = Get-History | Select-Object -Last 1 -ExpandProperty Id }
+Get-ChildItem -Path (Join-Path $PSScriptRoot "ModuleInitialization") | ? PSIsContainer | Sort-Object -Property Name | 
+	% { Get-ChildItem -Path $_.FullName -Recurse -Filter "*.ps1" |
+		Sort-Object -Property @{Expression = { $_.Directory.Name -eq "Required" }; Ascending = $false}, Name  | % {
+			if ($ModuleFastInit -and $_.Directory.Name -ne "Required") { return }
+			. "$($_.FullName)"
+		}
 	}
-	. "$($_.FullName)"
-	$profiledItem.Finish = [System.DateTime]::Now.Ticks
-	$profiler.RawData.Add((New-Object -TypeName PSObject -Property $profiledItem))
-}
+#if (-not $ModuleFastInit) {
+	#$profileHistoryEnd = Get-History | Select-Object -Last 1 -ExpandProperty Id
+	#& (Join-Path $PSScriptRoot "Helpers\Module Profiler.ps1") -HistoryStartId $profileHistoryStart -HistoryEndId $profileHistoryEnd
+#}
 
-$profiler.Report = @{
-	Actions = ({@()}.Invoke())
-	TotalTime = ([System.TimeSpan]::FromTicks((($profiler.RawData | Select-Object -Last 1 | % Finish) - ($profiler.RawData | Select-Object -First 1 | % Start))))
-}
-$profiler.RawData | % {
-	$duration = [System.TimeSpan]::FromTicks($_.Finish - $_.Start)
-	$profiler.Report.Actions.Add((New-Object -TypeName PSObject -Property @{
-		Name = ($_.FullName.Substring($moduleInitialization.Length + 1))
-		Duration = $duration
-		Milliseconds = ($duration.TotalMilliseconds.ToString())
-	}))
-}
-$profiler.Report.HighestImpact = $profiler.Report.Actions | Sort-Object -Property Duration -Descending | Select-Object -First 1 | % { "$($_.Name) ($($_.Milliseconds) milliseconds)" }
-
-$ProfileConfig.Temp.ModuleInitializationProfiler = $profiler
-
-& (Join-Path $PSScriptRoot "Module Destructor.ps1")
+& (Join-Path $PSScriptRoot "Helpers\Module Destructor.ps1")
 
 Export-ModuleMember -Function $ProfileConfig.Temp.ModuleExports.Functions -Alias $ProfileConfig.Temp.ModuleExports.Aliases
 
