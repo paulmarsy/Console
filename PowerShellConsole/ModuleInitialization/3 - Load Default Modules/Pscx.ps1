@@ -1,4 +1,4 @@
 Import-Module Pscx -Global -ArgumentList @{
-    TextEditor = (Join-Path $ConsoleRoot "Libraries\Sublime Text\sublime_text.exe")
+    TextEditor = $PowerShellConsoleConstants.Executables.SublimeText
     CD_EchoNewLocation = $false
 }

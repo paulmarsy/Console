@@ -1,14 +1,14 @@
-$ConsoleRoot = Resolve-Path -Path $PSScriptRoot | % Path
+$InstallPath = Resolve-Path -Path $PSScriptRoot | % Path
 
 $UserFolder = Join-Path ([System.Environment]::GetFolderPath("MyDocuments")) "PowerShell Console"
 $AppSettingsFolder = Join-Path $UserFolder "App Settings"
 $UserScriptsFolder = Join-Path $UserFolder "User Scripts"
 
 $Constants = @{
-	InstallPath = $ConsoleRoot
+	InstallPath = $InstallPath
 	HookFiles = @{
 		PowerShell = $PROFILE.CurrentUserAllHosts
-		CommandPrompt = (Join-Path $ConsoleRoot "CommandPromptConsole\Init.bat")
+		CommandPrompt = (Join-Path $InstallPath "CommandPromptConsole\Init.bat")
 	}
 	UserFolders = @{
 		Root = $UserFolder
@@ -20,13 +20,13 @@ $Constants = @{
 		TempFolder = (Join-Path $UserFolder "Temp")
 	}
 	Version = @{
-		CurrentFile = (Join-Path $ConsoleRoot "Version.semver")
+		CurrentFile = (Join-Path $InstallPath "Version.semver")
 		InstalledFile = (Join-Path $AppSettingsFolder "Version.semver")
 	}
 	Executables = @{
-		ConEmu = (Join-Path $ConsoleRoot "Libraries\ConEmu\ConEmu64.exe")
-		SublimeText = (Join-Path $ConsoleRoot "Libraries\Sublime Text\sublime_text.exe")
-		Hstart = (Join-Path $ConsoleRoot "Libraries\Binaries\Hstart\hstart64.exe")
+		ConEmu = (Join-Path $InstallPath "Libraries\ConEmu\ConEmu64.exe")
+		SublimeText = (Join-Path $InstallPath "Libraries\Sublime Text\sublime_text.exe")
+		Hstart = (Join-Path $InstallPath "Libraries\Binaries\Hstart\hstart64.exe")
 	}
 	GitInstallPath = (Join-Path ${Env:ProgramFiles(x86)} "Git")
 }

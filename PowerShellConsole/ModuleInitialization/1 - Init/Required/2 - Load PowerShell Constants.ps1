@@ -1,1 +1,1 @@
-$PowerShellConsoleConstants = & (Join-Path $ConsoleRoot "Constants.ps1")
+$PowerShellConsoleConstants = & (Join-Path $InstallPath "Constants.ps1")

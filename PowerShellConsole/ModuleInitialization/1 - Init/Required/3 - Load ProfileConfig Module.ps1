@@ -1,4 +1,4 @@
 if (Get-Module ProfileConfig) {
 	Remove-Module ProfileConfig
 }
-Import-Module (Join-Path $ConsoleRoot "ProfileConfig") -Global -Force
+Import-Module (Join-Path $InstallPath "ProfileConfig") -Global -Force
