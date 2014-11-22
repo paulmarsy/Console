@@ -1,3 +1,6 @@
+param([switch]$GetModuleInitStepRunLevel)
+if ($GetModuleInitStepRunLevel) { return 1 }
+
 $machineIpProperties = [System.Net.NetworkInformation.IPGlobalProperties]::GetIPGlobalProperties()
 $networkConnectionProfile = Get-NetConnectionProfile | Sort-Object -Property InterfaceIndex | Select-Object -First 1
 

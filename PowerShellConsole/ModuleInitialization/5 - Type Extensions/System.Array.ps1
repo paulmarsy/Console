@@ -1,3 +1,6 @@
+param([switch]$GetModuleInitStepRunLevel)
+if ($GetModuleInitStepRunLevel) { return 1 }
+
 $type = "System.Array"
 
 Update-TypeData	-TypeName $type `

@@ -1,3 +1,6 @@
+param([switch]$GetModuleInitStepRunLevel)
+if ($GetModuleInitStepRunLevel) { return 3 }
+
 # Update PATH to reference 'Binaries' directory and subdirectories
 $Path = @(
 	$Env:PATH

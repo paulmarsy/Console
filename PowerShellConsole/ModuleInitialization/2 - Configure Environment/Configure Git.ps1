@@ -1,3 +1,6 @@
+param([switch]$GetModuleInitStepRunLevel)
+if ($GetModuleInitStepRunLevel) { return 2 }
+
 $Path = @(
 	(Join-Path $PowerShellConsoleConstants.GitInstallPath "bin")
 	(Join-Path $PowerShellConsoleConstants.GitInstallPath "mingw\bin")

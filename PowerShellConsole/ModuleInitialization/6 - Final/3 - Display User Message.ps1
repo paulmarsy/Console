@@ -1,3 +1,6 @@
+param([switch]$GetModuleInitStepRunLevel)
+if ($GetModuleInitStepRunLevel) { return 3 }
+
 $PowerShellConsoleStartUpMessage = [System.Environment]::GetEnvironmentVariable("PowerShellConsoleStartUpMessage", [System.EnvironmentVariableTarget]::Process)
 if (-not [string]::IsNullOrWhiteSpace($PowerShellConsoleStartUpMessage)) {
     $verticalLine = 1..10 | % { "*" } | Join-String

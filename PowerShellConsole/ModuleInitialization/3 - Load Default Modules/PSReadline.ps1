@@ -1,3 +1,6 @@
+param([switch]$GetModuleInitStepRunLevel)
+if ($GetModuleInitStepRunLevel) { return 3 }
+
 if ($Host.Name -eq 'ConsoleHost') {
 	Import-Module PSReadline -Global
 	Set-PSReadlineOption -ShowToolTips

@@ -10,12 +10,8 @@
 try {
 	Add-Type -AssemblyName System.Windows.Forms
 
-	try
-	{
-		$dynamicType = [NativeMethods.User32]
-	}
-	catch
-	{
+	$dynamicType = [System.AppDomain]::CurrentDomain.GetAssemblies() | % GetTypes | ? FullName -eq 'NativeMethods.User32'
+	if ($null -eq $dynamicType) {
 		$dynamicAssembly = [AppDomain]::CurrentDomain.DefineDynamicAssembly(
 			(New-Object System.Reflection.AssemblyName('PowerShellConsoleNativeMethods')),
 			[Reflection.Emit.AssemblyBuilderAccess]::Run
@@ -34,15 +30,28 @@ try {
 		$dynamicType = $nativeMethodsUser32.CreateType()
 	}
 
-	$LControlKeyPressed = ($dynamicType::GetAsyncKeyState([Windows.Forms.Keys]::LControlKey) -band 0x8000) -eq 0x8000
+	function Check-IfKeyIsPressed {
+		param([System.Windows.Forms.Keys]$Key)
 
-	if ($LControlKeyPressed) {
-		Write-Host -ForegroundColor Yellow "`t-Using Module Fast-Init-"
-		return $true
-	} else {
-		return $false
+		return (($dynamicType::GetAsyncKeyState($Key) -band 0x8000) -eq 0x8000)
 	}
+
+	#$LShiftKey 		= Check-IfKeyIsPressed ([Windows.Forms.Keys]::LShiftKey)
+	$LControlKey	= Check-IfKeyIsPressed ([Windows.Forms.Keys]::LControlKey)
+	$LWin			= Check-IfKeyIsPressed ([Windows.Forms.Keys]::LWin)
+	$LAlt			= Check-IfKeyIsPressed ([Windows.Forms.Keys]::LMenu)
+
+	$loadingLevel = 0
+	if ($LControlKey) { $loadingLevel = 1 }
+	if ($LControlKey -and $LWin) { $loadingLevel = 2 }
+	if ($LControlKey -and $LWin -and $LAlt) { $loadingLevel = 3 }
+
+	if ($loadingLevel -gt 0) {
+		Write-Host -ForegroundColor DarkMagenta "`tModule Fast-Init Invoked (Level: $loadingLevel)"
+	}
+
+	return $loadingLevel
 }
 catch {
-	return $false
+	return 0
 }

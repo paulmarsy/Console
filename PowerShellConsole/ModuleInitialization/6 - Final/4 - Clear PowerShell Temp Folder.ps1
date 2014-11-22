@@ -1,3 +1,6 @@
+param([switch]$GetModuleInitStepRunLevel)
+if ($GetModuleInitStepRunLevel) { return 1 }
+
 if (Get-ChildItem -Path $ProfileConfig.General.TempFolder) {
 	Write-Host
 	$clearPowerShellTempFolder = $Host.UI.PromptForChoice("Clear PowerShell Temp Folder", "Files detected in the PowerShell Temp folder, do you want to remove them?", ([System.Management.Automation.Host.ChoiceDescription[]](

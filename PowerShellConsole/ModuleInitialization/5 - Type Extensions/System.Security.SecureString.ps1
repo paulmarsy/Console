@@ -1,3 +1,6 @@
+param([switch]$GetModuleInitStepRunLevel)
+if ($GetModuleInitStepRunLevel) { return 1 }
+
 $type = "System.Security.SecureString"
 
 Update-TypeData	-TypeName $type `

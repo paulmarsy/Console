@@ -2,23 +2,51 @@ Set-StrictMode -Version Latest
 
 $InstallPath = Get-Item -Path Env:\PowerShellConsoleInstallPath | % Value
 
-$ModuleFastInit = & (Join-Path $PSScriptRoot "Helpers\Module Fast-Init Check.ps1")
+$ModuleFastInitLevel = & (Join-Path $PSScriptRoot "Helpers\Module Fast-Init Level.ps1")
 
-if (-not $ModuleFastInit) { Import-Module (Join-Path $PSScriptRoot "Helpers\Profiler.psm1") }
-Get-Item -Path (Join-Path $PSScriptRoot "ModuleInitialization") -PipelineVariable ModuleInitializationDir | Get-ChildItem | ? PSIsContainer | Sort-Object -Property Name | 
-	% { Get-ChildItem -Path $_.FullName -Recurse -Filter "*.ps1" |
-		Sort-Object -Property @{Expression = { $_.Directory.Name -eq "Required" }; Ascending = $false}, Name  | % {
-			if ($ModuleFastInit -and $_.Directory.Name -ne "Required") { return }
-			if (-not $ModuleFastInit) { Set-ProfilerStep Begin ($_.FullName.Substring($ModuleInitializationDir.FullName.Length + 1)) }
-			. "$($_.FullName)"
-			if (-not $ModuleFastInit) { Set-ProfilerStep End }
-		}
+if ($ModuleFastInitLevel -le 1) {
+	Import-Module (Join-Path $PSScriptRoot "Helpers\Profiler.psm1")
+	Set-ProfilerStep Begin "FilterModuleInitializationSteps"
+}
+$moduleInitializationSteps = Get-Item -Path (Join-Path $PSScriptRoot "ModuleInitialization") -PipelineVariable ModuleInitializationDir | 
+								Get-ChildItem -Recurse -Filter "*.ps1" |
+								Sort-Object -Property FullName |
+								% {
+									@{
+										Name =  $_.FullName.Substring($ModuleInitializationDir.FullName.Length + 1)
+										Path = $_.FullName
+										StepRunLevel = (& "$($_.FullName)" -GetModuleInitStepRunLevel)
+									}
+								}
+if ($ModuleFastInitLevel -le 1) { Set-ProfilerStep End }
+
+$moduleLoadSucceeded = $true
+foreach ($step in $moduleInitializationSteps) {
+	if ($step.StepRunLevel -ne -1 -and $step.StepRunLevel -le $ModuleFastInitLevel) { continue }
+	if ($ModuleFastInitLevel -le 1) { Set-ProfilerStep Begin $step.Name }
+	try {
+		. "$($step.Path)"
 	}
+	catch {
+		$exception = $_.Exception
+		Write-Host -ForegroundColor Red "ERROR: Module initialization step '$step.Name' failed with the error '$($exception.Message)' at line $($exception.Line), character $($exception.Offset)"
+		$moduleLoadSucceeded = $false
+		break
+	}
+	finally {
+		if ($ModuleFastInitLevel -le 1) { Set-ProfilerStep End }
+	}
+}
 
 & (Join-Path $PSScriptRoot "Helpers\Module Destructor.ps1")
 
-Export-ModuleMember -Function $ProfileConfig.Temp.ModuleExports.Functions -Alias $ProfileConfig.Temp.ModuleExports.Aliases
+if ($ProfileConfig.Temp.ContainsKey("ModuleExports")) {
+	Export-ModuleMember -Function $ProfileConfig.Temp.ModuleExports.Functions -Alias $ProfileConfig.Temp.ModuleExports.Aliases
+}
 
 Write-Host
-Write-Host -ForegroundColor Green "PowerShell Console Module successfully loaded"
-Write-Host -ForegroundColor DarkGreen "`t Use 'Show-PowerShellConsoleHelp' for a list of available commands"
+if ($moduleLoadSucceeded) {
+	Write-Host -ForegroundColor Green "PowerShell Console Module successfully loaded"
+} else {
+	Write-Host -ForegroundColor Red "PowerShell Console Module encountered errors while loading"
+}

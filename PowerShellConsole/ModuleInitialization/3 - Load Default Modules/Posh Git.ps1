@@ -1,3 +1,6 @@
+param([switch]$GetModuleInitStepRunLevel)
+if ($GetModuleInitStepRunLevel) { return 2 }
+
 Import-Module posh-git -Global
 $GitPromptSettings.EnableWindowTitle = "Windows PowerShell - Git - "
 Enable-GitColors

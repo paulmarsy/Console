@@ -1,3 +1,6 @@
+param([switch]$GetModuleInitStepRunLevel)
+if ($GetModuleInitStepRunLevel) { return 1 }
+
 if (Test-Path Function:TabExpansion2) {
 	Copy-Item -Path Function:TabExpansion2 -Destination Function:Global:TabExpansion2Backup -Force
 }

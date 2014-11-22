@@ -1,3 +1,6 @@
+param([switch]$GetModuleInitStepRunLevel)
+if ($GetModuleInitStepRunLevel) { return 1 }
+
 if (Test-Path Env:VS120COMNTOOLS) {
 	Import-VisualStudioVars 2013
 } elseif (Test-Path Env:VS110COMNTOOLS) {
