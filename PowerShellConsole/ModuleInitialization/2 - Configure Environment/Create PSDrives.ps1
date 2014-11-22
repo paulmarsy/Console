@@ -1,5 +1,5 @@
-param([switch]$GetModuleInitStepRunLevel)
-if ($GetModuleInitStepRunLevel) { return 1 }
+param([switch]$GetModuleStepDetails)
+if ($GetModuleStepDetails) { return (@{RunLevel = 1; Critical = $false}) }
 
 # HKEY_CLASSES_ROOT or HKCR
 if (Test-Path HKCR:) {

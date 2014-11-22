@@ -1,5 +1,5 @@
-param([switch]$GetModuleInitStepRunLevel)
-if ($GetModuleInitStepRunLevel) { return 1 }
+param([switch]$GetModuleStepDetails)
+if ($GetModuleStepDetails) { return (@{RunLevel = 1; Critical = $false}) }
 
 if (Get-ChildItem -Path $ProfileConfig.General.TempFolder) {
 	Write-Host

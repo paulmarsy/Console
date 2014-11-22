@@ -1,5 +1,5 @@
-param([switch]$GetModuleInitStepRunLevel)
-if ($GetModuleInitStepRunLevel) { return 1 }
+param([switch]$GetModuleStepDetails)
+if ($GetModuleStepDetails) { return (@{RunLevel = 1; Critical = $false}) }
 
 $machineIpProperties = [System.Net.NetworkInformation.IPGlobalProperties]::GetIPGlobalProperties()
 $networkConnectionProfile = Get-NetConnectionProfile | Sort-Object -Property InterfaceIndex | Select-Object -First 1

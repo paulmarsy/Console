@@ -1,5 +1,5 @@
-param([switch]$GetModuleInitStepRunLevel)
-if ($GetModuleInitStepRunLevel) { return 3 }
+param([switch]$GetModuleStepDetails)
+if ($GetModuleStepDetails) { return (@{RunLevel = 3; Critical = $true}) }
 
 $ProfileConfig.Temp.ModuleExports = @{
 	Functions = @()

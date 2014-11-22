@@ -1,5 +1,5 @@
-param([switch]$GetModuleInitStepRunLevel)
-if ($GetModuleInitStepRunLevel) { return 2 }
+param([switch]$GetModuleStepDetails)
+if ($GetModuleStepDetails) { return (@{RunLevel = 2; Critical = $false}) }
 
 Import-Module posh-git -Global
 $GitPromptSettings.EnableWindowTitle = "Windows PowerShell - Git - "

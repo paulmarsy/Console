@@ -7,6 +7,7 @@
     http://www.exploit-monday.com/
     https://github.com/mattifestation
  #>
+
 try {
 	Add-Type -AssemblyName System.Windows.Forms
 
@@ -41,16 +42,16 @@ try {
 	$LWin			= Check-IfKeyIsPressed ([Windows.Forms.Keys]::LWin)
 	$LAlt			= Check-IfKeyIsPressed ([Windows.Forms.Keys]::LMenu)
 
-	$loadingLevel = 0
-	if ($LControlKey) { $loadingLevel = 1 }
-	if ($LControlKey -and $LWin) { $loadingLevel = 2 }
-	if ($LControlKey -and $LWin -and $LAlt) { $loadingLevel = 3 }
+	$level = 0
+	if ($LControlKey) { $level = 1 }
+	if ($LControlKey -and $LWin) { $level = 2 }
+	if ($LControlKey -and $LWin -and $LAlt) { $level = 3 }
 
-	if ($loadingLevel -gt 0) {
-		Write-Host -ForegroundColor DarkMagenta "`tModule Fast-Init Invoked (Level: $loadingLevel)"
+	if ($level -gt 0) {
+		Write-Host -ForegroundColor DarkMagenta "`tModule Init Level Override Set (Level: $level)"
 	}
 
-	return $loadingLevel
+	return $level
 }
 catch {
 	return 0

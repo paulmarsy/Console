@@ -1,4 +1,4 @@
-param([switch]$GetModuleInitStepRunLevel)
-if ($GetModuleInitStepRunLevel) { return 1 }
+param([switch]$GetModuleStepDetails)
+if ($GetModuleStepDetails) { return (@{RunLevel = 1; Critical = $false}) }
 
 Sync-ConsoleWithGitHub -DontPushToGitHub -UpdateConsole Auto -Quiet -AutoSync

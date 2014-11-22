@@ -1,5 +1,5 @@
-param([switch]$GetModuleInitStepRunLevel)
-if ($GetModuleInitStepRunLevel) { return -1 }
+param([switch]$GetModuleStepDetails)
+if ($GetModuleStepDetails) { return (@{RunLevel = -1; Critical = $true}) }
 
 if (Get-Module ProfileConfig) {
 	Remove-Module ProfileConfig

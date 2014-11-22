@@ -1,5 +1,5 @@
-param([switch]$GetModuleInitStepRunLevel)
-if ($GetModuleInitStepRunLevel) { return 3 }
+param([switch]$GetModuleStepDetails)
+if ($GetModuleStepDetails) { return (@{RunLevel = 3; Critical = $false}) }
 
 $PowerShellConsolePath = [System.Environment]::GetEnvironmentVariable("PowerShellConsoleStartUpPath", [System.EnvironmentVariableTarget]::Process)
 if (-not [string]::IsNullOrWhiteSpace($PowerShellConsolePath)) {

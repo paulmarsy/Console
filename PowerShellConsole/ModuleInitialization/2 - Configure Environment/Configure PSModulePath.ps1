@@ -1,5 +1,5 @@
-param([switch]$GetModuleInitStepRunLevel)
-if ($GetModuleInitStepRunLevel) { return 3 }
+param([switch]$GetModuleStepDetails)
+if ($GetModuleStepDetails) { return (@{RunLevel = 3; Critical = $false}) }
 
 # Update PSModulePath to reference 'PowerShell Modules' directory
 $PSModulePath = $Env:PSModulePath + ";" + (Join-Path $ProfileConfig.Module.InstallPath "Libraries\PowerShell Modules")
