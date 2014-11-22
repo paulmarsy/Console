@@ -1,5 +1,5 @@
 param([switch]$GetModuleInitStepRunLevel)
-if ($GetModuleInitStepRunLevel) { return 2 }
+if ($GetModuleInitStepRunLevel) { return 3 }
 
 if (Test-Path -Path Function:Global:prompt) {
     Remove-Item -Path Function:Global:prompt -Force
