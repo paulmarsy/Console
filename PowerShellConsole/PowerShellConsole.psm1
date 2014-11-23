@@ -12,7 +12,8 @@ $moduleInitializationSteps = Get-Item -Path (Join-Path $PSScriptRoot "ModuleInit
 								Get-ChildItem -Recurse -Filter "*.ps1" |
 								Sort-Object -Property FullName |
 								% {
-									$moduleStepDetails = & "$($_.FullName)" -GetModuleStepDetails
+									$stepMetaDataSection = [ScriptBlock]::Create((Get-Content -Path $_.FullName -ReadCount 2 -Raw))
+									$moduleStepDetails = & $stepMetaDataSection -GetModuleStepDetails
 									@{
 										Name =  $_.FullName.Substring($ModuleInitializationDir.FullName.Length + 1)
 										Path = $_.FullName
