@@ -31,6 +31,10 @@ function New-ProfileConfig {
 			AppSettingsFolder						= $PowerShellConsoleConstants.UserFolders.AppSettingsFolder
 			Version 								= $PowerShellConsoleConstants.Version
 		}
+		ConsolePaths = @{
+			CommandPrompt = (Join-Path $PowerShellConsoleConstants.InstallPath "CommandPromptConsole")
+			PowerShell = (Join-Path $PowerShellConsoleConstants.InstallPath "PowerShellConsole")
+		}
 		Temp = @{
 			# ConnectionManager
 			# ModuleExports
