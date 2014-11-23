@@ -23,7 +23,7 @@ $moduleInitializationSteps = Get-Item -Path (Join-Path $PSScriptRoot "ModuleInit
 								}
 if ($ModuleInitLevel -le 1) { Set-ProfilerStep End }
 
-$moduleLoadSucceeded = $true
+$moduleLoadErrors = 0
 foreach ($step in $moduleInitializationSteps) {
 	if ($step.RunLevel -ne -1 -and $step.RunLevel -le $ModuleInitLevel) { continue }
 	if ($ModuleInitLevel -le 1) { Set-ProfilerStep Begin $step.Name }
@@ -31,7 +31,7 @@ foreach ($step in $moduleInitializationSteps) {
 		. "$($step.Path)"
 	}
 	catch {
-		$moduleLoadSucceeded = $false
+		$moduleLoadErrors++
 		Write-Host -ForegroundColor Red "ERROR: Module initialization step '$($step.Name)' failed."
 		Write-Host -ForegroundColor Red "Message - $($_.Exception.Message)"
 		Write-Host -ForegroundColor Red "Script - $($_.InvocationInfo.ScriptName)"
@@ -54,8 +54,8 @@ if ($ProfileConfig.Temp.ContainsKey("ModuleExports")) {
 }
 
 Write-Host
-if ($moduleLoadSucceeded) {
+if ($moduleLoadErrors -eq 01) {
 	Write-Host -ForegroundColor Green "PowerShell Console Module successfully loaded"
 } else {
-	Write-Host -ForegroundColor Red "PowerShell Console Module encountered errors while loading"
+	Write-Host -ForegroundColor Red "PowerShell Console Module encountered $moduleLoadErrors errors while loading"
 }
