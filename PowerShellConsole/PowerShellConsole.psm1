@@ -54,7 +54,7 @@ if ($ProfileConfig.Temp.ContainsKey("ModuleExports")) {
 }
 
 Write-Host
-if ($moduleLoadErrors -eq 01) {
+if ($moduleLoadErrors -eq 0) {
 	Write-Host -ForegroundColor Green "PowerShell Console Module successfully loaded"
 } else {
 	Write-Host -ForegroundColor Red "PowerShell Console Module encountered $moduleLoadErrors errors while loading"
