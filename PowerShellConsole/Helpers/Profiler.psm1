@@ -44,34 +44,27 @@ function Set-ProfilerStep {
 	}
 }
 
-function Measure-ProfilerSteps {
+function Show-ProfilerResults {
 	$totalTimeSpan = ([System.TimeSpan]::FromTicks((($Profiler.RawData | Select-Object -Last 1 | % Finish) - ($Profiler.RawData | Select-Object -First 1 | % Start))))
-	$Profiler.Report = @{
+	$report = @{
 		Actions = ({@()}.Invoke())
 		TotalTime = $humanizeTimeSpan.Invoke($totalTimeSpan)
 	}
 	$Profiler.RawData | % {
 		$durationTimeSpan = [System.TimeSpan]::FromTicks($_.Finish - $_.Start)
-		$Profiler.Report.Actions.Add((New-Object -TypeName PSObject -Property @{
+		$report.Actions.Add((New-Object -TypeName PSObject -Property @{
 			Name = $_.Name
 			Duration = $durationTimeSpan
 			HumanDuration = $humanizeTimeSpan.Invoke($durationTimeSpan)
 		}))
 	}
-	$Profiler.Report.HighestImpact = $Profiler.Report.Actions | Sort-Object -Property Duration -Descending | Select-Object -First 1 | % { "$($_.Name) - $($_.HumanDuration)" }
-}
+	$report.HighestImpact = $report.Actions | Sort-Object -Property Duration -Descending | Select-Object -First 1 | % { "$($_.Name) - $($_.HumanDuration)" }
 
-function Get-ProfilerResults {
-	return $Profiler
-}
-
-function Show-ProfilerResults {
- 	Measure-ProfilerSteps
-	$Profiler.Report | % {
+	$report | % {
 		Write-Host -ForegroundColor DarkMagenta "`tTotal time: $($_.TotalTime)"
 		Write-Host -ForegroundColor DarkMagenta "`tHighest impact: $($_.HighestImpact)"
 		$_.Actions | Format-Table -Property @(@{Label = "Name"; Expression = { $_.Name }} , @{Label = "Duration"; Expression = { $_.HumanDuration }}) -AutoSize | Out-Host
 	}
 }
 
-Export-ModuleMember -Function @("Set-ProfilerStep", "Measure-ProfilerSteps", "Get-ProfilerResults", "Show-ProfilerResults")
+Export-ModuleMember -Function @("Set-ProfilerStep", "Show-ProfilerResults")
