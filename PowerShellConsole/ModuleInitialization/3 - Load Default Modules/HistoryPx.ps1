@@ -3,3 +3,4 @@ if ($GetModuleStepDetails) { return (@{RunLevel = 1; Critical = $false}) }
 
 Import-Module HistoryPx -Global
 
+Set-ExtendedHistoryConfiguration -MaximumEntryCount $MaximumHistoryCount
