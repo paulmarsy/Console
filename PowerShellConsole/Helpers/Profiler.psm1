@@ -2,9 +2,7 @@ Set-StrictMode -Version Latest
 
 $InstallPath = Get-Item -Path Env:\PowerShellConsoleInstallPath | % Value
 
-$Profiler = @{
-	RawData = ({@()}.Invoke())
-}
+$ModuleInitProfilerData = ({@()}.Invoke())
 
 $humanizerAssembly = Join-Path $InstallPath "Libraries\.NET Assemblies\Humanizer\Humanizer.dll"
 if (Test-Path $humanizerAssembly) {
@@ -27,14 +25,14 @@ function Set-ProfilerStep {
 	)
 
 	$now = Get-Date | % Ticks
-	$lastStep = $Profiler.RawData | Select-Object -Last 1
+	$lastStep = $ModuleInitProfilerData | Select-Object -Last 1
 
 	if ($Type -eq "Begin") {
 		if ($null -ne $lastStep -and $null -eq $lastStep.Finish) {
 			$lastStep.Finish = $now
 		}
 
-		$Profiler.RawData.Add((New-Object -TypeName PSObject -Property @{
+		$ModuleInitProfilerData.Add((New-Object -TypeName PSObject -Property @{
 			Name = $Name
 			Start = $now
 			Finish = $null
@@ -45,12 +43,12 @@ function Set-ProfilerStep {
 }
 
 function Show-ProfilerResults {
-	$totalTimeSpan = ([System.TimeSpan]::FromTicks((($Profiler.RawData | Select-Object -Last 1 | % Finish) - ($Profiler.RawData | Select-Object -First 1 | % Start))))
+	$totalTimeSpan = ([System.TimeSpan]::FromTicks((($ModuleInitProfilerData | Select-Object -Last 1 | % Finish) - ($ModuleInitProfilerData | Select-Object -First 1 | % Start))))
 	$report = @{
 		Actions = ({@()}.Invoke())
 		TotalTime = $humanizeTimeSpan.Invoke($totalTimeSpan)
 	}
-	$Profiler.RawData | % {
+	$ModuleInitProfilerData | % {
 		$durationTimeSpan = [System.TimeSpan]::FromTicks($_.Finish - $_.Start)
 		$report.Actions.Add((New-Object -TypeName PSObject -Property @{
 			Name = $_.Name
