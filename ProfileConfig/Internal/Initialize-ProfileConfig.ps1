@@ -4,7 +4,7 @@ function Initialize-ProfileConfig {
     }
 
     if (Test-Path $profileConfigFile) {
-        $importedProfileConfig =  Get-Content -Path $profileConfigFile | ConvertFrom-Json
+        $importedProfileConfig =  Get-Content -Path $profileConfigFile -Raw | ConvertFrom-Json
     } else {
         $importedProfileConfig = $null
     }
