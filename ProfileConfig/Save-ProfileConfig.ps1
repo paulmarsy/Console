@@ -7,11 +7,12 @@ function Save-ProfileConfig {
 		if (-not $Quiet) { Write-Host -ForegroundColor Cyan -NoNewLine "Saving ProfileConfig... " }
 
 		$config = Get-Variable -Name ProfileConfig -ValueOnly -Scope Global
-		$configFile = $config.Module.ProfileConfigFile
+		$configClone = $config.Clone()
+		$configFile = $configClone.Module.ProfileConfigFile
 
-		@("General", "Module", "Temp") | % { $config.Remove($_) }
+		@("General", "Module", "Temp") | % { $configClone.Remove($_) }
 
-		ConvertTo-Json -InputObject $config -Compress | Set-Content -Path $configFile
+		ConvertTo-Json -InputObject $configClone | Set-Content -Path $configFile
 
 		if (-not $Quiet) { Write-Host -ForegroundColor Green "Done." }
 	}
