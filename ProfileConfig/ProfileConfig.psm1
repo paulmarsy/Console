@@ -8,7 +8,7 @@ $InstallPath = Get-Item -Path Env:\PowerShellConsoleInstallPath | % Value
 $PowerShellConsoleConstants = & (Join-Path $InstallPath "Constants.ps1")
 $ProfileConfigFile = Join-Path $PowerShellConsoleConstants.UserFolders.AppSettingsFolder "ProfileConfig.json"
 
-Get-ChildItem $PSScriptRoot -Filter *.ps1  -Recurse| % { . $_.FullName }
+Get-ChildItem $PSScriptRoot -Filter *.ps1  -Recurse | % { . $_.FullName }
 
 Initialize-ProfileConfig
 
