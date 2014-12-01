@@ -4,7 +4,7 @@ if ($GetModuleStepDetails) { return (@{RunLevel = 3; Critical = $false}) }
 function Update-PSDefaultParameterValues {
 	param($Name, $Value)
 
-	if ($Global:PSDefaultParameterValues.ContainsKey($Name)) {
+	if ($Global:PSDefaultParameterValues.Keys.Contains($Name)) {
 		$Global:PSDefaultParameterValues.Remove($Name)
 	}
 	$Global:PSDefaultParameterValues.Add($Name, $Value)
