@@ -17,8 +17,8 @@ switch ($LASTEXITCODE) {
 		Write-Host -ForegroundColor Red  "Git exited unexpectedly"
 	}
 	1306 {
-		& $PowerShellConsoleConstants.Executables.Hstart "/DELAY=3 `"$consoleGitHubSyncer`" -Synchronize `"$($PowerShellConsoleConstants.InstallPath)`" `"$($PowerShellConsoleConstants.Executables.ConEmu)`" `"/cmd {PowerShell}`""
-		[System.Environment]::Exit(0)
+		[System.Diagnostics.Process]::Start($PowerShellConsoleConstants.Executables.Hstart, "/DELAY=3 `"`"$consoleGitHubSyncer`" -Synchronize `"$($PowerShellConsoleConstants.InstallPath)`" `"$($PowerShellConsoleConstants.Executables.ConEmu)`" `"/cmd {PowerShell}`" `"")
+		#[System.Environment]::Exit(0)
 	}
 	default { 	Write-Warning "ConsoleGitHubSyncer failed with error code $LASTEXITCODE" }
 }
