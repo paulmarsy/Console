@@ -18,7 +18,7 @@ switch ($LASTEXITCODE) {
 	}
 	1306 {
 		[System.Diagnostics.Process]::Start($PowerShellConsoleConstants.Executables.Hstart, "/DELAY=3 `"`"$consoleGitHubSyncer`" -Synchronize `"$($PowerShellConsoleConstants.InstallPath)`" `"$($PowerShellConsoleConstants.Executables.ConEmu)`" `"/cmd {PowerShell}`" `"")
-		#[System.Environment]::Exit(0)
+		[System.Environment]::Exit(0)
 	}
 	default { 	Write-Warning "ConsoleGitHubSyncer failed with error code $LASTEXITCODE" }
 }
