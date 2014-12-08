@@ -3,9 +3,9 @@ if ($GetModuleStepDetails) { return (@{RunLevel = 1; Critical = $false}) }
 
 $consoleGitHubSyncer = $PowerShellConsoleConstants.Executables.ConsoleGitHubSyncer
 
-& $consoleGitHubSyncer -Check $PowerShellConsoleConstants.InstallPath | Out-Host
+$consoleGitHubSyncerCheck = Start-Process -FilePath $consoleGitHubSyncer -ArgumentList "-Check $($PowerShellConsoleConstants.InstallPath)" -PassThru -NoNewWindow -Wait
 
-switch ($LASTEXITCODE) {
+switch ($consoleGitHubSyncerCheck.ExitCode) {
 	0 {
 		Write-Host -ForegroundColor Green "Git repository is up to date with GitHub changes"
 	}
@@ -19,5 +19,5 @@ switch ($LASTEXITCODE) {
 		[System.Diagnostics.Process]::Start($PowerShellConsoleConstants.Executables.Hstart, "/DELAY=3 `"`"$consoleGitHubSyncer`" -Synchronize `"$($PowerShellConsoleConstants.InstallPath)`" `"$($PowerShellConsoleConstants.Executables.ConEmu)`" `"/cmd {PowerShell}`" `"")
 		[System.Environment]::Exit(0)
 	}
-	default { 	Write-Warning "ConsoleGitHubSyncer failed with error code $LASTEXITCODE" }
+	default { 	Write-Warning "ConsoleGitHubSyncer failed with error code $($consoleGitHubSyncerCheck.ExitCode)" }
 }
