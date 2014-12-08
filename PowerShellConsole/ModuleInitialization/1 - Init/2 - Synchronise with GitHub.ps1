@@ -8,7 +8,6 @@ $consoleGitHubSyncer = $PowerShellConsoleConstants.Executables.ConsoleGitHubSync
 switch ($LASTEXITCODE) {
 	0 {
 		Write-Host -ForegroundColor Green "Git repository is up to date with GitHub changes"
-		& $consoleGitHubSyncer -InitializeRepositoryForUse $PowerShellConsoleConstants.InstallPath | Out-Host
 	}
 	10 {
 		Write-Host -ForegroundColor Red  "Unable to synchronize while the Git working tree has uncommitted changes"
