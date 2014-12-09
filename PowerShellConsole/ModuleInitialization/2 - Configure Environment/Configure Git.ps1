@@ -10,7 +10,6 @@ $Path = @(
 
 [System.Environment]::SetEnvironmentVariable("PATH", $Path, [System.EnvironmentVariableTarget]::Process)
 
-
 # Stop pull requests from being fetched
 & git.exe config --system --unset-all remote.origin.fetch .*refs\/pull\/\*.*:.*\/origin\/pr\/\*.*
 
@@ -44,6 +43,7 @@ SetGitConfig "diff.submodule" "log"
 SetGitConfig "status.submodulesummary" 1
 SetGitConfig "merge.tool" "bc3"
 SetGitConfig "pager.log" "false"
+SetGitConfig "push.default" "simple"
 
 $gitHubRegistryKeyPath = "HKCU:\Software\Classes\github-windows\shell\open\command"
 if (Test-Path $gitHubRegistryKeyPath) {
