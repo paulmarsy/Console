@@ -1,6 +1,6 @@
 @ECHO OFF
 
-MODE CON: COLS=120 LINES=50
+MODE CON: COLS=120 LINES=40
 TITLE Installing PowerShell Console...
 
 CD /D %~dp0

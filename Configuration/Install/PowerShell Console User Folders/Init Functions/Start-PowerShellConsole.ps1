@@ -3,9 +3,8 @@ function Start-PowerShellConsole {
 		[switch]$Force
 	)
 
-	$parentProcessId = (Get-WmiObject Win32_Process -Filter "ProcessId='$PID'").ParentProcessId
-	$parentProcess = Get-Process -Id $parentProcessId -ErrorAction Ignore
-	if (($null -eq $parentProcess -or ($parentProcess | % Name) -notlike "ConEmuC*") -and -not $Force) {
+	$extensibleEnvironmentTester = Start-Process -FilePath "##InstallPath##\Libraries\ExtensibleEnvironmentTester\ExtensibleEnvironmentTester.exe" -PassThru -NoNewWindow -Wait
+	if ($extensibleEnvironmentTester.ExitCode -ne 0 -and -not $Force) {
 		Write-Host -ForegroundColor Red "Not starting PowerShell Console as we are not using ConEmu. Use the -Force switch to override."
 		return
 	}

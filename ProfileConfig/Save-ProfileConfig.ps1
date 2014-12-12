@@ -10,7 +10,7 @@ function Save-ProfileConfig {
 		$configClone = $config.Clone()
 		$configFile = $configClone.Module.ProfileConfigFile
 
-		@("General", "Module", "Temp") | % { $configClone.Remove($_) }
+		@("General", "Module", "Temp", "ConsolePaths") | % { $configClone.Remove($_) }
 
 		ConvertTo-Json -InputObject $configClone | Set-Content -Path $configFile
 

@@ -2,7 +2,7 @@ function Dism-Wrapper {
 	param($FeatureNames)
 
 	Invoke-InstallStep "Microsoft Windows - Installing DISM Features" {
-		$result = Enable-WindowsOptionalFeature -FeatureName $FeatureNames -Online -NoRestart
+		$result = Enable-WindowsOptionalFeature -FeatureName $FeatureNames -Online -NoRestart -LogLevel Errors
 		if ($result.RestartNeeded) {
 			Write-InstallMessage "Restart needed after installing winows features" -Type Info
 		}
