@@ -24,7 +24,7 @@ function Start-PowerShell {
         "64bit" {
             if ($64bitOs -and $64bitProcess) { "System32"; break }
             if ($64bitOs -and $32bitProcess) { "Sysnative"; break }
-            if ($32bitOs) { Write-Host -ForegroundColor Red "Can't Start 64bit PowerShell on a 32bit Operating System"; return }            
+            if ($32bitOs) { throw "Can't Start 64bit PowerShell on a 32bit Operating System" }            
         }
     }
 

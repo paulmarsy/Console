@@ -21,8 +21,7 @@ function _workOnConsoleWorkingDirectory {
     	$ScriptBlock.Invoke() | ? { $ReturnValue } | Write-Output
     }
     catch {
-        Write-Host -ForegroundColor Red "ERROR: $($_.Exception.InnerException.Message)"
-        throw "Unable to continue Git command"
+        throw "Unable to continue Git: $($_.Exception.InnerException.Message)"
     }
 	finally {
         if ($currentDirectory -ne $workingDirectory) {

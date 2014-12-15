@@ -38,7 +38,7 @@ function Send-PushBullet
 		if ($result.Active -eq "True") {
 			Write-Host -ForegroundColor Green "PushBullet successfully sent"
 		} else {
-			Write-Host -ForegroundColor Red "Unknown state of PushBullet API call, result:"
+			Write-Error "Unknown state of PushBullet API call"
 			Format-List -InputObject $result | Out-Host
 		}
 	}

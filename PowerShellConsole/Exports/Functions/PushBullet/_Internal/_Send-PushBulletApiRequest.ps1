@@ -16,7 +16,7 @@ function _Send-PushBulletApiRequest {
 									-Body:$Body)
 	}
 	catch {
-		Write-Host -ForegroundColor Red "Error accessing PushBullet: $($_.Exception.Message)"
+		Write-Error "Error accessing PushBullet: $($_.Exception.Message)"
 		return $null
 	}
 }

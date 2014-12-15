@@ -57,5 +57,5 @@ Write-Host
 if ($moduleLoadErrors -eq 0) {
 	Write-Host -ForegroundColor Green "PowerShell Console Module successfully loaded"
 } else {
-	Write-Host -ForegroundColor Red "PowerShell Console Module encountered $moduleLoadErrors errors while loading"
+	Write-Error "PowerShell Console Module encountered $moduleLoadErrors errors while loading"
 }

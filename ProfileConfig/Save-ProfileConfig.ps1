@@ -17,6 +17,7 @@ function Save-ProfileConfig {
 		if (-not $Quiet) { Write-Host -ForegroundColor Green "Done." }
 	}
 	catch {
-		Write-Host -ForegroundColor Red "`nError saving ProfileConfig! $_"
+		Write-Host
+		Write-Error "Error saving ProfileConfig! $_"
 	}
 }
