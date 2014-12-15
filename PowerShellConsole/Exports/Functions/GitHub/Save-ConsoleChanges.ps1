@@ -5,8 +5,7 @@ function Save-ConsoleChanges {
 
 	_workOnConsoleWorkingDirectory {
 		if ((_getNumberOfUncommitedChanges) -eq 0) {
-			Write-Host -ForegroundColor Red "ERROR: There are no changes to commit to Git"
-			return
+			throw "There are no changes to commit to Git"
     	}
 
 		while([string]::IsNullOrWhiteSpace($CommitMessage)) {

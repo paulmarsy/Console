@@ -6,8 +6,7 @@ function Set-PushBulletAccessToken
 	)
 
 	if ((Test-ProtectedProfileConfigSetting -Name "PushBulletAccessToken") -and -not $Force) {
-			Write-Host -ForegroundColor Red "ERROR: Access Token already set, use -Force to overwrite it"
-			return
+			throw "Access Token already set, use -Force to overwrite it"
 	}
 
 	Set-ProtectedProfileConfigSetting -Name "PushBulletAccessToken" -Value $AccessToken -Force

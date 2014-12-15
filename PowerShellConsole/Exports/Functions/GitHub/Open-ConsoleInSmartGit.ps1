@@ -9,8 +9,7 @@ function Open-ConsoleInSmartGit {
 	$smartGitExe = Join-Path  ${Env:ProgramFiles(x86)} "SmartGit\bin\smartgit.exe"
 
 	if (-not (Test-Path $smartGitExe)) {
-		Write-Host -ForegroundColor Red "ERROR: SmartGit does not appear to be installed (could not find $smartGitExe)"
-		return
+		throw "SmartGit does not appear to be installed (could not find $smartGitExe)"
 	}
 
 	$mode = switch ($PsCmdlet.ParameterSetName) {

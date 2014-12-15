@@ -8,8 +8,7 @@ function Set-ProtectedProfileConfigSetting {
 	)
 
 	if (-not $Force -and $null -ne (Get-ProtectedProfileConfigSetting -Name $Name -Scope $Scope)) {
-		Write-Host -ForegroundColor Red "ERROR: Setting already exists, use the -Force flag to overwrite it"
-		return
+		throw "Setting already exists, use the -Force flag to overwrite it"
 	}	
 
 	$rootProfileConfigSettings = Get-RootProtectedProfileConfigSettings -Scope $Scope | Add-Member -MemberType NoteProperty -Name $Name -Value $Value -PassThru -Force:$Force

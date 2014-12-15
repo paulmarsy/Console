@@ -1,8 +1,7 @@
 function Undo-ConsoleChanges {
 	_workOnConsoleWorkingDirectory {
 		if ((_getNumberOfUncommitedChanges) -eq 0) {
-			Write-Host -ForegroundColor Red "ERROR: There are no changes to undo"
-			return
+			throw "There are no changes to undo"
 		}
 		Write-Host -ForegroundColor Cyan "Discarding local Console Git changes..." 
 		_invokeGitCommand "clean -df"
