@@ -12,11 +12,11 @@ function Find-String {
 	$searchErrors = @()
 
 	Write-Host "Finding '$Pattern' in $Path...`n" -ForegroundColor White
-	Get-ChildItem -Path $Path -Recurse -ErrorAction SilentlyContinue -ErrorVariable +searchErrors | 
-		? { $_.PSIsContainer -eq $false -and ($IncludeLargeFiles -or $_.Length -le $maxFileSizeToSearchInBytes) } | 
+	Get-ChildItem -Path $Path -Recurse -File -ErrorAction SilentlyContinue -ErrorVariable +searchErrors | 
+		? { $IncludeLargeFiles -or $_.Length -le $maxFileSizeToSearchInBytes } | 
 		? {
-			$byteArray = Get-Content -Path $_.FullName -Encoding Byte -TotalCount 1KB
-			if ($byteArray -contains 0) { return $false }
+			$byteArray = Get-Content -Path $_.FullName -Encoding Byte -TotalCount 1KB -ErrorAction SilentlyContinue -ErrorVariable +searchErrors
+			if ($null -eq $byteArray -or $byteArray -contains 0) { return $false }
 			else { return $true }
 		} |
 		Select-String -Pattern ([Regex]::Escape($Pattern)) -AllMatches -Context 2 -ErrorAction SilentlyContinue -ErrorVariable +searchErrors  |
