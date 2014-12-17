@@ -4,7 +4,7 @@ $shortcutPath = Join-Path $linksFolder "PowerShell Console.lnk"
 Invoke-InstallStep "Adding PowerShell Consoler User Folder to Links folder" {
 	$WshShell = New-Object -ComObject WScript.Shell
 	$consoleShortcut = $WshShell.CreateShortcut($shortcutPath)
-	$consoleShortcut.TargetPath = $PowerShellConsoleContstants.UserFolders.Root
+	$consoleShortcut.TargetPath = $PowerShellConsoleConstants.UserFolders.Root
 	$consoleShortcut.Save()
 	[System.Runtime.Interopservices.Marshal]::ReleaseComObject($WshShell) | Out-Null
 }

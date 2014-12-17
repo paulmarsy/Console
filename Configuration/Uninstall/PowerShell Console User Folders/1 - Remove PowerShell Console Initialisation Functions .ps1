@@ -1,10 +1,10 @@
-$initFile = Join-Path $PowerShellConsoleContstants.UserFolders.AppSettingsFolder "Init.ps1"
-$enabledFlagFile = Join-Path $PowerShellConsoleContstants.UserFolders.AppSettingsFolder "PowerShellConsole.Enabled.status"
-$disabledFlagFile = Join-Path $PowerShellConsoleContstants.UserFolders.AppSettingsFolder "PowerShellConsole.Disabled.status"
+$initFile = Join-Path $PowerShellConsoleConstants.UserFolders.AppSettingsFolder "Init.ps1"
+$enabledFlagFile = Join-Path $PowerShellConsoleConstants.UserFolders.AppSettingsFolder "PowerShellConsole.Enabled.status"
+$disabledFlagFile = Join-Path $PowerShellConsoleConstants.UserFolders.AppSettingsFolder "PowerShellConsole.Disabled.status"
 
 Invoke-InstallStep "Removing Initialisation Functions" {
-	if (Test-Path $PowerShellConsoleContstants.UserFolders.AppSettingsFunctionsFolder) {
-		Remove-Item $PowerShellConsoleContstants.UserFolders.AppSettingsFunctionsFolder -Force -Recurse
+	if (Test-Path $PowerShellConsoleConstants.UserFolders.AppSettingsFunctionsFolder) {
+		Remove-Item $PowerShellConsoleConstants.UserFolders.AppSettingsFunctionsFolder -Force -Recurse
 	}
 	if (Test-Path $initFile) {
 		Remove-Item $initFile -Force

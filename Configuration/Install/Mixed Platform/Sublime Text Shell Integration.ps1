@@ -1,8 +1,8 @@
-$sublimeTextExecutable = $PowerShellConsoleContstants.Executables.SublimeText
+$sublimeTextExecutable = $PowerShellConsoleConstants.Executables.SublimeText
 $sublimeTextShortcut = Join-Path ([Environment]::GetFolderPath("StartMenu")) "Sublime Text.lnk"
 
 Invoke-InstallStep "Configuring Sublime Text Shell Integration" {
-	$sublimeLauncher = Join-Path $PowerShellConsoleContstants.InstallPath "Libraries\Sublime Text\SublimeLauncher.exe"
+	$sublimeLauncher = Join-Path $PowerShellConsoleConstants.InstallPath "Libraries\Sublime Text\SublimeLauncher.exe"
 	$sublimeIcon = "$($sublimeTextExecutable),0"
 
 	New-Item "HKCU:\Software\Classes\*\shell\Sublime Text" -Force | Out-Null

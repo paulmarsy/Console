@@ -3,7 +3,7 @@ $consoleShortcut = Join-Path ([Environment]::GetFolderPath("StartMenu")) "Consol
 Invoke-InstallStep "Setting up Console Start Shortcut" {
 	$WshShell = New-Object -ComObject WScript.Shell
 	$consoleShortcut = $WshShell.CreateShortcut($consoleShortcut)
-	$consoleShortcut.TargetPath = $PowerShellConsoleContstants.Executables.ConEmu
+	$consoleShortcut.TargetPath = $PowerShellConsoleConstants.Executables.ConEmu
 	$consoleShortcut.IconLocation = $conEmuPowerShellIcon
 	$consoleShortcut.WorkingDirectory = "$($env:HOMEDRIVE)\"
 	$consoleShortcut.Save()

@@ -1,3 +1,3 @@
 Invoke-InstallStep "Updating installed version file" {
-	Set-Content -Path $PowerShellConsoleContstants.Version.InstalledFile -Value "Not Installed"
+	Set-Content -Path $PowerShellConsoleConstants.Version.InstalledFile -Value "Not Installed"
 }

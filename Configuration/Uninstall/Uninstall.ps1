@@ -14,9 +14,9 @@ switch ($PSCmdlet.ParameterSetName)
 {
 	"DisplayInfo" {
 		Write-InstallMessage -EnterNewScope "Uninstall Information"
-		Write-InstallMessage -Type Info "Install Path: $($PowerShellConsoleContstants.InstallPath)"
-		Write-InstallMessage -Type Info "Installed Version: $($PowerShellConsoleContstants.Version.InstalledVersion)"
-		Write-InstallMessage -Type Info "Available Version: $($PowerShellConsoleContstants.Version.CurrentVersion)"
+		Write-InstallMessage -Type Info "Install Path: $($PowerShellConsoleConstants.InstallPath)"
+		Write-InstallMessage -Type Info "Installed Version: $($PowerShellConsoleConstants.Version.InstalledVersion)"
+		Write-InstallMessage -Type Info "Available Version: $($PowerShellConsoleConstants.Version.CurrentVersion)"
 	}
 	"PowerShellConsoleUserFolders" {
 		Write-InstallMessage -EnterNewScope "Uninstalling PowerShell Console User Folders"
