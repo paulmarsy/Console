@@ -12,6 +12,7 @@ powershell.exe %POWERSHELLSWITCHES% -DisplayInfo
 powershell.exe %POWERSHELLSWITCHES% -PreReqCheck
 IF ERRORLEVEL 1 GOTO END
 
+powershell.exe %POWERSHELLSWITCHES% -InitializeGit
 powershell.exe %POWERSHELLSWITCHES% -PowerShellConsoleUserFolders
 %SystemRoot%\SysWOW64\WindowsPowerShell\v1.0\powershell.exe %POWERSHELLSWITCHES% -Specific
 %SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe %POWERSHELLSWITCHES% -Specific
