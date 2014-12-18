@@ -6,8 +6,11 @@ $ModuleStatsFilePath = Join-Path $AppSettingsFolder "ModuleStats.json"
 
 function Get-DefaultStats {
 	$defaultStats = @{}
-	$ProfileConfig.Temp.ModuleExports.Functions | % { $defaultStats.Add($_, 0) }
-	$ProfileConfig.Temp.ModuleExports.Aliases | % { $defaultStats.Add($_, 0) }
+	$module = Get-Module PowerShellConsole
+	if ($null -ne $module) {
+		$module.ExportedFunctions.Keys | % { $defaultStats.Add($_, 0) }
+		$module.ExportedAliases.Keys | % { $defaultStats.Add($_, 0) }
+	}
 	return $defaultStats
 }
 

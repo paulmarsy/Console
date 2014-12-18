@@ -48,11 +48,7 @@ foreach ($step in $moduleInitializationSteps) {
 }
 
 if ($ModuleInitLevel -le 1) { Import-Module (Join-Path $PSScriptRoot "Helpers\Stats.psm1") -ArgumentList $PowerShellConsoleConstants.UserFolders.AppSettingsFolder -Global -force }
-
-if ($ProfileConfig.Temp.ContainsKey("ModuleExports")) {
-	Export-ModuleMember -Function $ProfileConfig.Temp.ModuleExports.Functions -Alias $ProfileConfig.Temp.ModuleExports.Aliases
-}
-
+ 
 Write-Host
 if ($moduleLoadErrors -eq 0) {
 	Write-Host -ForegroundColor Green "PowerShell Console Module successfully loaded"

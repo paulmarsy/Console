@@ -37,7 +37,6 @@ function New-ProfileConfig {
 		}
 		Temp = @{
 			# ConnectionManager
-			# ModuleExports
 			# UserScriptExports
 		} 
 		<################################################## User definable Configuration Settings		##################################################>
