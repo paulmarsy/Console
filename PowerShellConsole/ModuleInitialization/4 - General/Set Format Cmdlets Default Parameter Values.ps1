@@ -13,3 +13,7 @@ function Update-PSDefaultParameterValues {
 Update-PSDefaultParameterValues "Format-List:Property" "*"
 Update-PSDefaultParameterValues "Format-List:Expand" "Both"
 Update-PSDefaultParameterValues "Format-List:Force" $true
+
+Update-PSDefaultParameterValues "Format-Table:Force" $true
+
+Update-PSDefaultParameterValues "Format-Wide:Force" $true
