@@ -8,7 +8,7 @@ $Constants = @{
 	InstallPath = $InstallPath
 	HookFiles = @{
 		PowerShell = $PROFILE.CurrentUserAllHosts
-		CommandPrompt = (Join-Path $InstallPath "Custom Consoles\CommandPrompt\Init.bat")
+		CommandPrompt = (Join-Path $InstallPath "Custom Consoles\CommandPrompt\Hook.bat")
 	}
 	UserFolders = @{
 		Root = $UserFolder
