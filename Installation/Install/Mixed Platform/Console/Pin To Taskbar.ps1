@@ -1,5 +1,5 @@
 Invoke-InstallStep "Pinning Console to Taskbar" {
-	$taskbarPinner = Join-Path $PowerShellConsoleConstants.InstallPath "Libraries\Binaries\TaskbarPinner.exe"
+	$taskbarPinner = Join-Path $PowerShellConsoleConstants.InstallPath "Libraries\Binaries\Custom Helper Apps\TaskbarPinner\TaskbarPinner.exe"
 	$consoleShortcut = Join-Path ([Environment]::GetFolderPath("StartMenu")) "Console.lnk"
 	& $taskbarPinner add taskbar $consoleShortcut
 }

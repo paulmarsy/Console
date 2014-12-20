@@ -2,7 +2,7 @@
 
 SET InitializeFile="%CustomConsolesInstallPath%Custom Consoles\CommandPrompt\Initialize.bat"
 
-"%CustomConsolesInstallPath%\Libraries\ExtensibleEnvironmentTester\ExtensibleEnvironmentTester.exe"
+"%CustomConsolesInstallPath%\Libraries\Custom Helper Apps\ExtensibleEnvironmentTester\ExtensibleEnvironmentTester.exe"
 IF %ERRORLEVEL% == 0 (
 	CALL %InitializeFile%
 ) ELSE (
