@@ -71,7 +71,7 @@ function Show-ModuleUsageStats {
 
 	$currentStats = Load-ModuleStats $defaultStats
 
-	$currentStats.GetEnumerator() | Sort-Object -Property Value,Key -Descending | Format-Table -AutoSize -Property @(@{Label = "Name"; Expression = { $_.Key }}, @{Label = "Usage Count"; Expression = { $_.Value }})
+	$currentStats.GetEnumerator() | Sort-Object -Property @(@{Expression={$_.Value}; Ascending=$false}, @{Expression={$_.Key}; Ascending=$true}) | Format-Table -AutoSize -Property @(@{Label = "Name"; Expression = { $_.Key }}, @{Label = "Usage Count"; Expression = { $_.Value }})
 }
 
 function Initialize-Destructor {
@@ -90,4 +90,4 @@ function Initialize-Destructor {
 
 Initialize-Destructor
 
-Export-ModuleMember -Function @("Show-ModuleUsageStats", "Update-ModuleUsageStats")
+Export-ModuleMember -Function @("Show-ModuleUsageStats")
