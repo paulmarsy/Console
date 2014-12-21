@@ -19,9 +19,7 @@ function Protect-File {
 		Copy-Item -Path $Path -Destination $backupFile -Force
 	}
 
-	$unEncryptedBytes = [System.IO.File]::ReadAllBytes($Path)
-	
-	$encryptedBytes = [System.Security.Cryptography.ProtectedData]::Protect($unEncryptedBytes, $null, $Scope)
+	$encryptedBytes = Protect-Bytes -UnEncryptedBytes ([System.IO.File]::ReadAllBytes($Path)) -Scope $Scope
 
 	[System.IO.File]::WriteAllBytes($Path, $encryptedBytes)
 }

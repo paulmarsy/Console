@@ -1,7 +1,7 @@
 function UnProtect-Object {
 	[CmdletBinding()]
 	param(
-		[Parameter(Position=0,Mandatory=$true,ValueFromPipeline=$true)][string]$EncryptedInputObject,
+		[Parameter(Position=0,ValueFromPipeline=$true)][string]$EncryptedInputObject,
         [System.Security.Cryptography.DataProtectionScope]$Scope = [System.Security.Cryptography.DataProtectionScope]::CurrentUser
 	)
 

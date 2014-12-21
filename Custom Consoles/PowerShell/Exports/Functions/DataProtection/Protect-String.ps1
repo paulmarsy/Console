@@ -5,9 +5,7 @@ function Protect-String {
         [System.Security.Cryptography.DataProtectionScope]$Scope = [System.Security.Cryptography.DataProtectionScope]::CurrentUser
 	)
 
-	$unEncryptedBytes = [System.Text.Encoding]::UTF8.GetBytes($InputObject)
-	
-	$encryptedBytes = [System.Security.Cryptography.ProtectedData]::Protect($unEncryptedBytes, $null, $Scope)
+	$encryptedBytes = Protect-Bytes -UnEncryptedBytes ([System.Text.Encoding]::UTF8.GetBytes($InputObject)) -Scope $Scope
 
 	return ([Convert]::ToBase64String($encryptedBytes))
 }

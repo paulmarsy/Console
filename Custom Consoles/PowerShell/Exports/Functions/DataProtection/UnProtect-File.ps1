@@ -1,7 +1,7 @@
 function UnProtect-File {
 	[CmdletBinding()]
 	param(
-		[Parameter(Position=0,Mandatory=$true,ValueFromPipeline=$true)][ValidateScript({Test-Path $_})]$Path,
+		[Parameter(Position=0,ValueFromPipeline=$true)][ValidateScript({Test-Path $_})]$Path,
         [System.Security.Cryptography.DataProtectionScope] $scope = [System.Security.Cryptography.DataProtectionScope]::CurrentUser,
         [Parameter(ParameterSetName = "Backup")][switch]$SaveProtectedFile,
         [Parameter(ParameterSetName = "Backup")]$BackupExtension = "protected",
@@ -19,9 +19,7 @@ function UnProtect-File {
 		Copy-Item -Path $Path -Destination $backupFile -Force
 	}
 
- 	$encryptedBytes = [System.IO.File]::ReadAllBytes($Path)
-
-	$unEncryptedBytes = [System.Security.Cryptography.ProtectedData]::UnProtect($encryptedBytes, $null, $scope)
+	$unEncryptedBytes = UnProtect-Bytes -EncryptedBytes ([System.IO.File]::ReadAllBytes($Path)) -Scope $Scope
 	
 	[System.IO.File]::WriteAllBytes($Path, $unEncryptedBytes)
 }
