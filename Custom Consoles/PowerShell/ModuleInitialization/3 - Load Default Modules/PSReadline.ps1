@@ -1,7 +1,7 @@
 param([switch]$GetModuleStepDetails)
 if ($GetModuleStepDetails) { return (@{RunLevel = 3; Critical = $false}) }
 
-Import-Module PSReadline -Global
+Export-Module PSReadline
 Set-PSReadlineOption -ShowToolTips
 Set-PSReadlineOption -HistorySavePath (Join-Path $ProfileConfig.Module.AppSettingsFolder "PSReadline-history.txt")
 Set-PSReadlineOption -MaximumHistoryCount 100

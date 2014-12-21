@@ -1,11 +1,13 @@
 Set-StrictMode -Version Latest
 
 $InstallPath = Get-Item -Path Env:\CustomConsolesInstallPath | % Value
+$ModuleHelpersFolder = Join-Path $PSScriptRoot "Helpers"
 
-$ModuleInitLevel = & (Join-Path $PSScriptRoot "Helpers\Module Init Level.ps1")
+$ModuleInitLevel = & (Join-Path $ModuleHelpersFolder "Module Init Level.ps1")
+. (Join-Path $ModuleHelpersFolder "Export-Module.ps1")
 
 if ($ModuleInitLevel -le 1) {
-	Import-Module (Join-Path $PSScriptRoot "Helpers\Profiler.psm1")
+	Import-Module (Join-Path $ModuleHelpersFolder "Profiler.psm1") -Force
 	Set-ProfilerStep Begin "FilterModuleInitializationSteps"
 }
 $moduleInitializationSteps = Get-Item -Path (Join-Path $PSScriptRoot "ModuleInitialization") -PipelineVariable ModuleInitializationDir | 
@@ -46,8 +48,6 @@ foreach ($step in $moduleInitializationSteps) {
 		if ($ModuleInitLevel -le 1) { Set-ProfilerStep End }
 	}
 }
-
-if ($ModuleInitLevel -le 1) { Import-Module (Join-Path $PSScriptRoot "Helpers\Stats.psm1") -ArgumentList $PowerShellConsoleConstants.UserFolders.AppSettingsFolder -Global -force }
  
 Write-Host
 if ($moduleLoadErrors -eq 0) {

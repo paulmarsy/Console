@@ -1,7 +1,7 @@
 param([switch]$GetModuleStepDetails)
 if ($GetModuleStepDetails) { return (@{RunLevel = 2; Critical = $false}) }
 
-Import-Module posh-git -Global
+Export-Module posh-git
 $GitPromptSettings.EnableWindowTitle = "Windows PowerShell - Git - "
 Enable-GitColors
 Start-SshAgent -Quiet
