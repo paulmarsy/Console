@@ -23,10 +23,12 @@ function Send-PushBullet
         return $paramDictionary
     }
 
-	PROCESS {
+	PROCESS {		
+		if (-not (_Get-PushBulletAccessToken)) { return }
+
 		$body = @{type = "note"; title = $Title;  body = $Message }
 		if ($PSBoundParameters.ContainsKey("Device")) {
-			$body.device_iden = _Get-PushBulletDevices | ? Name -eq $PSBoundParameters.Device | % Id
+			$body.device_iden = $devices | ? Name -eq $PSBoundParameters.Device | % Id
 		}
 		$bodyJson = ConvertTo-Json -InputObject $body -Compress
 

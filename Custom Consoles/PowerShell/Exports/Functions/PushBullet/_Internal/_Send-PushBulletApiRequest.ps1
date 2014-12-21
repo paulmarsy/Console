@@ -5,10 +5,9 @@ function _Send-PushBulletApiRequest {
 		$Body
 	)
 
-	$accessToken = _Get-PushBulletAccessToken
-	if (-not $accessToken) { return $accessToken }
-
 	try {
+		$accessToken = _Get-PushBulletAccessToken
+
 		return (Invoke-RestMethod	-Method:$Method `
 									-Uri:$Uri `
 									-Credential $accessToken `
@@ -16,7 +15,6 @@ function _Send-PushBulletApiRequest {
 									-Body:$Body)
 	}
 	catch {
-		Write-Error "Error accessing PushBullet: $($_.Exception.Message)"
-		return $null
+		throw "Error accessing PushBullet: $($_.Exception.Message)"
 	}
 }

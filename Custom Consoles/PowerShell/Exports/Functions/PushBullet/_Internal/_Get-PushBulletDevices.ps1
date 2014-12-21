@@ -1,7 +1,6 @@
 function _Get-PushBulletDevices {
 	if (-not ($ProfileConfig.Temp.ContainsKey("PushBulletDevices"))) {
 		$result = _Send-PushBulletApiRequest -Method Get -Uri "https://api.pushbullet.com/v2/devices"
-		if ($null -eq $result) { return }
 
 		$powershellSymbols = Get-PowerShellSymbols
 
