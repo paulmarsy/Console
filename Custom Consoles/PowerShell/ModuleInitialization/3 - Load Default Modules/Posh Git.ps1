@@ -6,9 +6,13 @@ $GitPromptSettings.EnableWindowTitle = "Windows PowerShell - Git - "
 Enable-GitColors
 Start-SshAgent -Quiet
 
-$eventJob = Register-EngineEvent -SourceIdentifier ([System.Management.Automation.PsEngineEvent]::Exiting) -Action {
-    Stop-SshAgent
-}
+Register-EngineEvent -SourceIdentifier ([System.Management.Automation.PsEngineEvent]::Exiting) -Action {
+	Stop-SshAgent
+} | Out-Null
+
 $ExecutionContext.SessionState.Module.OnRemove = {
-	$eventJob | Stop-Job -PassThru | Remove-Job
-}.GetNewClosure()
+	Stop-SshAgent
+	if (Test-Path Variable:Global:VcsPromptStatuses) {
+    	Remove-Variable -Name "VcsPromptStatuses" -Scope Global
+    }
+}
