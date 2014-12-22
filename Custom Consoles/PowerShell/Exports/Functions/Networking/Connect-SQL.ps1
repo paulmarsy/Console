@@ -7,6 +7,21 @@ function Connect-SQL {
         $Password = $null
     )
 
+
+    $sqlServerClientRegistryKey = "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Microsoft SQL Server\120\Tools\ClientSetup"
+    if (-not (Test-Path $sqlServerClientRegistryKey)) {
+        $sqlToolsPath = Get-ItemProperty -Path $sqlServerClientRegistryKey | % "SqlToolsPath"
+    }
+
+    if ($null -eq $sqlServerClientRegistryKey -or $null -eq $sqlToolsPath) {
+        throw "Unable to find SQL Server Tools Path, have the SQL Server tools been installed?"
+    }
+
+    $ssmsPath = Join-Path $sqlToolsPath "ssms.exe"
+    if (-not (Get-Command -Name $ssmsPath -CommandType Application)) {
+        throw "Unable to find SQL Server Management Tools, has it been installed?"
+    } 
+
     $arguments = @("-nosplash", "-S $SqlServer")
     if ($DefaultDatabase) { $arguments += @("-d $DefaultDatabase") }
     if ($null -ne $Username -and $null -ne $Password) { 
@@ -16,5 +31,5 @@ function Connect-SQL {
         $arguments += @("-E")
     }
 
-    Start-Process -FilePath "ssms.exe" -ArgumentList $arguments
+    Start-Process -FilePath $ssmsPath -ArgumentList $arguments
 }
