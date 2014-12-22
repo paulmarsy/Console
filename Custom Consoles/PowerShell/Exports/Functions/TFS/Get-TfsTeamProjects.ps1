@@ -1,3 +1,8 @@
 function Get-TfsTeamProjects {
-	Get-VersionControlServer | % GetAllTeamProjects $true | % Name
+	param
+	(
+		$TfsServerUrl = $ProfileConfig.TFS.Server
+	)
+
+	Get-VersionControlServer $TfsServerUrl | % GetAllTeamProjects $true | % Name
 }

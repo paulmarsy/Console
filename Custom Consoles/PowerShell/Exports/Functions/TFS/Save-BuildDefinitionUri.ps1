@@ -1,5 +1,4 @@
 function Save-BuildDefinitionUri {
-	[CmdletBinding()]
 	param
 	(
 		[Parameter(ValueFromPipeline = $true, Mandatory = $true)]$BuildDefinition,

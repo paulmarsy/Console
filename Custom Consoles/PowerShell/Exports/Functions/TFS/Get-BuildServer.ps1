@@ -1,11 +1,10 @@
 function Get-BuildServer {
-	[CmdletBinding()]
 	param
 	(
-		$tfsServerUrl = $ProfileConfig.TFS.Server
+		$TfsServerUrl = $ProfileConfig.TFS.Server
 	)
 
-    $tpcFactory = _Get-TfsTpcFactory $tfsServerUrl
+    $tpcFactory = _Get-TfsTpcFactory $TfsServerUrl
 	$buildServer = $tpcFactory.GetService([type]"Microsoft.TeamFoundation.Build.Client.IBuildServer")
 	
 	return $buildServer

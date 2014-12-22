@@ -1,5 +1,10 @@
 function Get-QueuedBuilds {
-	$buildServer = Get-BuildServer
+	param
+	(
+		$TfsServerUrl = $ProfileConfig.TFS.Server
+	)
+
+	$buildServer = Get-BuildServer $TfsServerUrl
 	
 	$buildsRunningOnAgents = 0
 	$buildServer.QueryBuildAgents($buildServer.CreateBuildAgentSpec()).Agents | % {

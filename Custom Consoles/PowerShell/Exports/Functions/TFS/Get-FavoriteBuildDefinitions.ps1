@@ -1,11 +1,10 @@
 function Get-FavoriteBuildDefinitions {
-	[CmdletBinding()]
 	param
 	(
-		$tfsServerUrl = $ProfileConfig.TFS.Server
+		$TfsServerUrl = $ProfileConfig.TFS.Server
 	)
 
-    $tpcFactory = _Get-TfsTpcFactory $tfsServerUrl
+    $tpcFactory = _Get-TfsTpcFactory $TfsServerUrl
 	$buildServer = $tpcFactory.GetService([type]"Microsoft.TeamFoundation.Build.Client.IBuildServer")
  	$ims = $tpcFactory.GetService([type]"Microsoft.TeamFoundation.Framework.Client.IIdentityManagementService")
 
