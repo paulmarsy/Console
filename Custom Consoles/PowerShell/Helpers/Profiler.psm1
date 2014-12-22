@@ -60,13 +60,16 @@ function Show-ProfilerResults {
 			HumanDuration = $humanizeTimeSpan.Invoke($durationTimeSpan)
 		}))
 	}
-	$report.HighestImpact = $report.Actions | Sort-Object -Property Duration -Descending | Select-Object -First 3 | % { "$($_.Name) - $($_.HumanDuration)" }
 
-	Write-Host -ForegroundColor DarkMagenta "`tTotal time: $($_.TotalTime)"
+	Write-Host -ForegroundColor DarkMagenta "`tTotal time: $($report.TotalTime)"
 	Write-Host -ForegroundColor DarkMagenta "`tTop 5 highest impact:"
-	Write-Host -ForegroundColor DarkMagenta
+	Write-Host
 	$i = 0
-	$report.HighestImpact | % { $i++; $_ } | % { Write-Host -ForegroundColor DarkMagenta ("`t {0} - {1}" -f $i, $_.HighestImpact) }
+	$report.Actions | 
+		Sort-Object -Property Duration -Descending | 
+		Select-Object -First 3 |
+		% { $i++; Write-Host -ForegroundColor DarkMagenta ("`t {0}: {1} - {2}" -f $i, ($_.Name | Write-Output), ($_.HumanDuration | Write-Output)) }
+
 	({
 		if ($OrderByDuration) { $report.Actions | Sort-Object -Property Duration -Descending }
 		else { $report.Actions }
