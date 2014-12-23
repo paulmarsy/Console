@@ -13,7 +13,7 @@ Write-Host -NoNewline -ForegroundColor Red $machineIpProperties.HostName
 if (-not [string]::IsNullOrWhiteSpace($machineIpProperties.DomainName)) {
     Write-Host -NoNewline -ForegroundColor Red ".$($machineIpProperties.DomainName)"
 }
-if (Test-NetworkStatus -and $null -ne $networkConnectionProfile) {
+if (Test-NetworkStatus -and $null -ne $null -ne ($networkConnectionProfile | Get-Member -Name NetworkCategory -MemberType ScriptProperty)) {
 	Write-Host -NoNewline -ForegroundColor Gray " ("
 	Write-Host -NoNewline -ForegroundColor DarkGreen $networkConnectionProfile.NetworkCategory
 	Write-Host -NoNewline -ForegroundColor Gray ")"
@@ -28,6 +28,8 @@ if (Test-NetworkStatus -and $null -ne $networkConnectionProfile) {
 	Write-Host -ForegroundColor Yellow $networkConnectionProfile.InterfaceAlias
 	Write-Host "IPv4 Connectivity: $($networkConnectionProfile.IPv4Connectivity)"
 	Write-Host "IPv6 Connectivity: $($networkConnectionProfile.IPv6Connectivity)"
+} else {
+	Write-Host -ForegroundColor Red "No network connectivity detected"
 }
 
 Write-Host
