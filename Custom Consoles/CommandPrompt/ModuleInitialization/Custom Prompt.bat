@@ -15,5 +15,5 @@ REM $F - )
 REM $$ - $
 REM $S - Space
 
-REM    [                    ][][][         ][][]
-PROMPT $E[1;%PROMPTCOLOR%;40m$P$+$E[0;37;40m$$$S
+REM        [                    ][][][         ][][]
+SET PROMPT=$E[1;%PROMPTCOLOR%;40m$P$+$E[0;37;40m$$$S
