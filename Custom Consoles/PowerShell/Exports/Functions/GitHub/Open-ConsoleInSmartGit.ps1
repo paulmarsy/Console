@@ -1,5 +1,5 @@
 function Open-ConsoleInSmartGit {
-	[CmdletBinding(DefaultParameterSetName="Log")]
+	[CmdletBinding(DefaultParameterSetName="Open")]
 	param(
 		[Parameter(ParameterSetName="Open")][switch]$Open,
 		[Parameter(ParameterSetName="Log")][switch]$Log,
