@@ -30,6 +30,7 @@ $Constants = @{
 		ConsoleGitHubSyncer = (Join-Path $InstallPath "Libraries\Custom Helper Apps\ConsoleGitHubSyncer\ConsoleGitHubSyncer.exe")
 	}
 	GitInstallPath = (Join-Path ${Env:ProgramFiles(x86)} "Git")
+	MutexGuid = "edb1fbff-b83d-4d5b-9a03-cc535ee29155"
 }
 
 $version = $Constants.Version
