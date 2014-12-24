@@ -16,7 +16,7 @@ Invoke-InstallStep "Customising Users Folder's appearance" {
 		$existingDesktopIniFile.Attributes = [System.IO.FileAttributes]::Normal
 		Remove-Item -Path $existingDesktopIniFile -Force
 	}
-	Copy-Item -Path (Join-Path $PowerShellConsoleConstants.InstallPath "Libraries\Icons\PowerShellUserFolder-desktop.ini") -Destination $desktopIniPath -Force
+	Copy-Item -Path (Join-Path $PowerShellConsoleConstants.InstallPath "Libraries\Resources\PowerShellUserFolder-desktop.ini") -Destination $desktopIniPath -Force
 
 	$desktopIniText = [System.IO.File]::ReadAllText($desktopIniPath)
 	$desktopIniText = $desktopIniText.Replace("##InstallPath##", $PowerShellConsoleConstants.InstallPath)

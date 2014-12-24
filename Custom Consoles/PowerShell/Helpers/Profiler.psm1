@@ -4,7 +4,7 @@ $InstallPath = Get-Item -Path Env:\CustomConsolesInstallPath | % Value
 
 $ModuleInitProfilerData = ({@()}.Invoke())
 
-$humanizerAssembly = Join-Path $InstallPath "Libraries\.NET Assemblies\Humanizer\Humanizer.dll"
+$humanizerAssembly = Join-Path $InstallPath "Libraries\Misc\Humanizer.dll"
 if (Test-Path $humanizerAssembly) {
 	Add-Type -Path $humanizerAssembly
 	$humanizeTimeSpan = {
