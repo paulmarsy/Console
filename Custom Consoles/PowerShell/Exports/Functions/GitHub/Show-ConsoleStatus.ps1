@@ -7,8 +7,6 @@ function Show-ConsoleStatus {
     )
 
 	_workOnConsoleWorkingDirectory {
-		_updateGitRemotes -Quiet
-
 		$currentBranch = _getCurrentBranch
 
 		Write-Host
