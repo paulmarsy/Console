@@ -13,10 +13,9 @@ function Repair-ConsoleGitRepo {
 			Write-Host -ForegroundColor Yellow "No Git processes running"
 		}
 
-		$gitLockFile = ".\.git\index.lock"
-		if (Test-Path $gitLockFile) {
-			Write-Host -NoNewLine -ForegroundColor Green "Removing Git index lock file... "
-			Remove-Item -Path $gitLockFile -Force	
+		Get-ChildItem -File -Path ".\.git\" -Include "index.lock" | % {
+			Write-Host -NoNewLine -ForegroundColor Green "Removing Git index lock file $($_.FullName)... "
+			Remove-Item -Path $_.FullName -Force	
 			Write-Host -ForegroundColor Green "Done"
 		}
 

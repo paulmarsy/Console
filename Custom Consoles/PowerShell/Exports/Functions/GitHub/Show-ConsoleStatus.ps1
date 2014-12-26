@@ -49,6 +49,13 @@ function Show-ConsoleStatus {
 		_invokeGitCommand $branchStructureCommand
 
 		Write-Host
-		Show-ConsoleUncomittedChanges -IncludeIgnored:$IncludeIgnored -Detailed:$Detailed
+		Write-Host -ForegroundColor Cyan "Uncommited changes..."
+		_invokeGitCommand "status --short --branch --untracked-files=all $(?: { $IncludeIgnored } { "--ignored" })"
+
+		if ($Detailed) {
+			Write-Host
+			Write-Host -ForegroundColor Cyan "Showing uncommited changes:"
+			_invokeGitCommand "diff $(_getCurrentBranch)"
+		}
     }
 }
