@@ -9,8 +9,10 @@ function _workOnConsoleWorkingDirectory {
 		throw "Unable to locate Console Install Path ($workingDirectory), this is a fatal error and may require reinstallation"
 	}
     $currentDirectory = $PWD.Path.TrimEnd("\")
+    $pushedLocation = $false
     if ($currentDirectory -ne $workingDirectory) {
         Push-Location $workingDirectory
+        $pushedLocation = $true
     }
     try {
     	$gitDirectory = & git rev-parse --git-dir
@@ -24,7 +26,7 @@ function _workOnConsoleWorkingDirectory {
         throw "Unable to continue Git: $($_.Exception.InnerException.Message)"
     }
 	finally {
-        if ($currentDirectory -ne $workingDirectory) {
+        if ($pushedLocation) {
 		  Pop-Location
         }
 	}

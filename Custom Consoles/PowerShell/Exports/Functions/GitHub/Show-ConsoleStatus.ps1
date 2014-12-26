@@ -35,7 +35,7 @@ function Show-ConsoleStatus {
 
 		Write-Host
 		Write-Host -ForegroundColor Cyan "Submodules..."
-		_getSubmodulePaths | % { Write-Host " $_" }
+		& git submodule foreach --quiet 'echo $path' | % { Write-Host " $_" }
 
 		Write-Host
 		Write-Host -ForegroundColor Cyan "Branch structure..."
