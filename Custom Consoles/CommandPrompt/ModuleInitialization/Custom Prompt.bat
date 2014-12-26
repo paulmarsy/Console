@@ -1,4 +1,4 @@
-"%CommandPromptConsoleLibraries%\Binaries\IsAdmin.exe" -q
+"%CommandPromptConsoleLibraries%\Misc\IsAdmin.exe" -q
 IF %ERRORLEVEL% == 1 (
   SET PROMPTCOLOR=31
 ) ELSE (
