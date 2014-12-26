@@ -8,9 +8,9 @@
 	$link = $_
 	Invoke-InstallStep "Configuring '$($link.Name)' Shell Integration" {
 		@("*", "Directory\Background", "Folder", "Drive") | % { 
-			New-Item "HKCU:\Software\Classes\$_\shell\$($link.Name)" -Force | Out-Null
-			New-ItemProperty "HKCU:\Software\Classes\$_\shell\$($link.Name)" "Icon" -Value $link.Icon -Type String -Force | Out-Null
-			New-Item "HKCU:\Software\Classes\$_\shell\$($link.Name)\command" -Value $link.Command -Type String -Force | Out-Null
+			New-Item -Path "HKCU:\Software\Classes\$_\shell\$($link.Name)" -Force | Out-Null
+			Set-ItemProperty -LiteralPath "HKCU:\Software\Classes\$_\shell\$($link.Name)" "Icon" -Value $link.Icon -Type String -Force | Out-Null
+			New-Item -Path "HKCU:\Software\Classes\$_\shell\$($link.Name)\command" -Value $link.Command -Type String -Force | Out-Null
 		}
 	}
 }
