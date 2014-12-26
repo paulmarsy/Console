@@ -9,7 +9,7 @@ IF %ERRORLEVEL% == 0 (
 	CALL %InitializeFile%
 	ENDLOCAL && SET PROMPT=%PROMPT%
 ) ELSE (
-	ECHO ERROR: Not starting Command Prompt Console as we are not using ConEmu. To override:
+ 	ECHO Not starting Command Prompt Console as we are not using ConEmu. To override:
 	ECHO CALL %InitializeFile%
 	ENDLOCAL
 )
