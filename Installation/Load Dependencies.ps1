@@ -1,4 +1,6 @@
 New-Variable -Scope Global -Name MessageScope -Value 0
+New-Variable -Scope Global -Name InsideInstallStep -Value $false
+
 New-Variable -Scope Global -Name PowerShellConsoleConstants -Value (& (Resolve-Path (Join-Path $PSScriptRoot '..\Config\Constants.ps1')))
 
 Get-ChildItem (Join-Path $PSScriptRoot "Helpers") -Filter *.ps1 | % { . $_.FullName }

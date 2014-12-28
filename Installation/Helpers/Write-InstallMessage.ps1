@@ -7,6 +7,8 @@ function Write-InstallMessage {
 		[switch]$EnterNewScope
 	)
 
+	if ($global:InsideInstallStep) { Write-Host; Write-Host -NoNewLine "`t" }
+
 	switch ($Type)
 	{
 		"Default" {
