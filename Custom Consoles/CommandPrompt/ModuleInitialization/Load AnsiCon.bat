@@ -1,4 +1,3 @@
-"%CustomConsolesInstallPath%\Libraries\Custom Helper Apps\ExtensibleEnvironmentTester\ExtensibleEnvironmentTester.exe"
-IF NOT %ERRORLEVEL% == 0 (
+IF NOT DEFINED ConEmuANSI (
 	CALL "%CommandPromptConsoleLibraries%\Command Prompt\AnsiCon\ansicon.exe" -p
 )
