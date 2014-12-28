@@ -1,6 +1,6 @@
 @ECHO OFF
 
-SETLOCAL
+SETLOCAL EnableDelayedExpansion
 
 SET InitializeFile="%CustomConsolesInstallPath%Custom Consoles\CommandPrompt\Initialize.bat"
 
@@ -13,4 +13,3 @@ IF %ERRORLEVEL% == 0 (
 	ECHO CALL %InitializeFile%
 	ENDLOCAL
 )
-

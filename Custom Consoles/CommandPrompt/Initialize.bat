@@ -1,6 +1,8 @@
 @ECHO OFF
 
-SETLOCAL
+SETLOCAL EnableDelayedExpansion
+
+SET ExtensibleEnvironmentConfigured=true
 
 CALL "%CustomConsolesInstallPath%\Config\Constants.bat"
 
