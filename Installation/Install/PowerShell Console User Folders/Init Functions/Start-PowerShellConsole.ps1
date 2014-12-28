@@ -5,14 +5,14 @@ function Start-PowerShellConsole {
 
 	$extensibleEnvironmentTester = Start-Process -FilePath "##InstallPath##\Libraries\Custom Helper Apps\ExtensibleEnvironmentTester\ExtensibleEnvironmentTester.exe" -PassThru -NoNewWindow -Wait
 	if ($extensibleEnvironmentTester.ExitCode -ne 0 -and -not $Force) {
-		Write-Host -ForegroundColor Red "ERROR: Not starting PowerShell Console as we are not using ConEmu. Use the -Force switch to override."
+		Write-Host -ForegroundColor Red "Not starting PowerShell Console as we are not using ConEmu. Use the -Force switch to override."
 		return
 	}
 
 	Test-PowerShellConsoleFlagFile
 
 	if ((Test-Path "##PowerShellConsoleDisabledFlagFile##") -and -not $Force) {
-	    Write-Host -ForegroundColor Red "ERROR: Not starting PowerShell Console, disabled flag is set. Either enable the flag file or use the -Force switch"
+	    Write-Host -ForegroundColor Red "Not starting PowerShell Console as the disabled flag is set. Enable the flag with Enable-PowerShellConsole or use the -Force switch"
 	    return
 	}
 
