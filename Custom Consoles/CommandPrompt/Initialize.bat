@@ -2,8 +2,6 @@
 
 SETLOCAL EnableDelayedExpansion
 
-SET ExtensibleEnvironmentConfigured=true
-
 CALL "%CustomConsolesInstallPath%\Config\Constants.bat"
 
 FOR %%v IN ("%CommandPromptConsoleModulePath%\ModuleInitialization\*.bat") DO CALL "%%~v"
