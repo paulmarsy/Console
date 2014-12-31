@@ -11,7 +11,7 @@ if ($ModuleInitLevel -le 1) {
 	Set-ProfilerStep Begin "FilterModuleInitializationSteps"
 }
 $moduleInitializationSteps = Get-Item -Path (Join-Path $PSScriptRoot "ModuleInitialization") -PipelineVariable ModuleInitializationDir | 
-								Get-ChildItem -Recurse -Filter "*.ps1" |
+								Get-ChildItem -Recurse -Filter "*.ps1" -File |
 								Sort-Object -Property FullName |
 								% {
 									$stepMetaDataSection = [ScriptBlock]::Create((Get-Content -Path $_.FullName -ReadCount 2 -Raw))
