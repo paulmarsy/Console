@@ -2,9 +2,9 @@ param([switch]$GetModuleStepDetails)
 if ($GetModuleStepDetails) { return (@{RunLevel = -1; Critical = $true}) }
 
 $onIdleCollection = @{
-	MinimumReprocessTime = ([System.TimeSpan]::FromMinutes(3))
+	MinimumReprocessTime = ([System.TimeSpan]::FromMinutes(5))
 
-	UserIdleTimeThreshold = ([System.TimeSpan]::FromSeconds(2).TotalMilliseconds)
+	UserIdleTimeThreshold = ([System.TimeSpan]::FromSeconds(3).TotalMilliseconds)
 	UserIdleCountThreshold = 2
 
 	ProcessorUsageThreshold = 1

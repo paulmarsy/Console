@@ -1,3 +1,7 @@
 function Show-PowerShellIdleEventOutput {
-	Get-EventSubscriber -Force -SourceIdentifier CustomPowerShellConsoleIdleTimer | %  Action | % Output
+	$idleAction = Get-EventSubscriber -Force -SourceIdentifier CustomPowerShellConsoleIdleTimer | %  Action
+	Write-Host -ForegroundColor Cyan "Output Stream:"
+	$idleAction.Output.ReadAll()
+	Write-Host -ForegroundColor Cyan "Error Stream:"
+	$idleAction.Error.ReadAll()
 }
