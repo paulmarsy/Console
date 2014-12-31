@@ -1,10 +1,7 @@
 Set-StrictMode -Version Latest
 
-$InstallPath = Get-Item -Path Env:\CustomConsolesInstallPath | % Value
 $ModuleHelpersFolder = Join-Path $PSScriptRoot "Helpers"
-
-$ModuleInitLevel = & (Join-Path $ModuleHelpersFolder "Module Init Level.ps1")
-. (Join-Path $ModuleHelpersFolder "Export-Module.ps1")
+. (Join-Path $ModuleHelpersFolder "Module Pre-Init.ps1")
 
 if ($ModuleInitLevel -le 1) {
 	Import-Module (Join-Path $ModuleHelpersFolder "Profiler.psm1") -Force
@@ -48,7 +45,7 @@ foreach ($step in $moduleInitializationSteps) {
 		if ($ModuleInitLevel -le 1) { Set-ProfilerStep End }
 	}
 }
- 
+
 Write-Host
 if ($moduleLoadErrors -eq 0) {
 	Write-Host -ForegroundColor Green "PowerShell Console Module successfully loaded"
