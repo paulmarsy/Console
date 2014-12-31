@@ -10,6 +10,13 @@ Set-StrictMode -Version Latest
 
 . "..\Load Dependencies.ps1"
 
+$processUninstallStepFiles = {
+	param ($Folder)
+	Push-Location $Folder
+	Get-ChildItem -Filter *.ps1 -File | Sort-Object Name | % { & $_.FullName }
+	Pop-Location
+}
+
 switch ($PSCmdlet.ParameterSetName)
 {
 	"DisplayInfo" {
@@ -20,23 +27,17 @@ switch ($PSCmdlet.ParameterSetName)
 	}
 	"PowerShellConsoleUserFolders" {
 		Write-InstallMessage -EnterNewScope "Uninstalling PowerShell Console User Folders"
-		Push-Location "PowerShell Console User Folders"
-		Get-ChildItem -Filter *.ps1 | Sort-Object Name | % { & $_.FullName }
-		Pop-Location
+		& $processUninstallStepFiles "PowerShell Console User Folders"
 		Write-InstallMessage -Type Success "Uninstalling PowerShell Console User Folders Done"
 	}
 	"General"{
 		Write-InstallMessage -EnterNewScope "Uninstalling General Settings"
-		Push-Location "General"
-		Get-ChildItem -Filter *.ps1 | Sort-Object Name | % { & $_.FullName }
-		Pop-Location
+		& $processUninstallStepFiles "General"
 		Write-InstallMessage -Type Success "Uninstalling General Settings Done"
 	}
 	"Finalize" {
 		Write-InstallMessage -EnterNewScope "Finalizing uninstallation"
-		Push-Location "Finalization"
-		Get-ChildItem -Filter *.ps1 | Sort-Object Name | % { & $_.FullName }
-		Pop-Location
+		& $processUninstallStepFiles "Finalization"
 		Write-InstallMessage -Type Success "Finalization done"
 
 		Write-Host
