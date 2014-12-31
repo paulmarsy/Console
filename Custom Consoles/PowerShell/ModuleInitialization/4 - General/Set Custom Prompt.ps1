@@ -22,29 +22,30 @@ New-Item -Path Function:Global:prompt -Force -Value ([ScriptBlock]::Create({
     }
 
     try {
-        $realLASTEXITCODE = $LASTEXITCODE
+        $realLASTEXITCODE = Get-Variable -Name LASTEXITCODE -Scope Global -ValueOnly
 
         if ($PSCmdlet.GetVariableValue("PSDebugContext")) {
            _writePrompt "[DBG] "
         }
 
-        if ((Split-Path -Resolve $PWD -Parent | Is NullOrWhiteSpace -Bool) -eq $true) { $path = Split-Path $PWD -Qualifier }
-        else { $path = Split-Path $PWD -Parent | Get-ChildItem -Filter (Split-Path $PWD -Leaf) -Force | Select-Object -ExpandProperty Name }
-
+        $currentPath = Get-Variable -Name PWD -Scope Global -ValueOnly
+        if ([string]::IsNullOrWhiteSpace((Split-Path -Resolve $currentPath -Parent))) { $path = $currentPath.Drive.Name }
+        else { $path = Split-Path $currentPath -Parent | Get-ChildItem -Force | ? PSChildName -eq (Split-Path $currentPath -Leaf) | Select-Object -ExpandProperty PSChildName }
         if ($path) {
             _writePrompt $path
-            if (Get-Module posh-git) { Write-VcsStatus }
+            if ($currentPath.Provider.Name -eq "FileSystem" -and $null -ne (Get-Module posh-git)) { Write-VcsStatus }
         } else {
             _writePrompt "<Invalid Path>"
         }
 
-        if ($NestedPromptLevel -ne 0) {
-            _writePrompt " ($NestedPromptLevel)"
+        $npl = Get-Variable -Name NestedPromptLevel -ValueOnly
+        if ($npl -ne 0) {
+            _writePrompt " ($npl)"
         }
 
         return "$ "
     }
     finally {
-        $global:LASTEXITCODE = $realLASTEXITCODE    
+        Set-Variable -Name LASTEXITCODE -Scope Global -Value $realLASTEXITCODE
     }
 }).GetNewClosure())
