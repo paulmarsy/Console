@@ -16,7 +16,7 @@ if ($null -eq $windowsChangeSet) {
 } else {
 	Write-InstallMessage -EnterNewScope "Installing Windows changes for $windowsChangeSet"
 	
-	Get-ChildItem -Path "$(Join-Path "Windows Settings\Version Specific Changes" $windowsChangeSet)" -Filter *.ps1 | Sort-Object Name | % { & $_.FullName }
+	Get-ChildItem -Path "$(Join-Path "Windows Settings\Version Specific Changes" $windowsChangeSet)" -Filter *.ps1 -File | Sort-Object Name | % { & $_.FullName }
 	
 	Exit-Scope
 }

@@ -3,7 +3,7 @@ $proceed = Confirm-InstallSetting "Do you want to allow optional tweaks to Micro
 if ($proceed) {
 	Write-InstallMessage -EnterNewScope "Configuring Windows Settings / Windows Applications"
 
-	Get-ChildItem ".\Windows Settings" -Filter *.ps1 | Sort-Object Name | % { & $_.FullName }
+	Get-ChildItem ".\Windows Settings" -Filter *.ps1 -File | Sort-Object Name | % { & $_.FullName }
 
 	Exit-Scope
 }
