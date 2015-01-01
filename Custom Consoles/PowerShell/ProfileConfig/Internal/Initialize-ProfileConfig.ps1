@@ -12,13 +12,7 @@ function Initialize-ProfileConfig {
     $newProfileConfig = New-ProfileConfig -OverrideProfileConfig $importedProfileConfig
     New-Variable -Name ProfileConfig -Description "Contains configuration global information for the PowerShell Console" -Value $newProfileConfig -Scope Global -Option Readonly
 
-    $backgroundSaveTask = {
-        Save-ProfileConfig -Quiet
-    }
-
+    $backgroundSaveTask = { Save-ProfileConfig -Quiet }
     $Global:OnIdleScriptBlockCollection += $backgroundSaveTask
-
-    $ExecutionContext.SessionState.Module.OnRemove = {
-        $backgroundSaveTask.Invoke()
-    }.GetNewClosure()
+    $ExecutionContext.SessionState.Module.OnRemove = $backgroundSaveTask
 }
