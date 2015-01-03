@@ -27,6 +27,7 @@ Invoke-InstallStep "Redirecting SmartGit updates directory" {
 				}
 
 				Remove-Item -Path $originalPath -Recurse -Force
+			}
 		}
 
 		& cmd.exe /Q /C mklink /D "$originalPath" "$redirectedPath" *>$null
