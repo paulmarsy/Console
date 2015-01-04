@@ -19,17 +19,26 @@ function Repair-ConsoleGitRepo {
 			Write-Host -ForegroundColor Green "Done"
 		}
 
+		$git = Get-Command -Name "git.exe" -CommandType Application | Select-Object -First 1 -ExpandProperty Source
+
+		function InvokeGitCommandOnAllRepositories {
+			param($Command)
+
+			_invokeGitCommand $Command
+			_invokeGitCommand "submodule foreach `"'$git' $Command`""
+		}
+
 		Write-Host -ForegroundColor Green "Git garbage collection..."
-		_invokeGitCommand "gc --prune --aggressive --auto"
+		InvokeGitCommandOnAllRepositories "gc --prune=now --aggressive --auto"
 
 		Write-Host -ForegroundColor Green "Git pruning unreachable objects in the object database..."
-		_invokeGitCommand "prune --progress --verbose"
+		InvokeGitCommandOnAllRepositories "prune --progress --verbose"
 
 		Write-Host -ForegroundColor Green "Git pruning unreachable objects in pack files..."
-		_invokeGitCommand "prune-packed"
+		InvokeGitCommandOnAllRepositories "prune-packed"
 
 		Write-Host -ForegroundColor Green "Git integrity check..."
-		_invokeGitCommand "fsck --full --strict --progress --unreachable --dangling --cache"
+		InvokeGitCommandOnAllRepositories "fsck --full --strict --progress --unreachable --dangling --cache"
 
 		Write-Host -ForegroundColor Green "Finished repairing Console Git repo"
 	}
