@@ -13,8 +13,6 @@ $consoleGitHubSyncer = $PowerShellConsoleConstants.Executables.ConsoleGitHubSync
 $consoleGitHubSyncerCheck = Start-Process -FilePath $consoleGitHubSyncer -ArgumentList "-Check $($PowerShellConsoleConstants.InstallPath)" -PassThru -NoNewWindow -Wait
 
 if ($consoleGitHubSyncerCheck.ExitCode -eq 1306) {
-	$ProfileConfig.Git.LastAutoSyncTickTime = [long](Get-Date | Select-Object -ExpandProperty Ticks)
-	Save-ProfileConfig -Quiet
 	try {
 		$mutex = New-Object -TypeName System.Threading.Mutex -ArgumentList @($false, $PowerShellConsoleConstants.MutexGuid)
 		while(-not $mutex.WaitOne([TimeSpan]::FromSeconds(1).TotalMilliseconds, $false)) {
@@ -24,4 +22,7 @@ if ($consoleGitHubSyncerCheck.ExitCode -eq 1306) {
 	catch [System.Threading.AbandonedMutexException] { }
 	[System.Diagnostics.Process]::Start($PowerShellConsoleConstants.Executables.Hstart, "`"`"$consoleGitHubSyncer`" -UpdateLocal `"$($PowerShellConsoleConstants.InstallPath.TrimEnd('\'))`" `"$($PowerShellConsoleConstants.Executables.ConEmu)`" `"/cmd {PowerShell}`" `"")
 	[System.Environment]::Exit(0)
+} elseif ($consoleGitHubSyncerCheck.ExitCode -eq 0) {
+	$ProfileConfig.Git.LastAutoSyncTickTime = [long](Get-Date | Select-Object -ExpandProperty Ticks)
+	Save-ProfileConfig -Quiet
 }
