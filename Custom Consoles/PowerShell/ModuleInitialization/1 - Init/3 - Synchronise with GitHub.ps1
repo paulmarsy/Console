@@ -16,7 +16,7 @@ if ($consoleGitHubSyncerCheck.ExitCode -eq 1306) {
 	$ProfileConfig.Git.LastAutoSyncTickTime = [long](Get-Date | Select-Object -ExpandProperty Ticks)
 	Save-ProfileConfig -Quiet
 	try {
-		$mutex = [System.Threading.Mutex]::new($false, $PowerShellConsoleConstants.MutexGuid)
+		$mutex = New-Object -TypeName System.Threading.Mutex -ArgumentList @($false, $PowerShellConsoleConstants.MutexGuid)
 		while(-not $mutex.WaitOne([TimeSpan]::FromSeconds(1).TotalMilliseconds, $false)) {
 			Write-Host "Waiting to aquire mutex..."
 		}
