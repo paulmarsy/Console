@@ -13,3 +13,5 @@ IF %ERRORLEVEL% == 0 (
 	ECHO CALL %InitializeFile%
 	ENDLOCAL
 )
+
+EXIT /B 0
