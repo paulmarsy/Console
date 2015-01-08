@@ -26,6 +26,7 @@ $Constants = @{
 	Executables = @{
 		ConEmu = (Join-Path $InstallPath "Libraries\ConEmu\ConEmu64.exe")
 		SublimeText = (Join-Path $InstallPath "Libraries\Sublime Text\sublime_text.exe")
+		SublimeTextLauncher = (Join-Path $InstallPath "Libraries\Sublime Text\SublimeLauncher.exe")
 		Hstart = (Join-Path $InstallPath "Libraries\PATH Extensions\Hstart\hstart64.exe")
 		ConsoleGitHubSyncer = (Join-Path $InstallPath "Libraries\Custom Helper Apps\ConsoleGitHubSyncer\ConsoleGitHubSyncer.exe")
 	}
