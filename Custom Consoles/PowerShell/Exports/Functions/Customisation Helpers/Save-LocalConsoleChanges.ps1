@@ -11,8 +11,10 @@ function Save-LocalConsoleChanges {
 	$script:changesCommited = $false
 
 	function commitChanges {
+		param($Repo)
 		if ((_getNumberOfUncommitedChanges) -eq 0) { return }
 
+		Write-Host -ForegroundColor Cyan "Commiting changes to $Repo"
 		_invokeGitCommand "add -A" | Out-Null
 		_invokeGitCommand "commit -a -m `"$CommitMessage`""
 		$script:changesCommited = $true
@@ -22,14 +24,14 @@ function Save-LocalConsoleChanges {
 		_getSubmodulePaths | % {
 			try {
 				Push-Location $_
-				commitChanges
+				commitChanges $_
 			}
 			finally {
 				Pop-Location
 			}
 		}
 
-		commitChanges
+		commitChanges "Main Repo"
 
 		if ($script:changesCommited) {
     		Write-Host -ForegroundColor Green "Changes commited successfully!"
