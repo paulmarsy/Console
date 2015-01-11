@@ -8,14 +8,14 @@ function Save-LocalConsoleChanges {
 		$CommitMessage = Read-Host -Prompt "Commit message"
 	}
 
-	$changesCommited = $false
+	$script:changesCommited = $false
 
 	function commitChanges {
 		if ((_getNumberOfUncommitedChanges) -eq 0) { return }
 
-		_invokeGitCommand "add -A"
+		_invokeGitCommand "add -A" | Out-Null
 		_invokeGitCommand "commit -a -m `"$CommitMessage`""
-		$changesCommited = $true
+		$script:changesCommited = $true
 	}
 
 	_workOnConsoleWorkingDirectory {
@@ -31,7 +31,7 @@ function Save-LocalConsoleChanges {
 
 		commitChanges
 
-		if ($changesCommited) {
+		if ($script:changesCommited) {
     		Write-Host -ForegroundColor Green "Changes commited successfully!"
 		} else {
 			Write-Host -ForegroundColor Red "No changes commited"
