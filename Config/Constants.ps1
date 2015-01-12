@@ -33,6 +33,9 @@ $Constants = @{
 	MutexGuid = "edb1fbff-b83d-4d5b-9a03-cc535ee29155"
 }
 
+& (Join-Path $InstallPath "Libraries\Misc\IsAdmin.exe") -q
+$Constants.IsAdmin = $LASTEXITCODE
+
 $version = $Constants.Version
 $Constants.Version.Update = {
 	$version.CurrentVersion = Get-Content -Path $version.CurrentFile

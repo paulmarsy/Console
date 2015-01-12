@@ -1,9 +1,7 @@
 param([switch]$GetModuleStepDetails)
 if ($GetModuleStepDetails) { return (@{RunLevel = 3; Critical = $false}) }
 
-$windowsIdentity = [System.Security.Principal.WindowsIdentity]::GetCurrent()
-$windowsPrincipal = New-Object System.Security.Principal.WindowsPrincipal $windowsIdentity
-if ($windowsPrincipal.IsInRole([System.Security.Principal.WindowsBuiltInRole]::Administrator)) { $promptSecurityContext = "Red" }
+if ($ProfileConfig.General.IsAdmin) { $promptSecurityContext = "Red" }
 else { $promptSecurityContext = "Green" }
 
 
