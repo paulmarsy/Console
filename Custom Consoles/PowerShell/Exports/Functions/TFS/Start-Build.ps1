@@ -6,6 +6,10 @@ function Start-Build {
 		[Parameter(ParameterSetName="Interactive")]
 		[Parameter(ParameterSetName="NonInteractive")]
 		[Parameter(ValueFromPipeline = $true, Mandatory = $true)]$BuildDefinition,
+		[Parameter(ParameterSetName="Default")]
+		[Parameter(ParameterSetName="Interactive")]
+		[Parameter(ParameterSetName="NonInteractive")]
+		$ProcessParameters,
 		[Parameter(ParameterSetName="Interactive", Mandatory = $true)][switch]$Wait,
 		[Parameter(ParameterSetName="Interactive")][switch]$ContinueOnError,
 		[Parameter(ParameterSetName="NonInteractive")][switch]$PassThru
@@ -13,10 +17,23 @@ function Start-Build {
 
 	PROCESS {
 		$BuildDefinition | foreach {
-			$queuedBuild = $_.BuildServer.QueueBuild($_)
+			$currentBuildDefinition = $_
+
+			$buildRequest = $currentBuildDefinition.BuildServer.CreateBuildRequest($currentBuildDefinition)
+
+			if (-not ([string]::IsNullOrWhiteSpace($ProcessParameters))) {
+				$workflowProcessProperties = [Microsoft.TeamFoundation.Build.Workflow.WorkflowHelpers]::DeserializeWorkflow($currentBuildDefinition.Process.Parameters).Properties
+				$currentProcessParameters = [Microsoft.TeamFoundation.Build.Workflow.WorkflowHelpers]::DeserializeProcessParameters($buildRequest.ProcessParameters)
+				$ProcessParameters.GetEnumerator() | ?| % {
+
+					}
+				$buildRequest.ProcessParameters = [Microsoft.TeamFoundation.Build.Workflow.WorkflowHelpers]::SerializeProcessParameters($currentProcessParameters)
+			}
+
+			$queuedBuild = $currentBuildDefinition.BuildServer.QueueBuild($buildRequest)
 
 			if ($PsCmdlet.ParameterSetName -eq "Interactive") {
-				Write-Host -NoNewLine "Starting build '$($_.Name)'... "
+				Write-Host -NoNewLine "Starting build '$($currentBuildDefinition.Name)'... "
 
 				$queuedBuild.Connect()
 				$queuedBuild.Wait()
@@ -30,8 +47,8 @@ function Start-Build {
 					}
 				}
 			} else {
-				if ($PassThru) { return $_ }
-				else { return $_.Uri.ToString() }
+				if ($PassThru) { return $currentBuildDefinition }
+				else { return $currentBuildDefinition.Uri.ToString() }
 			}
 		}
 	}
