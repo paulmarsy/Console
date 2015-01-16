@@ -1,8 +1,8 @@
 @ECHO OFF
 
-SET CommandPromptConsoleModulePath=%CustomConsolesInstallPath%\Custom Consoles\CommandPrompt
-SET CommandPromptConsoleLibraries=%CustomConsolesInstallPath%\Libraries
-SET CommandPromptConsoleSublimeExecutable=%CommandPromptConsoleLibraries%\Sublime Text\sublime_text.exe
+SET CommandPromptConsoleModulePath=%CustomConsolesInstallPath%Custom Consoles\CommandPrompt
+SET CommandPromptConsoleLibraries=%CustomConsolesInstallPath%Libraries
+SET CommandPromptConsoleAtomExecutable=%CommandPromptConsoleLibraries%\Atom\atom.exe
 set AnsiEsc=
 
 
