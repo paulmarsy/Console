@@ -20,7 +20,7 @@ function Start-Build {
 			$currentBuildDefinition = $_
 			$buildServer = $_.BuildServer
 
-			$buildRequest = $buildServer.CreateBuildRequest($currentBuildDefinition)
+			$buildRequest = $currentBuildDefinition.CreateBuildRequest()
 
 			if ($null -ne $ProcessParameters) {
 				$workflowProcessProperties = [Microsoft.TeamFoundation.Build.Workflow.WorkflowHelpers]::DeserializeWorkflow($currentBuildDefinition.Process.Parameters) | % Properties | % Name
