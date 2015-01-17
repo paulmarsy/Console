@@ -2,7 +2,7 @@
 
 SET CommandPromptConsoleModulePath=%CustomConsolesInstallPath%Custom Consoles\CommandPrompt
 SET CommandPromptConsoleLibraries=%CustomConsolesInstallPath%Libraries
-SET CommandPromptConsoleAtomExecutable=%CommandPromptConsoleLibraries%\Atom\atom.exe
+SET CommandPromptConsoleAtomExecutable=%CommandPromptConsoleLibraries%\Atom\App\atom.exe
 set AnsiEsc=
 
 

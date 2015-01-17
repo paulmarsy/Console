@@ -25,7 +25,7 @@ $Constants = @{
 	}
 	Executables = @{
 		ConEmu = (Join-Path $InstallPath "Libraries\ConEmu\ConEmu64.exe")
-		Atom = (Join-Path $InstallPath "Libraries\Atom\atom.exe")
+		Atom = (Join-Path $InstallPath "Libraries\Atom\App\atom.exe")
 		Hstart = (Join-Path $InstallPath "Libraries\PATH Extensions\Hstart\hstart64.exe")
 		ConsoleGitHubSyncer = (Join-Path $InstallPath "Libraries\Custom Helper Apps\ConsoleGitHubSyncer\ConsoleGitHubSyncer.exe")
 	}
@@ -53,9 +53,9 @@ $Constants.Version.Update = {
 $Constants.Version.Update.Invoke()
 
 if ([System.Environment]::Is64BitProcess) {
-	$Constants.ProcessArchitecture = "x64" 
-} else { 
-	$Constants.ProcessArchitecture = "x86" 
+	$Constants.ProcessArchitecture = "x64"
+} else {
+	$Constants.ProcessArchitecture = "x86"
 }
 
 return $Constants
