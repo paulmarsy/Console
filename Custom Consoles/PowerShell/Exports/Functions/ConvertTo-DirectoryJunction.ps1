@@ -54,7 +54,7 @@ function ConvertTo-DirectoryJunction {
 			Invoke-Junction -JunctionPath $JunctionPath -RemoveJunction
 		} else {
 			$SourcePath = $JunctionPath
-			Write-InstallMessage "The $(Split-Path $SourcePath -Leaf) directory currently exists, moving it's contents to $(Split-Path $TargetPath -Leaf)" -Type Warning
+			Write-Warning "The $(Split-Path $SourcePath -Leaf) directory currently exists, moving it's contents to $(Split-Path $TargetPath -Leaf)" -Type Warning
 
 			Get-ChildItem -Path $SourcePath -Force | % { Move-Item -Path $_.FullName -Destination $TargetPath -Force }
 
