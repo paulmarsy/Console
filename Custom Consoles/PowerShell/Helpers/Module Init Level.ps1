@@ -9,6 +9,10 @@
  #>
 
 try {
+	if (Test-Path Env:\CustomConsolesModuleInitLevel) {
+		return (Get-Item -Path Env:\CustomConsolesModuleInitLevel | % Value)
+	}
+
 	Add-Type -AssemblyName System.Windows.Forms
 
 	$dynamicType = [System.AppDomain]::CurrentDomain.GetAssemblies() | % GetTypes | ? FullName -eq 'NativeMethods.User32'
@@ -24,7 +28,7 @@ try {
 		$FieldArray =		[Reflection.FieldInfo[]]	@([Runtime.InteropServices.DllImportAttribute].GetField('EntryPoint'),	[Runtime.InteropServices.DllImportAttribute].GetField('PreserveSig'))
 		$FieldValueArray =	[Object[]]					@('GetAsyncKeyState',													$true)
 		$CustomAttribute = New-Object Reflection.Emit.CustomAttributeBuilder($DllImportConstructor, @('user32.dll'), $FieldArray, $FieldValueArray)
-		
+
 		$PInvokeMethod = $nativeMethodsUser32.DefineMethod('GetAsyncKeyState', 'Public, Static', [Int16], [Type[]] @([Windows.Forms.Keys]))
 		$PInvokeMethod.SetCustomAttribute($CustomAttribute)
 
