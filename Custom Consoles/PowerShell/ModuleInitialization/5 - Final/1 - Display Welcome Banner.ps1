@@ -13,15 +13,12 @@ Write-Host -NoNewline -ForegroundColor Red $machineIpProperties.HostName
 if (-not [string]::IsNullOrWhiteSpace($machineIpProperties.DomainName)) {
     Write-Host -NoNewline -ForegroundColor Red ".$($machineIpProperties.DomainName)"
 }
-if (Test-NetworkStatus -and $null -ne $null -ne ($networkConnectionProfile | Get-Member -Name NetworkCategory -MemberType ScriptProperty)) {
-	Write-Host -NoNewline -ForegroundColor Gray " ("
-	Write-Host -NoNewline -ForegroundColor DarkGreen $networkConnectionProfile.NetworkCategory
-	Write-Host -NoNewline -ForegroundColor Gray ")"
-}
-
-Write-Host
 
 if (Test-NetworkStatus -and $null -ne $networkConnectionProfile) {
+    Write-Host -NoNewline -ForegroundColor Gray " ("
+    Write-Host -NoNewline -ForegroundColor DarkGreen $networkConnectionProfile.NetworkCategory
+    Write-Host -NoNewline -ForegroundColor Gray ")"
+    Write-Host
 	Write-Host -NoNewline "Connected to network '"
 	Write-Host -NoNewline -ForegroundColor DarkGreen $networkConnectionProfile.Name
 	Write-Host -NoNewline "' over "
