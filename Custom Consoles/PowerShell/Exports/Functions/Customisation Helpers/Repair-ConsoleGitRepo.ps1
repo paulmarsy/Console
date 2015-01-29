@@ -15,11 +15,11 @@ function Repair-ConsoleGitRepo {
 
 		Get-ChildItem -File -Path ".\.git\" -Include "index.lock" | % {
 			Write-Host -NoNewLine -ForegroundColor Green "Removing Git index lock file $($_.FullName)... "
-			Remove-Item -Path $_.FullName -Force	
+			Remove-Item -Path $_.FullName -Force
 			Write-Host -ForegroundColor Green "Done"
 		}
 
-		$git = Get-Command -Name "git.exe" -CommandType Application | Select-Object -First 1 -ExpandProperty Source
+		$git = Get-Command -Name "git.exe" -CommandType Application | Select-Object -First 1 -ExpandProperty Path
 
 		function InvokeGitCommandOnAllRepositories {
 			param($Command)
