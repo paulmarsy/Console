@@ -1,13 +1,12 @@
 param([switch]$GetModuleStepDetails)
 if ($GetModuleStepDetails) { return (@{RunLevel = 3; Critical = $true}) }
 
-$ProfileConfig.Temp.ExportedAliases = @()
-
-$exportExclusionPattern = "_*"
-
-$referenceAliases = Get-ChildItem Alias:
-Get-ChildItem (Join-Path $ProfileConfig.ConsolePaths.PowerShell "Exports\Aliases") -Filter *.ps1 -Recurse -File | Sort-Object -Property FullName | % { . $_.FullName }
-$differenceAliases = Get-ChildItem Alias:
-Compare-Object -ReferenceObject $referenceAliases -DifferenceObject $differenceAliases -Property @("Name", "ReferencedCommand", "ModuleName") | ? { $_.Name -notlike $exportExclusionPattern -and $ExecutionContext.SessionState.Module.Name -eq $_.ModuleName } | % {
-	Export-ModuleMember -Alias $_.Name
+Get-ChildItem (Join-Path $ProfileConfig.ConsolePaths.PowerShell "Exports\Aliases") -Filter *.alias -File | % {
+	$alias = $_.BaseName
+	if ($alias.StartsWith("0x")) {
+		$alias = [string]::Contat(($alias | Split '+' | % { [char]::ConvertFromUtf32($_) }))
+	}
+	$command = Get-Content -Path $_.FullName | Select-Object -First 1
+	Set-Alias -Name $alias -Value $command -Force
+	Export-ModuleMember -Alias $alias
 }

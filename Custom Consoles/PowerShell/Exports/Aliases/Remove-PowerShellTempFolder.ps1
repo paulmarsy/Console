@@ -1,1 +1,0 @@
-Set-Alias Remove-PowerShellTempFolder Clear-PowerShellTempFolder
