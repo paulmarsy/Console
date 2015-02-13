@@ -7,7 +7,7 @@ if ($ModuleInitLevel -le 1) {
 	Import-Module (Join-Path $ModuleHelpersFolder "Profiler.psm1") -Force
 	Set-ProfilerStep Begin "FilterModuleInitializationSteps"
 }
-$moduleInitializationSteps = Get-Item -Path (Join-Path $PSScriptRoot "ModuleInitialization") -PipelineVariable ModuleInitializationDir | 
+$moduleInitializationSteps = Get-Item -Path (Join-Path $PSScriptRoot "ModuleInitialization") -PipelineVariable ModuleInitializationDir |
 								Get-ChildItem -Recurse -Filter "*.ps1" -File |
 								Sort-Object -Property FullName |
 								% {

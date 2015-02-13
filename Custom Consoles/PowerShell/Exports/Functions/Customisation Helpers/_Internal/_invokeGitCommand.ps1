@@ -22,13 +22,13 @@ function _invokeGitCommand {
 		$cleanup = {
 			if (Test-Path $standardOutput) { Remove-Item $standardOutput -Force }
 			if (Test-Path $standardError) { Remove-Item $standardError -Force }
-		}		
+		}
 	} else {
 		$cleanup = {}
 	}
 
     $gitProcess = Start-Process @arguments
-    
+
     if ($gitProcess.ExitCode -ne 0 -and $null -ne $gitProcess.ExitCode) {
     	if ($NonFatalError) {
     		& $cleanup
