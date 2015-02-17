@@ -6,9 +6,10 @@ function Test-PowerShellDirectory {
         [switch]$IncludeContext
     )
 
+    Write-Host -ForegroundColor Yellow "Testing PowerShell script files..."
     Get-ChildItem $Directory -File -Recurse -Include @("*.ps1", "*.psd1", "*.psm1") |
         % FullName |
-        Test-PowerShellFile -BaseDirectory $Directory |
+        Test-PowerShellScriptFile -BaseDirectory $Directory |
         % {
             if ($null -ne $_.Start -and $null -ne $_.End) {
                 if ($_.Start -eq $_.End) {
@@ -26,5 +27,18 @@ function Test-PowerShellDirectory {
             }
 
             Write-Host ("{0} {1}" -f $fileDescription, $errorMessage)
+        }
+
+    Write-Host -ForegroundColor Yellow "Testing PowerShell module manifest files..."
+    Get-ChildItem $Directory -File -Recurse -Include "*.psd1" |
+        % {
+            $fileName = $_.Name
+            $errorMessages = $null
+            $warningMessages = $null
+            Test-ModuleManifest -Path $_ -ErrorVariable errorMessages -ErrorAction Ignore -WarningVariable warningMessages -WarningAction Ignore | Out-Null
+
+            # Uniqueness is checked because submodules may have errors/warnings, however those will likely be picked up in a different loop iteration
+            $errorMessages | Select-Object -Unique | % { Write-Host ("{0}: Error - {1}" -f $fileName, $_) }
+            $warningMessages | Select-Object -Unique | % { Write-Host ("{0}: Warning - {1}" -f $fileName, $_) }
         }
 }
