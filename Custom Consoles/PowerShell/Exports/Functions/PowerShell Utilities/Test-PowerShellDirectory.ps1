@@ -6,10 +6,10 @@ function Test-PowerShellDirectory {
         [switch]$IncludeContext
     )
 
-    Write-Host -ForegroundColor Yellow "Testing PowerShell script files..."
+    Write-Host -ForegroundColor Yellow "Testing PowerShell script file syntax..."
     Get-ChildItem $Directory -File -Recurse -Include @("*.ps1", "*.psd1", "*.psm1") |
         % FullName |
-        Test-PowerShellScriptFile -BaseDirectory $Directory |
+        Test-PowerShellScriptSyntax -BaseDirectory $Directory |
         % {
             if ($null -ne $_.Start -and $null -ne $_.End) {
                 if ($_.Start -eq $_.End) {

@@ -1,4 +1,4 @@
-function Test-PowerShellScriptFile
+function Test-PowerShellScriptSyntax
 {
     [CmdletBinding()]
     param(
