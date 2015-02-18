@@ -1,8 +1,7 @@
 function Test-PowerShellDirectory {
     param(
-        [Parameter(Mandatory=$true)]
         [ValidateScript({Test-Path -Path $_})]
-        $Directory,
+        $Directory = $PWD.Path,
         [switch]$IncludeContext
     )
 
