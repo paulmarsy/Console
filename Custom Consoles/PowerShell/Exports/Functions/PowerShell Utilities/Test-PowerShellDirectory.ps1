@@ -2,11 +2,15 @@ function Test-PowerShellDirectory {
     param(
         [ValidateScript({Test-Path -Path $_})]
         $Directory = $PWD.Path,
-        [switch]$IncludeContext
+        $Exclude,
+        [switch]$IncludeContext,
+        [switch]$Quiet
     )
 
-    Write-Host -ForegroundColor Yellow "Testing PowerShell script file syntax..."
-    Get-ChildItem $Directory -File -Recurse -Include @("*.ps1", "*.psd1", "*.psm1") |
+    if (-not $Quiet) {
+        Write-Host -ForegroundColor Yellow "Testing PowerShell script file syntax..."
+    }
+    Get-ChildItem $Directory -File -Recurse -Include @("*.ps1", "*.psd1", "*.psm1") -Exclude $Exclude |
         % FullName |
         Test-PowerShellScriptSyntax -BaseDirectory $Directory |
         % {
@@ -28,13 +32,15 @@ function Test-PowerShellDirectory {
             Write-Host ("{0} {1}" -f $fileDescription, $errorMessage)
         }
 
-    Write-Host -ForegroundColor Yellow "Testing PowerShell module manifest files..."
-    Get-ChildItem $Directory -File -Recurse -Include "*.psd1" |
+    if (-not $Quiet) {
+        Write-Host -ForegroundColor Yellow "Testing PowerShell module manifest files..."
+    }
+    Get-ChildItem $Directory -File -Recurse -Include "*.psd1" -Exclude $Exclude |
         % {
             $fileName = $_.Name
             $errorMessages = $null
             $warningMessages = $null
-            Test-ModuleManifest -Path $_ -ErrorVariable errorMessages -ErrorAction Ignore -WarningVariable warningMessages -WarningAction Ignore | Out-Null
+            Test-ModuleManifest -Path $_.FullName -ErrorVariable errorMessages -ErrorAction Ignore -WarningVariable warningMessages -WarningAction Ignore | Out-Null
 
             # Uniqueness is checked because submodules may have errors/warnings, however those will likely be picked up in a different loop iteration
             $errorMessages | Select-Object -Unique | % { Write-Host ("{0}: Error - {1}" -f $fileName, $_) }

@@ -4,6 +4,7 @@ $ModuleHelpersFolder = Join-Path $PSScriptRoot "Helpers"
 . (Join-Path $ModuleHelpersFolder "Module Pre-Init.ps1")
 
 if ($ModuleInitLevel -le 1) {
+	Import-Module (Join-Path $ModuleHelpersFolder "Validator.psm1") -ArgumentList $PSScriptRoot -Force
 	Import-Module (Join-Path $ModuleHelpersFolder "Profiler.psm1") -Force
 	Set-ProfilerStep Begin "FilterModuleInitializationSteps"
 }
