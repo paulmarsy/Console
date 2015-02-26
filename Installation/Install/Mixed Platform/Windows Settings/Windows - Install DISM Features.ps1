@@ -2,9 +2,11 @@ function Dism-Wrapper {
 	param($FeatureNames)
 
 	Invoke-InstallStep "Microsoft Windows - Installing DISM Features" {
-		$result = Enable-WindowsOptionalFeature -FeatureName $FeatureNames -Online -NoRestart -LogLevel Errors
-		if ($result.RestartNeeded) {
-			Write-InstallMessage "Restart needed after installing winows features" -Type Info
+		if (Get-Command -Verb Enable -Noun WindowsOptionalFeature) {
+			Enable-WindowsOptionalFeature -FeatureName $FeatureNames -Online -NoRestart -LogLevel Errors | Out-Null
+		} else {
+			$formattedFeatures = [string]::Join(" ", ($FeatureNames | % { "/FeatureName:{0}" -f $_ }))
+			Start-Process -FilePath "DISM.exe" -NoNewWindow -Wait -ArgumentList ("/Online /Quiet /NoRestart /Enable-Feature {0}" -f $formattedFeatures)
 		}
 	}
 }
