@@ -17,7 +17,7 @@
 
                                      if ($_.FullyQualifiedErrorId -ne "NativeCommandErrorMessage") {
                                         $output += "`n" + $_.InvocationInfo.PositionMessage
-                                   }
+                                    }
                                    
                                     return "ERROR: $output"
                                 </ScriptBlock>
