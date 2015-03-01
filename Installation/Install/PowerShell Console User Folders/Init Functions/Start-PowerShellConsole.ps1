@@ -16,5 +16,5 @@ function Start-PowerShellConsole {
 	    return
 	}
 
-	Import-Module "##PowerShellConsoleModulePath##" -Force -Global
+	Import-Module "##PowerShellConsoleModulePath##" -Force -Global -ErrorAction Stop
 }
