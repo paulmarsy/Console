@@ -14,7 +14,6 @@ $private:ModuleInitializationRoot = Join-Path $InstallPath "Custom Consoles\Powe
 # Functions
 $private:FunctionExportsRoot = Join-Path $InstallPath "Custom Consoles\PowerShell\Exports\Functions"
 @(
-    "PowerShell Utilities\Set-Constant.ps1"
     "PowerShell Utilities\Test-PowerShellScriptSyntax.ps1"
     "PowerShell Utilities\Test-PowerShellDirectory.ps1"
     "Windows\ConvertTo-DirectoryJunction.ps1"
@@ -27,7 +26,6 @@ $private:FunctionExportsRoot = Join-Path $InstallPath "Custom Consoles\PowerShel
 $private:AliasExportsRoot = Join-Path $InstallPath "Custom Consoles\PowerShell\Exports\Aliases"
 @(
     "0x003F+0x003A"
-    "const"
     "Is"
 ) | % {
 	$alias = $_
