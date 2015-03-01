@@ -1,3 +1,3 @@
-function Edit-ConsoleInAtom {
+function Edit-PowerShellConsoleInAtom {
 	Open-Location -Location InstallPath -AtomEditor
 }

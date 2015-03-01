@@ -1,4 +1,4 @@
-function Open-ConsoleInSmartGit {
+function Open-PowerShellConsoleInSmartGit {
 	[CmdletBinding(DefaultParameterSetName="Open")]
 	param(
 		[Parameter(ParameterSetName="Open")][switch]$Open,
