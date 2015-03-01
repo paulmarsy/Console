@@ -1,7 +1,7 @@
 param([switch]$GetModuleStepDetails)
 if ($GetModuleStepDetails) { return (@{RunLevel = 2; Critical = $false}) }
 
-Get-ChildItem -Path (Join-Path $ProfileConfig.ConsolePaths.PowerShell "Exports\Default Parameter Values") -File -Filter *.ps1 | % {
+Get-ChildItem -Path (Join-Path $ProfileConfig.ConsolePaths.PowerShell "Exports\Default Parameter Values") -File -Filter "*.ps1" | % {
 	$functionName = $_.BaseName
 	$functionDefaultParameters = & "$($_.FullName)"
 
