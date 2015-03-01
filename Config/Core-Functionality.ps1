@@ -35,5 +35,5 @@ $private:AliasExportsRoot = Join-Path $InstallPath "Custom Consoles\PowerShell\E
 		$alias = [string]::Concat(($alias | % Split '+' | % { [char][int]($_) }))
 	}
 	$command = Get-Content -Path (Join-Path $private:AliasExportsRoot ("{0}.alias" -f $_)) | Select-Object -First 1
-	Set-Alias -Name $alias -Value $command -Force
+	Set-Alias -Name $alias -Value $command -Force -Scope Script
 }
