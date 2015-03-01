@@ -2,13 +2,11 @@ Set-StrictMode -Version Latest
 
 $InstallPath = Get-Item -Path Env:\CustomConsolesInstallPath | % Value
 
-. (Join-Path $InstallPath "Custom Consoles\PowerShell\Exports\Functions\Invoke-Ternary.ps1")
-Set-Alias -Name "?:" -Value Invoke-Ternary -Force
+. (Join-Path $InstallPath "Config\Core-Functionality.ps1") -InstallPath $InstallPath
 
-$PowerShellConsoleConstants = & (Join-Path $InstallPath "Config\Constants.ps1")
 $ProfileConfigFile = Join-Path $PowerShellConsoleConstants.UserFolders.AppSettingsFolder "ProfileConfig.json"
 
-Get-ChildItem $PSScriptRoot -Filter *.ps1  -Recurse -File | % { . $_.FullName }
+Get-ChildItem $PSScriptRoot -Filter *.ps1 -Recurse -File | % { . $_.FullName }
 
 Initialize-ProfileConfig
 

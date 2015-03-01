@@ -4,8 +4,13 @@ $ModuleHelpersFolder = Join-Path $PSScriptRoot "Helpers"
 . (Join-Path $ModuleHelpersFolder "Module Pre-Init.ps1")
 
 if ($ModuleInitLevel -le 1) {
-	Import-Module (Join-Path $ModuleHelpersFolder "Validator.psm1") -ArgumentList $PSScriptRoot -Force
+	$validationProblems = Test-PowerShellDirectory -Directory $PSScriptRoot -Quiet -ReturnNumberOfProblems -Exclude "CustomPowerShellConsole.psd1"
+	if ($validationProblems -gt 0) {
+	    throw "PowerShell Console Module has $validationProblems errors, unable to continue."
+	}
+	
 	Import-Module (Join-Path $ModuleHelpersFolder "Profiler.psm1") -Force
+	
 	Set-ProfilerStep Begin "FilterModuleInitializationSteps"
 }
 $moduleInitializationSteps = Get-Item -Path (Join-Path $PSScriptRoot "ModuleInitialization") -PipelineVariable ModuleInitializationDir |

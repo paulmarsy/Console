@@ -4,9 +4,11 @@ function Test-PowerShellDirectory {
         $Directory = $PWD.Path,
         $Exclude,
         [switch]$IncludeContext,
-        [switch]$Quiet
+        [switch]$Quiet,
+        [switch]$ReturnNumberOfProblems
     )
 
+    $failedTests = 0
     if (-not $Quiet) {
         Write-Host -ForegroundColor Yellow "Testing PowerShell script file syntax..."
     }
@@ -14,6 +16,7 @@ function Test-PowerShellDirectory {
         % FullName |
         Test-PowerShellScriptSyntax -BaseDirectory $Directory |
         % {
+            $failedTests++
             if ($null -ne $_.Start -and $null -ne $_.End) {
                 if ($_.Start -eq $_.End) {
                     $fileDescription = "{0} {1}:" -f $_.File, $_.Start
@@ -43,7 +46,14 @@ function Test-PowerShellDirectory {
             Test-ModuleManifest -Path $_.FullName -ErrorVariable errorMessages -ErrorAction Ignore -WarningVariable warningMessages -WarningAction Ignore | Out-Null
 
             # Uniqueness is checked because submodules may have errors/warnings, however those will likely be picked up in a different loop iteration
-            $errorMessages | Select-Object -Unique | % { Write-Host ("{0}: Error - {1}" -f $fileName, $_) }
-            $warningMessages | Select-Object -Unique | % { Write-Host ("{0}: Warning - {1}" -f $fileName, $_) }
+            $errorMessages | Select-Object -Unique | % {
+                $failedTests++
+                Write-Host ("{0}: Error - {1}" -f $fileName, $_)
+            }
+            $warningMessages | Select-Object -Unique | % {
+                $failedTests++
+                Write-Host ("{0}: Warning - {1}" -f $fileName, $_)
+            }
         }
+        if ($ReturnNumberOfProblems) { return $failedTests }
 }
