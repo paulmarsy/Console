@@ -9,6 +9,30 @@
 				}
 	}, @{
 		MemberType = "ScriptMethod"
+		MemberName = "TrimStart"
+		Value = {
+					param([string]$StringToRemove)
+					
+					if ($this.StartsWith($StringToRemove)) {
+						return $this.Remove(0, $StringToRemove.Length)
+					} else {
+						return $this
+					}
+				}
+	}, @{
+		MemberType = "ScriptMethod"
+		MemberName = "TrimEnd"
+		Value = {
+					param([string]$StringToRemove)
+					
+					if ($this.EndsWith($StringToRemove)) {
+						$this.Remove(($this.Length - $StringToRemove.Length), $StringToRemove.Length)
+					} else {
+						return $this
+					}
+				}
+	}, @{
+		MemberType = "ScriptMethod"
 		MemberName = "Expand"
 		Value = {
 					$ExecutionContext.InvokeCommand.ExpandString($this)
