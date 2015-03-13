@@ -1,4 +1,4 @@
-function Set-Email {
+1function Set-Email {
 	[CmdletBinding()]
     param(
         [Parameter(Mandatory=$true)]$EmailServer,
@@ -12,5 +12,6 @@ function Set-Email {
 	} -Force
 
 	$ProfileConfig.PowerShell.PSEmailServer = $EmailServer
+	$global:PSEmailServer = $EmailServer
 	$ProfileConfig.Email.From = $From
 }
