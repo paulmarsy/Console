@@ -1,4 +1,4 @@
-1function Set-Email {
+function Set-Email {
 	[CmdletBinding()]
     param(
         [Parameter(Mandatory=$true)]$EmailServer,
