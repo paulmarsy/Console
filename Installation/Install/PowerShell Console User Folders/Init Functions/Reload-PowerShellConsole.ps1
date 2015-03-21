@@ -5,7 +5,7 @@ function Reload-PowerShellConsole {
 	
 	Stop-PowerShellConsole
 
-	[System.Environment]::SetEnvironmentVariable("PowerShellConsoleStartUpPath", $PWD.Path, [System.EnvironmentVariableTarget]::Process)
-
+	$Env:PowerShellConsoleStartUpPath = $PWD.Path
+	
 	Start-PowerShellConsole -Force:$Force
 }

@@ -11,5 +11,6 @@ if (-not [string]::IsNullOrWhiteSpace($PowerShellConsoleStartUpMessage)) {
     Write-Host -ForegroundColor Red $formattedMessage
 	Write-Host
 
-    [System.Environment]::SetEnvironmentVariable("PowerShellConsoleStartUpMessage", $null, [System.EnvironmentVariableTarget]::Process)
+    $Env:PowerShellConsoleStartUpMessage = $null
+    Start-Process -FilePath $PowerShellConsoleConstants.Executables.ConEmuC -NoNewWindow -ArgumentList "/EXPORT PowerShellConsoleStartUpMessage"
 }
