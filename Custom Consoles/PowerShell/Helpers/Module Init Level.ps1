@@ -41,15 +41,22 @@ try {
 		return (($dynamicType::GetAsyncKeyState($Key) -band 0x8000) -eq 0x8000)
 	}
 
-	#$LShiftKey 		= Check-IfKeyIsPressed ([Windows.Forms.Keys]::LShiftKey)
 	$LControlKey	= Check-IfKeyIsPressed ([Windows.Forms.Keys]::LControlKey)
+	$LShiftKey 		= Check-IfKeyIsPressed ([Windows.Forms.Keys]::LShiftKey)
 	$LWin			= Check-IfKeyIsPressed ([Windows.Forms.Keys]::LWin)
 	$LAlt			= Check-IfKeyIsPressed ([Windows.Forms.Keys]::LMenu)
 
-	$level = 0
-	if ($LControlKey) { $level = 1 }
-	if ($LControlKey -and $LWin) { $level = 2 }
-	if ($LControlKey -and $LWin -and $LAlt) { $level = 3 }
+	if ($LControlKey) {
+		$level = 1
+		if ($LShiftKey) { $level++ }
+		if ($LWin) { $level++ }
+		if ($LAlt) { $level++ }
+		
+		if ($level -gt 3) { $level = 3 }
+	} else {
+		$level = 0
+	}
+	
 
 	if ($level -gt 0) {
 		Write-Host -ForegroundColor DarkMagenta "`tModule Init Level Override Set (Level: $level)"
