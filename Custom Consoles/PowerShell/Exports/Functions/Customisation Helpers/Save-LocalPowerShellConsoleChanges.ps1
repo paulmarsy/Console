@@ -7,9 +7,10 @@ function Save-LocalPowerShellConsoleChanges {
 		Write-Host -ForegroundColor Red "ERROR: Commit message cannot be empty"
 		$CommitMessage = Read-Host -Prompt "Commit message"
 	}
+	
+	Optimize-PowerShellConsoleFiles
 
 	$script:changesCommited = $false
-
 	function commitChanges {
 		param($Repo)
 		if ((_getNumberOfUncommitedChanges) -eq 0) { return }
