@@ -7,7 +7,7 @@ if (-not (Test-Path $javaRegKey)) {
 }
 
 $currentVersionRegKey = Join-Path $javaRegKey (Get-ItemProperty -Path $javaRegKey -Name "CurrentVersion" | Select-Object -First 1 -ExpandProperty CurrentVersion)
-$javaHomePath = Get-ItemProperty -Path $currentVersionRegKey -Name "JavaHome" | Select-Object -First 1 -ExpandProperty JavaHome
+$javaHomePath = Join-Path (Get-ItemProperty -Path $currentVersionRegKey -Name "JavaHome" | Select-Object -First 1 -ExpandProperty JavaHome) "bin"
 
 if (-not (Test-Path $javaHomePath)) {
 	return
