@@ -1,6 +1,6 @@
 function Open-Superuser
 {
-	if (-not $ProfileConfig.General.IsAdmin) {
+	if ($ProfileConfig.General.IsAdmin) {
 		throw "Already running with Administrator access"
 	}
 	else { Restart-PowerShellConsole -Su }
