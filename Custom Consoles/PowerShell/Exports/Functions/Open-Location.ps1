@@ -118,7 +118,7 @@ function Open-Location {
                 }
             }
      		elseif ($AtomEditor) {
-     			Edit-File $Path
+                Edit-InAtom $Path
      		}
      		else {
      			& explorer $Path
