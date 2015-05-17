@@ -6,7 +6,7 @@ try {
     $innoInstallerArguments = @("/SILENT", "/NORESTART", "/CLOSEAPPLICATIONS", "/RESTARTAPPLICATIONS")
     
     if (# Microsoft Azure PowerShell  https://github.com/Azure/azure-powershell
-        (Invoke-Installer -Name "Microsoft Azure PowerShell" -Uri "http://az412849.vo.msecnd.net/downloads04/azure-powershell.0.8.16.msi" -Optional -Type msi) -and `
+        (Invoke-Installer -Name "Microsoft Azure PowerShell" -Uri "https://github.com/Azure/azure-powershell/releases/download/0.9.1-May2015/azure-powershell.0.9.1.msi" -Optional -Type msi) -and `
         # Git for Windows             http://git-scm.com/download/win
         (Invoke-Installer -Name "Git for Windows" -Uri "https://github.com/msysgit/msysgit/releases/download/Git-1.9.5-preview20150319/Git-1.9.5-preview20150319.exe" -Type exe -ArgumentList ($innoInstallerArguments + @('/COMPONENTS=""', '/TASKS=""'))) -and `
         # GitHub for Windows          https://windows.github.com/
