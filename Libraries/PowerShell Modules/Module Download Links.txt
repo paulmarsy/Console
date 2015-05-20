@@ -1,0 +1,13 @@
+	External:
+
+Pscx:			https://pscx.codeplex.com/
+PSReadline:		https://github.com/lzybkr/PSReadLine
+
+	Submodules:
+
+DebugPx:		https://github.com/KirkMunro/DebugPx
+HistoryPx:		https://github.com/KirkMunro/HistoryPx
+poke			https://github.com/oising/poke
+posh-git:		https://github.com/dahlbyk/posh-git
+SnippetPx:		https://github.com/KirkMunro/SnippetPx
+TypePx:			https://github.com/KirkMunro/TypePx

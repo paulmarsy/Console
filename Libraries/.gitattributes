@@ -1,0 +1,4 @@
+# Disable end of line normalization as all these files should be application files
+* -crlf
+* -text
+* binary

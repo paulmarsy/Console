@@ -1,0 +1,18 @@
+
+'atom-workspace':
+  'ctrl-alt-l': 'view-tail-large-files:open'
+
+'.vtlf-form':
+  'tab':        'view-tail-large-files:focus-next'
+  'shift-tab':  'view-tail-large-files:focus-previous'
+  
+  'up':         'view-tail-large-files:up'
+  'down':       'view-tail-large-files:down'
+  
+  'pageup':     'view-tail-large-files:pgup'
+  'pagedown':   'view-tail-large-files:pgdown'
+
+  'ctrl-home':  'view-tail-large-files:top'
+  'ctrl-end':   'view-tail-large-files:bottom'
+  'ctrl-enter': 'view-tail-large-files:parent'
+  

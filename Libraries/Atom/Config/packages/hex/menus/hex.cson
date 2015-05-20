@@ -1,0 +1,17 @@
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'Hex View',
+      'command': 'hex:view'
+    ]
+  }
+]
+
+'context-menu':
+  '.image-view': [
+    {
+      'label': 'Hex View',
+      'command': 'hex:view',
+    }
+  ]

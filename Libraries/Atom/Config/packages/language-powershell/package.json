@@ -1,0 +1,41 @@
+{
+  "name": "language-powershell",
+  "version": "2.0.1",
+  "description": "PowerShell language support for Atom",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jugglingnutcase/language-powershell"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "cson": "^1.6.2",
+    "plist": "^1.1.0"
+  },
+  "scripts": {
+    "convert": "node scripts/convert-grammar.js"
+  },
+  "readme": "# PowerShell language support for Atom\n\n[![Build Status](https://travis-ci.org/jugglingnutcase/language-powershell.svg?branch=master)](https://travis-ci.org/jugglingnutcase/language-powershell)\n[![Build status](https://ci.appveyor.com/api/projects/status/ru4cfpi46m4bn5od/branch/master)](https://ci.appveyor.com/project/jugglingnutcase/language-powershell/branch/master)\n\nThis package provides PowerShell language support in the [Atom editor](https://atom.io).\n\n## Language references\n\ni just found this [helpful blog post](http://blogs.msdn.com/b/powershell/archive/2006/05/10/594535.aspx) on the\nPowerShell grammar. i hope i *parse* :stuck_out_tongue_winking_eye: it well.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/jugglingnutcase/language-powershell/issues"
+  },
+  "homepage": "https://github.com/jugglingnutcase/language-powershell",
+  "_id": "language-powershell@2.0.1",
+  "_shasum": "83a3e4366a11faebe8c648198a03c67e8128fa64",
+  "_resolved": "file:..\\d-11544-8684-1vcacqg\\package.tgz",
+  "_from": "..\\d-11544-8684-1vcacqg\\package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

@@ -1,0 +1,62 @@
+"*":
+  editor:
+    fontFamily: "Consolas"
+    showInvisibles: true
+    showIndentGuide: true
+    tabLength: 4
+    invisibles:
+      {}
+    zoomFontWhenCtrlScrolling: false
+  core:
+    excludeVcsIgnoredPaths: false
+    followSymlinks: true
+    disabledPackages: [
+      "wrap-guide"
+      "autoflow"
+      "metrics"
+      "package-generator"
+      "background-tips"
+      "deprecation-cop"
+      "welcome"
+      "whitespace"
+      "snippets"
+      "language-yaml"
+      "language-toml"
+      "language-go"
+      "feedback"
+      "timecop"
+      "bookmarks"
+      "language-mustache"
+      "autosave"
+    ]
+    audioBeep: false
+  "exception-reporting":
+    userId: "0392dc6d-c14b-47e0-91c5-f2afa5f389bd"
+  welcome:
+    showOnStartup: false
+  "spell-check":
+    {}
+  "markdown-preview":
+    {}
+  "autocomplete-plus":
+    confirmCompletion: "tab and enter"
+  "file-icons":
+    forceShow: true
+  "git-log":
+    fontFamily: "Consolas"
+  hex:
+    bytesPerLine: 32
+  "filetype-color":
+    enabled: "true"
+  "bracket-matcher":
+    autocompleteSmartQuotes: false
+  "fuzzy-finder":
+    {}
+  "git-diff":
+    showIconsInEditorGutter: true
+  tabs:
+    tabScrolling: true
+  "one-dark-ui":
+    {}
+  "view-tail-large-files":
+    fontFamily: "Consolas"

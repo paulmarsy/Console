@@ -1,0 +1,46 @@
+{
+  "name": "line-ending-converter",
+  "main": "./lib/main",
+  "version": "1.1.0",
+  "description": "A very simple package that converts line endings (EOL's) to Windows/Unix/Old Mac format.",
+  "activationCommands": {
+    "atom-workspace": [
+      "line-ending-converter:convert-to-unix-format",
+      "line-ending-converter:convert-to-windows-format",
+      "line-ending-converter:convert-to-old-mac-format"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/williampuk/line-ending-converter.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {},
+  "readme": "# Line Ending Converter package\n\nThis is a very simple package that converts the line endings (or EOL's) to Unix/Windows/Old Mac format.\n\n## How to use\n\nIn Menu,\n> Packages => Convert Line Endings To =>\n>\n> Unix Format / Windows Format / Old Mac Format\n\nOr, in Context Menu (inside an active editor),\n> Convert Line Endings To =>\n>\n> Unix Format / Windows Format / Old Mac Format\n\nOr, in Command Palette (`cmd-shift-p` or `ctrl-shift-p`), type\n> Convert To Unix Format, or Convert To Windows Format, or Convert to Old Mac Format\n>\n> (Note: This will convert the line endings of the text in the active editor, regardless of where the command is triggered.)\n\n## Notes\nThe conversion works only when the file has at least one EOL. If the file does not have any EOL's, the conversion would not persist, as the current implementation of Atom uses a default EOL (which appears to be the UNIX format) if there is no EOL found in the file.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/williampuk/line-ending-converter/issues"
+  },
+  "homepage": "https://github.com/williampuk/line-ending-converter",
+  "_id": "line-ending-converter@1.1.0",
+  "_shasum": "444bcfdae6c047bfdfc03b2167213ef9c9b84fa5",
+  "_resolved": "file:..\\d-115231-8588-1tmrrq8\\package.tgz",
+  "_from": "..\\d-115231-8588-1tmrrq8\\package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".coffee": [
+        "lib\\line-ending-converter.coffee",
+        "lib\\main.coffee"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

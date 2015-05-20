@@ -1,0 +1,76 @@
+@import "ui-variables";
+@import "syntax-variables";
+
+.view-tail-large-files {
+  display:        flex;
+  flex-direction: column;
+  overflow:       hidden;
+  -webkit-user-select: none;
+  
+  color:            @syntax-text-color;
+  background-color: @syntax-background-color;
+
+  .vtlf-horiz {
+    display: flex;
+    flex-direction: row;
+    flex:  1;
+    order: 1;
+    
+    .lines-outer {
+      order:       1;
+      flex-grow:   1;
+      flex-shrink: 1;
+      flex-basis: auto;
+      overflow-x: auto;
+      width:      100%;
+      position:   relative;
+      display:    inline-block;
+      
+      .lines {
+        position: absolute;
+        overflow: hidden;
+        display:  none;
+        height:   100%;
+        
+        .line {
+          position:absolute;
+          
+          .line-num {
+            text-align:right;
+            display: inline-block;
+            position:absolute;
+            top:0;
+          }
+          .line-num.tail-hilite {
+            text-decoration: underline;
+          }
+          .line-text {
+            position:absolute;
+            top:0;
+            white-space: pre; 
+          }
+        }
+      }
+    }
+    .scrollbar {
+      order:            2;
+      flex:             18px;
+      position:         relative;
+      background-color: @button-background-color;
+      width:            18px; 
+      top:              0; 
+      right:            0; 
+      
+      .thumb {
+        position:         absolute;  
+        background-color: @button-background-color-selected;
+        width:            16px; 
+        left:              1px; 
+      }
+    }
+  }
+  .line-selected .line-text {
+    background-color: @syntax-selection-color;
+  }
+}
+
