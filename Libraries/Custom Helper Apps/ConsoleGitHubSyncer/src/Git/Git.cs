@@ -92,7 +92,7 @@
 
         private static string GetGitPath()
         {
-            var programFiles = Environment.GetEnvironmentVariable("ProgramFiles(x86)");
+            var programFiles = Environment.GetEnvironmentVariable("ProgramFiles");
             if (string.IsNullOrWhiteSpace(programFiles))
                 throw new GitException(Program.ExitCode.ERROR_ENVVAR_NOT_FOUND, "Unable to get Program Files x86 path");
 
@@ -100,8 +100,6 @@
 
             var gitPath = new[]
             {
-                Path.Combine(gitInstallPath, "bin"),
-                Path.Combine(gitInstallPath, "mingw\\bin"),
                 Path.Combine(gitInstallPath, "cmd")
             }
                 .Select(folder => Path.Combine(folder, "git.exe"))

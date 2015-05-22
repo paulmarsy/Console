@@ -2,8 +2,6 @@ param([switch]$GetModuleStepDetails)
 if ($GetModuleStepDetails) { return (@{RunLevel = 2; Critical = $false}) }
 
 $Path = @(
-	(Join-Path $PowerShellConsoleConstants.GitInstallPath "bin")
-	(Join-Path $PowerShellConsoleConstants.GitInstallPath "mingw\bin")
 	(Join-Path $PowerShellConsoleConstants.GitInstallPath "cmd")
 	$Env:PATH
 ) -Join ';'

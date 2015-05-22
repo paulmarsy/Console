@@ -39,7 +39,7 @@ function Show-PowerShellConsoleStatus {
 
 		Write-Host
 		Write-Host -ForegroundColor Cyan "Branch structure..."
-		$branchStructureCommand = "log --color --date-order --graph --oneline --decorate --no-walk"
+		$branchStructureCommand = "log --color --date-order --oneline --decorate --no-walk"
 		if (-not $OnlyThisBranch) {
 			$branchStructureCommand += " --all"
 		}

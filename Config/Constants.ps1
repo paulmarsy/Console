@@ -30,7 +30,7 @@ $Constants = @{
 		Hstart = (Join-Path $InstallPath "Libraries\PATH Extensions\Hstart\hstart64.exe")
 		ConsoleGitHubSyncer = (Join-Path $InstallPath "Libraries\Custom Helper Apps\ConsoleGitHubSyncer\ConsoleGitHubSyncer.exe")
 	}
-	GitInstallPath = (Join-Path ${Env:ProgramFiles(x86)} "Git")
+	GitInstallPath = (Join-Path ${Env:ProgramFiles} "Git")
 	MutexGuid = "edb1fbff-b83d-4d5b-9a03-cc535ee29155"
 }
 
