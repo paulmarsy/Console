@@ -6,12 +6,12 @@ A PowerShell Console by [Paul Marston](https://github.com/paulmarsy)
 
 1. Clone the Git repository
 <big><pre>& (Join-Path ${Env:ProgramFiles(x86)} "Git\bin\git.exe") clone --recursive [https://github.com/paulmarsy/Console.git](https://github.com/paulmarsy/Console)</pre></big>
-2. Install the pre-requisites <big><pre>& ".\Install Prerequisites.bat"</pre></big>
-3. Run the installer <big><pre>& .\Install.bat</pre></big>
+2. Install the pre-requisites: Install Prerequisites.bat
+3. Run the installer: Install.bat
 
 ### Uninstallation
 
-1. Run the uninstaller <big><pre>& .\Uninstall.bat</pre></big>
+1. Run the uninstaller: Uninstall.bat
 
 ### Contributors
 
