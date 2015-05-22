@@ -16,9 +16,8 @@ A PowerShell Console by [Paul Marston](https://github.com/paulmarsy)
 ### Contributors
 
 Thanks to many projects referenced in this PowerShell Console
-* [Prerequisite Install Files](https://github.com/paulmarsy/ConsoleInstallFiles)
 * [ConEmu](https://github.com/Maximus5/ConEmu)
-* [Atom Editor](https://github.com/atom/)
+* [Atom Editor](https://github.com/atom/atom/)
 * [PowerShell Modules](https://github.com/paulmarsy/Console/tree/master/Libraries/PowerShell%20Modules)
 * [Binaries added to the PATH](https://github.com/paulmarsy/Console/tree/master/Libraries/Binaries)
 
