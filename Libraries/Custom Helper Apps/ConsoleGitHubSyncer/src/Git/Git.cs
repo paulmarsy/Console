@@ -100,9 +100,8 @@
 
             var gitPath = new[]
             {
-                Path.Combine(gitInstallPath, "mingw64\\bin"),
-                Path.Combine(gitInstallPath, "mingw\\bin"),
                 Path.Combine(gitInstallPath, "cmd")
+                
             }
                 .Select(folder => Path.Combine(folder, "git.exe"))
                 .Where(File.Exists).FirstOrDefault();
