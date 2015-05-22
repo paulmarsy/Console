@@ -1,5 +1,5 @@
 (function() {
-  var Command, Develop, Install, Link, config, fs, git, optimist, path, request, _,
+  var Command, Develop, Install, Link, config, fs, git, path, request, yargs, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -9,7 +9,7 @@
 
   _ = require('underscore-plus');
 
-  optimist = require('optimist');
+  yargs = require('yargs');
 
   config = require('./apm');
 
@@ -35,7 +35,7 @@
 
     Develop.prototype.parseOptions = function(argv) {
       var options;
-      options = optimist(argv);
+      options = yargs(argv).wrap(100);
       options.usage("Usage: apm develop <package_name> [<directory>]\n\nClone the given package's Git repository to the directory specified,\ninstall its dependencies, and link it for development to\n~/.atom/dev/packages/<package_name>.\n\nIf no directory is specified then the repository is cloned to\n~/github/<package_name>. The default folder to clone packages into can\nbe overridden using the ATOM_REPOS_HOME environment variable.\n\nOnce this command completes you can open a dev window from atom using\ncmd-shift-o to run the package out of the newly cloned repository.");
       return options.alias('h', 'help').describe('help', 'Print this usage message');
     };

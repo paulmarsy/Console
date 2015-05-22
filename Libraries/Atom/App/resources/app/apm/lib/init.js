@@ -1,11 +1,11 @@
 (function() {
-  var Command, Init, fs, optimist, path,
+  var Command, Init, fs, path, yargs,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   path = require('path');
 
-  optimist = require('optimist');
+  yargs = require('yargs');
 
   Command = require('./command');
 
@@ -22,7 +22,7 @@
 
     Init.prototype.parseOptions = function(argv) {
       var options;
-      options = optimist(argv);
+      options = yargs(argv).wrap(100);
       options.usage("Usage:\n  apm init -p <package-name>\n  apm init -p <package-name> -c ~/Downloads/r.tmbundle\n  apm init -p <package-name> -c https://github.com/textmate/r.tmbundle\n  apm init -p <package-name> --template /path/to/your/package/template\n\n  apm init -t <theme-name>\n  apm init -t <theme-name> -c ~/Downloads/Dawn.tmTheme\n  apm init -t <theme-name> -c https://raw.github.com/chriskempson/tomorrow-theme/master/textmate/Tomorrow-Night-Eighties.tmTheme\n  apm init -t <theme-name> --template /path/to/your/theme/template\n\n  apm init -l <language-name>\n\nGenerates code scaffolding for either a theme or package depending\non the option selected.");
       options.alias('p', 'package').string('package').describe('package', 'Generates a basic package');
       options.alias('t', 'theme').string('theme').describe('theme', 'Generates a basic theme');

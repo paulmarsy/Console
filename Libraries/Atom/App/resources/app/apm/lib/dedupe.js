@@ -1,5 +1,5 @@
 (function() {
-  var Command, Dedupe, async, config, fs, optimist, path, _,
+  var Command, Dedupe, async, config, fs, path, yargs, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     __slice = [].slice;
@@ -10,7 +10,7 @@
 
   _ = require('underscore-plus');
 
-  optimist = require('optimist');
+  yargs = require('yargs');
 
   config = require('./apm');
 
@@ -33,7 +33,7 @@
 
     Dedupe.prototype.parseOptions = function(argv) {
       var options;
-      options = optimist(argv);
+      options = yargs(argv).wrap(100);
       options.usage("\nUsage: apm dedupe [<package_name>...]\n\nReduce duplication in the node_modules folder in the current directory.\n\nThis command is experimental.");
       return options.alias('h', 'help').describe('help', 'Print this usage message');
     };

@@ -1,5 +1,5 @@
 (function() {
-  var colors, commandClass, commandClasses, commands, config, fs, getPythonVersion, git, name, npm, optimist, parseOptions, path, printVersions, setupTempDirectory, showHelp, spawn, wordwrap, _, _i, _j, _len, _len1, _ref, _ref1;
+  var colors, commandClass, commandClasses, commands, config, fs, getPythonVersion, git, name, npm, parseOptions, path, printVersions, setupTempDirectory, showHelp, spawn, wordwrap, yargs, _, _i, _j, _len, _len1, _ref, _ref1;
 
   spawn = require('child_process').spawn;
 
@@ -11,7 +11,7 @@
 
   npm = require('npm');
 
-  optimist = require('optimist');
+  yargs = require('yargs');
 
   wordwrap = require('wordwrap');
 
@@ -55,7 +55,7 @@
     if (args == null) {
       args = [];
     }
-    options = optimist(args);
+    options = yargs(args).wrap(100);
     options.usage("\napm - Atom Package Manager powered by https://atom.io\n\nUsage: apm <command>\n\nwhere <command> is one of:\n" + (wordwrap(4, 80)(Object.keys(commands).sort().join(', '))) + ".\n\nRun `apm help <command>` to see the more details about a specific command.");
     options.alias('v', 'version').describe('version', 'Print the apm version');
     options.alias('h', 'help').describe('help', 'Print this usage message');

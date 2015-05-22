@@ -1,5 +1,5 @@
 (function() {
-  var Command, Install, Packages, Upgrade, async, config, fs, optimist, path, read, request, semver, tree, _,
+  var Command, Install, Packages, Upgrade, async, config, fs, path, read, request, semver, tree, yargs, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -9,7 +9,7 @@
 
   async = require('async');
 
-  optimist = require('optimist');
+  yargs = require('yargs');
 
   read = require('read');
 
@@ -41,7 +41,7 @@
 
     Upgrade.prototype.parseOptions = function(argv) {
       var options;
-      options = optimist(argv);
+      options = yargs(argv).wrap(100);
       options.usage("\nUsage: apm upgrade\n       apm upgrade --list\n       apm upgrade [<package_name>...]\n\nUpgrade out of date packages installed to ~/.atom/packages\n\nThis command lists the out of date packages and then prompts to install\navailable updates.");
       options.alias('c', 'confirm').boolean('confirm')["default"]('confirm', true).describe('confirm', 'Confirm before installing updates');
       options.alias('h', 'help').describe('help', 'Print this usage message');

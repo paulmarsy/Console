@@ -1,5 +1,5 @@
 (function() {
-  var CSON, Command, Install, RebuildModuleCache, async, config, fs, git, optimist, path, request, semver, temp, _,
+  var CSON, Command, Install, RebuildModuleCache, async, config, fs, git, path, request, semver, temp, yargs, _,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -11,7 +11,7 @@
 
   _ = require('underscore-plus');
 
-  optimist = require('optimist');
+  yargs = require('yargs');
 
   CSON = require('season');
 
@@ -48,7 +48,7 @@
 
     Install.prototype.parseOptions = function(argv) {
       var options;
-      options = optimist(argv);
+      options = yargs(argv).wrap(100);
       options.usage("\nUsage: apm install [<package_name>...]\n       apm install <package_name>@<package_version>\n       apm install --packages-file my-packages.txt\n\nInstall the given Atom package to ~/.atom/packages/<package_name>.\n\nIf no package name is given then all the dependencies in the package.json\nfile are installed to the node_modules folder in the current working\ndirectory.\n\nA packages file can be specified that is a newline separated list of\npackage names to install with optional versions using the\n`package-name@version` syntax.");
       options.alias('c', 'compatible').string('compatible').describe('compatible', 'Only install packages/themes compatible with this Atom version');
       options.alias('h', 'help').describe('help', 'Print this usage message');

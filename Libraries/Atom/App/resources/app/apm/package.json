@@ -1,7 +1,7 @@
 {
   "name": "atom-package-manager",
   "description": "Atom package manager",
-  "version": "0.167.0",
+  "version": "0.168.0",
   "licenses": [
     {
       "type": "MIT",
@@ -26,26 +26,26 @@
   },
   "dependencies": {
     "asar-require": "0.2.0",
-    "optimist": "~0.4.0",
     "async": "~0.2.8",
-    "underscore-plus": "1.x",
-    "temp": "~0.7.0",
-    "wrench": "~1.5.1",
+    "colors": "~0.6.1",
+    "exit": "0.1.2",
+    "first-mate": ">=3 <4",
+    "fs-plus": "2.x",
+    "git-utils": ">=3 <4",
+    "keytar": ">=2.1 <3",
+    "mv": "2.0.0",
     "ncp": "~0.5.1",
     "npm": "2.5.1",
-    "season": ">=5.0.5 <6.0",
-    "colors": "~0.6.1",
-    "wordwrap": "0.0.2",
-    "fs-plus": "2.x",
-    "keytar": ">=2.1 <3",
-    "read": "~1.0.5",
-    "q": "~0.9.7",
-    "plist": "git+https://github.com/nathansobo/node-plist.git",
-    "first-mate": ">=3 <4",
-    "git-utils": ">=3 <4",
-    "mv": "2.0.0",
     "open": "0.0.4",
-    "exit": "0.1.2"
+    "plist": "git+https://github.com/nathansobo/node-plist.git",
+    "q": "~0.9.7",
+    "read": "~1.0.5",
+    "season": ">=5.0.5 <6.0",
+    "temp": "~0.7.0",
+    "underscore-plus": "1.x",
+    "wordwrap": "0.0.2",
+    "wrench": "~1.5.1",
+    "yargs": ">=3.9 <4.0"
   },
   "devDependencies": {
     "jasmine-focused": ">=1.0.7 <2.0",
@@ -57,11 +57,11 @@
     "grunt-coffeelint": "0.0.6",
     "coffee-script": "^1.8.0"
   },
-  "gitHead": "5f89fa0ddfe1b88551efb7fa2bbfbc876642d683",
+  "gitHead": "b47423db2dd093404cab80d752793cdf91986111",
   "homepage": "https://github.com/atom/apm",
-  "_id": "atom-package-manager@0.167.0",
-  "_shasum": "1db2d7959a9353096b029f482def5f4464245c8e",
-  "_from": "atom-package-manager@0.167.0",
+  "_id": "atom-package-manager@0.168.0",
+  "_shasum": "ed42d1abef17b51ab03a4f5275e047842c4bfa3d",
+  "_from": "atom-package-manager@0.168.0",
   "_npmVersion": "2.5.1",
   "_nodeVersion": "0.10.35",
   "_npmUser": {
@@ -95,10 +95,10 @@
     }
   ],
   "dist": {
-    "shasum": "1db2d7959a9353096b029f482def5f4464245c8e",
-    "tarball": "http://registry.npmjs.org/atom-package-manager/-/atom-package-manager-0.167.0.tgz"
+    "shasum": "ed42d1abef17b51ab03a4f5275e047842c4bfa3d",
+    "tarball": "http://registry.npmjs.org/atom-package-manager/-/atom-package-manager-0.168.0.tgz"
   },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/atom-package-manager/-/atom-package-manager-0.167.0.tgz",
+  "_resolved": "https://registry.npmjs.org/atom-package-manager/-/atom-package-manager-0.168.0.tgz",
   "readme": "ERROR: No README data found!"
 }

@@ -1,11 +1,11 @@
 (function() {
-  var Command, Links, config, fs, optimist, path, tree,
+  var Command, Links, config, fs, path, tree, yargs,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   path = require('path');
 
-  optimist = require('optimist');
+  yargs = require('yargs');
 
   Command = require('./command');
 
@@ -27,7 +27,7 @@
 
     Links.prototype.parseOptions = function(argv) {
       var options;
-      options = optimist(argv);
+      options = yargs(argv).wrap(100);
       options.usage("\nUsage: apm links\n\nList all of the symlinked atom packages in ~/.atom/packages and\n~/.atom/dev/packages.");
       return options.alias('h', 'help').describe('help', 'Print this usage message');
     };

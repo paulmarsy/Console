@@ -1,11 +1,11 @@
 (function() {
-  var Command, Install, Login, Stars, config, optimist, request, tree, _,
+  var Command, Install, Login, Stars, config, request, tree, yargs, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   _ = require('underscore-plus');
 
-  optimist = require('optimist');
+  yargs = require('yargs');
 
   Command = require('./command');
 
@@ -30,7 +30,7 @@
 
     Stars.prototype.parseOptions = function(argv) {
       var options;
-      options = optimist(argv);
+      options = yargs(argv).wrap(100);
       options.usage("\nUsage: apm stars\n       apm stars --install\n       apm stars --user thedaniel\n       apm stars --themes\n\nList or install starred Atom packages and themes.");
       options.alias('h', 'help').describe('help', 'Print this usage message');
       options.alias('i', 'install').boolean('install').describe('install', 'Install the starred packages');

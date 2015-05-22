@@ -1,5 +1,5 @@
 (function() {
-  var Command, Git, Login, Packages, Publish, config, fs, optimist, path, request, semver, url,
+  var Command, Git, Login, Packages, Publish, config, fs, path, request, semver, url, yargs,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     __slice = [].slice;
@@ -8,7 +8,7 @@
 
   url = require('url');
 
-  optimist = require('optimist');
+  yargs = require('yargs');
 
   Git = require('git-utils');
 
@@ -38,7 +38,7 @@
 
     Publish.prototype.parseOptions = function(argv) {
       var options;
-      options = optimist(argv);
+      options = yargs(argv).wrap(100);
       options.usage("\nUsage: apm publish [<newversion> | major | minor | patch | build]\n       apm publish --tag <tagname>\n       apm publish --rename <new-name>\n\nPublish a new version of the package in the current working directory.\n\nIf a new version or version increment is specified, then a new Git tag is\ncreated and the package.json file is updated with that new version before\nit is published to the apm registry. The HEAD branch and the new tag are\npushed up to the remote repository automatically using this option.\n\nIf a new name is provided via the --rename flag, the package.json file is\nupdated with the new name and the package's name is updated on Atom.io.\n\nRun `apm featured` to see all the featured packages or\n`apm view <packagename>` to see information about your package after you\nhave published it.");
       options.alias('h', 'help').describe('help', 'Print this usage message');
       options.alias('t', 'tag').string('tag').describe('tag', 'Specify a tag to publish');

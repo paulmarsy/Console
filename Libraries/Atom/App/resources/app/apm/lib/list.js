@@ -1,5 +1,5 @@
 (function() {
-  var CSON, Command, List, config, fs, optimist, path, tree, _,
+  var CSON, Command, List, config, fs, path, tree, yargs, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -9,7 +9,7 @@
 
   CSON = require('season');
 
-  optimist = require('optimist');
+  yargs = require('yargs');
 
   Command = require('./command');
 
@@ -40,7 +40,7 @@
 
     List.prototype.parseOptions = function(argv) {
       var options;
-      options = optimist(argv);
+      options = yargs(argv).wrap(100);
       options.usage("\nUsage: apm list\n       apm list --themes\n       apm list --packages\n       apm list --installed\n       apm list --installed --bare > my-packages.txt\n       apm list --json\n\nList all the installed packages and also the packages bundled with Atom.");
       options.alias('b', 'bare').boolean('bare').describe('bare', 'Print packages one per line with no formatting');
       options.alias('d', 'dev').boolean('dev')["default"]('dev', true).describe('dev', 'Include dev packages');

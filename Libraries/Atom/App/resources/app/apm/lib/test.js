@@ -1,11 +1,11 @@
 (function() {
-  var Command, Test, fs, optimist, path, temp,
+  var Command, Test, fs, path, temp, yargs,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   path = require('path');
 
-  optimist = require('optimist');
+  yargs = require('yargs');
 
   temp = require('temp');
 
@@ -24,7 +24,7 @@
 
     Test.prototype.parseOptions = function(argv) {
       var options;
-      options = optimist(argv);
+      options = yargs(argv).wrap(100);
       options.usage("Usage:\n  apm test\n\nRuns the package's tests contained within the spec directory (relative\nto the current working directory).");
       options.alias('h', 'help').describe('help', 'Print this usage message');
       options.alias('1', 'one').boolean('one').describe('one', 'Run specs in 1.0 API preview mode');

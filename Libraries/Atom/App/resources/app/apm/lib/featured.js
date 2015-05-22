@@ -1,11 +1,11 @@
 (function() {
-  var Command, Featured, config, optimist, request, tree, _,
+  var Command, Featured, config, request, tree, yargs, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   _ = require('underscore-plus');
 
-  optimist = require('optimist');
+  yargs = require('yargs');
 
   Command = require('./command');
 
@@ -26,7 +26,7 @@
 
     Featured.prototype.parseOptions = function(argv) {
       var options;
-      options = optimist(argv);
+      options = yargs(argv).wrap(100);
       options.usage("\nUsage: apm featured\n       apm featured --themes\n       apm featured --compatible 0.49.0\n\nList the Atom packages and themes that are currently featured in the\natom.io registry.");
       options.alias('h', 'help').describe('help', 'Print this usage message');
       options.alias('t', 'themes').boolean('themes').describe('themes', 'Only list themes');

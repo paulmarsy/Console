@@ -1,5 +1,5 @@
 (function() {
-  var Command, Config, apm, optimist, path, _,
+  var Command, Config, apm, path, yargs, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -7,7 +7,7 @@
 
   _ = require('underscore-plus');
 
-  optimist = require('optimist');
+  yargs = require('yargs');
 
   apm = require('./apm');
 
@@ -27,7 +27,7 @@
 
     Config.prototype.parseOptions = function(argv) {
       var options;
-      options = optimist(argv);
+      options = yargs(argv).wrap(100);
       options.usage("\nUsage: apm config set <key> <value>\n       apm config get <key>\n       apm config delete <key>\n       apm config list\n       apm config edit\n");
       return options.alias('h', 'help').describe('help', 'Print this usage message');
     };

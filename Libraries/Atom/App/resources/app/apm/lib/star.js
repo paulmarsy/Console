@@ -1,5 +1,5 @@
 (function() {
-  var CSON, Command, Login, Packages, Star, async, config, fs, optimist, path, request, _,
+  var CSON, Command, Login, Packages, Star, async, config, fs, path, request, yargs, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -11,7 +11,7 @@
 
   CSON = require('season');
 
-  optimist = require('optimist');
+  yargs = require('yargs');
 
   config = require('./apm');
 
@@ -36,7 +36,7 @@
 
     Star.prototype.parseOptions = function(argv) {
       var options;
-      options = optimist(argv);
+      options = yargs(argv).wrap(100);
       options.usage("\nUsage: apm star <package_name>...\n\nStar the given packages on https://atom.io\n\nRun `apm stars` to see all your starred packages.");
       options.alias('h', 'help').describe('help', 'Print this usage message');
       return options.boolean('installed').describe('installed', 'Star all packages in ~/.atom/packages');

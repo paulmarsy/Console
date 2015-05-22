@@ -1,5 +1,5 @@
 (function() {
-  var CSON, Command, Unlink, config, fs, optimist, path,
+  var CSON, Command, Unlink, config, fs, path, yargs,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -7,7 +7,7 @@
 
   CSON = require('season');
 
-  optimist = require('optimist');
+  yargs = require('yargs');
 
   Command = require('./command');
 
@@ -27,7 +27,7 @@
 
     Unlink.prototype.parseOptions = function(argv) {
       var options;
-      options = optimist(argv);
+      options = yargs(argv).wrap(100);
       options.usage("\nUsage: apm unlink [<package_path>]\n\nDelete the symlink in ~/.atom/packages for the package. The package in the\ncurrent working directory is unlinked if no path is given.\n\nRun `apm links` to view all the currently linked packages.");
       options.alias('h', 'help').describe('help', 'Print this usage message');
       options.alias('d', 'dev').boolean('dev').describe('dev', 'Unlink package from ~/.atom/dev/packages');

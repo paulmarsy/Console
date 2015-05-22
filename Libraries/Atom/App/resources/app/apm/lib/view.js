@@ -1,11 +1,11 @@
 (function() {
-  var Command, View, config, optimist, request, semver, tree, _,
+  var Command, View, config, request, semver, tree, yargs, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   _ = require('underscore-plus');
 
-  optimist = require('optimist');
+  yargs = require('yargs');
 
   semver = require('npm/node_modules/semver');
 
@@ -28,7 +28,7 @@
 
     View.prototype.parseOptions = function(argv) {
       var options;
-      options = optimist(argv);
+      options = yargs(argv).wrap(100);
       options.usage("\nUsage: apm view <package_name>\n\nView information about a package/theme in the atom.io registry.");
       options.alias('h', 'help').describe('help', 'Print this usage message');
       options.boolean('json').describe('json', 'Output featured packages as JSON array');

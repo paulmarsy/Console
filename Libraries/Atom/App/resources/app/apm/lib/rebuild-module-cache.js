@@ -1,5 +1,5 @@
 (function() {
-  var Command, RebuildModuleCache, async, config, fs, optimist, path,
+  var Command, RebuildModuleCache, async, config, fs, path, yargs,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -7,7 +7,7 @@
 
   async = require('async');
 
-  optimist = require('optimist');
+  yargs = require('yargs');
 
   Command = require('./command');
 
@@ -26,7 +26,7 @@
 
     RebuildModuleCache.prototype.parseOptions = function(argv) {
       var options;
-      options = optimist(argv);
+      options = yargs(argv).wrap(100);
       options.usage("\nUsage: apm rebuild-module-cache\n\nRebuild the module cache for all the packages installed to\n~/.atom/packages\n\nYou can see the state of the module cache for a package by looking\nat the _atomModuleCache property in the package's package.json file.\n\nThis command skips all linked packages.");
       return options.alias('h', 'help').describe('help', 'Print this usage message');
     };

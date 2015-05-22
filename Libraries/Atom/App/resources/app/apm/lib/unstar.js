@@ -1,11 +1,11 @@
 (function() {
-  var Command, Login, Unstar, async, config, optimist, request,
+  var Command, Login, Unstar, async, config, request, yargs,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   async = require('async');
 
-  optimist = require('optimist');
+  yargs = require('yargs');
 
   config = require('./apm');
 
@@ -26,7 +26,7 @@
 
     Unstar.prototype.parseOptions = function(argv) {
       var options;
-      options = optimist(argv);
+      options = yargs(argv).wrap(100);
       options.usage("\nUsage: apm unstar <package_name>...\n\nUnstar the given packages on https://atom.io\n\nRun `apm stars` to see all your starred packages.");
       return options.alias('h', 'help').describe('help', 'Print this usage message');
     };

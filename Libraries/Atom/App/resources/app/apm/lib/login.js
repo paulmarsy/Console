@@ -1,12 +1,12 @@
 (function() {
-  var Command, Login, Q, auth, open, optimist, read, _,
+  var Command, Login, Q, auth, open, read, yargs, _,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   _ = require('underscore-plus');
 
-  optimist = require('optimist');
+  yargs = require('yargs');
 
   Q = require('q');
 
@@ -46,7 +46,7 @@
 
     Login.prototype.parseOptions = function(argv) {
       var options;
-      options = optimist(argv);
+      options = yargs(argv).wrap(100);
       options.usage("Usage: apm login\n\nEnter your Atom.io API token and save it to the keychain. This token will\nbe used to identify you when publishing packages to atom.io.");
       options.alias('h', 'help').describe('help', 'Print this usage message');
       return options.string('token').describe('token', 'atom.io API token');

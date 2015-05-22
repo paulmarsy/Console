@@ -1,5 +1,5 @@
 (function() {
-  var CSON, Command, Uninstall, async, auth, config, fs, optimist, path, request,
+  var CSON, Command, Uninstall, async, auth, config, fs, path, request, yargs,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -9,7 +9,7 @@
 
   CSON = require('season');
 
-  optimist = require('optimist');
+  yargs = require('yargs');
 
   auth = require('./auth');
 
@@ -32,7 +32,7 @@
 
     Uninstall.prototype.parseOptions = function(argv) {
       var options;
-      options = optimist(argv);
+      options = yargs(argv).wrap(100);
       options.usage("\nUsage: apm uninstall <package_name>...\n\nDelete the installed package(s) from the ~/.atom/packages directory.");
       options.alias('h', 'help').describe('help', 'Print this usage message');
       options.alias('d', 'dev').boolean('dev').describe('dev', 'Uninstall from ~/.atom/dev/packages');

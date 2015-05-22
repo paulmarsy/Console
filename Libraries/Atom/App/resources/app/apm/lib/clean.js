@@ -1,5 +1,5 @@
 (function() {
-  var CSON, Clean, Command, async, config, fs, optimist, path, _,
+  var CSON, Clean, Command, async, config, fs, path, yargs, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     __slice = [].slice;
@@ -10,7 +10,7 @@
 
   CSON = require('season');
 
-  optimist = require('optimist');
+  yargs = require('yargs');
 
   _ = require('underscore-plus');
 
@@ -93,7 +93,7 @@
 
     Clean.prototype.parseOptions = function(argv) {
       var options;
-      options = optimist(argv);
+      options = yargs(argv).wrap(100);
       options.usage("Usage: apm clean\n\nDeletes all packages in the node_modules folder that are not referenced\nas a dependency in the package.json file.");
       return options.alias('h', 'help').describe('help', 'Print this usage message');
     };

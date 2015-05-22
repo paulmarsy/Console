@@ -1,5 +1,5 @@
 (function() {
-  var Command, Unpublish, auth, config, fs, optimist, path, readline, request,
+  var Command, Unpublish, auth, config, fs, path, readline, request, yargs,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -7,7 +7,7 @@
 
   readline = require('readline');
 
-  optimist = require('optimist');
+  yargs = require('yargs');
 
   auth = require('./auth');
 
@@ -30,7 +30,7 @@
 
     Unpublish.prototype.parseOptions = function(argv) {
       var options;
-      options = optimist(argv);
+      options = yargs(argv).wrap(100);
       options.usage("Usage: apm unpublish [<package_name>]\n       apm unpublish <package_name>@<package_version>\n\nRemove a published package or package version from the atom.io registry.\n\nThe package in the current working directory will be used if no package\nname is specified.");
       options.alias('h', 'help').describe('help', 'Print this usage message');
       return options.alias('f', 'force').boolean('force').describe('force', 'Do not prompt for confirmation');

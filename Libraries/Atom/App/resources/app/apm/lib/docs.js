@@ -1,9 +1,9 @@
 (function() {
-  var Docs, View, config, open, optimist,
+  var Docs, View, config, open, yargs,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  optimist = require('optimist');
+  yargs = require('yargs');
 
   open = require('open');
 
@@ -22,7 +22,7 @@
 
     Docs.prototype.parseOptions = function(argv) {
       var options;
-      options = optimist(argv);
+      options = yargs(argv).wrap(100);
       options.usage("\nUsage: apm docs [options] <package_name>\n\nOpen a package's homepage in the default browser.");
       options.alias('h', 'help').describe('help', 'Print this usage message');
       return options.boolean('p').alias('p', 'print').describe('print', 'Print the URL instead of opening it');
