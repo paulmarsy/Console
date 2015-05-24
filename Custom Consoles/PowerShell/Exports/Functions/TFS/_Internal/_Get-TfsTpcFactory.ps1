@@ -1,16 +1,16 @@
 function _Get-TfsTpcFactory {
 	param
 	(
-		$tfsServerUrl = $ProfileConfig.TFS.Server
+		$TfsServerUrl = $ProfileConfig.TFS.Server
 	)
 
-	if ($tfsServerUrl -eq $null) {
+	if ($null -eq $TfsServerUrl) {
 		throw "No TFS Server URL Given"
 	}
 	
 	_Import-TfsAssemblies
 
-    $tpcFactory = [Microsoft.TeamFoundation.Client.TfsTeamProjectCollectionFactory]::GetTeamProjectCollection($tfsServerUrl)
+    $tpcFactory = [Microsoft.TeamFoundation.Client.TfsTeamProjectCollectionFactory]::GetTeamProjectCollection($TfsServerUrl)
     $tpcFactory.EnsureAuthenticated()
 
     return $tpcFactory

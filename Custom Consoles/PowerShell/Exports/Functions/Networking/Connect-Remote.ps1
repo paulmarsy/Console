@@ -14,7 +14,7 @@ function Connect-Remote {
         Set-ProtectedProfileConfigSetting -Name "WindowsLogon" -Value ([string]::Empty) -Force
     }
 
-    if ($UseWindowsLogon -or ($InteractiveType -eq "RDP" -and $UserName -eq $null -and $Password -eq $null)) {
+    if ($UseWindowsLogon -or ($InteractiveType -eq "RDP" -and $null -eq $UserName -and $null -eq $Password)) {
         $windowsLogon = Get-ProtectedProfileConfigSetting -Name "WindowsLogon"
         if ([string]::IsNullOrWhiteSpace($windowsLogon)) {
             $windowsCredentials = Get-Credential -Username ("{0}\{1}" -f ([Environment]::UserDomainName), ([Environment]::UserName)) -Message "Enter your windows logon credentials"
@@ -84,7 +84,7 @@ function Connect-Remote {
         "TELNET" {
             if ($null -eq $Port) { $Port = 23 }
 
-            & telnet ($(if ($Username -ne $null) { "-l $Username" })) $ComputerName $Port
+            & telnet ($(if ($null -ne $Username) { "-l $Username" })) $ComputerName $Port
         }
         "VNC" {
             $vncExecutable = Join-Path $ProfileConfig.Module.InstallPath 'Libraries\Misc\VNC-Viewer-5.2.3-Windows-64bit.exe'

@@ -49,7 +49,7 @@ function Show-NetworkStats
 		Write-Host (1..$Length | % { "-" } | Join-String)
 	}
 	filter FormatIPAddress {
-		$_ | ? { $_ -ne $null } | % {
+		$_ | ? { $null -ne $_ } | % {
 			$ip = $_
 			try { $hostName = [System.Net.Dns]::Resolve($ip).HostName }
 			catch { $hostName = $ip }
