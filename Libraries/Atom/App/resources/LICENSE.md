@@ -75,7 +75,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: acorn@1.1.0
+Package: acorn@1.2.1
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -732,7 +732,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: atom-keymap@5.1.2
+Package: atom-keymap@5.1.4
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -906,7 +906,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: atom@0.201.0
+Package: atom@0.202.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -996,13 +996,13 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: autocomplete-plus@2.17.1
+Package: autocomplete-plus@2.17.3
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: autocomplete-snippets@1.6.1
+Package: autocomplete-snippets@1.6.3
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -1191,7 +1191,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: background-tips@0.24.0
+Package: background-tips@0.25.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -1337,7 +1337,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: bluebird@2.9.25
+Package: bluebird@2.9.26
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -1514,12 +1514,6 @@ license
 =======
 
 MIT/X11
--------------------------------------------------------------------------
-
-Package: camelcase-keys@1.0.0
-License: MIT
-License Source: package.json
-
 -------------------------------------------------------------------------
 
 Package: camelcase@1.1.0
@@ -2320,7 +2314,7 @@ License Source: http://rock.mit-license.org linked in source files and bower.jso
 
 -------------------------------------------------------------------------
 
-Package: core-js@0.9.11
+Package: core-js@0.9.13
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -2395,7 +2389,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: ctags@2.0.0
+Package: ctags@2.1.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -2647,7 +2641,7 @@ Clones the current set of dependencies into its own object.
 
 -------------------------------------------------------------------------
 
-Package: deprecation-cop@0.51.0
+Package: deprecation-cop@0.52.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -3239,7 +3233,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: find-and-replace@0.167.0
+Package: find-and-replace@0.168.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -3268,6 +3262,34 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -------------------------------------------------------------------------
 
 Package: first-mate@3.1.0
+License: MIT
+License Source: LICENSE.md
+Source Text:
+
+Copyright (c) 2013 GitHub Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-------------------------------------------------------------------------
+
+Package: first-mate@4.1.5
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -4169,7 +4191,7 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -------------------------------------------------------------------------
 
-Package: iconv-lite@0.4.8
+Package: iconv-lite@0.4.10
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -4251,35 +4273,6 @@ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
 LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
--------------------------------------------------------------------------
-
-Package: indent-string@1.2.1
-License: MIT
-License Source: LICENSE
-Source Text:
-
-The MIT License (MIT)
-
-Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
@@ -5105,7 +5098,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-c@0.44.0
+Package: language-c@0.45.0
 License: MIT
 License Source: package.json
 
@@ -5179,7 +5172,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-css@0.29.0
+Package: language-css@0.30.0
 License: MIT
 License Source: package.json
 
@@ -5225,7 +5218,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-html@0.37.0
+Package: language-html@0.38.0
 License: MIT
 License Source: package.json
 
@@ -5243,7 +5236,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-javascript@0.77.0
+Package: language-javascript@0.78.0
 License: MIT
 License Source: package.json
 
@@ -5331,7 +5324,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-ruby@0.54.0
+Package: language-ruby@0.56.0
 License: MIT
 License Source: package.json
 
@@ -5343,7 +5336,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-shellscript@0.14.0
+Package: language-shellscript@0.15.0
 License: MIT
 License Source: package.json
 
@@ -5367,7 +5360,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-todo@0.21.0
+Package: language-todo@0.22.0
 License: MIT
 License Source: package.json
 
@@ -5718,7 +5711,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: lodash@3.9.1
+Package: lodash@3.9.3
 License: MIT
 License Source: LICENSE.txt
 Source Text:
@@ -5856,35 +5849,6 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: map-obj@1.0.1
-License: MIT
-License Source: LICENSE
-Source Text:
-
-The MIT License (MIT)
-
-Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
--------------------------------------------------------------------------
-
 Package: map-stream@0.1.0
 License: MIT
 License Source: LICENCE
@@ -5914,7 +5878,7 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -------------------------------------------------------------------------
 
-Package: markdown-preview@0.149.0
+Package: markdown-preview@0.150.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -5948,35 +5912,6 @@ License Source: LICENSE
 Source Text:
 
 Copyright (c) 2011-2014, Christopher Jeffrey (https://github.com/chjj/)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
--------------------------------------------------------------------------
-
-Package: meow@3.1.0
-License: MIT
-License Source: LICENSE
-Source Text:
-
-The MIT License (MIT)
-
-Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -6541,7 +6476,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: normalize-package-data@2.1.0
+Package: normalize-package-data@2.2.0
 License: BSD
 License Source: LICENSE
 Source Text:
@@ -7696,7 +7631,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: regenerator@0.8.26
+Package: regenerator@0.8.27
 License: BSD
 License Source: LICENSE
 Source Text:
@@ -7818,7 +7753,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: repeating@1.1.2
+Package: repeating@1.1.3
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -8274,7 +8209,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: settings-view@0.205.0
+Package: settings-view@0.206.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -8414,7 +8349,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: snippets@0.90.0
+Package: snippets@0.91.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -8639,7 +8574,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: spdx-license-ids@1.0.0
+Package: spdx-license-ids@1.0.1
 License: Unlicense
 License Source: LICENSE
 Source Text:
@@ -8840,7 +8775,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: status-bar@0.72.0
+Package: status-bar@0.74.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -9083,7 +9018,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: tabs@0.68.0
+Package: tabs@0.69.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -9225,7 +9160,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: text-buffer@6.0.2
+Package: text-buffer@6.1.3
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -9373,7 +9308,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: tough-cookie@1.1.0
+Package: tough-cookie@1.2.0
 License: BSD
 License Source: package.json
 
@@ -9979,7 +9914,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: wrap-guide@0.33.0
+Package: wrap-guide@0.35.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
