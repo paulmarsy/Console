@@ -75,7 +75,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: acorn@1.2.1
+Package: acorn@1.2.2
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -732,7 +732,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: atom-keymap@5.1.4
+Package: atom-keymap@5.1.5
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -906,7 +906,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: atom@0.202.0
+Package: atom@0.204.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -3233,7 +3233,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: find-and-replace@0.168.0
+Package: find-and-replace@0.169.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -4679,7 +4679,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: js-beautify@1.5.5
+Package: js-beautify@1.5.6
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -5360,7 +5360,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-todo@0.22.0
+Package: language-todo@0.23.0
 License: MIT
 License Source: package.json
 
