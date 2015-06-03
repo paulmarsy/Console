@@ -25,7 +25,7 @@ with the following licenses:
 
 -------------------------------------------------------------------------
 
-Package: abbrev@1.0.6
+Package: abbrev@1.0.7
 License: ISC
 License Source: LICENSE
 Source Text:
@@ -906,7 +906,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: atom@0.204.0
+Package: atom@0.205.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -1002,7 +1002,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: autocomplete-snippets@1.6.3
+Package: autocomplete-snippets@1.7.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -1337,7 +1337,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: bluebird@2.9.26
+Package: bluebird@2.9.27
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -1435,7 +1435,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: bracket-matcher@0.74.0
+Package: bracket-matcher@0.75.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -1770,7 +1770,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: color-convert@0.5.2
+Package: color-convert@0.5.3
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -3233,7 +3233,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: find-and-replace@0.169.0
+Package: find-and-replace@0.170.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -3289,7 +3289,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: first-mate@4.1.5
+Package: first-mate@4.1.6
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -3941,7 +3941,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 -------------------------------------------------------------------------
 
-Package: graceful-fs@3.0.7
+Package: graceful-fs@3.0.8
 License: ISC
 License Source: LICENSE
 Source Text:
@@ -5242,7 +5242,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-json@0.14.0
+Package: language-json@0.15.0
 License: MIT
 License Source: package.json
 
@@ -5348,7 +5348,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-sql@0.15.0
+Package: language-sql@0.16.0
 License: MIT
 License Source: package.json
 
@@ -6696,7 +6696,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: one-dark-syntax@0.5.0
+Package: one-dark-syntax@0.7.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -6724,7 +6724,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: one-dark-ui@0.8.2
+Package: one-dark-ui@0.9.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -6752,7 +6752,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: one-light-syntax@0.6.0
+Package: one-light-syntax@0.7.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -6780,7 +6780,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: one-light-ui@0.8.2
+Package: one-light-ui@0.9.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -7844,7 +7844,7 @@ If the Work includes a "NOTICE" text file as part of its distribution, then any 
 END OF TERMS AND CONDITIONS
 -------------------------------------------------------------------------
 
-Package: requirejs@2.1.17
+Package: requirejs@2.1.18
 License: BSD
 License Source: package.json
 
@@ -8130,7 +8130,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: semver@4.3.4
+Package: semver@4.3.6
 License: ISC
 License Source: LICENSE
 Source Text:
@@ -8349,7 +8349,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: snippets@0.91.0
+Package: snippets@0.93.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -10076,7 +10076,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: yargs@3.9.1
+Package: yargs@3.10.0
 License: MIT
 License Source: LICENSE
 Source Text:
