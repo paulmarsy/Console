@@ -1,5 +1,5 @@
 (function() {
-  var Command, Search, config, request, tree, yargs, _,
+  var Command, Search, config, isDeprecatedPackage, request, tree, yargs, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -14,6 +14,8 @@
   request = require('./request');
 
   tree = require('./tree');
+
+  isDeprecatedPackage = require('./deprecated-packages').isDeprecatedPackage;
 
   module.exports = Search = (function(_super) {
     __extends(Search, _super);
@@ -69,6 +71,11 @@
               downloads: downloads,
               stargazers_count: stargazers_count
             });
+          });
+          packages = packages.filter(function(_arg) {
+            var name, version;
+            name = _arg.name, version = _arg.version;
+            return !isDeprecatedPackage(name, version);
           });
           return callback(null, packages);
         } else {

@@ -906,7 +906,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: atom@0.205.0
+Package: atom@0.206.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -2248,7 +2248,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: config-chain@1.1.8
+Package: config-chain@1.1.9
 License: MIT
 License Source: LICENCE
 Source Text:
@@ -2314,7 +2314,7 @@ License Source: http://rock.mit-license.org linked in source files and bower.jso
 
 -------------------------------------------------------------------------
 
-Package: core-js@0.9.13
+Package: core-js@0.9.14
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -3233,7 +3233,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: find-and-replace@0.170.0
+Package: find-and-replace@0.171.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -5178,7 +5178,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-gfm@0.76.0
+Package: language-gfm@0.77.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -5218,7 +5218,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-html@0.38.0
+Package: language-html@0.39.0
 License: MIT
 License Source: package.json
 
@@ -8209,7 +8209,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: settings-view@0.206.0
+Package: settings-view@0.207.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -9018,7 +9018,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: tabs@0.69.0
+Package: tabs@0.73.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -9160,7 +9160,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: text-buffer@6.1.3
+Package: text-buffer@6.2.0
 License: MIT
 License Source: LICENSE.md
 Source Text:

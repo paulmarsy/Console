@@ -1,5 +1,5 @@
 (function() {
-  var CSON, Command, Install, RebuildModuleCache, async, config, fs, git, path, request, semver, temp, yargs, _,
+  var CSON, Command, Install, RebuildModuleCache, async, config, fs, git, isDeprecatedPackage, path, request, semver, temp, yargs, _,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -30,6 +30,8 @@
   RebuildModuleCache = require('./rebuild-module-cache');
 
   request = require('./request');
+
+  isDeprecatedPackage = require('./deprecated-packages').isDeprecatedPackage;
 
   module.exports = Install = (function(_super) {
     __extends(Install, _super);
@@ -677,7 +679,11 @@
     Install.prototype.getLatestCompatibleVersion = function(pack) {
       var engine, latestVersion, metadata, version, _ref, _ref1, _ref2, _ref3;
       if (!this.installedAtomVersion) {
-        return pack.releases.latest;
+        if (isDeprecatedPackage(pack.name, pack.releases.latest)) {
+          return null;
+        } else {
+          return pack.releases.latest;
+        }
       }
       latestVersion = null;
       _ref1 = (_ref = pack.versions) != null ? _ref : {};
@@ -687,6 +693,9 @@
           continue;
         }
         if (!metadata) {
+          continue;
+        }
+        if (isDeprecatedPackage(pack.name, version)) {
           continue;
         }
         engine = (_ref2 = (_ref3 = metadata.engines) != null ? _ref3.atom : void 0) != null ? _ref2 : '*';

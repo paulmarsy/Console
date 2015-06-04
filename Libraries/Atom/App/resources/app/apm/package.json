@@ -1,7 +1,7 @@
 {
   "name": "atom-package-manager",
   "description": "Atom package manager",
-  "version": "0.168.0",
+  "version": "0.171.0",
   "licenses": [
     {
       "type": "MIT",
@@ -57,11 +57,11 @@
     "grunt-coffeelint": "0.0.6",
     "coffee-script": "^1.8.0"
   },
-  "gitHead": "b47423db2dd093404cab80d752793cdf91986111",
+  "gitHead": "3f312f1cae38e9ba894b85d43c9f380a0535547c",
   "homepage": "https://github.com/atom/apm",
-  "_id": "atom-package-manager@0.168.0",
-  "_shasum": "ed42d1abef17b51ab03a4f5275e047842c4bfa3d",
-  "_from": "atom-package-manager@0.168.0",
+  "_id": "atom-package-manager@0.171.0",
+  "_shasum": "040028c4c301b90ff21d1f3ef188f4077da0909f",
+  "_from": "atom-package-manager@0.171.0",
   "_npmVersion": "2.5.1",
   "_nodeVersion": "0.10.35",
   "_npmUser": {
@@ -95,10 +95,9 @@
     }
   ],
   "dist": {
-    "shasum": "ed42d1abef17b51ab03a4f5275e047842c4bfa3d",
-    "tarball": "http://registry.npmjs.org/atom-package-manager/-/atom-package-manager-0.168.0.tgz"
+    "shasum": "040028c4c301b90ff21d1f3ef188f4077da0909f",
+    "tarball": "http://registry.npmjs.org/atom-package-manager/-/atom-package-manager-0.171.0.tgz"
   },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/atom-package-manager/-/atom-package-manager-0.168.0.tgz",
-  "readme": "ERROR: No README data found!"
+  "_resolved": "https://registry.npmjs.org/atom-package-manager/-/atom-package-manager-0.171.0.tgz"
 }
