@@ -906,7 +906,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: atom@0.206.0
+Package: atom@0.207.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -1161,7 +1161,7 @@ Source Text:
 <content omitted>
 -------------------------------------------------------------------------
 
-Package: babel-core@5.4.7
+Package: babel-core@5.5.3
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -6514,7 +6514,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 -------------------------------------------------------------------------
 
-Package: notifications@0.50.0
+Package: notifications@0.52.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -6661,9 +6661,32 @@ If the Work includes a "NOTICE" text file as part of its distribution, then any 
 END OF TERMS AND CONDITIONS
 -------------------------------------------------------------------------
 
-Package: object-assign@2.0.0
+Package: object-assign@2.1.1
 License: MIT
-License Source: package.json
+License Source: LICENSE
+Source Text:
+
+The MIT License (MIT)
+
+Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
@@ -6696,7 +6719,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: one-dark-syntax@0.7.0
+Package: one-dark-syntax@0.7.1
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -7631,7 +7654,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: regenerator@0.8.27
+Package: regenerator@0.8.28
 License: BSD
 License Source: LICENSE
 Source Text:
@@ -8209,7 +8232,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: settings-view@0.207.0
+Package: settings-view@0.208.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -9160,7 +9183,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: text-buffer@6.2.0
+Package: text-buffer@6.2.1
 License: MIT
 License Source: LICENSE.md
 Source Text:
