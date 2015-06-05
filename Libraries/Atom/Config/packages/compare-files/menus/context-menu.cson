@@ -1,3 +1,0 @@
-'context-menu':
-  '.tree-view.multi-select':
-    'Compare Files     (⌘⌃C)': 'compare-files:compare'
