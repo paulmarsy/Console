@@ -62,6 +62,7 @@
             catch (Exception e)
             {
                 Write.Error.Line(string.Format("Error: {0}", e.Message));
+                Write.Error.Line(e.StackTrace);
                 Write.Error.PressAnyKeyToContinue();
                 
                 if (e is GitException)
