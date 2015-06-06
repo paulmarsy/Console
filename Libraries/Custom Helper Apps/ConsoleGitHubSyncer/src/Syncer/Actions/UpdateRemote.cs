@@ -32,9 +32,6 @@
                 return updateCheck;
             }
 
-            Write.Status.Line("Pushing local subrepositories to remote...");
-            Git.Invoke(new SubmoduleCommand("push --progress --verbose") {IsRecursive = false}, new GitOptions {DisplayStandardOutput = true, ErrorStreamHasStandardOutput = true});
-
             Write.Status.Line("Pushing local main repository to remote...");
             Git.Invoke((Command) "push --progress --verbose", new GitOptions {DisplayStandardOutput = true, ErrorStreamHasStandardOutput = true});
 
