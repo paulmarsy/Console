@@ -48,7 +48,7 @@
             while (!HasFinished || !_outputQueue.IsEmpty)
             {
                 string line;
-                if (_outputQueue.TryDequeue(out line))
+                if (_outputQueue.TryDequeue(out line) && !string.IsNullOrWhiteSpace(line))
                     yield return line;
             }
         }
