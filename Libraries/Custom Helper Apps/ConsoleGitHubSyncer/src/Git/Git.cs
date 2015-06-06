@@ -54,7 +54,8 @@
                 FileName = GitExe,
                 Arguments = _command.GitCommand,
                 WorkingDirectory = _gitOptions.GitRepository,
-                CreateNoWindow = true,
+                CreateNoWindow = false,
+                WindowStyle = ProcessWindowStyle.Hidden,
                 UseShellExecute = false,
                 RedirectStandardError = true,
                 RedirectStandardOutput = _gitOptions.DisplayStandardOutput || returnOutput
