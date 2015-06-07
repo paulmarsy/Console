@@ -42,7 +42,7 @@
 
         public static string GetSubmoduleCommandFormat(bool isRecursive)
         {
-            return string.Format("submodule foreach {0} \"{{0}}\"", isRecursive ? "--recursive" : null);
+            return string.Format("submodule foreach --quiet {0} \"{{0}}\"", isRecursive ? "--recursive" : null);
         }
     }
 }
