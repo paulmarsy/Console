@@ -60,10 +60,7 @@
         {
             return Git.InvokeWithOutput(new SubmoduleCommand("echo $toplevel!$path") {IsGitCommand = false, IsRecursive = true})
                 .StandardOutput
-                .Select(x => {
-                    Console.Write("Test: {0}", x);
-                     return x.Replace('/', '\\').Split('!');
-                     })
+                .Select(x => x.Replace('/', '\\').Split('!'))
                 .Select(submodule => new Tuple<string, string>(submodule[0], submodule[1]));
         }
 
