@@ -95,7 +95,7 @@
         {
             var programFiles = Environment.GetEnvironmentVariable("ProgramFiles");
             if (string.IsNullOrWhiteSpace(programFiles))
-                throw new GitException(Program.ExitCode.ERROR_ENVVAR_NOT_FOUND, "Unable to get Program Files x86 path");
+                throw new GitException(Program.ExitCode.ERROR_ENVVAR_NOT_FOUND, "Unable to get Program Files path");
 
             var gitInstallPath = Path.Combine(programFiles, "Git");
 
