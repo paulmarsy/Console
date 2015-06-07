@@ -1,14 +1,17 @@
 function Open-FarManager {
     param(
-        $ActivePath = $PWD.Path,
-        $PassivePath = $ProfileConfig.General.UserFolder
+        $Path = $PWD.Path,
+        [switch]$InConEmuPane
     )
     
     $argumentList = @(
         "-w"
+        ("-t `"{0}`"" -f (Join-Path $ProfileConfig.Module.InstallPath "Libraries\Resources\Far.config"))
         ("-p`"{0};{1}`"" -f (Join-Path $ProfileConfig.Module.InstallPath "Libraries\ConEmu\Plugins"), (Join-Path $ProfileConfig.Module.InstallPath "Libraries\Far\Plugins"))
-        "`"$ActivePath`""
-        "`"$PassivePath`""
+        "`"$Path`""
     ) 
+    if ($InConEmuPane) {
+        $argumentList += "-new_console:nbs3T30H"
+    }
     Start-Process -FilePath (Join-Path $ProfileConfig.Module.InstallPath "Libraries\Far\Far.exe") -ArgumentList $argumentList
 }
