@@ -7,7 +7,8 @@ SET InitializeFile="%CustomConsolesInstallPath%Custom Consoles\CommandPrompt\Ini
 "%CustomConsolesInstallPath%Libraries\Custom Helper Apps\ExtensibleEnvironmentTester\ExtensibleEnvironmentTester.exe"
 IF %ERRORLEVEL% == 0 (
 	CALL %InitializeFile%
-	ENDLOCAL && SET PROMPT=%PROMPT%
+	ENDLOCAL
+	CALL "%CustomConsolesInstallPath%Custom Consoles\CommandPrompt\Custom Prompt.bat"
 ) ELSE (
 	IF %ERRORLEVEL% == 10 (
  		ECHO Not starting Command Prompt Console as we are not using ConEmu. To override:
