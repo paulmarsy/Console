@@ -30,12 +30,12 @@
 
         public IEnumerable<string> StandardOutput
         {
-            get { return _standardOutput != null ? _standardOutput.GetOutput() : new[] {string.Empty}; }
+            get { return _standardOutput != null ? _standardOutput.GetOutput() : new string[] {}; }
         }
 
         public string StandardOutputAsString
         {
-            get { return _standardOutput != null ? _standardOutput.GetOuputAsString() : string.Empty; }
+            get { return _standardOutput != null ? _standardOutput.GetOuputAsString() : null; }
         }
 
         public IEnumerable<string> StandardError

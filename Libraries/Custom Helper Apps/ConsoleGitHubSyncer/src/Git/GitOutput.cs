@@ -40,7 +40,7 @@
 
         public string GetOuputAsString()
         {
-            return string.Join(Environment.NewLine, GetOutput());
+            return string.Join(Environment.NewLine, GetOutput()).Trim();
         }
 
         public IEnumerable<string> GetOutput()
@@ -49,7 +49,7 @@
             {
                 string line;
                 if (_outputQueue.TryDequeue(out line) && !string.IsNullOrWhiteSpace(line))
-                    yield return line;
+                    yield return line.Trim();
             }
         }
 
