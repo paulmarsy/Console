@@ -1,0 +1,57 @@
+ DrawLine
+
+ Timestamp is 54ba6e2c (Sat Jan 17 17:14:04 2015)
+
+ Preferred load address is 0000000180000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000020H .idata$5                CODE
+ 0001:00000020 000000a6H .rdata                  CODE
+ 0001:000000d0 00000ef7H .text                   CODE
+ 0001:00000fc8 000000e4H .xdata                  CODE
+ 0001:000010ac 00000014H .idata$2                CODE
+ 0001:000010c0 00000014H .idata$3                CODE
+ 0001:000010d8 00000020H .idata$4                CODE
+ 0001:000010f8 00000038H .idata$6                CODE
+ 0001:00001130 00000091H .edata                  CODE
+ 0002:00000000 00000190H .data                   DATA
+ 0002:00000190 00000121H .bss                    DATA
+ 0003:00000000 000000b4H .pdata                  DATA
+ 0004:00000000 00000058H .rsrc$01                DATA
+ 0004:00000060 00000370H .rsrc$02                DATA
+
+  Address         Publics by Value              Rva+Base               Lib:Object
+
+ 0000:00000000       ___safe_se_handler_table   0000000000000000     <absolute>
+ 0000:00000000       ___safe_se_handler_count   0000000000000000     <absolute>
+ 0000:00000000       __ImageBase                0000000180000000     <linker-defined>
+ 0001:00000000       __imp_GetProcessHeap       0000000180001000     kernel32:KERNEL32.dll
+ 0001:00000008       __imp_HeapAlloc            0000000180001008     kernel32:KERNEL32.dll
+ 0001:00000010       __imp_HeapFree             0000000180001010     kernel32:KERNEL32.dll
+ 0001:00000018       \177KERNEL32_NULL_THUNK_DATA 0000000180001018     kernel32:KERNEL32.dll
+ 0001:00000020       MainGuid                   0000000180001020     DrawLine.obj
+ 0001:00000030       MenuGuid                   0000000180001030     DrawLine.obj
+ 0001:00000040       ??_C@_1DE@BGKMIKPD@?$AAE?$AAu?$AAg?$AAe?$AAn?$AAe?$AA?5?$AAR?$AAo?$AAs?$AAh?$AAa?$AAl?$AA?5?$AA?$CG?$AA?5?$AAF?$AAa?$AAr?$AA?5?$AAG?$AAr?$AAo?$AAu?$AAp?$AA?$AA@ 0000000180001040     DrawLine.obj
+ 0001:00000078       ??_C@_1DG@JDOJGKBC@?$AAD?$AAr?$AAa?$AAw?$AA?5?$AAl?$AAi?$AAn?$AAe?$AAs?$AA?5?$AAf?$AAo?$AAr?$AA?5?$AAF?$AAa?$AAr?$AA?5?$AAM?$AAa?$AAn?$AAa?$AAg?$AAe?$AAr?$AA?$AA@ 0000000180001078     DrawLine.obj
+ 0001:000000b0       ??_C@_1BC@EFCDDCCP@?$AAD?$AAr?$AAa?$AAw?$AAL?$AAi?$AAn?$AAe?$AA?$AA@ 00000001800010b0     DrawLine.obj
+ 0001:000000c4       ??_C@_11LOCGONAA@?$AA?$AA@ 00000001800010c4     DrawLine.obj
+ 0001:000000e0       __chkstk                   00000001800010e0 f   chkstk.obj
+ 0001:000000e0       _alloca_probe              00000001800010e0     chkstk.obj
+ 0001:00000130       GetGlobalInfoW             0000000180001130 f   DrawLine.obj
+ 0001:000001b0       SetStartupInfoW            00000001800011b0 f   DrawLine.obj
+ 0001:000001d0       ?GetEnvType@@YAXPEA_W_JPEAUEditorInfo@@AEAH333@Z 00000001800011d0 f   DrawLine.obj
+ 0001:000003a0       ?SetTitle@@YA_NHH@Z        00000001800013a0 f   DrawLine.obj
+ 0001:00000540       ?ProcessShiftKey@@YAXHH@Z  0000000180001540 f   DrawLine.obj
+ 0001:00000b80       GetPluginInfoW             0000000180001b80 f   DrawLine.obj
+ 0001:00000be0       OpenW                      0000000180001be0 f   DrawLine.obj
+ 0001:00000f10       memcpy                     0000000180001f10 f   libCRT64:memcpy.obj
+ 0001:00000f40       free                       0000000180001f40 f   libCRT64:free.obj
+ 0001:00000f70       malloc                     0000000180001f70 f   libCRT64:malloc.obj
+ 0001:00000fa0       memset                     0000000180001fa0 f   libCRT64:memset.obj
+ 0001:000010ac       __IMPORT_DESCRIPTOR_KERNEL32 00000001800020ac     kernel32:KERNEL32.dll
+ 0001:000010c0       __NULL_IMPORT_DESCRIPTOR   00000001800020c0     kernel32:KERNEL32.dll
+
+ entry point at        0000:00000000
+
+ Static symbols
+
