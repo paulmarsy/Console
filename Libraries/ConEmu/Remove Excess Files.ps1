@@ -1,6 +1,6 @@
 param([switch]$NonInteractive)
 
-Get-ChildItem -Path $PSScriptRoot -Recurse -Include @("plugins", "Logs", "Addons", "DosBox", "Far*", "*") -Exclude @("*.exe", "*.dll", "*.ps1", "CHANGES", "ConEmu.xml", "License.txt", "LICENSE", "WhatsNew-ConEmu.txt", "ConEmu") | `
+Get-ChildItem -Path $PSScriptRoot -Recurse -Include @("Logs", "Addons", "DosBox", "Far*", "*") -Exclude @("*.exe", "*.dll", "*.ps1", "CHANGES", "ConEmu.xml", "License.txt", "LICENSE", "WhatsNew-ConEmu.txt", "ConEmu") | `
     Sort-Object -Descending -Property FullName | `
     Select-Object -Unique | `
     % { Write-Host "Removing $($_.FullName.Replace($PSScriptRoot, $null))"; $_ } | `
