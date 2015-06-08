@@ -13,5 +13,6 @@ function Open-FarManager {
     if ($InConEmuPane) {
         $argumentList += "-new_console:nbs3T30H"
     }
+    
     Start-Process -FilePath (Join-Path $ProfileConfig.Module.InstallPath "Libraries\Far\Far.exe") -ArgumentList $argumentList
 }
