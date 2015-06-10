@@ -4,12 +4,12 @@ function Open-CommandPrompt {
         [switch]$InConEmuPane
     )
     
-    $argumentList = @(
-        "/K CD `"$Path`""
-    ) 
+    $argumentList = @() 
     if ($InConEmuPane) {
-        $argumentList += "-new_console:nbs25V:t:`"Command`""
+        $argumentList += "-new_console:nbs15V:t:`"Command`""
+    } else {
+        $argumentList += "-new_console:nb:t:`"Command`""
     }
     
-    Start-Process -FilePath $Env:ComSpec -ArgumentList $argumentList
+    Start-Process -FilePath $Env:ComSpec -ArgumentList $argumentList -WorkingDirectory $Path
 }
