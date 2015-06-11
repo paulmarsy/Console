@@ -4,8 +4,7 @@
     showInvisibles: true
     showIndentGuide: true
     tabLength: 4
-    invisibles:
-      {}
+    invisibles: {}
     zoomFontWhenCtrlScrolling: false
   core:
     excludeVcsIgnoredPaths: false
@@ -39,10 +38,8 @@
     userId: "0392dc6d-c14b-47e0-91c5-f2afa5f389bd"
   welcome:
     showOnStartup: false
-  "spell-check":
-    {}
-  "markdown-preview":
-    {}
+  "spell-check": {}
+  "markdown-preview": {}
   "autocomplete-plus":
     confirmCompletion: "tab and enter"
   "file-icons":
@@ -53,8 +50,7 @@
     bytesPerLine: 32
   "filetype-color":
     enabled: "true"
-  "bracket-matcher":
-    {}
+  "bracket-matcher": {}
   "fuzzy-finder":
     searchAllPanes: true
   "git-diff":
@@ -62,12 +58,10 @@
   tabs:
     tabScrolling: true
     usePreviewTabs: true
-  "one-dark-ui":
-    {}
+  "one-dark-ui": {}
   "view-tail-large-files":
     fontFamily: "Consolas"
   minimap:
     displayPluginsControls: false
     displayCodeHighlights: false
-  "status-bar":
-    {}
+  "status-bar": {}
