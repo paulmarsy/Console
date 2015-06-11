@@ -906,7 +906,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: atom@0.208.0
+Package: atom@0.209.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -2314,7 +2314,7 @@ License Source: http://rock.mit-license.org linked in source files and bower.jso
 
 -------------------------------------------------------------------------
 
-Package: core-js@0.9.15
+Package: core-js@0.9.16
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -2383,7 +2383,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: cson-parser@1.1.0
+Package: cson-parser@1.0.9
 License: BSD
 License Source: package.json
 
@@ -3289,7 +3289,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: first-mate@4.1.6
+Package: first-mate@4.1.7
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -5178,7 +5178,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-csharp@0.5.0
+Package: language-csharp@0.6.0
 License: MIT
 License Source: package.json
 
@@ -6526,7 +6526,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 -------------------------------------------------------------------------
 
-Package: notifications@0.52.0
+Package: notifications@0.53.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -8109,7 +8109,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: season@5.2.0
+Package: season@5.3.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -9053,7 +9053,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: tabs@0.77.0
+Package: tabs@0.80.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -9195,7 +9195,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: text-buffer@6.3.2
+Package: text-buffer@6.3.6
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -9343,7 +9343,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: tough-cookie@1.2.0
+Package: tough-cookie@2.0.0
 License: BSD
 License Source: package.json
 
