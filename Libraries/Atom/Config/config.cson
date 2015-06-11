@@ -28,6 +28,10 @@
       "bookmarks"
       "language-mustache"
       "autosave"
+      "markdown-preview"
+      "autocomplete-snippets"
+      "dev-live-reload"
+      "styleguide"
     ]
     audioBeep: false
     destroyEmptyPanes: false
@@ -50,14 +54,20 @@
   "filetype-color":
     enabled: "true"
   "bracket-matcher":
-    autocompleteSmartQuotes: false
-  "fuzzy-finder":
     {}
+  "fuzzy-finder":
+    searchAllPanes: true
   "git-diff":
     showIconsInEditorGutter: true
   tabs:
     tabScrolling: true
+    usePreviewTabs: true
   "one-dark-ui":
     {}
   "view-tail-large-files":
     fontFamily: "Consolas"
+  minimap:
+    displayPluginsControls: false
+    displayCodeHighlights: false
+  "status-bar":
+    {}
