@@ -19,3 +19,6 @@
 [submodule "Libraries/PowerShell Modules/Pester"]
 	path = Libraries/PowerShell Modules/Pester
 	url = https://github.com/pester/Pester
+[submodule "Libraries/PowerShell Modules/Everything"]
+	path = Libraries/PowerShell Modules/Everything
+	url = https://github.com/paulmarsy/Everything-PowerShell-Module.git
