@@ -8,7 +8,7 @@ function Find-PowerShellModuleCommandFiles {
     
     $pathRootLength = Resolve-Path $Path | % Path | % Length
     
-    $files = Get-ChildItem -Path $Path -File -Recurse -Include "*.ps1" -Exclude "*.Tests.ps1" |
+    $files = Get-ChildItem -Path $Path -File -Recurse -Include "*.ps1" -Exclude "*.Tests.*" |
         % { $_.FullName.Substring($pathRootLength) } |
         % {
             if ($null -ne $FileNameOutputTransform) { $FileNameOutputTransform.Invoke($_) }
