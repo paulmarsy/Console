@@ -32,12 +32,12 @@ function ConvertTo-DirectoryJunction {
 		if (Get-Command -Name "junction.exe" -CommandType Application) {
 			$junction = "junction.exe"
 		} else {
-			$junction = Join-Path $ProfileConfig.Module.InstallPath "Libraries\PATH Extensions\Sysinternals\junction.exe"
+			$junction = Join-Path $PowerShellConsoleConstants.InstallPath "Libraries\PATH Extensions\Sysinternals\junction.exe"
 		}
 
 		$junctionProcess = Start-Process -FilePath $junction -WindowStyle Hidden -Wait -PassThru -ArgumentList $argumentList
 		if ($junctionProcess.ExitCode -ne 0) {
-			throw "Junction.exe return exit code $($junctionResult.ExitCode)"
+			throw "Junction.exe return exit code $($junctionProcess.ExitCode)"
 		}
 	}
 
