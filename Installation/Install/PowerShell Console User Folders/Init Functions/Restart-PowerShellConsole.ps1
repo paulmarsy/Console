@@ -9,5 +9,5 @@ function Restart-PowerShellConsole {
 	Start-Process -FilePath "##ConEmuCExecutablePath##" -NoNewWindow -ArgumentList "/EXPORT=GUI PowerShellConsoleStartUpMessage PowerShellConsoleStartUpPath" -Wait
 
     Start-Process -FilePath "##ConEmuExecutablePath##" -ArgumentList "/cmd $(if ($Su) { "{PowerShell (Administrator)}" } else { "{PowerShell}" })"
-	[System.Environment]::Exit(0)
+	Start-Process -FilePath "##ConEmuCExecutablePath##" -ArgumentList "-GuiMacro Close(7)" -Wait -NoNewWindow
 }
