@@ -58,14 +58,6 @@ namespace ConsoleGitHubSyncer.Syncer.Actions
             return true;
         }
 
-        private void CheckoutBranch()
-        {
-            Write.Status.Line("Checking out branch...");
-
-            Git.Invoke((Command) new[] {"checkout {0}", _currentBranch});
-            Git.Invoke((SubmoduleCommand) new[] {"checkout {0}", _currentBranch});
-        }
-
         private int GetNumberOfUnCommitedChanges()
         {
             return Git.InvokeWithOutput((Command) "status --porcelain").StandardOutput.Count();

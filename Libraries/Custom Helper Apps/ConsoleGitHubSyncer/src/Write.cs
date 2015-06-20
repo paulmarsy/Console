@@ -58,7 +58,12 @@
             Write(chr.ToString());
         }
 
-        public virtual void PressAnyKeyToContinue()
+        public void PressAnyKeyToContinue()
+        {
+            InternalPressAnyKeyToContinue();
+        }
+        
+        protected virtual void InternalPressAnyKeyToContinue()
         {
             Write("Press any key to continue. . . ");
             Console.ReadKey(true);
@@ -95,7 +100,7 @@
 #else
         protected override void Write(string message) { }
         
-        public override void PressAnyKeyToContinue() { }
+        protected override void InternalPressAnyKeyToContinue() { }
 #endif
     }
 
