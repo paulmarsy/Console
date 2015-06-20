@@ -25,7 +25,7 @@
             Write.Status.Line("Checking out branch...");
 
             Git.Invoke((Command) new[] {"checkout {0}", _currentBranch});
-            Git.Invoke((SubmoduleCommand) new[] {"checkout $(\"{0}\" rev-parse --symbolic-full-name --abbrev-ref HEAD)", Git.GitExe});
+            Git.Invoke((SubmoduleCommand) new[] {"checkout $('{0}' rev-parse --symbolic-full-name --abbrev-ref HEAD)", Git.GitExe});
         }
     }
 }
