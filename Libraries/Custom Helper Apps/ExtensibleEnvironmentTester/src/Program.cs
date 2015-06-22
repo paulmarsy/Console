@@ -15,9 +15,9 @@
             ERROR_NOT_SUPPORTED = 50 // The request is not supported. We are not running in an extensible environment which shouldn't be altered in any way.
         }
 
-        private static readonly IList<string> ValidParentProcessNames = new[] {"powershell", "cmd", "ConEmuC", "ConEmuC64"};
-        private static readonly IList<string> ValidGrandParentProcessNames = new[] {"ConEmuC", "ConEmuC64"};
-        private static readonly IList<string> PotentialGrandParentProcessNames = new[] {"explorer"};
+        private static readonly IList<string> ValidProcessNames = new[] {"powershell", "cmd"};
+        private static readonly IList<string> ValidParentProcessNames = new[] {"ConEmuC", "ConEmuC64"};
+        private static readonly IList<string> PotentialParentProcessNames = new[] {"explorer"};
 
         public static int Main()
         {
@@ -34,26 +34,51 @@
 
         private static ExitCode Invoke()
         {
-            var process = Process.GetCurrentProcess();
+            var extensibleEnvironmentTesterProcess = Process.GetCurrentProcess();
+            var currentProcess = extensibleEnvironmentTesterProcess.Parent();
+            var currentProcessCheck = CheckProcess(currentProcess, false);
+            if (currentProcessCheck != ExitCode.ERROR_SUCCESS)
+                return currentProcessCheck;
 
-            var parentProcess = process.Parent();
-            if (parentProcess == null)
+            var parentProcess = currentProcess.Parent();
+            var parentProcessCheck = CheckProcess(parentProcess);
+            if (parentProcessCheck == ExitCode.ERROR_NOT_SUPPORTED)
+            {
+                var grandParentProcess = parentProcess.Parent();
+                var grandParentProcessCheck = CheckProcess(grandParentProcess);
+                if (grandParentProcessCheck == ExitCode.ERROR_NOT_SUPPORTED)
+                    return grandParentProcessCheck;
+            }
+            
+            return parentProcessCheck;
+        }
+        
+        private static ExitCode CheckProcess(Process processToCheck, bool parentCheck = true)
+        {
+#if DEBUG
+            Console.WriteLine("Process to check: {0}", processToCheck.ProcessName);
+#endif
+
+            if (processToCheck == null)
                 return ExitCode.ERROR_INVALID_HANDLE;
-
-            if (!ValidParentProcessNames.Contains(parentProcess.ProcessName))
-                return ExitCode.ERROR_NOT_SUPPORTED;
-
-            var grandParentProcess = parentProcess.Parent();
-            if (grandParentProcess == null)
-                return ExitCode.ERROR_INVALID_HANDLE;
-
-            if (ValidGrandParentProcessNames.Contains(grandParentProcess.ProcessName))
-                return ExitCode.ERROR_SUCCESS;
-
-            if (PotentialGrandParentProcessNames.Contains(grandParentProcess.ProcessName))
-                return ExitCode.ERROR_BAD_ENVIRONMENT;
-
-            return ExitCode.ERROR_NOT_SUPPORTED;
+            
+            if (parentCheck == false)
+            {
+                if (ValidProcessNames.Contains(processToCheck.ProcessName))
+                    return ExitCode.ERROR_SUCCESS;
+                else
+                    return ExitCode.ERROR_NOT_SUPPORTED;
+            }
+            else
+            {    
+                if (ValidParentProcessNames.Contains(processToCheck.ProcessName))
+                    return ExitCode.ERROR_SUCCESS;
+                else if (PotentialParentProcessNames.Contains(processToCheck.ProcessName))
+                    return ExitCode.ERROR_BAD_ENVIRONMENT;
+                else
+                    return ExitCode.ERROR_NOT_SUPPORTED;
+            }
         }
     }
 }
+
