@@ -15,7 +15,7 @@
             ERROR_NOT_SUPPORTED = 50 // The request is not supported. We are not running in an extensible environment which shouldn't be altered in any way.
         }
 
-        private static readonly IList<string> ValidParentProcessNames = new[] {"powershell", "cmd"};
+        private static readonly IList<string> ValidParentProcessNames = new[] {"powershell", "cmd", "ConEmuC", "ConEmuC64"};
         private static readonly IList<string> ValidGrandParentProcessNames = new[] {"ConEmuC", "ConEmuC64"};
         private static readonly IList<string> PotentialGrandParentProcessNames = new[] {"explorer"};
 

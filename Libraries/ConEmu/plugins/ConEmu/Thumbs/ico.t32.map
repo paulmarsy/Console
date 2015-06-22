@@ -1,6 +1,6 @@
  ico
 
- Timestamp is 5553def3 (Thu May 14 02:32:03 2015)
+ Timestamp is 55874dac (Mon Jun 22 02:50:04 2015)
 
  Preferred load address is 10000000
 
@@ -8,12 +8,12 @@
  0001:00000000 00000078H .idata$5                CODE
  0001:00000080 000006acH .rdata                  CODE
  0001:0000072c 00000060H .rdata$debug            CODE
- 0001:00000790 00001a64H .text                   CODE
- 0001:000021f4 00000050H .idata$2                CODE
- 0001:00002244 00000014H .idata$3                CODE
- 0001:00002258 00000078H .idata$4                CODE
- 0001:000022d0 00000200H .idata$6                CODE
- 0001:000024d0 00000091H .edata                  CODE
+ 0001:00000790 00001a74H .text                   CODE
+ 0001:00002204 00000050H .idata$2                CODE
+ 0001:00002254 00000014H .idata$3                CODE
+ 0001:00002268 00000078H .idata$4                CODE
+ 0001:000022e0 00000200H .idata$6                CODE
+ 0001:000024e0 00000091H .edata                  CODE
  0002:00000000 00000044H .bss                    DATA
  0003:00000000 00000058H .rsrc$01                DATA
  0003:00000060 000002a0H .rsrc$02                DATA
@@ -222,52 +222,52 @@
  0001:00001dd2       ?xf_malloc@@YAPAXI@Z       10002dd2 f   Memory.obj
  0001:00001de5       ?xf_calloc@@YAPAXII@Z      10002de5 f   Memory.obj
  0001:00001dfe       ?xf_realloc@@YAPAXPAXI@Z   10002dfe f   Memory.obj
- 0001:00001e15       ?xf_free@@YAXPAX@Z         10002e15 f   Memory.obj
- 0001:00001e33       ?xf_validate@@YA_NPAX@Z    10002e33 f   Memory.obj
- 0001:00001e4c       ??2@YAPAXI@Z               10002e4c f   Memory.obj
- 0001:00001e51       ??_U@YAPAXI@Z              10002e51 f   Memory.obj
- 0001:00001e56       ??3@YAXPAX@Z               10002e56 f   Memory.obj
- 0001:00001e5b       ??_V@YAXPAX@Z              10002e5b f   Memory.obj
- 0001:00001e60       ?lstrdupW@@YIPA_WPBDI@Z    10002e60 f   Memory.obj
- 0001:00001ea8       ?StringCchCopyA@@YGJPADIPBD@Z 10002ea8 f i Memory.obj
- 0001:00001f08       ?StringCchCopyW@@YGJPA_WIPB_W@Z 10002f08 f i Memory.obj
- 0001:00001f6f       ?lstrdup@@YIPADPBD@Z       10002f6f f   Memory.obj
- 0001:00001faa       ?lstrdup@@YIPA_WPB_WI@Z    10002faa f   Memory.obj
- 0001:00001fed       ?lstrmerge@@YIPA_WPB_W0000@Z 10002fed f   Memory.obj
- 0001:00002083       ?lstrmerge@@YI_NPAPA_WPB_W111@Z 10003083 f   Memory.obj
- 0001:000020c0       _memmove                   100030c0 f   libCRT:memmove.obj
- 0001:00002120       _memset                    10003120 f   libCRT:memset.obj
- 0001:00002158       _HeapFree@12               10003158 f   kernel32:KERNEL32.dll
- 0001:0000215e       _GetProcessHeap@0          1000315e f   kernel32:KERNEL32.dll
- 0001:00002164       _HeapAlloc@12              10003164 f   kernel32:KERNEL32.dll
- 0001:0000216a       _HeapReAlloc@16            1000316a f   kernel32:KERNEL32.dll
- 0001:00002170       _SystemTimeToFileTime@8    10003170 f   kernel32:KERNEL32.dll
- 0001:00002176       _GetLocalTime@4            10003176 f   kernel32:KERNEL32.dll
- 0001:0000217c       _HeapCreate@12             1000317c f   kernel32:KERNEL32.dll
- 0001:00002182       _HeapDestroy@4             10003182 f   kernel32:KERNEL32.dll
- 0001:00002188       _HeapValidate@12           10003188 f   kernel32:KERNEL32.dll
- 0001:0000218e       _MultiByteToWideChar@24    1000318e f   kernel32:KERNEL32.dll
- 0001:00002194       _lstrlenA@4                10003194 f   kernel32:KERNEL32.dll
- 0001:0000219a       _lstrlenW@4                1000319a f   kernel32:KERNEL32.dll
- 0001:000021a0       _wsprintfW                 100031a0 f   user32:USER32.dll
- 0001:000021a6       _CoInitialize@4            100031a6 f   ole32:ole32.dll
- 0001:000021ac       _CoUninitialize@0          100031ac f   ole32:ole32.dll
- 0001:000021b2       _GdipAlloc@4               100031b2 f   gdiplus:gdiplus.dll
- 0001:000021b8       _GdipFree@4                100031b8 f   gdiplus:gdiplus.dll
- 0001:000021be       _GdipDisposeImage@4        100031be f   gdiplus:gdiplus.dll
- 0001:000021c4       _GdipGetImagePixelFormat@8 100031c4 f   gdiplus:gdiplus.dll
- 0001:000021ca       _GdipCreateBitmapFromStream@8 100031ca f   gdiplus:gdiplus.dll
- 0001:000021d0       _GdipCreateBitmapFromStreamICM@8 100031d0 f   gdiplus:gdiplus.dll
- 0001:000021d6       _GdipBitmapLockBits@20     100031d6 f   gdiplus:gdiplus.dll
- 0001:000021dc       _GdipBitmapUnlockBits@8    100031dc f   gdiplus:gdiplus.dll
- 0001:000021e2       _GdiplusShutdown@4         100031e2 f   gdiplus:gdiplus.dll
- 0001:000021e8       _GdiplusStartup@12         100031e8 f   gdiplus:gdiplus.dll
- 0001:000021ee       _GdipCloneImage@8          100031ee f   gdiplus:gdiplus.dll
- 0001:000021f4       __IMPORT_DESCRIPTOR_KERNEL32 100031f4     kernel32:KERNEL32.dll
- 0001:00002208       __IMPORT_DESCRIPTOR_USER32 10003208     user32:USER32.dll
- 0001:0000221c       __IMPORT_DESCRIPTOR_ole32  1000321c     ole32:ole32.dll
- 0001:00002230       __IMPORT_DESCRIPTOR_gdiplus 10003230     gdiplus:gdiplus.dll
- 0001:00002244       __NULL_IMPORT_DESCRIPTOR   10003244     kernel32:KERNEL32.dll
+ 0001:00001e23       ?xf_free@@YAXPAX@Z         10002e23 f   Memory.obj
+ 0001:00001e41       ?xf_validate@@YA_NPAX@Z    10002e41 f   Memory.obj
+ 0001:00001e5a       ??2@YAPAXI@Z               10002e5a f   Memory.obj
+ 0001:00001e5f       ??_U@YAPAXI@Z              10002e5f f   Memory.obj
+ 0001:00001e64       ??3@YAXPAX@Z               10002e64 f   Memory.obj
+ 0001:00001e69       ??_V@YAXPAX@Z              10002e69 f   Memory.obj
+ 0001:00001e6e       ?lstrdupW@@YIPA_WPBDI@Z    10002e6e f   Memory.obj
+ 0001:00001eb6       ?StringCchCopyA@@YGJPADIPBD@Z 10002eb6 f i Memory.obj
+ 0001:00001f16       ?StringCchCopyW@@YGJPA_WIPB_W@Z 10002f16 f i Memory.obj
+ 0001:00001f7d       ?lstrdup@@YIPADPBD@Z       10002f7d f   Memory.obj
+ 0001:00001fb8       ?lstrdup@@YIPA_WPB_WI@Z    10002fb8 f   Memory.obj
+ 0001:00001ffb       ?lstrmerge@@YIPA_WPB_W0000@Z 10002ffb f   Memory.obj
+ 0001:00002091       ?lstrmerge@@YI_NPAPA_WPB_W111@Z 10003091 f   Memory.obj
+ 0001:000020d0       _memmove                   100030d0 f   libCRT:memmove.obj
+ 0001:00002130       _memset                    10003130 f   libCRT:memset.obj
+ 0001:00002168       _HeapFree@12               10003168 f   kernel32:KERNEL32.dll
+ 0001:0000216e       _GetProcessHeap@0          1000316e f   kernel32:KERNEL32.dll
+ 0001:00002174       _HeapAlloc@12              10003174 f   kernel32:KERNEL32.dll
+ 0001:0000217a       _HeapReAlloc@16            1000317a f   kernel32:KERNEL32.dll
+ 0001:00002180       _SystemTimeToFileTime@8    10003180 f   kernel32:KERNEL32.dll
+ 0001:00002186       _GetLocalTime@4            10003186 f   kernel32:KERNEL32.dll
+ 0001:0000218c       _HeapCreate@12             1000318c f   kernel32:KERNEL32.dll
+ 0001:00002192       _HeapDestroy@4             10003192 f   kernel32:KERNEL32.dll
+ 0001:00002198       _HeapValidate@12           10003198 f   kernel32:KERNEL32.dll
+ 0001:0000219e       _MultiByteToWideChar@24    1000319e f   kernel32:KERNEL32.dll
+ 0001:000021a4       _lstrlenA@4                100031a4 f   kernel32:KERNEL32.dll
+ 0001:000021aa       _lstrlenW@4                100031aa f   kernel32:KERNEL32.dll
+ 0001:000021b0       _wsprintfW                 100031b0 f   user32:USER32.dll
+ 0001:000021b6       _CoInitialize@4            100031b6 f   ole32:ole32.dll
+ 0001:000021bc       _CoUninitialize@0          100031bc f   ole32:ole32.dll
+ 0001:000021c2       _GdipAlloc@4               100031c2 f   gdiplus:gdiplus.dll
+ 0001:000021c8       _GdipFree@4                100031c8 f   gdiplus:gdiplus.dll
+ 0001:000021ce       _GdipDisposeImage@4        100031ce f   gdiplus:gdiplus.dll
+ 0001:000021d4       _GdipGetImagePixelFormat@8 100031d4 f   gdiplus:gdiplus.dll
+ 0001:000021da       _GdipCreateBitmapFromStream@8 100031da f   gdiplus:gdiplus.dll
+ 0001:000021e0       _GdipCreateBitmapFromStreamICM@8 100031e0 f   gdiplus:gdiplus.dll
+ 0001:000021e6       _GdipBitmapLockBits@20     100031e6 f   gdiplus:gdiplus.dll
+ 0001:000021ec       _GdipBitmapUnlockBits@8    100031ec f   gdiplus:gdiplus.dll
+ 0001:000021f2       _GdiplusShutdown@4         100031f2 f   gdiplus:gdiplus.dll
+ 0001:000021f8       _GdiplusStartup@12         100031f8 f   gdiplus:gdiplus.dll
+ 0001:000021fe       _GdipCloneImage@8          100031fe f   gdiplus:gdiplus.dll
+ 0001:00002204       __IMPORT_DESCRIPTOR_KERNEL32 10003204     kernel32:KERNEL32.dll
+ 0001:00002218       __IMPORT_DESCRIPTOR_USER32 10003218     user32:USER32.dll
+ 0001:0000222c       __IMPORT_DESCRIPTOR_ole32  1000322c     ole32:ole32.dll
+ 0001:00002240       __IMPORT_DESCRIPTOR_gdiplus 10003240     gdiplus:gdiplus.dll
+ 0001:00002254       __NULL_IMPORT_DESCRIPTOR   10003254     kernel32:KERNEL32.dll
  0002:00000034       ?gnLastWin32Error@@3KA     10004034     ico.obj
  0002:00000038       ?ghModule@@3PAUHINSTANCE__@@A 10004038     ico.obj
  0002:0000003c       ?AssertMsgBox@@3P6IHPB_WI0PAUHWND__@@_N@ZA 1000403c     MAssert.obj

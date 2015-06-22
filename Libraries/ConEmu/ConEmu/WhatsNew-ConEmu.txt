@@ -19,6 +19,95 @@ http://conemu.github.io/en/Whats_New.html
 -------------------------------------------
 
 
+2015.6.21
+[*] Use recommended launcher for Git-For-Windows bash (default tasks).
+[*] Try to create default task for GitSDK bash.
+[*] Let Settings\Environment page use one line for one command.
+
+    This will make concrete set commands with quotation marks.
+    Following two commands are equal.
+
+      set "PATH=C:\Program Files\ConEmu;%PATH%"
+      set PATH=C:\Program Files\ConEmu;%PATH%
+
+    But you still have to use quotations to keep trailing spaces
+
+      set "VarName=This is my value   "
+
+[*] Support empty lines and comments on the Settings\Environment page.
+    You may comment lines with '#', '//', '--' or 'REM '.
+[*] gh187: Highlight and goto did not work when filename not finished by :[space] or :[number].
+[*] Improve default task names unification and sorting.
+[*] The arrow char was inserted into Far Manager prompt after selecting text with Alt+Mouse.
+[*] Fix xml search path for Git-For-Windows package.
+    Correct one is /opt/share/conemu/ConEmu.xml while ConEmu.exe is placed
+    in /opt/bin folder.
+[*] Error code was not shown properly if DefTerm inject fails.
+
+
+2015.6.10
+[*] Simplify `set` usage in Settings\Environment.
+[*] gh#179: Fix broken environment inheritance (ca9e31a regression).
+[*] Ensure that `set` commands in the task/command line will override ConEmu's default environment (settings page).
+[*] GuiMacro: Make Task and Shell functions synchronous to be able to use Context function after it.
+[*] GuiMacro: Return more information about wrong macro.
+[*] GuiMacro: Easify calling functions with int arguments. "Sleep 500;" was not working.
+[*] GuiMacro: Sleep function have not returned "OK" on success.
+[*] Allow using `-new_console` and `-cur_console` switches to set DosKey aliases.
+[*] Support aliases set up on the ConEmu Settings/Environment page.
+
+    Note! These console aliases are processed by `cmd.exe` and `far.exe` only.
+    If you need to set up aliases for other shells (PowerShell, bash, etc.)
+    please refer to their manuals.
+
+    Defining aliases are similar to `doskey.exe`. Actually, you may define:
+
+      alias alias=doskey $*
+
+    After that you can use `alias` in the `cmd.exe` prompt started in ConEmu:
+
+      alias sudo=ConEmuC -c $* -new_console:an
+
+    That is just an example. It's more handy to add `sudo` definition into
+    ConEmu Settings/Environment page.
+    And when `sudo` is defined you may run from `cmd.exe` prompt, for example:
+
+      sudo diskpart
+
+[*] gh#176: Avoid creating two tabs while starting "git-bash.exe --command=usr/bin/bash.exe -l -i".
+
+    However, preferred way to start Git-For-Windows in ConEmu tab is:
+
+      git-cmd.exe --command=usr/bin/bash.exe -l -i
+
+[*] Update ConEmuPortable.ini with Environment information.
+
+
+2015.6.8
+[*] Quake mode enabled by `-quake` command line switch was not shown in Fast Configuration dialog.
+[*] Suggest the task user specified by `ConEmu.exe -cmd {cmd}` in Fast Configuration dialog.
+[*] Don't set default task in Fast Configuration dialog, use exact `-cmd ...` command specified by user.
+[*] gh#151: Do (quake) animation after starting RealConsole creation.
+[*] Add `-here` switch description in the About dialog.
+[*] Ensure all default bash tasks names will be unique.
+[*] Always reset FARHOME env.var when creating default Far tasks.
+[*] Move checkboxes ‘Add ConEmu??? to PATH’ to separate page ‘Environment’.
+[*] gh#171, Issue 1655: Add option to skip ‘... brought ConEmu OnTop. Revert?’ confirmation.
+[*] gh#173: Attach of detached console ignored new ConEmu instance.
+[*] gh#173: Implement Unfasten of console tabs (ChildGui not yet). Tab menu item, hotkey and GuiMacro.
+[*] Implement ‘Settings\Environment’ page.
+    User may define here multiple "set varname=varvalue" commands
+    or set default console code page with "chcp utf-8", "chcp 866" and so on.
+    Environment %variables% in 'varvalue' are allowed and would be expanded before do set.
+    One line - one command (set or chcp).
+[*] Create folder "ConEmu\Scripts" by installer.
+    May be useful for storing user scripts (bat-files and so on).
+    It would/may be added to PATH in the Settings\Environment page.
+[*] Git-For-Windows: Search for xml in /share/conemu while ConEmu.exe is intended to be in /opt/bin.
+[*] Log and warn (debug assertion) long alternative buffer loading.
+[*] Many MINGW-build related fixes from @Alexpux.
+
+
 2015.5.13
 [*] Don't show [reg] or [xml] in Fast Configuration dialog because there is the storage location field.
 [*] gh#142: Win+Left/Right didn't snap window if it was maximized.

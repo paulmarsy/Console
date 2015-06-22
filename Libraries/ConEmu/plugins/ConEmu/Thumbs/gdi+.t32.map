@@ -1,6 +1,6 @@
  gdi+
 
- Timestamp is 5553deee (Thu May 14 02:31:58 2015)
+ Timestamp is 55874da7 (Mon Jun 22 02:49:59 2015)
 
  Preferred load address is 10000000
 
@@ -235,19 +235,19 @@
  0001:00001f39       ?xf_malloc@@YAPAXI@Z       10002f39 f   Memory.obj
  0001:00001f4c       ?xf_calloc@@YAPAXII@Z      10002f4c f   Memory.obj
  0001:00001f65       ?xf_realloc@@YAPAXPAXI@Z   10002f65 f   Memory.obj
- 0001:00001f7c       ?xf_free@@YAXPAX@Z         10002f7c f   Memory.obj
- 0001:00001f9a       ?xf_validate@@YA_NPAX@Z    10002f9a f   Memory.obj
- 0001:00001fb3       ??2@YAPAXI@Z               10002fb3 f   Memory.obj
- 0001:00001fb8       ??_U@YAPAXI@Z              10002fb8 f   Memory.obj
- 0001:00001fbd       ??3@YAXPAX@Z               10002fbd f   Memory.obj
- 0001:00001fc2       ??_V@YAXPAX@Z              10002fc2 f   Memory.obj
- 0001:00001fc7       ?lstrdupW@@YIPA_WPBDI@Z    10002fc7 f   Memory.obj
- 0001:0000200f       ?StringCchCopyA@@YGJPADIPBD@Z 1000300f f i Memory.obj
- 0001:0000206f       ?StringCchCopyW@@YGJPA_WIPB_W@Z 1000306f f i Memory.obj
- 0001:000020d6       ?lstrdup@@YIPADPBD@Z       100030d6 f   Memory.obj
- 0001:00002111       ?lstrdup@@YIPA_WPB_WI@Z    10003111 f   Memory.obj
- 0001:00002154       ?lstrmerge@@YIPA_WPB_W0000@Z 10003154 f   Memory.obj
- 0001:000021ea       ?lstrmerge@@YI_NPAPA_WPB_W111@Z 100031ea f   Memory.obj
+ 0001:00001f8a       ?xf_free@@YAXPAX@Z         10002f8a f   Memory.obj
+ 0001:00001fa8       ?xf_validate@@YA_NPAX@Z    10002fa8 f   Memory.obj
+ 0001:00001fc1       ??2@YAPAXI@Z               10002fc1 f   Memory.obj
+ 0001:00001fc6       ??_U@YAPAXI@Z              10002fc6 f   Memory.obj
+ 0001:00001fcb       ??3@YAXPAX@Z               10002fcb f   Memory.obj
+ 0001:00001fd0       ??_V@YAXPAX@Z              10002fd0 f   Memory.obj
+ 0001:00001fd5       ?lstrdupW@@YIPA_WPBDI@Z    10002fd5 f   Memory.obj
+ 0001:0000201d       ?StringCchCopyA@@YGJPADIPBD@Z 1000301d f i Memory.obj
+ 0001:0000207d       ?StringCchCopyW@@YGJPA_WIPB_W@Z 1000307d f i Memory.obj
+ 0001:000020e4       ?lstrdup@@YIPADPBD@Z       100030e4 f   Memory.obj
+ 0001:0000211f       ?lstrdup@@YIPA_WPB_WI@Z    1000311f f   Memory.obj
+ 0001:00002162       ?lstrmerge@@YIPA_WPB_W0000@Z 10003162 f   Memory.obj
+ 0001:000021f8       ?lstrmerge@@YI_NPAPA_WPB_W111@Z 100031f8 f   Memory.obj
  0001:00002230       _memmove                   10003230 f   libCRT:memmove.obj
  0001:00002290       __alldiv                   10003290 f   libCRT:vc_lldiv.obj
  0001:00002340       __allmul                   10003340 f   libCRT:vc_llmul.obj

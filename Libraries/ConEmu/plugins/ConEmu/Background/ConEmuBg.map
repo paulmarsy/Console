@@ -1,11 +1,11 @@
  ConEmuBg
 
- Timestamp is 5553defd (Thu May 14 02:32:13 2015)
+ Timestamp is 55874db7 (Mon Jun 22 02:50:15 2015)
 
  Preferred load address is 10000000
 
  Start         Length     Name                   Class
- 0001:00000000 00005f66H .text                   CODE
+ 0001:00000000 00005fb6H .text                   CODE
  0002:00000000 00000154H .idata$5                DATA
  0002:00000158 00001180H .rdata                  DATA
  0002:000012d8 00000078H .idata$2                DATA
@@ -31,127 +31,127 @@
  0001:000001de       ?Write@MStream@@UAGJPBXKPAK@Z 100011de f i ConEmuBg.obj
  0001:00000271       ?Seek@MStream@@UAGJT_LARGE_INTEGER@@KPAT_ULARGE_INTEGER@@@Z 10001271 f i ConEmuBg.obj
  0001:000002f4       ?SetSize@MStream@@UAGJT_ULARGE_INTEGER@@@Z 100012f4 f i ConEmuBg.obj
- 0001:00000373       ?CopyTo@MStream@@UAGJPAUIStream@@T_ULARGE_INTEGER@@PAT3@2@Z 10001373 f i ConEmuBg.obj
- 0001:00000373       ?LockRegion@MStream@@UAGJT_ULARGE_INTEGER@@0K@Z 10001373 f i ConEmuBg.obj
- 0001:00000373       ?UnlockRegion@MStream@@UAGJT_ULARGE_INTEGER@@0K@Z 10001373 f i ConEmuBg.obj
- 0001:0000037b       ?Commit@MStream@@UAGJK@Z   1000137b f i ConEmuBg.obj
- 0001:0000038a       ?Revert@MStream@@UAGJXZ    1000138a f i ConEmuBg.obj
+ 0001:00000373       ?Commit@MStream@@UAGJK@Z   10001373 f i ConEmuBg.obj
+ 0001:00000382       ?Revert@MStream@@UAGJXZ    10001382 f i ConEmuBg.obj
+ 0001:0000038a       ?LockRegion@MStream@@UAGJT_ULARGE_INTEGER@@0K@Z 1000138a f i ConEmuBg.obj
+ 0001:0000038a       ?CopyTo@MStream@@UAGJPAUIStream@@T_ULARGE_INTEGER@@PAT3@2@Z 1000138a f i ConEmuBg.obj
+ 0001:0000038a       ?UnlockRegion@MStream@@UAGJT_ULARGE_INTEGER@@0K@Z 1000138a f i ConEmuBg.obj
  0001:00000392       ?Stat@MStream@@UAGJPAUtagSTATSTG@@K@Z 10001392 f i ConEmuBg.obj
  0001:000003f6       ?Clone@MStream@@UAGJPAPAUIStream@@@Z 100013f6 f i ConEmuBg.obj
- 0001:000003fe       ??_EMStream@@UAEPAXI@Z     100013fe f i ConEmuBg.obj
  0001:000003fe       ??_GMStream@@UAEPAXI@Z     100013fe f i ConEmuBg.obj
- 0001:0000061b       _GetMinFarVersionW@0       1000161b f   ConEmuBg.obj
- 0001:00000621       ?GetPluginInfoWcmn@@YGXPAX@Z 10001621 f   ConEmuBg.obj
- 0001:0000077b       ?LoadFarVersion@@YIHXZ     1000177b f   ConEmuBg.obj
- 0001:000007c6       ?ReportFail@@YIXPB_W@Z     100017c6 f   ConEmuBg.obj
- 0001:00000845       ?WasXmlLoaded@@YI_NXZ      10001845 f   ConEmuBg.obj
- 0001:00000851       ?Close@CachedImage@@QAEXXZ 10001851 f i ConEmuBg.obj
- 0001:000008c3       ?Init@GDIPlusDecoder@@QAE_NXZ 100018c3 f i ConEmuBg.obj
- 0001:00000b11       ?FreeThreadProc@GDIPlusDecoder@@SGKPAX@Z 10001b11 f i ConEmuBg.obj
- 0001:00000b2c       ?Close@GDIPlusDecoder@@QAEXXZ 10001b2c f i ConEmuBg.obj
- 0001:00000bca       ?ParseColors@@YIXPB_WHAAY0CA@KAAH@Z 10001bca f   ConEmuBg.obj
- 0001:00000c7b       ?RGB2HSV@@YIXABURGBColor@@AAUHSVColor@@@Z 10001c7b f   ConEmuBg.obj
- 0001:00000d3e       ?ClrPart@@YIEH@Z           10001d3e f i ConEmuBg.obj
- 0001:00000d5f       ?HSV2RGB@@YIXABUHSVColor@@AAURGBColor@@@Z 10001d5f f   ConEmuBg.obj
- 0001:00000eab       ?GetStatusLineCount@@YIHPAUPaintBackgroundArg@@H@Z 10001eab f   ConEmuBg.obj
- 0001:00001035       ?FormatSize@@YIXT_ULARGE_INTEGER@@PA_W@Z 10002035 f   ConEmuBg.obj
- 0001:00001103       ?SettingsLoad@@YIXXZ       10002103 f   ConEmuBg.obj
- 0001:00001165       ?SettingsLoadReg@@YIXPB_W@Z 10002165 f   ConEmuBg.obj
- 0001:0000128b       ?SettingsSave@@YIXXZ       1000228b f   ConEmuBg.obj
- 0001:000012c3       ?SettingsSaveReg@@YIXPB_W@Z 100022c3 f   ConEmuBg.obj
- 0001:0000135c       ?GetMsgW@@YIPB_WH@Z        1000235c f   ConEmuBg.obj
- 0001:00001395       ?OpenW@@YGPAXPBX@Z         10002395 f   ConEmuBg.obj
- 0001:000013ba       _ConfigureW@4              100023ba f   ConEmuBg.obj
- 0001:000013fc       ?ConfigureW3@@YGHPAX@Z     100023fc f   ConEmuBg.obj
- 0001:0000143c       ?OpenPluginWcmn@@YIPAXHH@Z 1000243c f   ConEmuBg.obj
- 0001:00001468       ?FMatch@@YI_NPB_WPA_W@Z    10002468 f   ConEmuBg.obj
- 0001:00001577       ?StringCchCopyW@@YGJPA_WIPB_W@Z 10002577 f i ConEmuBg.obj
- 0001:000015a9       ?StringCchCatW@@YGJPA_WIPB_W@Z 100025a9 f i ConEmuBg.obj
- 0001:000015fc       _DllMain@12                100025fc f   ConEmuBg.obj
- 0001:0000164d       __DllMainCRTStartup@12     1000264d f   ConEmuBg.obj
- 0001:00001664       ?CheckXmlFile@@YI_N_N@Z    10002664 f   ConEmuBg.obj
- 0001:00001a32       ?GdipInit@@YI_NXZ          10002a32 f   ConEmuBg.obj
- 0001:00001ad2       ?CompareNames@@YI_NPB_WPA_W@Z 10002ad2 f   ConEmuBg.obj
- 0001:00001bbe       ??$SafeDelete@UMSectionSimple@@@@YIXAAPAUMSectionSimple@@@Z 10002bbe f i ConEmuBg.obj
- 0001:00001bdc       ?Init@CachedImage@@QAE_NPB_WPAUHDC__@@IIQAU2@@Z 10002bdc f i ConEmuBg.obj
- 0001:00001cc3       ?GetImage@GDIPlusDecoder@@QAEPAUCachedImage@@PB_W@Z 10002cc3 f i ConEmuBg.obj
- 0001:00002080       ?GdipDone@@YIXXZ           10003080 f   ConEmuBg.obj
- 0001:0000216f       ?ExitPlugin@@YIXXZ         1000316f f   ConEmuBg.obj
- 0001:000021b5       _ExitFARW@0                100031b5 f   ConEmuBg.obj
- 0001:000021dc       ?ExitFARW3@@YGXPAX@Z       100031dc f   ConEmuBg.obj
- 0001:0000220a       ??0MStream@@QAE@XZ         1000320a f i ConEmuBg.obj
- 0001:0000222a       ?FillPanelParams@@YIHPAUPaintBackgroundArg@@PAUBkPanelInfo@@PAUDrawInfo@@@Z 1000322a f   ConEmuBg.obj
- 0001:00002c98       ?PaintPanel@@YIHPAUPaintBackgroundArg@@HAAKAAH@Z 10003c98 f   ConEmuBg.obj
- 0001:00003983       ?PaintConEmuBackground@@YGHPAUPaintBackgroundArg@@@Z 10004983 f   ConEmuBg.obj
- 0001:00003a86       ?StartPlugin@@YIXH@Z       10004a86 f   ConEmuBg.obj
- 0001:00003b92       _SetStartupInfoW@4         10004b92 f   ConEmuBg.obj
- 0001:00003be8       ?OnConEmuLoaded@@YGXPAUConEmuLoadedArg@@@Z 10004be8 f   ConEmuBg.obj
- 0001:00003c14       ?GetPluginInfoW995@@YIXPAX@Z 10004c14 f   ConEmuBg995.obj
- 0001:00003c5c       ?SetStartupInfoW995@@YIXPAX@Z 10004c5c f   ConEmuBg995.obj
- 0001:00003da1       _OpenPluginW@8             10004da1 f   ConEmuBg995.obj
- 0001:00003dbf       ?ExitFARW995@@YIXXZ        10004dbf f   ConEmuBg995.obj
- 0001:00003e05       ?GetMsgW995@@YIPB_WH@Z     10004e05 f   ConEmuBg995.obj
- 0001:000041d2       ?ConfigureW995@@YIHH@Z     100051d2 f   ConEmuBg995.obj
- 0001:000041e3       ?SettingsLoadW995@@YIXXZ   100051e3 f   ConEmuBg995.obj
- 0001:000041ee       ?SettingsSaveW995@@YIXXZ   100051ee f   ConEmuBg995.obj
- 0001:000041f9       ?FMatchW995@@YI_NPB_WPA_W@Z 100051f9 f   ConEmuBg995.obj
- 0001:00004211       ?GetPluginInfoW1900@@YIXPAX@Z 10005211 f   ConEmuBg1900.obj
- 0001:00004261       ?SetStartupInfoW1900@@YIXPAX@Z 10005261 f   ConEmuBg1900.obj
- 0001:0000434f       ?ExitFARW1900@@YIXXZ       1000534f f   ConEmuBg1900.obj
- 0001:0000437e       ?GetMsgW1900@@YIPB_WH@Z    1000537e f   ConEmuBg1900.obj
- 0001:00004795       ?ConfigureW1900@@YIHH@Z    10005795 f   ConEmuBg1900.obj
- 0001:000047a6       ?SettingsLoadW1900@@YIXXZ  100057a6 f   ConEmuBg1900.obj
- 0001:000048e3       ?SettingsSaveW1900@@YIXXZ  100058e3 f   ConEmuBg1900.obj
- 0001:000049c7       ?FMatchW1900@@YI_NPB_WPA_W@Z 100059c7 f   ConEmuBg1900.obj
- 0001:000049e0       _GetGlobalInfoW@4          100059e0 f   ConEmuBg2800.obj
- 0001:00004a73       ?GetPluginInfoW2800@@YIXPAX@Z 10005a73 f   ConEmuBg2800.obj
- 0001:00004ac3       ?SetStartupInfoW2800@@YIXPAX@Z 10005ac3 f   ConEmuBg2800.obj
- 0001:00004bb1       ?OpenW2800@@YGPAXPBX@Z     10005bb1 f   ConEmuBg2800.obj
- 0001:00004bb1       ?OpenW1900@@YGPAXPBX@Z     10005bb1 f   ConEmuBg1900.obj
- 0001:00004bd0       ?ExitFARW2800@@YIXXZ       10005bd0 f   ConEmuBg2800.obj
- 0001:00004bff       ?GetMsgW2800@@YIPB_WH@Z    10005bff f   ConEmuBg2800.obj
- 0001:00005021       ?ConfigureW2800@@YIHH@Z    10006021 f   ConEmuBg2800.obj
- 0001:00005032       ?SettingsLoadW2800@@YIXXZ  10006032 f   ConEmuBg2800.obj
- 0001:0000515b       ?SettingsSaveW2800@@YIXXZ  1000615b f   ConEmuBg2800.obj
- 0001:00005235       ?FMatchW2800@@YI_NPB_WPA_W@Z 10006235 f   ConEmuBg2800.obj
- 0001:0000524e       _GetMinFarVersion@0        1000624e f   ConEmuBgA.obj
- 0001:0000527d       _SetStartupInfo@4          1000627d f   ConEmuBgA.obj
- 0001:000053ef       _GetPluginInfo@4           100063ef f   ConEmuBgA.obj
- 0001:0000544f       _ExitFAR@0                 1000644f f   ConEmuBgA.obj
- 0001:000058b5       _Configure@4               100068b5 f   ConEmuBgA.obj
- 0001:000058ca       _OpenPlugin@8              100068ca f   ConEmuBgA.obj
- 0001:000058e0       ?SettingsLoadA@@YIXXZ      100068e0 f   ConEmuBgA.obj
- 0001:000058eb       ?SettingsSaveA@@YIXXZ      100068eb f   ConEmuBgA.obj
- 0001:000058f6       ?FMatchA@@YI_NPBDPAD@Z     100068f6 f   ConEmuBgA.obj
- 0001:0000590c       ?HeapInitialize@@YI_NXZ    1000690c f   Memory.obj
- 0001:00005932       ?HeapDeinitialize@@YIXXZ   10006932 f   Memory.obj
- 0001:0000594a       ?xf_malloc@@YAPAXI@Z       1000694a f   Memory.obj
- 0001:0000595d       ?xf_calloc@@YAPAXII@Z      1000695d f   Memory.obj
- 0001:00005976       ?xf_free@@YAXPAX@Z         10006976 f   Memory.obj
- 0001:00005994       ??2@YAPAXI@Z               10006994 f   Memory.obj
- 0001:00005999       ??3@YAXPAX@Z               10006999 f   Memory.obj
- 0001:0000599e       ?lstrdup@@YIPA_WPB_WI@Z    1000699e f   Memory.obj
- 0001:000059e1       ?lstrmerge@@YIPA_WPB_W0000@Z 100069e1 f   Memory.obj
- 0001:00005a77       ?Init@MSectionSimple@@QAEXXZ 10006a77 f   MSectionSimple.obj
- 0001:00005a8d       ?Close@MSectionSimple@@QAEXXZ 10006a8d f   MSectionSimple.obj
- 0001:00005aa3       ?TryEnter@MSectionSimple@@QAE_NXZ 10006aa3 f   MSectionSimple.obj
- 0001:00005ac2       ??0MSectionLockSimple@@QAE@XZ 10006ac2 f   MSectionSimple.obj
- 0001:00005acc       ?Unlock@MSectionLockSimple@@QAEXXZ 10006acc f   MSectionSimple.obj
- 0001:00005ae8       ??0MSectionSimple@@QAE@_N@Z 10006ae8 f   MSectionSimple.obj
- 0001:00005b11       ??1MSectionSimple@@QAE@XZ  10006b11 f   MSectionSimple.obj
- 0001:00005b16       ??1MSectionLockSimple@@QAE@XZ 10006b16 f   MSectionSimple.obj
- 0001:00005b22       ?Lock@MSectionLockSimple@@QAEHPAUMSectionSimple@@K@Z 10006b22 f   MSectionSimple.obj
- 0001:00005b90       _wcschr                    10006b90 f   libCRT:strchr.obj
- 0001:00005bc0       _wcsrchr                   10006bc0 f   libCRT:strrchr.obj
- 0001:00005bf0       _wcsstr                    10006bf0 f   libCRT:strstr.obj
- 0001:00005c50       _memmove                   10006c50 f   libCRT:memmove.obj
- 0001:00005e50       _wcstoul                   10006e50 f   libCRT:strtol.obj
- 0001:00005e70       __aulldiv                  10006e70 f   libCRT:vc_ulldiv.obj
- 0001:00005ee0       _memset                    10006ee0 f   libCRT:memset.obj
- 0001:00005f20       __allmul                   10006f20 f   libCRT:vc_llmul.obj
- 0001:00005f54       _VerQueryValueW@16         10006f54 f   version:VERSION.dll
- 0001:00005f5a       _GetFileVersionInfoW@16    10006f5a f   version:VERSION.dll
- 0001:00005f60       _GetFileVersionInfoSizeW@8 10006f60 f   version:VERSION.dll
+ 0001:000003fe       ??_EMStream@@UAEPAXI@Z     100013fe f i ConEmuBg.obj
+ 0001:00000665       _GetMinFarVersionW@0       10001665 f   ConEmuBg.obj
+ 0001:0000066b       ?GetPluginInfoWcmn@@YGXPAX@Z 1000166b f   ConEmuBg.obj
+ 0001:000007c5       ?LoadFarVersion@@YIHXZ     100017c5 f   ConEmuBg.obj
+ 0001:00000810       ?ReportFail@@YIXPB_W@Z     10001810 f   ConEmuBg.obj
+ 0001:0000088f       ?WasXmlLoaded@@YI_NXZ      1000188f f   ConEmuBg.obj
+ 0001:0000089b       ?Close@CachedImage@@QAEXXZ 1000189b f i ConEmuBg.obj
+ 0001:0000090d       ?Init@GDIPlusDecoder@@QAE_NXZ 1000190d f i ConEmuBg.obj
+ 0001:00000b5b       ?FreeThreadProc@GDIPlusDecoder@@SGKPAX@Z 10001b5b f i ConEmuBg.obj
+ 0001:00000b76       ?Close@GDIPlusDecoder@@QAEXXZ 10001b76 f i ConEmuBg.obj
+ 0001:00000c14       ?ParseColors@@YIXPB_WHAAY0CA@KAAH@Z 10001c14 f   ConEmuBg.obj
+ 0001:00000cc5       ?RGB2HSV@@YIXABURGBColor@@AAUHSVColor@@@Z 10001cc5 f   ConEmuBg.obj
+ 0001:00000d88       ?ClrPart@@YIEH@Z           10001d88 f i ConEmuBg.obj
+ 0001:00000da9       ?HSV2RGB@@YIXABUHSVColor@@AAURGBColor@@@Z 10001da9 f   ConEmuBg.obj
+ 0001:00000ef5       ?GetStatusLineCount@@YIHPAUPaintBackgroundArg@@H@Z 10001ef5 f   ConEmuBg.obj
+ 0001:0000107f       ?FormatSize@@YIXT_ULARGE_INTEGER@@PA_W@Z 1000207f f   ConEmuBg.obj
+ 0001:0000114d       ?SettingsLoad@@YIXXZ       1000214d f   ConEmuBg.obj
+ 0001:000011af       ?SettingsLoadReg@@YIXPB_W@Z 100021af f   ConEmuBg.obj
+ 0001:000012d5       ?SettingsSave@@YIXXZ       100022d5 f   ConEmuBg.obj
+ 0001:0000130d       ?SettingsSaveReg@@YIXPB_W@Z 1000230d f   ConEmuBg.obj
+ 0001:000013a6       ?GetMsgW@@YIPB_WH@Z        100023a6 f   ConEmuBg.obj
+ 0001:000013df       ?OpenW@@YGPAXPBX@Z         100023df f   ConEmuBg.obj
+ 0001:00001404       _ConfigureW@4              10002404 f   ConEmuBg.obj
+ 0001:00001446       ?ConfigureW3@@YGHPAX@Z     10002446 f   ConEmuBg.obj
+ 0001:00001486       ?OpenPluginWcmn@@YIPAXHH@Z 10002486 f   ConEmuBg.obj
+ 0001:000014b2       ?FMatch@@YI_NPB_WPA_W@Z    100024b2 f   ConEmuBg.obj
+ 0001:000015c1       ?StringCchCopyW@@YGJPA_WIPB_W@Z 100025c1 f i ConEmuBg.obj
+ 0001:000015f3       ?StringCchCatW@@YGJPA_WIPB_W@Z 100025f3 f i ConEmuBg.obj
+ 0001:00001646       _DllMain@12                10002646 f   ConEmuBg.obj
+ 0001:00001697       __DllMainCRTStartup@12     10002697 f   ConEmuBg.obj
+ 0001:000016ae       ?CheckXmlFile@@YI_N_N@Z    100026ae f   ConEmuBg.obj
+ 0001:00001a7c       ?GdipInit@@YI_NXZ          10002a7c f   ConEmuBg.obj
+ 0001:00001b1c       ?CompareNames@@YI_NPB_WPA_W@Z 10002b1c f   ConEmuBg.obj
+ 0001:00001c08       ??$SafeDelete@UMSectionSimple@@@@YIXAAPAUMSectionSimple@@@Z 10002c08 f i ConEmuBg.obj
+ 0001:00001c26       ?Init@CachedImage@@QAE_NPB_WPAUHDC__@@IIQAU2@@Z 10002c26 f i ConEmuBg.obj
+ 0001:00001d0d       ?GetImage@GDIPlusDecoder@@QAEPAUCachedImage@@PB_W@Z 10002d0d f i ConEmuBg.obj
+ 0001:000020ca       ?GdipDone@@YIXXZ           100030ca f   ConEmuBg.obj
+ 0001:000021b9       ?ExitPlugin@@YIXXZ         100031b9 f   ConEmuBg.obj
+ 0001:000021ff       _ExitFARW@0                100031ff f   ConEmuBg.obj
+ 0001:00002226       ?ExitFARW3@@YGXPAX@Z       10003226 f   ConEmuBg.obj
+ 0001:00002254       ??0MStream@@QAE@XZ         10003254 f i ConEmuBg.obj
+ 0001:00002274       ?FillPanelParams@@YIHPAUPaintBackgroundArg@@PAUBkPanelInfo@@PAUDrawInfo@@@Z 10003274 f   ConEmuBg.obj
+ 0001:00002ce2       ?PaintPanel@@YIHPAUPaintBackgroundArg@@HAAKAAH@Z 10003ce2 f   ConEmuBg.obj
+ 0001:000039cd       ?PaintConEmuBackground@@YGHPAUPaintBackgroundArg@@@Z 100049cd f   ConEmuBg.obj
+ 0001:00003ad0       ?StartPlugin@@YIXH@Z       10004ad0 f   ConEmuBg.obj
+ 0001:00003bdc       _SetStartupInfoW@4         10004bdc f   ConEmuBg.obj
+ 0001:00003c32       ?OnConEmuLoaded@@YGXPAUConEmuLoadedArg@@@Z 10004c32 f   ConEmuBg.obj
+ 0001:00003c5e       ?GetPluginInfoW995@@YIXPAX@Z 10004c5e f   ConEmuBg995.obj
+ 0001:00003ca6       ?SetStartupInfoW995@@YIXPAX@Z 10004ca6 f   ConEmuBg995.obj
+ 0001:00003deb       _OpenPluginW@8             10004deb f   ConEmuBg995.obj
+ 0001:00003e09       ?ExitFARW995@@YIXXZ        10004e09 f   ConEmuBg995.obj
+ 0001:00003e4f       ?GetMsgW995@@YIPB_WH@Z     10004e4f f   ConEmuBg995.obj
+ 0001:0000421c       ?ConfigureW995@@YIHH@Z     1000521c f   ConEmuBg995.obj
+ 0001:0000422d       ?SettingsLoadW995@@YIXXZ   1000522d f   ConEmuBg995.obj
+ 0001:00004238       ?SettingsSaveW995@@YIXXZ   10005238 f   ConEmuBg995.obj
+ 0001:00004243       ?FMatchW995@@YI_NPB_WPA_W@Z 10005243 f   ConEmuBg995.obj
+ 0001:0000425b       ?GetPluginInfoW1900@@YIXPAX@Z 1000525b f   ConEmuBg1900.obj
+ 0001:000042ab       ?SetStartupInfoW1900@@YIXPAX@Z 100052ab f   ConEmuBg1900.obj
+ 0001:00004399       ?OpenW1900@@YGPAXPBX@Z     10005399 f   ConEmuBg1900.obj
+ 0001:00004399       ?OpenW2800@@YGPAXPBX@Z     10005399 f   ConEmuBg2800.obj
+ 0001:000043b8       ?ExitFARW1900@@YIXXZ       100053b8 f   ConEmuBg1900.obj
+ 0001:000043e7       ?GetMsgW1900@@YIPB_WH@Z    100053e7 f   ConEmuBg1900.obj
+ 0001:000047fe       ?ConfigureW1900@@YIHH@Z    100057fe f   ConEmuBg1900.obj
+ 0001:0000480f       ?SettingsLoadW1900@@YIXXZ  1000580f f   ConEmuBg1900.obj
+ 0001:0000494c       ?SettingsSaveW1900@@YIXXZ  1000594c f   ConEmuBg1900.obj
+ 0001:00004a30       ?FMatchW1900@@YI_NPB_WPA_W@Z 10005a30 f   ConEmuBg1900.obj
+ 0001:00004a49       _GetGlobalInfoW@4          10005a49 f   ConEmuBg2800.obj
+ 0001:00004adc       ?GetPluginInfoW2800@@YIXPAX@Z 10005adc f   ConEmuBg2800.obj
+ 0001:00004b2c       ?SetStartupInfoW2800@@YIXPAX@Z 10005b2c f   ConEmuBg2800.obj
+ 0001:00004c1a       ?ExitFARW2800@@YIXXZ       10005c1a f   ConEmuBg2800.obj
+ 0001:00004c49       ?GetMsgW2800@@YIPB_WH@Z    10005c49 f   ConEmuBg2800.obj
+ 0001:0000506b       ?ConfigureW2800@@YIHH@Z    1000606b f   ConEmuBg2800.obj
+ 0001:0000507c       ?SettingsLoadW2800@@YIXXZ  1000607c f   ConEmuBg2800.obj
+ 0001:000051a5       ?SettingsSaveW2800@@YIXXZ  100061a5 f   ConEmuBg2800.obj
+ 0001:0000527f       ?FMatchW2800@@YI_NPB_WPA_W@Z 1000627f f   ConEmuBg2800.obj
+ 0001:00005298       _GetMinFarVersion@0        10006298 f   ConEmuBgA.obj
+ 0001:000052c7       _SetStartupInfo@4          100062c7 f   ConEmuBgA.obj
+ 0001:00005439       _GetPluginInfo@4           10006439 f   ConEmuBgA.obj
+ 0001:00005499       _ExitFAR@0                 10006499 f   ConEmuBgA.obj
+ 0001:000058ff       _Configure@4               100068ff f   ConEmuBgA.obj
+ 0001:00005914       _OpenPlugin@8              10006914 f   ConEmuBgA.obj
+ 0001:0000592a       ?SettingsLoadA@@YIXXZ      1000692a f   ConEmuBgA.obj
+ 0001:00005935       ?SettingsSaveA@@YIXXZ      10006935 f   ConEmuBgA.obj
+ 0001:00005940       ?FMatchA@@YI_NPBDPAD@Z     10006940 f   ConEmuBgA.obj
+ 0001:00005956       ?HeapInitialize@@YI_NXZ    10006956 f   Memory.obj
+ 0001:0000597c       ?HeapDeinitialize@@YIXXZ   1000697c f   Memory.obj
+ 0001:00005994       ?xf_malloc@@YAPAXI@Z       10006994 f   Memory.obj
+ 0001:000059a7       ?xf_calloc@@YAPAXII@Z      100069a7 f   Memory.obj
+ 0001:000059c0       ?xf_free@@YAXPAX@Z         100069c0 f   Memory.obj
+ 0001:000059de       ??2@YAPAXI@Z               100069de f   Memory.obj
+ 0001:000059e3       ??3@YAXPAX@Z               100069e3 f   Memory.obj
+ 0001:000059e8       ?lstrdup@@YIPA_WPB_WI@Z    100069e8 f   Memory.obj
+ 0001:00005a2b       ?lstrmerge@@YIPA_WPB_W0000@Z 10006a2b f   Memory.obj
+ 0001:00005ac1       ?Init@MSectionSimple@@QAEXXZ 10006ac1 f   MSectionSimple.obj
+ 0001:00005ad7       ?Close@MSectionSimple@@QAEXXZ 10006ad7 f   MSectionSimple.obj
+ 0001:00005aed       ?TryEnter@MSectionSimple@@QAE_NXZ 10006aed f   MSectionSimple.obj
+ 0001:00005b0c       ??0MSectionLockSimple@@QAE@XZ 10006b0c f   MSectionSimple.obj
+ 0001:00005b16       ?Unlock@MSectionLockSimple@@QAEXXZ 10006b16 f   MSectionSimple.obj
+ 0001:00005b32       ??0MSectionSimple@@QAE@_N@Z 10006b32 f   MSectionSimple.obj
+ 0001:00005b5b       ??1MSectionSimple@@QAE@XZ  10006b5b f   MSectionSimple.obj
+ 0001:00005b60       ??1MSectionLockSimple@@QAE@XZ 10006b60 f   MSectionSimple.obj
+ 0001:00005b6c       ?Lock@MSectionLockSimple@@QAEHPAUMSectionSimple@@K@Z 10006b6c f   MSectionSimple.obj
+ 0001:00005be0       _wcschr                    10006be0 f   libCRT:strchr.obj
+ 0001:00005c10       _wcsrchr                   10006c10 f   libCRT:strrchr.obj
+ 0001:00005c40       _wcsstr                    10006c40 f   libCRT:strstr.obj
+ 0001:00005ca0       _memmove                   10006ca0 f   libCRT:memmove.obj
+ 0001:00005d00       _memset                    10006d00 f   libCRT:memset.obj
+ 0001:00005ee0       _wcstoul                   10006ee0 f   libCRT:strtol.obj
+ 0001:00005f00       __aulldiv                  10006f00 f   libCRT:vc_ulldiv.obj
+ 0001:00005f70       __allmul                   10006f70 f   libCRT:vc_llmul.obj
+ 0001:00005fa4       _VerQueryValueW@16         10006fa4 f   version:VERSION.dll
+ 0001:00005faa       _GetFileVersionInfoW@16    10006faa f   version:VERSION.dll
+ 0001:00005fb0       _GetFileVersionInfoSizeW@8 10006fb0 f   version:VERSION.dll
  0002:00000000       __imp__RegSetValueExW@24   10007000     advapi32:ADVAPI32.dll
  0002:00000004       __imp__RegOpenKeyExW@20    10007004     advapi32:ADVAPI32.dll
  0002:00000008       __imp__RegQueryValueExW@24 10007008     advapi32:ADVAPI32.dll
@@ -244,11 +244,11 @@
  0002:000001ac       ??_C@_1BM@GCLEPEKO@?$AAP?$AAl?$AAu?$AAg?$AAi?$AAn?$AAE?$AAn?$AAa?$AAb?$AAl?$AAe?$AAd?$AA?$AA@ 100071ac     ConEmuBg.obj
  0002:000001c8       ??_7MStream@@6B@           100071c8     ConEmuBg.obj
  0002:00000204       ??_C@_1CA@GGFPMHLH@?$AA?6?$AAE?$AAr?$AAr?$AAC?$AAo?$AAd?$AAe?$AA?$DN?$AA0?$AAx?$AA?$CF?$AA0?$AA8?$AAX?$AA?$AA@ 10007204     ConEmuBg.obj
- 0002:00000224       ??_C@_1DM@INOMAGPD@?$AAI?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAF?$AAa?$AAr?$AAP?$AAa?$AAt?$AAh?$AA?5?$AAw?$AAa?$AAs?$AA?5?$AAs?$AAp?$AAe?$AAc?$AAi?$AAf?$AAi?$AAe?$AAd?$AA?$AA@ 10007224     ConEmuBg.obj
- 0002:00000260       ??_C@_1GC@COKOAMPP@?$AAL?$AAo?$AAa?$AAd?$AAF?$AAa?$AAr?$AAV?$AAe?$AAr?$AAs?$AAi?$AAo?$AAn?$AA?4?$AAG?$AAe?$AAt?$AAF?$AAi?$AAl?$AAe?$AAV?$AAe?$AAr?$AAs?$AAi?$AAo?$AAn?$AAI?$AAn?$AAf@ 10007260     ConEmuBg.obj
- 0002:000002c8       ??_C@_1GC@BJIMIHFH@?$AAL?$AAo?$AAa?$AAd?$AAF?$AAa?$AAr?$AAV?$AAe?$AAr?$AAs?$AAi?$AAo?$AAn?$AA?5?$AAf?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?$CB?$AA?5?$AAC?$AAa?$AAn?$AA?8?$AAt?$AA?5?$AAa?$AAl?$AAl@ 100072c8     ConEmuBg.obj
- 0002:00000330       ??_C@_1FK@EOBKNMNM@?$AAL?$AAo?$AAa?$AAd?$AAF?$AAa?$AAr?$AAV?$AAe?$AAr?$AAs?$AAi?$AAo?$AAn?$AA?4?$AAG?$AAe?$AAt?$AAF?$AAi?$AAl?$AAe?$AAV?$AAe?$AAr?$AAs?$AAi?$AAo?$AAn?$AAI?$AAn?$AAf@ 10007330     ConEmuBg.obj
- 0002:00000390       ??_C@_1FG@LALGGOEO@?$AAL?$AAo?$AAa?$AAd?$AAF?$AAa?$AAr?$AAV?$AAe?$AAr?$AAs?$AAi?$AAo?$AAn?$AA?4?$AAV?$AAe?$AAr?$AAQ?$AAu?$AAe?$AAr?$AAy?$AAV?$AAa?$AAl?$AAu?$AAe?$AA?$CI?$AA?$CC?$AA?2?$AA?$CC@ 10007390     ConEmuBg.obj
+ 0002:00000224       ??_C@_1DM@GMMDGAJC@?$AAI?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAA?$AAp?$AAp?$AAP?$AAa?$AAt?$AAh?$AA?5?$AAw?$AAa?$AAs?$AA?5?$AAs?$AAp?$AAe?$AAc?$AAi?$AAf?$AAi?$AAe?$AAd?$AA?$AA@ 10007224     ConEmuBg.obj
+ 0002:00000260       ??_C@_1GC@CPPHDKJK@?$AAL?$AAo?$AAa?$AAd?$AAA?$AAp?$AAp?$AAV?$AAe?$AAr?$AAs?$AAi?$AAo?$AAn?$AA?4?$AAG?$AAe?$AAt?$AAF?$AAi?$AAl?$AAe?$AAV?$AAe?$AAr?$AAs?$AAi?$AAo?$AAn?$AAI?$AAn?$AAf@ 10007260     ConEmuBg.obj
+ 0002:000002c8       ??_C@_1GC@BINFLBDC@?$AAL?$AAo?$AAa?$AAd?$AAA?$AAp?$AAp?$AAV?$AAe?$AAr?$AAs?$AAi?$AAo?$AAn?$AA?5?$AAf?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?$CB?$AA?5?$AAC?$AAa?$AAn?$AA?8?$AAt?$AA?5?$AAa?$AAl?$AAl@ 100072c8     ConEmuBg.obj
+ 0002:00000330       ??_C@_1FK@HILEEFML@?$AAL?$AAo?$AAa?$AAd?$AAA?$AAp?$AAp?$AAV?$AAe?$AAr?$AAs?$AAi?$AAo?$AAn?$AA?4?$AAG?$AAe?$AAt?$AAF?$AAi?$AAl?$AAe?$AAV?$AAe?$AAr?$AAs?$AAi?$AAo?$AAn?$AAI?$AAn?$AAf@ 10007330     ConEmuBg.obj
+ 0002:00000390       ??_C@_1FG@DPPGENBC@?$AAL?$AAo?$AAa?$AAd?$AAA?$AAp?$AAp?$AAV?$AAe?$AAr?$AAs?$AAi?$AAo?$AAn?$AA?4?$AAV?$AAe?$AAr?$AAQ?$AAu?$AAe?$AAr?$AAy?$AAV?$AAa?$AAl?$AAu?$AAe?$AA?$CI?$AA?$CC?$AA?2?$AA?$CC@ 10007390     ConEmuBg.obj
  0002:000003e8       ??_C@_13FPGAJAPJ@?$AA?2?$AA?$AA@ 100073e8     ConEmuBg.obj
  0002:000003f0       ??_C@_1FG@LNADFPCE@?$AAL?$AAo?$AAa?$AAd?$AAF?$AAa?$AAr?$AAV?$AAe?$AAr?$AAs?$AAi?$AAo?$AAn?$AA?4?$AAG?$AAe?$AAt?$AAM?$AAo?$AAd?$AAu?$AAl?$AAe?$AAF?$AAi?$AAl?$AAe?$AAN?$AAa?$AAm?$AAe@ 100073f0     ConEmuBg.obj
  0002:00000448       ??_C@_1CA@DIJECNLO@?$AA?6?$AAC?$AAo?$AAn?$AAf?$AAi?$AAg?$AA?5?$AAv?$AAa?$AAl?$AAu?$AAe?$AA?3?$AA?5?$AA?$AA@ 10007448     ConEmuBg.obj
@@ -408,22 +408,23 @@
  0003:0000208c       ?AssertMsgBox@@3P6IHPB_WI0PAUHWND__@@_N@ZA 1000b08c     MAssert.obj
  0003:00002090       ?ghHeap@@3PAXA             1000b090     Memory.obj
 
- entry point at        0001:0000164d
+ entry point at        0001:00001697
 
  Static symbols
 
  0001:00000000       ?StringLengthWorkerW@@YGJPB_WIPAI@Z 10001000 f   ConEmuBg.obj
  0001:00000030       ?StringCopyWorkerW@@YGJPA_WIPAIPB_WI@Z 10001030 f   ConEmuBg.obj
- 0001:0000041a       ?LoadFarVersion@@YI_NPB_WAAUFarVersion@@AAY0CAA@_W@Z 1000141a f   ConEmuBg.obj
- 0001:000005a5       ?LoadFarVersion@@YI_NAAUFarVersion@@AAY0CAA@_W@Z 100015a5 f   ConEmuBg.obj
- 0001:0000064e       ?ChangeExports@@YI_NPBUExportFunc@@PAUHINSTANCE__@@@Z 1000164e f   ConEmuBg.obj
- 0001:00003e22       ?ConfigDlgProc@@YGJPAXHHJ@Z 10004e22 f   ConEmuBg995.obj
- 0001:00003eb6       ?ConfigureProc@@YIHH@Z     10004eb6 f   ConEmuBg995.obj
- 0001:0000439d       ?ConfigDlgProc@@YGHPAXHH0@Z 1000539d f   ConEmuBg1900.obj
- 0001:00004431       ?ConfigureProc@@YIHH@Z     10005431 f   ConEmuBg1900.obj
- 0001:00004c1e       ?ConfigDlgProc@@YGHPAXHH0@Z 10005c1e f   ConEmuBg2800.obj
- 0001:00004cb2       ?ConfigureProc@@YIHH@Z     10005cb2 f   ConEmuBg2800.obj
- 0001:0000549a       ?GetMsg@@YIPADH@Z          1000649a f   ConEmuBgA.obj
- 0001:000054b2       ?ConfigDlgProc@@YGJPAXHHJ@Z 100064b2 f   ConEmuBgA.obj
- 0001:00005550       ?ConfigureProc@@YIHH@Z     10006550 f   ConEmuBgA.obj
- 0001:00005cb0       ?strtoxl@@YAKPB_WPAPA_WHH@Z 10006cb0 f   libCRT:strtol.obj
+ 0001:0000041a       ?LoadAppVersion@@YI_NPB_WAAUtagVS_FIXEDFILEINFO@@AAY0CAA@_W@Z 1000141a f   ConEmuBg.obj
+ 0001:0000058a       ?LoadFarVersion@@YI_NPB_WAAUFarVersion@@AAY0CAA@_W@Z 1000158a f   ConEmuBg.obj
+ 0001:000005f1       ?LoadFarVersion@@YI_NAAUFarVersion@@AAY0CAA@_W@Z 100015f1 f   ConEmuBg.obj
+ 0001:00000698       ?ChangeExports@@YI_NPBUExportFunc@@PAUHINSTANCE__@@@Z 10001698 f   ConEmuBg.obj
+ 0001:00003e6c       ?ConfigDlgProc@@YGJPAXHHJ@Z 10004e6c f   ConEmuBg995.obj
+ 0001:00003f00       ?ConfigureProc@@YIHH@Z     10004f00 f   ConEmuBg995.obj
+ 0001:00004406       ?ConfigDlgProc@@YGHPAXHH0@Z 10005406 f   ConEmuBg1900.obj
+ 0001:0000449a       ?ConfigureProc@@YIHH@Z     1000549a f   ConEmuBg1900.obj
+ 0001:00004c68       ?ConfigDlgProc@@YGHPAXHH0@Z 10005c68 f   ConEmuBg2800.obj
+ 0001:00004cfc       ?ConfigureProc@@YIHH@Z     10005cfc f   ConEmuBg2800.obj
+ 0001:000054e4       ?GetMsg@@YIPADH@Z          100064e4 f   ConEmuBgA.obj
+ 0001:000054fc       ?ConfigDlgProc@@YGJPAXHHJ@Z 100064fc f   ConEmuBgA.obj
+ 0001:0000559a       ?ConfigureProc@@YIHH@Z     1000659a f   ConEmuBgA.obj
+ 0001:00005d40       ?strtoxl@@YAKPB_WPAPA_WHH@Z 10006d40 f   libCRT:strtol.obj
