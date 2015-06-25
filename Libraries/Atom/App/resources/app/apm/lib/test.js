@@ -27,7 +27,6 @@
       options = yargs(argv).wrap(100);
       options.usage("Usage:\n  apm test\n\nRuns the package's tests contained within the spec directory (relative\nto the current working directory).");
       options.alias('h', 'help').describe('help', 'Print this usage message');
-      options.alias('1', 'one').boolean('one').describe('one', 'Run specs in 1.0 API preview mode');
       return options.alias('p', 'path').string('path').describe('path', 'Path to atom command');
     };
 
@@ -47,9 +46,6 @@
       }
       packagePath = process.cwd();
       testArgs = ['--dev', '--test', "--spec-directory=" + (path.join(packagePath, 'spec'))];
-      if (options.argv.one) {
-        testArgs.push('--one');
-      }
       if (process.platform === 'win32') {
         logFile = temp.openSync({
           suffix: '.log',
