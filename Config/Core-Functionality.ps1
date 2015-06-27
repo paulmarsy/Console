@@ -14,10 +14,13 @@ $private:ModuleInitializationRoot = Join-Path $InstallPath "Custom Consoles\Powe
 # Functions
 $private:FunctionExportsRoot = Join-Path $InstallPath "Custom Consoles\PowerShell\Exports\Functions"
 @(
+    "Customisation Helpers\User Scripts\_Internal\_Import-UserScripts.ps1"
+    "Customisation Helpers\User Scripts\_Internal\_Promote-NewUserObjects.ps1"
+    "Customisation Helpers\User Scripts\_Internal\_Remove-ExistingUserScripts.ps1"
+    "Customisation Helpers\User Scripts\Import-UserScripts.ps1"
     "PowerShell Utilities\Test-PowerShellScriptSyntax.ps1"
     "PowerShell Utilities\Test-PowerShellDirectory.ps1"
     "Windows\ConvertTo-DirectoryJunction.ps1"
-    "Import-UserScripts.ps1"
     "Invoke-Ternary.ps1"
     "Test-Null.ps1"
 ) | % { . (Join-Path $private:FunctionExportsRoot $_) }
