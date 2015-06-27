@@ -4,6 +4,7 @@ function Update-RemotePowerShellConsoleGitRepository {
 	$consoleGitHubSyncerCheck = Start-Process -FilePath $consoleGitHubSyncer -ArgumentList "-UpdateRemote `"$($InstallPath.TrimEnd('\'))`" " -NoNewWindow -Wait -PassThru
 
 	if ($consoleGitHubSyncerCheck.ExitCode -eq 1306) {
-		[System.Environment]::Exit(0)
+		Start-Process -FilePath $PowerShellConsoleConstants.Executables.ConEmuC -ArgumentList "-GuiMacro Close(2)" -Wait -WindowStyle Hidden
+		Get-Host | % SetShouldExit 0
 	}
 }

@@ -35,7 +35,7 @@ switch ($PSCmdlet.ParameterSetName)
 		$consoleGitHubSyncerInit = Start-Process -FilePath $PowerShellConsoleConstants.Executables.ConsoleGitHubSyncer -ArgumentList "-InitializeRepositories $($PowerShellConsoleConstants.InstallPath)" -PassThru -NoNewWindow -Wait
 		if ($consoleGitHubSyncerInit.ExitCode -ne 0) {
 			Write-InstallMessage -Type Error "Failed to initialize Git repositories."
-			[System.Environment]::Exit($consoleGitHubSyncerInit.ExitCode)
+			Get-Host | % SetShouldExit $consoleGitHubSyncerInit.ExitCode
 		}
 	}
 	"PreReqCheck" { 
@@ -43,7 +43,7 @@ switch ($PSCmdlet.ParameterSetName)
 		$failedPrerequisites = & ".\Prerequisites Check.ps1"
 		if ($failedPrerequisites -ge 1) {
 			Write-InstallMessage -Type Error "Prerequisites not met. Exiting installation."
-			[System.Environment]::Exit($failedPrerequisites)
+			Get-Host | % SetShouldExit $failedPrerequisites
 		}
 		Write-InstallMessage -Type Success "All prerequisites met"
 	}

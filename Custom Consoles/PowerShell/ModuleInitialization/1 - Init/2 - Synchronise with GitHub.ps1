@@ -21,7 +21,7 @@ if ($consoleGitHubSyncerCheck.ExitCode -eq 1306) {
 	}
 	catch [System.Threading.AbandonedMutexException] { }
 	[System.Diagnostics.Process]::Start($PowerShellConsoleConstants.Executables.Hstart, "`"`"$consoleGitHubSyncer`" -UpdateLocal `"$($PowerShellConsoleConstants.InstallPath.TrimEnd('\'))`" `"$($PowerShellConsoleConstants.Executables.ConEmu)`" `"/cmd {PowerShell}`" `"")
-	[System.Environment]::Exit(0)
+	Get-Host | % SetShouldExit 0
 } elseif ($consoleGitHubSyncerCheck.ExitCode -eq 0) {
 	$ProfileConfig.Git.LastAutoSyncTickTime = [long](Get-Date | Select-Object -ExpandProperty Ticks)
 	Save-ProfileConfig -Quiet
