@@ -35,16 +35,16 @@ try {
 		$dynamicType = $nativeMethodsUser32.CreateType()
 	}
 
-	function Check-IfKeyIsPressed {
+	function Test-KeyIsPressed {
 		param([System.Windows.Forms.Keys]$Key)
 
 		return (($dynamicType::GetAsyncKeyState($Key) -band 0x8000) -eq 0x8000)
 	}
 
-	$LControlKey	= Check-IfKeyIsPressed ([Windows.Forms.Keys]::LControlKey)
-	$LShiftKey 		= Check-IfKeyIsPressed ([Windows.Forms.Keys]::LShiftKey)
-	$LWin			= Check-IfKeyIsPressed ([Windows.Forms.Keys]::LWin)
-	$LAlt			= Check-IfKeyIsPressed ([Windows.Forms.Keys]::LMenu)
+	$LControlKey	= Test-KeyIsPressed ([Windows.Forms.Keys]::LControlKey)
+	$LShiftKey 		= Test-KeyIsPressed ([Windows.Forms.Keys]::LShiftKey)
+	$LWin			= Test-KeyIsPressed ([Windows.Forms.Keys]::LWin)
+	$LAlt			= Test-KeyIsPressed ([Windows.Forms.Keys]::LMenu)
 
 	if ($LControlKey) {
 		$level = 1

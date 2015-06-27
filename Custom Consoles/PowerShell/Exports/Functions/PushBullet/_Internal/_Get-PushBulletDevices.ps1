@@ -1,4 +1,7 @@
 function _Get-PushBulletDevices {
+	[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseApprovedVerbs', '')] 
+	param()
+	
 	if (-not ($ProfileConfig.Temp.ContainsKey("PushBulletDevices"))) {
 		$result = _Send-PushBulletApiRequest -Method Get -Uri "https://api.pushbullet.com/v2/devices"
 

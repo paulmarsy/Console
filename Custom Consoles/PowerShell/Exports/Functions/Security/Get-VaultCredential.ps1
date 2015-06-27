@@ -25,6 +25,9 @@ Get-VaultCredential
 
 Only web credentials can be displayed in cleartext.
 #>
+    
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReservedCmdletChar', '')] 
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseApprovedVerbs', '')] 
     [CmdletBinding()] Param()
 
     $OSVersion = [Environment]::OSVersion.Version

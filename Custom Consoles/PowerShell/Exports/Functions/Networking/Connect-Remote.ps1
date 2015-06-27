@@ -1,4 +1,5 @@
 function Connect-Remote {
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingConvertToSecureStringWithPlainText', '')] 
     param(
         [Parameter(Mandatory=$true,Position=0)]$ComputerName,
         [Parameter(Position=1)][ValidateSet("PowerShell", "RDP", "SSH", "TELNET", "VNC")]$InteractiveType = "RDP",

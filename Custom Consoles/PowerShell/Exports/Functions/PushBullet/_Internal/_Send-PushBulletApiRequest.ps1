@@ -1,4 +1,5 @@
 function _Send-PushBulletApiRequest {
+	[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseApprovedVerbs', '')] 
 	param(
 		[Parameter(Mandatory=$true)]$Uri,
 		[Parameter(Mandatory=$true)][Microsoft.PowerShell.Commands.WebRequestMethod]$Method,

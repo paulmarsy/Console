@@ -19,6 +19,8 @@ https://github.com/samratashok/nishang
 .NOTES 
 Goude 2012, TreuSec 
 #>  
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseOutputTypeCorrectly', '')] 
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssigments', '')] 
     [CmdletBinding()] 
     param() 
  

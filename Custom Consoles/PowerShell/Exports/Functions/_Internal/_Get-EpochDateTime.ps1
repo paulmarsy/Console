@@ -1,5 +1,6 @@
 function _Get-EpochDateTime
 {
+	[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseApprovedVerbs', '')] 
 	param(
 		[ValidateSet("UnixTime", "DateTime")]$Type = "DateTime"
 	)

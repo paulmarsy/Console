@@ -1,5 +1,5 @@
 function Start-Thread {
-    [CmdletBinding()]
+    [OutputType([hashtable])]
     param(
         [Parameter(Mandatory=$true,Position=0)][ScriptBlock]$ScriptBlock,
         $ArgumentList

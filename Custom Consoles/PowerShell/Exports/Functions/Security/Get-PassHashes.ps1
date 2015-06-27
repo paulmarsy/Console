@@ -15,6 +15,8 @@ http://www.labofapenetrationtester.com/2013/05/poshing-hashes-part-2.html?showCo
 https://github.com/samratashok/nishang
 
 #> 
+
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssigments', '')] 
 [CmdletBinding()]
 Param ()
 

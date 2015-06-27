@@ -1,4 +1,5 @@
 function _Get-TfsTpcFactory {
+	[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseApprovedVerbs', '')] 
 	param
 	(
 		$TfsServerUrl = $ProfileConfig.TFS.Server

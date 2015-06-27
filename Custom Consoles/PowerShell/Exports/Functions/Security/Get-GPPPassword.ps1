@@ -63,6 +63,7 @@ function Get-GPPPassword {
     http://rewtdance.blogspot.com/2012/06/exploiting-windows-2008-group-policy.html
 #>
     
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWMICmdlet', '')] 
     [CmdletBinding()]
     Param ()
     

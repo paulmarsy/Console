@@ -1,5 +1,5 @@
 function Protect-String {
-	[CmdletBinding()]
+	[OutputType([System.String])]
 	param(
 		[Parameter(Position=0,Mandatory=$true,ValueFromPipeline=$true)][string]$InputObject,
         [System.Security.Cryptography.DataProtectionScope]$Scope = [System.Security.Cryptography.DataProtectionScope]::CurrentUser

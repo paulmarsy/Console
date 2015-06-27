@@ -34,6 +34,7 @@ Code by @al14s
 
 #>
 
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWMICmdlet', '')] 
     [CmdletBinding()] Param(
         [Parameter(Position = 0, Mandatory = $False)]
         [String]

@@ -28,6 +28,9 @@ https://github.com/samratashok/nishang
 .NOTES
 Goude 2012, TreuSec
 #>
+    
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWMICmdlet', '')] 
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssigments', '')] 
     [CmdletBinding()] Param (
         [Parameter(Position = 0, Mandatory=$False)]
         [String]

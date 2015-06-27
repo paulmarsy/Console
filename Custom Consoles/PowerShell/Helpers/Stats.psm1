@@ -20,7 +20,7 @@ function Get-DefaultStats {
 	return $defaultStats
 }
 
-function Load-ModuleStats {
+function Import-ModuleStats {
 	param($currentStats)
 
 	if (-not (Test-Path $ExecutionContext.SessionState.Module.PrivateData.ModuleStatsFilePath)) { return $currentStats }
@@ -51,7 +51,7 @@ function Update-ModuleUsageStats {
 	$moduleAliases = $module | % ExportedAliases | % Values
 	$defaultStats =  Get-DefaultStats $module
 	
-	$currentStats = Load-ModuleStats $defaultStats
+	$currentStats = Import-ModuleStats $defaultStats
 
 	$lastSavedHistoryId = [int]$ExecutionContext.SessionState.Module.PrivateData.Item("LastSavedHistoryId")
 
@@ -80,7 +80,7 @@ function Show-ModuleUsageStats {
 	$module = Get-Module CustomPowerShellConsole
 	$defaultStats =  Get-DefaultStats $module
 
-	$currentStats = Load-ModuleStats $defaultStats
+	$currentStats = Import-ModuleStats $defaultStats
 
 	$currentStats.GetEnumerator() | Sort-Object -Property @(@{Expression={$_.Value}; Ascending=$false}, @{Expression={$_.Key}; Ascending=$true}) | Format-Table -AutoSize -Property @(@{Label = "Name"; Expression = { $_.Key }}, @{Label = "Usage Count"; Expression = { $_.Value }})
 }

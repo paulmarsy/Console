@@ -1,4 +1,5 @@
 function _Write-FileSystemAccessErrors {
+	[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseApprovedVerbs', '')] 
 	param($ErrorArray)
 
 		if ($ErrorArray.Count -eq 0) {

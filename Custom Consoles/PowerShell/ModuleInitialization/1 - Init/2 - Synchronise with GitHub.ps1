@@ -19,7 +19,9 @@ if ($consoleGitHubSyncerCheck.ExitCode -eq 1306) {
 			Write-Host "Waiting to aquire mutex..."
 		}
 	}
-	catch [System.Threading.AbandonedMutexException] { }
+	catch [System.Threading.AbandonedMutexException] {
+		Write-Host -ForegroundColor Green "Mutex squired"
+	}
 	[System.Diagnostics.Process]::Start($PowerShellConsoleConstants.Executables.Hstart, "`"`"$consoleGitHubSyncer`" -UpdateLocal `"$($PowerShellConsoleConstants.InstallPath.TrimEnd('\'))`" `"$($PowerShellConsoleConstants.Executables.ConEmu)`" `"/cmd {PowerShell}`" `"")
 	Get-Host | % SetShouldExit 0
 } elseif ($consoleGitHubSyncerCheck.ExitCode -eq 0) {

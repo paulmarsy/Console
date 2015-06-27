@@ -76,6 +76,8 @@ http://www.exploit-monday.com
 https://github.com/mattifestation/PowerSploit
 #>
 
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingEmptyCatchBlock', '')] 
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseApprovedVerbs', '')] 
     Param (
         [Parameter(Position = 0, Mandatory = $True,ValueFromPipeline=$True)]
         [String]

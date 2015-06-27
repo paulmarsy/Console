@@ -1,5 +1,5 @@
 function Show-ConfirmationPrompt {
-	[CmdletBinding()]
+	[OutputType([System.Boolean])]
 	param (
 		[Parameter(Mandatory=$true)]$Caption,
 		[Parameter(Mandatory=$true)]$Message,

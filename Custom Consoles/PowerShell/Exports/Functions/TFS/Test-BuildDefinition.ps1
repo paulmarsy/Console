@@ -1,5 +1,5 @@
 function Test-BuildDefinition {
-    [CmdletBinding()]
+    [OutputType([bool])]
     param(
         [Parameter(ValueFromPipeline = $true, Mandatory = $true)]$Uri
     )
