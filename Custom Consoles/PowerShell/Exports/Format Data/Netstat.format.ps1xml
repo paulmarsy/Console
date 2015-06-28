@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Configuration>
+    <ViewDefinitions>
+        <View>
+            <Name>Netstat</Name>
+            <ViewSelectedBy>
+                <TypeName>Netstat</TypeName>
+            </ViewSelectedBy>
+            <TableControl>
+                <TableHeaders>
+                    <TableColumnHeader>
+                        <Label>Owner
+PID</Label>
+                        <Width>5</Width>
+                    </TableColumnHeader>
+                    <TableColumnHeader>
+                        <Label>Owner
+Process</Label>
+                        <Width>20</Width>
+                    </TableColumnHeader>
+                    <TableColumnHeader>
+                        <Label>Protocol</Label>
+                        <Width>8</Width>
+                    </TableColumnHeader>
+                    <TableColumnHeader>
+                        <Label>State</Label>
+                        <Width>11</Width>
+                    </TableColumnHeader>
+                    <TableColumnHeader>
+                        <Label>Local Address</Label>
+                        <Width>20</Width>
+                    </TableColumnHeader>
+                    <TableColumnHeader>
+                        <Label>Foreign Address</Label>
+                    </TableColumnHeader>
+                </TableHeaders>
+                <TableRowEntries>
+                    <TableRowEntry>
+                        <TableColumnItems>
+                            <TableColumnItem>
+                                <PropertyName>OwnerPid</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>OwnerProcess</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>Protocol</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>State</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <ScriptBlock>"{0}:{1}" -f $_.LocalAddressIP, $_.LocalAddressPort</ScriptBlock>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <ScriptBlock>"{0}:{1}" -f $_.ForeignAddressIP, $_.ForeignAddressPort</ScriptBlock>
+                            </TableColumnItem>
+                        </TableColumnItems>
+                    </TableRowEntry>
+                </TableRowEntries>
+            </TableControl>
+        </View>
+    </ViewDefinitions>
+</Configuration>

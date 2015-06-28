@@ -12,7 +12,7 @@ function Get-NetStat
             $ownerPid = $entry[3]
         }
         
-		New-Object -TypeName PSObject -Property @{
+		$outputObject = New-Object -TypeName PSObject -Property @{
 			Protocol = $entry[0]
 			LocalAddressIP = ([string]::Join(":", ($local | Select-Object -SkipLast 1)))
 			LocalAddressPort = ($local | Select-Object -Last 1)
@@ -22,5 +22,9 @@ function Get-NetStat
             OwnerPid = $ownerPid
             OwnerProcess = (Get-Process -Id $ownerPid | % Name)
 		}
+        
+        $outputObject.PSTypeNames.Insert(0, 'Netstat')
+        
+        return $outputObject
 	}
 }
