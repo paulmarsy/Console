@@ -1,42 +1,42 @@
 function Open-Location {
     [CmdletBinding()]
     param(
+        [Parameter(Position = 0)]$Path = $PWD.Path,
         [ValidateSet(
-        	"InstallPath",
-
             "PowerShellProfile",
-
-            "PowerShellConsoleModule",
-            "ConsoleModule",
-        	"ConsoleGitHub",
-
-            "CurrentDirectory",
-
-            "Dir",
-        	"Directory",
-        	"Folder",
-
+            
             "Home",
-        	"PowerShellUserFolder",
+            "PowerShellUserFolder",
         	"UserFolder",
 
         	"PowerShellScripts",
             "UserScripts",
-
+        	
             "PowerShellAppData",
-
+            
+            "InstallPath",
+            "PowerShellConsoleModule",
+            "ConsoleModule",
         	"PowerShellTemp",
-
-        	"SystemTemp",
+        	"ConsoleGitHub",
+            
         	"Documents",
         	"Desktop",
-        	"Computer",
+
+            "Computer",
+            "NetworkConnections",
+            
             "AppData",
             "LocalAppData",
             "ProgramData",
-            "PowerShellInstall"
-        )][Parameter(Position = 0)]$Location = "Folder",
-        [Parameter(Position = 1, ValueFromRemainingArguments=$true)]$Path = $PWD.Path,
+        	"SystemTemp",
+            "PowerShellInstall",
+
+            "CurrentDirectory",
+            "Dir",
+        	"Directory",
+        	"Folder"
+        )][Parameter(Position = 1)]$Location = "Folder",
         [switch]$Shell,
         [switch]$AtomEditor
     )
@@ -62,24 +62,7 @@ function Open-Location {
         $type = "Folder"
         $Path = switch ($Location)
         {
-            "InstallPath" { $ProfileConfig.Module.InstallPath }
-
             "PowerShellProfile" { Split-Path $PROFILE.CurrentUserAllHosts -Parent }
-
-            "PowerShellConsoleModule" { $ProfileConfig.ConsolePaths.PowerShell }
-            "ConsoleModule" { $ProfileConfig.ConsolePaths.PowerShell }
-            "ConsoleGitHub" {
-                $type = "URL"
-                _workOnConsoleWorkingDirectory {
-                     & git config --get remote.origin.url
-                } -ReturnValue
-            }
-
-            "CurrentDirectory" { $PWD.Path }
-
-            "Dir" { $Path }
-            "Directory" { $Path }
-            "Folder" { $Path }
 
             "Home" { $ProfileConfig.General.UserFolder }
             "PowerShellUserFolder" { $ProfileConfig.General.UserFolder }
@@ -90,16 +73,33 @@ function Open-Location {
 
             "PowerShellAppData" { $ProfileConfig.Module.AppSettingsFolder }
 
+            "InstallPath" { $ProfileConfig.Module.InstallPath }
+            "PowerShellConsoleModule" { $ProfileConfig.ConsolePaths.PowerShell }
+            "ConsoleModule" { $ProfileConfig.ConsolePaths.PowerShell }
             "PowerShellTemp" { $ProfileConfig.General.TempFolder }
-
-            "SystemTemp" { [System.IO.Path]::GetTempPath() }
+            "ConsoleGitHub" {
+                $type = "URL"
+                _workOnConsoleWorkingDirectory {
+                     & git config --get remote.origin.url
+                } -ReturnValue
+            }
+            
             "Documents" { [Environment]::GetFolderPath([Environment+SpecialFolder]::MyDocuments) }
             "Desktop" {  [Environment]::GetFolderPath([Environment+SpecialFolder]::Desktop) }
+            
             "Computer" { "::{20d04fe0-3aea-1069-a2d8-08002b30309d}" }
+            "NetworkConnections" { "::{7007ACC7-3202-11D1-AAD2-00805FC1270E}" }
+            
             "AppData" { $Env:APPDATA }
             "LocalAppData" { $Env:LOCALAPPDATA }
             "ProgamData" { $Env:ProgramData }
+            "SystemTemp" { [System.IO.Path]::GetTempPath() }
             "PowerShellInstall" { [System.Diagnostics.Process]::GetCurrentProcess() | % Path | Split-Path -Parent }
+            
+            "CurrentDirectory" { $PWD.Path }
+            "Dir" { $Path }
+            "Directory" { $Path }
+            "Folder" { $Path }
         }
         if ($type -eq "URL") { Open-UrlWithDefaultBrowser -Url $Path }
         elseif ($type -eq "Folder") {
