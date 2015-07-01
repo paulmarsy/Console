@@ -1,7 +1,6 @@
 function Open-Location {
     [CmdletBinding()]
     param(
-        [Parameter(Position = 0)]$Path = $PWD.Path,
         [ValidateSet(
             "PowerShellProfile",
             
@@ -36,7 +35,8 @@ function Open-Location {
             "Dir",
         	"Directory",
         	"Folder"
-        )][Parameter(Position = 1)]$Location = "Folder",
+        )][Parameter(Position = 0)]$Location = "Folder",
+        [Parameter(Position = 1, ValueFromRemainingArguments=$true)]$Path = $PWD.Path,
         [switch]$Shell,
         [switch]$AtomEditor
     )
