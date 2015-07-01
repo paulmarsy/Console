@@ -12,5 +12,5 @@ if (-not [string]::IsNullOrWhiteSpace($PowerShellConsoleStartUpMessage)) {
 	Write-Host
 
     $Env:PowerShellConsoleStartUpMessage = $null
-    Start-Process -FilePath $PowerShellConsoleConstants.Executables.ConEmuC -NoNewWindow -ArgumentList "/EXPORT PowerShellConsoleStartUpMessage"
+    Start-Process -FilePath $PowerShellConsoleConstants.Executables.ConEmuC -WindowStyle Hidden -ArgumentList "/EXPORT PowerShellConsoleStartUpMessage"
 }

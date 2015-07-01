@@ -23,6 +23,7 @@ if ($consoleGitHubSyncerCheck.ExitCode -eq 1306) {
 		Write-Host -ForegroundColor Green "Mutex squired"
 	}
 	[System.Diagnostics.Process]::Start($PowerShellConsoleConstants.Executables.Hstart, "`"`"$consoleGitHubSyncer`" -UpdateLocal `"$($PowerShellConsoleConstants.InstallPath.TrimEnd('\'))`" `"$($PowerShellConsoleConstants.Executables.ConEmu)`" `"/cmd {PowerShell}`" `"")
+	Start-Process -FilePath $PowerShellConsoleConstants.Executables.ConEmuC -ArgumentList "-GuiMacro Close(8)" -Wait -NoNewWindow
 	Get-Host | % SetShouldExit 0
 } elseif ($consoleGitHubSyncerCheck.ExitCode -eq 0) {
 	$ProfileConfig.Git.LastAutoSyncTickTime = [long](Get-Date | Select-Object -ExpandProperty Ticks)
