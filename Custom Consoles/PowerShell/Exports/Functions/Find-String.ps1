@@ -3,6 +3,7 @@ function Find-String {
 	param(
 		[Parameter(Position=0,Mandatory=$true)]$Pattern,
 		$Path = $PWD,
+        $Exclude = @('*\bin\*', '*\obj\*', '*\.git\*', '*\.hg\*', '*\.svn\*', '*\_ReSharper\*'),
 		[switch]$ShowContext,
 		[switch]$IncludeLargeFiles
     )
@@ -12,12 +13,18 @@ function Find-String {
 	$searchErrors = @()
 
 	Write-Host "Finding '$Pattern' in $Path...`n" -ForegroundColor White
-	Get-ChildItem -Path $Path -Recurse -File -ErrorAction SilentlyContinue -ErrorVariable +searchErrors | 
-		? { $IncludeLargeFiles -or $_.Length -le $maxFileSizeToSearchInBytes } | 
+	Get-ChildItem -Path $Path -Recurse -File -ErrorAction SilentlyContinue -ErrorVariable +searchErrors |
 		? {
+			$FullName = $_.FullName
+			if ($Exclude | % { if ($FullName -like $_) { return $true } }) { return $false }
+
+			if (-not $IncludeLargeFiles -and $_.Length -ge $maxFileSizeToSearchInBytes) { return $false }
+
+			
 			$byteArray = Get-Content -Path $_.FullName -Encoding Byte -TotalCount 1KB -ErrorAction SilentlyContinue -ErrorVariable +searchErrors
 			if ($null -eq $byteArray -or $byteArray -contains 0) { return $false }
-			else { return $true }
+
+			return $true
 		} |
 		Select-String -Pattern ([Regex]::Escape($Pattern)) -AllMatches -Context 2 -ErrorAction SilentlyContinue -ErrorVariable +searchErrors  |
 		Group-Object -Property Path |
