@@ -14,6 +14,8 @@
             ERROR_BAD_COMMAND = 22, // The device does not recognize the command. An error occured,
             ERROR_NOT_SUPPORTED = 50 // The request is not supported. We are not running in an extensible environment which shouldn't be altered in any way.
         }
+        
+        private const string ConEmuCRelativePath = @"Libraries\ConEmu\ConEmu\ConEmuC64.exe";
 
         private static readonly IList<string> ValidProcessNames = new[] {"powershell", "cmd"};
         private static readonly IList<string> ValidParentProcessNames = new[] {"ConEmuC", "ConEmuC64"};
@@ -41,6 +43,20 @@
                 return currentProcessCheck;
 
             var parentProcess = currentProcess.Parent();
+            if (parentProcess.ProcessName == currentProcess.ProcessName)
+                return ExitCode.ERROR_NOT_SUPPORTED;
+
+            var conemuC = Process.Start(new ProcessStartInfo
+                {
+                    FileName = System.IO.Path.Combine(Environment.GetEnvironmentVariable("CustomConsolesInstallPath"), ConEmuCRelativePath),
+                    Arguments = "/IsConEmu",
+                    CreateNoWindow = true,
+                    UseShellExecute = false
+                });
+            conemuC.WaitForExit(250);
+            if (conemuC.ExitCode == 1)
+                return ExitCode.ERROR_SUCCESS;
+
             var parentProcessCheck = CheckProcess(parentProcess);
             if (parentProcessCheck == ExitCode.ERROR_NOT_SUPPORTED)
             {
