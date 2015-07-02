@@ -1,6 +1,9 @@
 function Get-NetStat
 {
-    & NETSTAT.EXE -aof | Select-Object -Skip 4 | % {
+    param(
+        [switch]$ResolveAddresses
+    )
+    & NETSTAT.EXE -ao (?: { $ResolveAddresses } { "-f" } { "-n" })| Select-Object -Skip 4 | % {
         $entry = ($_.Trim()) -split "\s+"
         $local = $entry[1] -split ":"
         $remote = $entry[2] -split ":"
