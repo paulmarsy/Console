@@ -13,6 +13,10 @@ param (
 
 Set-StrictMode -Version Latest
 
+trap {
+	(Get-Host).SetShouldExit(1)
+}
+
 . "..\Load Dependencies.ps1"
 
 $processInstallStepFiles = {

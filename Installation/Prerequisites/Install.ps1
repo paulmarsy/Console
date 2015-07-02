@@ -21,4 +21,5 @@ try {
 catch {
     Write-Host -ForegroundColor Red "Installation has failed:"
     Write-Host -ForegroundColor Red $_
+    (Get-Host).SetShouldExit(1)
 }
