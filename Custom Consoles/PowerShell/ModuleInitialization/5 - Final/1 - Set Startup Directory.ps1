@@ -5,7 +5,7 @@ $PowerShellConsolePath = [System.Environment]::GetEnvironmentVariable("PowerShel
 if (-not [string]::IsNullOrWhiteSpace($PowerShellConsolePath)) {
     Set-Location -Path $PowerShellConsolePath
     $Env:PowerShellConsoleStartUpPath = $null
-    Start-Process -FilePath $PowerShellConsoleConstants.Executables.ConEmuC -WindowStyle Hidden -ArgumentList "/EXPORT PowerShellConsoleStartUpPath"
+    Start-Process -FilePath $PowerShellConsoleConstants.Executables.ConEmuC -NoNewWindow -ArgumentList "/SILENT /EXPORT PowerShellConsoleStartUpPath"
 } else {
 	Set-Location -Path $ProfileConfig.General.UserFolder
 }
