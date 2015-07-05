@@ -14,7 +14,7 @@ function Invoke-ConnectionManager {
 
         [Parameter(ParameterSetName="AddDirectDefined",Mandatory=$true,Position=1)][switch]$AddDirectDefined,
         [Parameter(ParameterSetName="AddDirectDefined",Mandatory=$true)]$ComputerName,
-        [Parameter(ParameterSetName="AddDirectDefined",Mandatory=$true)][ValidateSet("PowerShell", "RDC", "RDP", "SSH", "TELNET", "VNC", "UNDEFINED")]$InteractiveType = "UNDEFINED",
+        [Parameter(ParameterSetName="AddDirectDefined",Mandatory=$true)][ValidateSet("PowerShell", "RDC", "RDP", "SSH", "TELNET", "VNC", "HTTP", "HTTPS", "UNDEFINED")]$InteractiveType = "UNDEFINED",
         [Parameter(ParameterSetName="AddDirectDefined")]$Port = $null,
         [Parameter(ParameterSetName="AddDirectDefined")]$Username = $null,
         [Parameter(ParameterSetName="AddDirectDefined")]$Password = $null,
@@ -22,7 +22,7 @@ function Invoke-ConnectionManager {
         [Parameter(ParameterSetName="AddTunnelDefined",Mandatory=$true,Position=1)][switch]$AddTunnelDefined,
         [Parameter(ParameterSetName="AddTunnelDefined",Mandatory=$true)]$TunnelHost,
         [Parameter(ParameterSetName="AddTunnelDefined",Mandatory=$true)]$DestinationHost,
-        [Parameter(ParameterSetName="AddTunnelDefined")][ValidateSet("RDC", "RDP", "SSH", "TELNET", "UNDEFINED")]$DestinationType = "UNDEFINED",
+        [Parameter(ParameterSetName="AddTunnelDefined")][ValidateSet("RDC", "RDP", "SSH", "TELNET", "HTTP", "HTTPS", "UNDEFINED")]$DestinationType = "UNDEFINED",
         [Parameter(ParameterSetName="AddTunnelDefined")]$DestinationPort = -1,
         [Parameter(ParameterSetName="AddTunnelDefined")][Parameter(ParameterSetName="Connect")][switch]$LeaveTunnelOpen,
         [Parameter(ParameterSetName="AddTunnelDefined")]$TunnelPort = $null,

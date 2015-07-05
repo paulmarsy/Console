@@ -2,7 +2,7 @@ function Connect-Remote {
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingConvertToSecureStringWithPlainText', '')] 
     param(
         [Parameter(Mandatory=$true,Position=0)]$ComputerName,
-        [Parameter(Position=1)][ValidateSet("PowerShell", "RDP", "SSH", "TELNET", "VNC")]$InteractiveType = "RDP",
+        [Parameter(Position=1)][ValidateSet("PowerShell", "RDP", "SSH", "TELNET", "VNC", "HTTP", "HTTPS")]$InteractiveType = "RDP",
         [Parameter(Position=2)][ValidateScript({ @("PowerShell") -contains $InteractiveType })]$Command,
         [switch]$UseWindowsLogon,
         [switch]$ResetWindowsLogon,
@@ -118,6 +118,30 @@ function Connect-Remote {
                     Remove-Item -Path $passwordFile -Force
                 }
             } -ArgumentList @($vncExecutable, $arguments, $passwordFile) | Out-Null
+        }
+        "HTTP" {
+            if ($null -eq $Port) { $Port = 80 }
+            $prefix = [string]::Empty
+            if ($null -ne $Username -or $null -ne $Password) {
+                if ($null -ne $Username) { $prefix = $Username }
+                $prefix += ":"
+                if ($null -ne $Password) { $prefix += $Password }
+                $prefix += "@"
+            }
+            
+            Open-UrlWithDefaultBrowser -Url ("http://{0}{1}:{2}/" -f $prefix, $ComputerName, $Port)
+        }
+        "HTTPS" {
+            if ($null -eq $Port) { $Port = 443 }
+            $prefix = [string]::Empty
+            if ($null -ne $Username -or $null -ne $Password) {
+                if ($null -ne $Username) { $prefix = $Username }
+                $prefix += ":"
+                if ($null -ne $Password) { $prefix += $Password }
+                $prefix += "@"
+            }
+            
+            Open-UrlWithDefaultBrowser -Url ("https://{0}{1}:{2}/" -f $prefix, $ComputerName, $Port)
         }
     }
 }
