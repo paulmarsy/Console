@@ -1,3 +1,29 @@
+<a name="v4.11.2"></a>
+# v4.11.2 (2015-07-10)
+
+## :bug: Bug Fixes
+
+- Fix minimap position relying upon node order ([89c3b035](https://github.com/atom-minimap/minimap/commit/89c3b035419a119bd00cc5dcded2b2064589a377), [#358](https://github.com/atom-minimap/minimap/issues/358))
+
+<a name="v4.11.1"></a>
+# v4.11.1 (2015-07-09)
+
+## :bug: Bug Fixes
+
+- Fix leak minimap ([7b3c65ba](https://github.com/atom-minimap/minimap/commit/7b3c65bac13c93474b934de10f542a5e64fe092f))
+
+<a name="v4.11.0"></a>
+# v4.11.0 (2015-07-08)
+
+## :sparkles: Features
+
+- Add plugins templates for vanilla javascript and babel ([3511ef2b](https://github.com/atom-minimap/minimap/commit/3511ef2b55b323675e2ca1807cfd652f1f67fb17))
+
+## :bug: Bug Fixes
+
+- Fix quick settings button partially hidden by scrollbar in absolute mode ([a41f5d61](https://github.com/atom-minimap/minimap/commit/a41f5d61947ad02664d53882df70724a8236ce90), [#345](https://github.com/atom-minimap/minimap/issues/345))
+
+
 <a name="v4.10.2"></a>
 # v4.10.2 (2015-07-02)
 
