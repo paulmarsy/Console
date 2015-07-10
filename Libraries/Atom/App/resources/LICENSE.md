@@ -230,7 +230,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: ansi-regex@1.1.1
+Package: ansi-regex@2.0.0
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -259,7 +259,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: ansi-styles@2.0.1
+Package: ansi-styles@2.1.0
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -533,7 +533,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: ast-types@0.7.6
+Package: ast-types@0.7.8
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -878,7 +878,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: atom@1.0.0
+Package: atom@1.0.2
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -1030,7 +1030,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: autosave@0.21.0
+Package: autosave@0.22.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -1133,7 +1133,7 @@ Source Text:
 <content omitted>
 -------------------------------------------------------------------------
 
-Package: babel-core@5.6.7
+Package: babel-core@5.6.15
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -1586,7 +1586,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: chalk@1.0.0
+Package: chalk@1.1.0
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -2500,7 +2500,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: define-properties@1.0.2
+Package: define-properties@1.1.0
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -2675,7 +2675,7 @@ Clones the current set of dependencies into its own object.
 
 -------------------------------------------------------------------------
 
-Package: deprecation-cop@0.52.0
+Package: deprecation-cop@0.53.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -2892,7 +2892,7 @@ MIT
 
 -------------------------------------------------------------------------
 
-Package: encoding-selector@0.20.0
+Package: encoding-selector@0.21.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -3185,7 +3185,7 @@ SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: exception-reporting@0.25.0
+Package: exception-reporting@0.35.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -3243,7 +3243,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: find-and-replace@0.174.0
+Package: find-and-replace@0.174.2
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -3299,7 +3299,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: first-mate@4.1.7
+Package: first-mate@4.1.8
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -4088,7 +4088,7 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 IN THE SOFTWARE.
 -------------------------------------------------------------------------
 
-Package: has-ansi@1.0.3
+Package: has-ansi@2.0.0
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -4233,7 +4233,7 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -------------------------------------------------------------------------
 
-Package: iconv-lite@0.4.10
+Package: iconv-lite@0.4.11
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -4629,7 +4629,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: jasmine-reporters@2.0.6
+Package: jasmine-reporters@2.0.7
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -4721,7 +4721,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: js-beautify@1.5.7
+Package: js-beautify@1.5.10
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -5041,7 +5041,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-gfm@0.77.0
+Package: language-gfm@0.78.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -5075,7 +5075,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-go@0.27.0
+Package: language-go@0.30.0
 License: MIT
 License Source: package.json
 
@@ -5087,7 +5087,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-hyperlink@0.13.0
+Package: language-hyperlink@0.14.0
 License: MIT
 License Source: package.json
 
@@ -5111,7 +5111,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-less@0.27.0
+Package: language-less@0.28.0
 License: MIT
 License Source: package.json
 
@@ -5123,7 +5123,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-mustache@0.11.0
+Package: language-mustache@0.12.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -5157,13 +5157,13 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-perl@0.26.0
+Package: language-perl@0.28.0
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-php@0.26.0
+Package: language-php@0.27.0
 License: MIT
 License Source: package.json
 
@@ -5175,7 +5175,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-python@0.36.0
+Package: language-python@0.37.0
 License: MIT
 License Source: package.json
 
@@ -5574,9 +5574,9 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: lodash@3.9.3
+Package: lodash@3.10.0
 License: MIT
-License Source: LICENSE.txt
+License Source: LICENSE
 Source Text:
 
 Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
@@ -5661,7 +5661,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: lru-cache@2.6.4
+Package: lru-cache@2.6.5
 License: ISC
 License Source: LICENSE
 Source Text:
@@ -6377,7 +6377,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 -------------------------------------------------------------------------
 
-Package: notifications@0.56.0
+Package: notifications@0.57.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -6553,7 +6553,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: object-keys@1.0.4
+Package: object-keys@1.0.5
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -6604,7 +6604,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: one-dark-syntax@0.7.1
+Package: one-dark-syntax@1.0.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -6632,7 +6632,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: one-dark-ui@0.9.1
+Package: one-dark-ui@1.0.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -6660,7 +6660,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: one-light-syntax@0.7.0
+Package: one-light-syntax@1.0.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -6688,7 +6688,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: one-light-ui@0.9.1
+Package: one-light-ui@1.0.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -6916,7 +6916,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: package-generator@0.39.0
+Package: package-generator@0.40.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -6941,6 +6941,35 @@ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
 LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-------------------------------------------------------------------------
+
+Package: path-exists@1.0.0
+License: MIT
+License Source: LICENSE
+Source Text:
+
+The MIT License (MIT)
+
+Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
@@ -6973,7 +7002,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: pathwatcher@4.4.1
+Package: pathwatcher@4.4.3
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -7443,7 +7472,7 @@ IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: recast@0.10.13
+Package: recast@0.10.16
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -7782,7 +7811,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: roaster@1.1.3
+Package: roaster@1.2.0
 License: MIT
 License Source: LICENSE.txt
 Source Text:
@@ -8055,7 +8084,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: settings-view@0.208.0
+Package: settings-view@0.211.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -8229,7 +8258,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: solarized-dark-syntax@0.35.0
+Package: solarized-dark-syntax@0.38.1
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -8257,7 +8286,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: solarized-light-syntax@0.21.0
+Package: solarized-light-syntax@0.22.1
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -8326,7 +8355,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: source-map@0.4.2
+Package: source-map@0.4.3
 License: BSD
 License Source: package.json
 
@@ -8740,6 +8769,33 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
+Package: stack-trace@0.0.9
+License: MIT
+License Source: LICENSE
+Source Text:
+
+Copyright (c) 2011 Felix Geisendörfer (felix@debuggable.com)
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+
+-------------------------------------------------------------------------
+
 Package: stacktrace-parser@0.1.1
 License: MIT
 License Source: README
@@ -8797,7 +8853,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: status-bar@0.74.0
+Package: status-bar@0.75.1
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -8943,9 +8999,32 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: strip-ansi@2.0.1
+Package: strip-ansi@3.0.0
 License: MIT
-License Source: package.json
+License Source: LICENSE
+Source Text:
+
+The MIT License (MIT)
+
+Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
@@ -8983,7 +9062,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: supports-color@1.3.1
+Package: supports-color@2.0.0
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -9012,7 +9091,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: symbols-view@0.99.0
+Package: symbols-view@0.100.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -9040,7 +9119,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: tabs@0.81.0
+Package: tabs@0.82.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -9101,7 +9180,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 -------------------------------------------------------------------------
 
-Package: task-lists@0.1.3
+Package: task-lists@0.2.0
 License: MIT
 License Source: LICENSE.txt
 Source Text:
@@ -9182,7 +9261,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: text-buffer@6.3.7
+Package: text-buffer@6.3.8
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -9238,7 +9317,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: through@2.3.7
+Package: through@2.3.8
 License: MIT
 License Source: package.json
 
@@ -9368,7 +9447,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: tree-view@0.172.0
+Package: tree-view@0.177.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -9452,7 +9531,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: tunnel-agent@0.4.0
+Package: tunnel-agent@0.4.1
 License: Apache
 License Source: LICENSE
 Source Text:
@@ -10080,7 +10159,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: window-size@0.1.1
+Package: window-size@0.1.2
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -10278,7 +10357,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: yargs@3.13.0
+Package: yargs@3.15.0
 License: MIT
 License Source: LICENSE
 Source Text:
