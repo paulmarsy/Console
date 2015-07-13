@@ -97,6 +97,7 @@ function Connect-Remote {
             if ($null -ne $UserName) {
                 $arguments += "UserName=`"$($UserName)`""
             }
+            
             if ($null -ne $Password) {
                 $obfuscatedPassword = & (Join-Path $ProfileConfig.Module.InstallPath 'Libraries\Custom Helper Apps\VncPassword\vncpassword.exe') "$Password" | % {
                     [byte]::Parse($_, [System.Globalization.NumberStyles]::AllowHexSpecifier)
@@ -104,6 +105,8 @@ function Connect-Remote {
                 $passwordFile = [System.IO.Path]::GetTempFileName()
                 [System.IO.File]::WriteAllBytes($passwordFile, $obfuscatedPassword)
                 $arguments += "PasswordFile=`"$($passwordFile)`""
+            } else {
+                $PasswordFile = $null
             }
 
             if ($null -ne $Port) { $arguments += "$($ComputerName):{0}" -f $Port }
