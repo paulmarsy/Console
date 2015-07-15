@@ -59,6 +59,10 @@ function Open-Location {
     }
 
     PROCESS {
+        if (($PSCmdlet | % MyInvocation | % InvocationName) -eq "browse" -and -not $Shell) {
+            $Shell = $true
+        }
+        
         $type = "Folder"
         $Path = switch ($Location)
         {
