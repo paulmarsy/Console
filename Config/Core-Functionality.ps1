@@ -19,6 +19,7 @@ $private:FunctionExportsRoot = Join-Path $InstallPath "Custom Consoles\PowerShel
     "Customisation Helpers\User Scripts\_Internal\_Remove-ExistingUserScripts.ps1"
     "Customisation Helpers\User Scripts\Import-UserScripts.ps1"
     "PowerShell Utilities\Test-PowerShellScriptSyntax.ps1"
+    "PowerShell Utilities\Test-PowerShellScript.ps1"
     "PowerShell Utilities\Test-PowerShellDirectory.ps1"
     "Windows\ConvertTo-DirectoryJunction.ps1"
     "Invoke-Ternary.ps1"

@@ -32,7 +32,8 @@ function _Import-UserScripts {
     Push-Location $AutoFolder
     Write-Host -NoNewLine "Loading auto incude files from $(Split-Path -Path $AutoFolder -Leaf) folder... "
     $hasOutput = $false
-    Get-ChildItem -Path $AutoFolder -Filter *.ps1 -Recurse -File | % {
+    $file = [string]::Empty
+    Get-ChildItem -Path $AutoFolder -Filter *.ps1 -Recurse -File -PipelineVariable file | % {
         try {
             . "$($_.FullName)" | % {
                 if (-not $hasOutput) {
@@ -42,7 +43,7 @@ function _Import-UserScripts {
                 Write-Host -ForegroundColor DarkGray ("`t{0}" -f $_)
             }
         }
-        catch { Write-Host; Write-Error "There was an error importing the automatically included file $($_.Name): $($_.Exception.Message)" }
+        catch { Write-Host; Write-Error "There was an error importing the automatically included file $($file.Name): $($_.Exception.Message)" }
     }
     Write-Host -ForegroundColor Green "$(?: { $hasOutput } { " ..." })Done"
     Pop-Location

@@ -5,6 +5,27 @@ function Import-UserScripts {
         $ExportExclusionPattern = "_*.ps1",
         [switch]$ModuleInit
     )
+    
+    if ((Test-PowerShellScript -File $IncludeFile -Quiet:$ModuleInit) -eq $false) {
+        $message = "User's custom include script file has errors, unable to continue."
+        if ($ModuleInit) {
+            Write-Host -ForegroundColor Red $message
+            return
+        } else {
+            throw $message
+        }
+    }
+    
+    $autoIncludeValidationProblems = Test-PowerShellDirectory -Directory $AutoFolder -ReturnNumberOfProblems -Quiet:$ModuleInit
+	if ($autoIncludeValidationProblems -gt 0) {
+        $message = "User's auto-included scripts have $autoIncludeValidationProblems errors, unable to continue."
+        if ($ModuleInit) {
+            Write-Host -ForegroundColor Red $message
+            return
+        } else {
+            throw $message
+        }
+	}
 
     _Remove-ExistingUserScripts
 
