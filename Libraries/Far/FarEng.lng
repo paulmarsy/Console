@@ -1,6 +1,6 @@
 ﻿.Language=English,English
 
-//Version: 3.0 build 4242
+//Version: 3.0 build 4400
 
 "Yes"
 "No"
@@ -484,7 +484,9 @@
 "Cannot write data to"
 
 "Files processed: %1"
-"Files processed: %1 of %2"
+"Files: %1 / %2"
+"Bytes processed: %1"
+"Bytes: %1 / %2"
 "Moving the file"
 "Copying the file"
 "to"
@@ -2685,6 +2687,7 @@
 "Do this for &all current objects"
 "Do not ask again in the current session"
 "History"
+"Environment"
 "Files"
 "Object is being %1 in:"
 "played"

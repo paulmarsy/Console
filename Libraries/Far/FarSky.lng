@@ -1,6 +1,6 @@
 ﻿.Language=Slovak,Slovak (Slovenčina)
 
-//Version: 3.0 build 4242
+//Version: 3.0 build 4400
 
 "Áno"
 "Nie"
@@ -467,7 +467,12 @@
 "Nemôžem zapísať dáta do"
 
 "Spracované súbory: %1"
-"Spracované súbory: %1 z %2"
+// need translation:
+"Files: %1 / %2"
+// need translation:
+"Bytes processed: %1"
+// need translation:
+"Bytes: %1 / %2"
 "Presúvam súbor"
 "Kopírujem súbor"
 "do"
@@ -2709,6 +2714,8 @@
 "Urobiť to so všetkými &aktuálnymi objektmi"
 "Nepýtať sa znova v aktuálnej relácii"
 "História"
+// need translation:
+"Environment"
 "Súbory"
 "Objekt %1 v:"
 "sa prehráva"

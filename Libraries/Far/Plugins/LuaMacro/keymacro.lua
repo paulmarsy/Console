@@ -9,8 +9,8 @@ Shared = nil
 local F = far.Flags
 
 -- enum MACROPLUGINRETURNTYPE
-local MPRT_NORMALFINISH, MPRT_ERRORFINISH, MPRT_HASNOMACRO =
-      F.MPRT_NORMALFINISH, F.MPRT_ERRORFINISH, F.MPRT_HASNOMACRO
+local MPRT_NORMALFINISH, MPRT_ERRORFINISH, MPRT_HASNOMACRO, MPRT_PLUGINCALL =
+      F.MPRT_NORMALFINISH, F.MPRT_ERRORFINISH, F.MPRT_HASNOMACRO, F.MPRT_PLUGINCALL
 
 -- enum FARMACROSTATE
 local MACROSTATE_NOMACRO, MACROSTATE_EXECUTING, MACROSTATE_EXECUTING_COMMON =
@@ -21,14 +21,13 @@ local MFLAGS_ENABLEOUTPUT, MFLAGS_NOSENDKEYSTOPLUGINS, MFLAGS_POSTFROMPLUGIN =
       0x1, 0x2, 0x10000000
 
 local KEY_NONE = 0x30001
+local MCODE_F_PLUGIN_CALL = 0x80C4F
 
 local type, setmetatable = type, setmetatable
 local bit = bit or bit64
 local band, bor, bxor, lshift = bit.band, bit.bor, bit.bxor, bit.lshift
 local far_MacroCallFar = far.MacroCallFar
-
 local far_FarMacroCallToLua = far.FarMacroCallToLua
-far.FarMacroCallToLua = nil
 --------------------------------------------------------------------------------
 
 local MCODE_F_KEYMACRO = 0x80C68
@@ -136,7 +135,6 @@ end
 local KeyMacro = {}
 local CurState = NewMacroState()
 local StateStack = NewStack()
-local LastMessage = {}
 local MacroIsRunning = 0
 --------------------------------------------------------------------------------
 
@@ -225,13 +223,7 @@ local function ACall (macro, param)
 end
 
 local function GetInputFromMacro()
-  if utils.LoadingInProgress() then
-    return false
-  end
-
-  local r1,r2
   while true do
-    r1,r2 = nil,nil
     while MacroIsRunning==0 and not GetCurMacro() do
       if StateStack[1] then
         PopState(true)
@@ -261,11 +253,12 @@ local function GetInputFromMacro()
     MacroIsRunning = MacroIsRunning + 1
     PushState(false)
     local value, handle = macro:GetValue(), macro:GetHandle()
-    if type(value) == "userdata" then
+    local r1,r2
+    if type(value) == "userdata" then  -- Plugin.Call/SyncCall
       r1,r2 = MacroStep(handle, far_FarMacroCallToLua(value))
-    elseif type(value) == "table" then
+    elseif type(value) == "table" then -- mf.acall, eval
       r1,r2 = MacroStep(handle, unpack(value,1,value.n))
-    elseif value ~= nil then
+    elseif value ~= nil then           -- Plugin.Menu/Config/Command, ...
       r1,r2 = MacroStep(handle, value)
     else
       r1,r2 = MacroStep(handle)
@@ -274,7 +267,12 @@ local function GetInputFromMacro()
     macro:SetValue(nil)
     MacroIsRunning = MacroIsRunning - 1
 
+    if band(macro:GetFlags(),MFLAGS_ENABLEOUTPUT) == 0 then
+      Import.ScrBufLock()
+    end
+
     if r1 == MPRT_NORMALFINISH or r1 == MPRT_ERRORFINISH then
+      if macro.caller then macro.caller:SetValue(r1==MPRT_NORMALFINISH and r2) end
       if band(macro:GetFlags(),MFLAGS_ENABLEOUTPUT) == 0 then
         Import.ScrBufUnlock()
       end
@@ -282,25 +280,18 @@ local function GetInputFromMacro()
       if not GetCurMacro() then
         Import.RestoreMacroChar()
       end
+    elseif r1 == MPRT_PLUGINCALL then
+      KeyMacro.CallPlugin(r2, true)
+    elseif r1 == "acall" then
+      ACall(macro, r2)
+    elseif r1 == "eval" then
+      local m = r2[1]
+      PushState(true)
+      KeyMacro.PostNewMacro(m, m.flags, r2[2], false).caller = macro
     else
-      if band(macro:GetFlags(),MFLAGS_ENABLEOUTPUT) == 0 then
-        Import.ScrBufLock()
-      end
-      break
+      return r1,r2
     end
   end
-
-  if r1 == "acall" then
-    ACall(GetCurMacro(), r2)
-    return GetInputFromMacro() -- tail recursion
-  elseif r1 == "eval" then
-    local m = r2[1]
-    PushState(true)
-    KeyMacro.PostNewMacro(m, m.flags, r2[2], false)
-    return GetInputFromMacro() -- tail recursion
-  end
-
-  return r1,r2
 end
 
 -- (1) mf.eval        (2) keypress macro   (3) mf.postmacro
@@ -311,7 +302,9 @@ function KeyMacro.PostNewMacro (macroId, flags, textKey, postFromPlugin)
     flags = bor(flags, MFLAGS_POSTFROMPLUGIN)
   end
   local aKey = textKey and Import.KeyNameToKey(textKey) or 0
-  CurState.MacroQueue:add(NewMacroRecord(macroId, flags, aKey, textKey))
+  local macro = NewMacroRecord(macroId, flags, aKey, textKey)
+  CurState.MacroQueue:add(macro)
+  return macro
 end
 
 local function TryToPostMacro (Mode, TextKey, IntKey)
@@ -378,30 +371,58 @@ function KeyMacro.TransformKey (key)
   end
 end
 
-local OP_PUSHSTATE          =  1
-local OP_POPSTATE           =  2
-local OP_ISEXECUTING        =  3
-local OP_ISDISABLEOUTPUT    =  4
-local OP_HISTORYDISABLEMASK =  5
-local OP_ISHISTORYDISABLE   =  6
-local OP_ISTOPMACROOUTPUTDISABLED = 7
-local OP_ISMACROQUEUEEMPTY  =  8
-local OP_GETSTATESTACKSIZE  =  9
-local OP_POSTNEWMACRO       = 10
-local OP_SETMACROVALUE      = 11
-local OP_GETINPUTFROMMACRO  = 12
-local OP_TRYTOPOSTMACRO     = 13
+function KeyMacro.CallPlugin (Params, AsyncCall)
+  local Result = false
+  if type(Params[1]) == "string" then
+    local EntryStackSize = #StateStack
+
+    if AsyncCall then
+      Result = true
+      GetCurMacro():SetValue(true)
+      PushState(true)
+    end
+
+    local lockCount = Import.ScrBufGetLockCount()
+    Import.ScrBufSetLockCount(0)
+    local ResultCallPlugin = far_MacroCallFar(MCODE_F_PLUGIN_CALL, AsyncCall, unpack(Params,1,Params.n))
+    Import.ScrBufSetLockCount(lockCount)
+
+    local isSynchroCall = true
+    if AsyncCall then
+      if #StateStack > EntryStackSize then -- эта проверка нужна, т.к. PopState() мог уже быть вызван.
+        PopState(true)
+      else
+        isSynchroCall = false
+      end
+    end
+
+    if isSynchroCall then
+      Result = ResultCallPlugin
+      if AsyncCall then
+        GetCurMacro():SetValue(Result)
+      end
+    end
+  end
+  return Result
+end
+
+local OP_ISEXECUTING              = 1
+local OP_ISDISABLEOUTPUT          = 2
+local OP_HISTORYDISABLEMASK       = 3
+local OP_ISHISTORYDISABLE         = 4
+local OP_ISTOPMACROOUTPUTDISABLED = 5
+local OP_ISPOSTMACROENABLED       = 6
+local OP_POSTNEWMACRO             = 7
+local OP_SETMACROVALUE            = 8
+local OP_GETINPUTFROMMACRO        = 9
+local OP_TRYTOPOSTMACRO           = 10
 
 function KeyMacro.Dispatch (opcode, ...)
   local p1 = (...)
   if opcode == OP_ISEXECUTING then
     return IsExecuting()
   elseif opcode == OP_GETINPUTFROMMACRO then
-    return GetInputFromMacro()
-  elseif opcode == OP_PUSHSTATE then
-    PushState(p1)
-  elseif opcode == OP_POPSTATE then
-    PopState(p1)
+    if not utils.LoadingInProgress() then return GetInputFromMacro() end
   elseif opcode == OP_ISDISABLEOUTPUT then
     return IsDisableOutput()
   elseif opcode == OP_HISTORYDISABLEMASK then
@@ -413,10 +434,8 @@ function KeyMacro.Dispatch (opcode, ...)
   elseif opcode==OP_ISTOPMACROOUTPUTDISABLED then
     local mr = GetTopMacro()
     return mr and 0==band(mr:GetFlags(),MFLAGS_ENABLEOUTPUT) and 1 or 0
-  elseif opcode == OP_ISMACROQUEUEEMPTY then
-    return GetCurMacro() and 0 or 1
-  elseif opcode == OP_GETSTATESTACKSIZE then
-    return #StateStack
+  elseif opcode == OP_ISPOSTMACROENABLED then
+    return not (IsExecuting() and GetCurMacro()) and 1 or 0
   elseif opcode == OP_POSTNEWMACRO then -- from API MacroControl(MSSC_POST)
     local Lang,Code,Flags,AKey = ...
     local f1,f2 = loadmacro(Lang,Code)

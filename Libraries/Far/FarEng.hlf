@@ -37,10 +37,11 @@
 @History.ViewEditHistory.Count=History.Config
 @History.ViewEditHistory.Lifetime=History.Config
 @Viewer.F8CPs=Editor.F8CPs
+@Editor.WordDiv=System.WordDiv
 
 @Contents
 $^#File and archive manager#
-$^#3.0 build 4242 x64#
+$^#3.0 build 4400 x64#
 $^#Copyright © 1996-2000 Eugene Roshal#
 $^#Copyright © 2000-2015 Far Group#
    ~Help file index~@Index@
@@ -272,7 +273,7 @@ resides and place the cursor on the file, if it exists;
   - ^<wrap>when prefixes specified (simultaneous use with common paths allowed)
 passive command executes first (passive panel activates temporary).
 Single letter prefixes A-Z or conflicted with disk letter will be ignored.
-  Example: far arc:c:\\Far20.7z "macro:post msgbox('Far Manager','Successfully started')"
+  Example: far arc:c:\\Far20.7z "lua:msgbox('Far Manager','Successfully started')"
 
 
 @KeyRef
@@ -2820,8 +2821,14 @@ $ #Viewer: control keys#
     #LeftCtrl-0..9#      Go to bookmark 0..9
 
     #Ctrl-Ins, Ctrl-C#   Copy the text highlighted as a result of
-                       the search to the clipboard.
-    #Ctrl-U#             Remove the highlighting of the search results.
+                       the search or manual selection to the clipboard.
+    #Ctrl-U#             Remove the highlighting of the selected text.
+    #Shift-Клик мыши#    Manual text selection.
+                       Если курсор находится над текстом, первый
+                       клик задаёт начало области выделения текста,
+                       второй клик - конец области. Между первым и вторым
+                       кликом можно использовать любые клавиши навигации.
+                       Второй коик может быть выше первого.
 
     See also the list of ~macro keys~@KeyMacroViewerList@, available in the viewer.
 
@@ -3913,8 +3920,9 @@ on. The last item, "Alternative full", corresponds to view mode called with
   - #Column types# - column types are encoded as one or several
 characters, delimited with commas. Allowed column types are:
 
-    N[M,O,R[F],N] - file name
-                 where: M - show selection marks;
+    N[M[D],O,R[F],N] - file name
+                 where: M - show selection marks
+                            where: D - dynamic selection marks;
                         O - show names without paths
                             (intended mainly for plugins);
                         R - right align names that do not fit in column
@@ -4615,6 +4623,11 @@ zero-size expression.
     #(?<=pattern)# - ^<wrap>the backward lookup. Unfortunately, the pattern must have fixed length.
     #(?<!pattern)# - ^<wrap>the negation of backward lookup. The same restriction.
 
+    Also you can create brackets with name: (?{name}pattern)
+    Name can be empty (in such case you cannot refer to this brackets) or must
+contain word symbols (\w) and spaces (\s).
+
+
     #Quantifiers#
 
     Any character, group or class can be followed by a quantifier:
@@ -4690,12 +4703,14 @@ big amounts of data are processed.
          /.*?name\O=(['"])(.*?)\1\O.*?value\O=(['"])(.*?)\3/
          ^<wrap>Strings containing "name=", but not containing "value=", are processed (in fact, skipped) faster.
 
-    #\NN#  - ^<wrap>reference to earlier matched parentheses . NN is an integer from 0 to 15.
-Each parentheses except (?:pattern), (?=pattern), (?!pattern), (?<=pattern) and (?<!pattern)
+    #\NN#  - ^<wrap>reference to earlier matched parentheses . NN is a positive integer.
+Each parentheses except (?:pattern), (?=pattern), (?!pattern), (?<=pattern), (?<!pattern) and (?{name}pattern)
 have a number (in the order of appearance).
 
          Example:
          "(['"])hello\1" matches to "hello" or 'hello'.
+
+    #\p{name}# - ^<wrap>inner regexp reference to it's parsed bracket with specified #name#.
 
 
     #Examples:#
@@ -4720,12 +4735,13 @@ $ #Regular expressions in replace#
     In "Replace with" line one can use special replace string regular
 expressions:
 
-    #$0#..#$9#, #$A#..#$Z#
+    #$0#..#$N#
 
     The found group numbers, they are replaced with appropriate groups.
 The numbers are assigned to the groups in order of opening parentheses
 sequence in regular expression. #$0# means the whole found sequence.
-#$*# is replaced with '*' character.
+
+    $#{#name#}#     Found pattern with specified #name#.
 
 
 @ElevationDlg
@@ -5871,10 +5887,9 @@ $ #far:config Interface.CursorSizeX#
 
     Изменение этого параметра возможно через ~far:config~@FarConfig@
 
-@Editor.WordDiv
-$ #far:config Editor.WordDiv#
-    Параметр "Editor.WordDiv" позволяет задавать дополнительные (кроме пробела и табуляции) 
-используемые для редактора и строк редактирования символы-разделители слов.
+@System.WordDiv
+$ #far:config System.WordDiv#
+    Параметр "System.WordDiv" позволяет задавать дополнительные (кроме пробела и табуляции) cимволы-разделители слов.
 
     По умолчанию: #~~!%^&*()+|{}:"<>?`-=\\[];',./#
 
@@ -6012,6 +6027,19 @@ $ #far:config Editor.AddUnicodeBOM#
      true  - ^<wrap>BOM добавляется.
 
     По умолчанию значение = true
+
+    Изменение этого параметра возможно через ~far:config~@FarConfig@
+
+@Editor.NewFileUnixEOL
+$ #far:config Editor.NewFileUnixEOL#
+    Параметр "Editor.NewFileUnixEOL" позволяет задавать умолчательные символы конца строки в редакторе
+для вновь создаваемых файлов.
+
+     false - ^<wrap>Во вновь создаваемых файлах строки заканчиваются символами #<CR><LF># - (как в Windows).
+
+     true  - ^<wrap>Во вновь создаваемых файлах строки заканчиваются символом #<LF># - (как в Unix).
+
+    По умолчанию значение = false
 
     Изменение этого параметра возможно через ~far:config~@FarConfig@
 
@@ -6159,8 +6187,8 @@ $ #far:config History.*#
     Изменить эти параметры возможно через ~far:config~@FarConfig@
 
 @Editor.F8CPs
-$ #far:config Editor.F8CP#
-$ #far:config Viewer.F8CP#
+$ #far:config Editor.F8CPs#
+$ #far:config Viewer.F8CPs#
     Строка позволяющая задавать список кодовых страниц используемых при переключении
 кодировки клавишей #F8# в редакторе или просмотрщике.
 
@@ -6174,6 +6202,19 @@ $ #far:config Viewer.F8CP#
 Кроме номеров можно использовать также имена - ANSI/OEM/UTF8/DEFAULT.
 Дубликаты и неподдерживаемые кодовые страницы удаляются.
 Пример: #"ANSI,OEM,65001"#.
+
+    Изменение этого параметра возможно через ~far:config~@FarConfig@
+
+@Panel.Tree.TurnOffCompletely
+$ #far:config Panel.Tree.TurnOffCompletely#
+    Отключает (если = True) режим работы с деревом каталогов в панелях.
+
+    При отключении становятся недоступными для выбора режимы дерева в панелях, поиске каталога (Alt-F10),
+конфигурация дерева в настройках и выбор каталога из дерева в диалогах копирования/перемещения файлов.
+Также не обновляются файлы кеша дерева каталогов (даже если они уже созданы) при создании/удалении/переименовании
+каталогов.
+
+    По умолчанию значение = True
 
     Изменение этого параметра возможно через ~far:config~@FarConfig@
 
@@ -6324,12 +6365,12 @@ $ #Index help file#
    ~far:config Editor.AllowEmptySpaceAfterEof~@Editor.AllowEmptySpaceAfterEof@
    ~far:config Editor.BSLikeDel~@Editor.BSLikeDel@
    ~far:config Editor.CharCodeBase~@Editor.CharCodeBase@
-   ~far:config Editor.F8CP~@Editor.F8CPs@
+   ~far:config Editor.F8CPs~@Editor.F8CPs@
    ~far:config Editor.FileSizeLimit~@Editor.FileSizeLimit@
    ~far:config Editor.KeepEditorEOL~@Editor.KeepEditorEOL@
+   ~far:config Editor.NewFileUnixEOL~@Editor.NewFileUnixEOL@
    ~far:config Editor.ReadOnlyLock~@Editor.ReadOnlyLock@
    ~far:config Editor.UndoDataSize~@Editor.UndoDataSize@
-   ~far:config Editor.WordDiv~@Editor.WordDiv@
    ~far:config Help.ActivateURL~@Help.ActivateURL@
    ~far:config History.*~@History.Config@
    ~far:config Interface.AltF9~@Interface.AltF9@
@@ -6346,6 +6387,7 @@ $ #Index help file#
    ~far:config Panel.ShellRightLeftArrowsRule~@Panel.Layout.ScrollbarMenu@
    ~far:config Panel.ShellRightLeftArrowsRule~@Panel.ShellRightLeftArrowsRule@
    ~far:config Panel.ShortcutAlwaysChdir~@Panel.ShortcutAlwaysChdir@
+   ~far:config Panel.Tree.TurnOffCompletely~@Panel.Tree.TurnOffCompletely@
    ~far:config Policies.ShowHiddenDrives~@Policies.ShowHiddenDrives@
    ~far:config System.AllCtrlAltShiftRule~@System.AllCtrlAltShiftRule@
    ~far:config System.CASRule~@System.CASRule@
@@ -6374,6 +6416,7 @@ $ #Index help file#
    ~far:config System.SubstNameRule~@System.SubstNameRule@
    ~far:config System.SubstPluginPrefix~@System.SubstPluginPrefix@
    ~far:config System.WipeSymbol~@System.WipeSymbol@
+   ~far:config System.WordDiv~@System.WordDiv@
    ~far:config Viewer.SearchWrapStop~@Viewer.SearchWrapStop@
    ~far:config XLat.Flags~@XLat.Flags@
    ~far:config XLat.Layouts~@XLat.Layouts@

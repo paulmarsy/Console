@@ -1,6 +1,6 @@
 ﻿.Language=Polish,Polish (Polski)
 
-//Version: 3.0 build 4242
+//Version: 3.0 build 4400
 
 "Tak"
 "Nie"
@@ -554,7 +554,12 @@
 "Nie mogę zapisać danych do"
 
 "Przetworzonych plików: %1"
-"Przetworzonych plików: %1 z %2"
+// need translation:
+"Files: %1 / %2"
+// need translation:
+"Bytes processed: %1"
+// need translation:
+"Bytes: %1 / %2"
 "Przenoszę plik"
 "Kopiuję plik"
 "do"
@@ -2996,6 +3001,8 @@
 "Do not ask again in the current session"
 // need translation:
 "History"
+// need translation:
+"Environment"
 // need translation:
 "Files"
 // need translation:

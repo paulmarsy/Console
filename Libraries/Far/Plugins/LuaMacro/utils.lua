@@ -36,6 +36,7 @@ end
 
 local MCODE_F_CHECKALL     = 0x80C64
 local MCODE_F_GETOPTIONS   = 0x80C65
+Shared.OnlyEditorViewerUsed = band(MacroCallFar(MCODE_F_GETOPTIONS),0x3) ~= 0
 
 local Areas
 local LoadedMacros
@@ -45,6 +46,8 @@ local EnumState = {}
 local Events
 local EventGroups = {"dialogevent","editorevent","editorinput","exitfar","viewerevent"}
 local AddMacro_filename
+local AddedMenuItems
+local AddedPrefixes
 
 package.nounload = {lpeg=true}
 local initial_modules = {}
@@ -421,13 +424,11 @@ local function AddEvent (srctable)
   return macro.id
 end
 
-local AddedMenuItems = {}
-
 local function AddMenuItem (srctable)
   if type(srctable)=="table" and
      type(srctable.menu)=="string" and
      type(srctable.guid)=="string" and
-     type(srctable.text)=="function" and
+     (type(srctable.text)=="function" or type(srctable.text)=="string") and
      type(srctable.action)=="function"
   then
     local item = {}
@@ -447,7 +448,8 @@ local function AddMenuItem (srctable)
           end
         end
       end
-      item.text = srctable.text
+      local text = srctable.text
+      item.text = type(text)=="function" and text or function() return text end
       item.action = srctable.action
       item.description = type(srctable.description)=="string" and srctable.description or ""
       item.FileName = AddMacro_filename
@@ -460,6 +462,29 @@ local function AddMenuItem (srctable)
   return false
 end
 
+local function AddPrefixes (srctable)
+  local result = 0
+  if type(srctable)=="table" and
+     type(srctable.prefixes)=="string" and
+     type(srctable.action)=="function"
+  then
+    for prefix in srctable.prefixes:lower():gmatch("[^:]+") do
+      if prefix:match("^%S+$") and not AddedPrefixes[prefix] then
+        local item = {
+          prefix = prefix,
+          action = srctable.action,
+          description = type(srctable.description)=="string" and srctable.description or "",
+          FileName = AddMacro_filename
+        }
+        AddedPrefixes[prefix] = item
+        AddedPrefixes[1] = AddedPrefixes[1]..":"..prefix
+        result = result + 1
+      end
+    end
+  end
+  return result
+end
+
 local function EnumMacros (strArea, resetEnum)
   local area = strArea:lower()
   if Areas[area] then
@@ -470,9 +495,9 @@ local function EnumMacros (strArea, resetEnum)
       EnumState.index = EnumState.index + 1
       local macro = LoadedMacros[EnumState.index]
       if macro then
-        if macro.area and macro.area:lower():find(area) then
+        if not macro.disabled and macro.area and macro.area:lower():find(area) then
           LastMessage = pack(macro.key, macro.description or "")
-          return F.MPRT_NORMALFINISH, LastMessage
+          return LastMessage
         end
       else
         EnumState.index = 0
@@ -497,6 +522,11 @@ end
 
 local function ErrMsgLoad (msg, filename, isMoonScript, mode)
   local title = isMoonScript and mode=="compile" and "MoonScript" or "LuaMacro"
+  
+  if type(msg)~="string" and type(msg)~="number" then
+    ErrMsg(filename..":\n<non-string error message>", title, nil, "w")
+    return
+  end
 
   if mode=="run" then
     local found = false
@@ -558,6 +588,7 @@ local function LoadMacros (unload, paths)
   EnumState = {}
   LoadedMacros = {}
   AddedMenuItems = {}
+  AddedPrefixes = { [1]="" }
   if Shared.panelsort then Shared.panelsort.DeleteSortModes() end
 
   local AreaNames = allAreas and AllAreaNames or SomeAreaNames
@@ -592,9 +623,9 @@ local function LoadMacros (unload, paths)
 
   if not unload then
     local DummyFunc = function() end
-    local dir = win.GetEnv("farprofile").."\\Macros"
+    local DirMacros = win.GetEnv("farprofile").."\\Macros"
     if 0 == band(MacroCallFar(MCODE_F_GETOPTIONS),0x10) then -- not ReadOnlyConfig
-      win.CreateDir(dir.."\\scripts", true)
+      win.CreateDir(DirMacros.."\\scripts", true)
       win.CreateDir(win.GetEnv("farprofile").."\\Menus", true)
     end
 
@@ -612,14 +643,16 @@ local function LoadMacros (unload, paths)
         ErrMsgLoad(msg,FullPath,isMoonScript,"compile")
         return
       end
-      local env = {Macro=AddRegularMacro,Event=AddEvent,NoMacro=DummyFunc,NoEvent=DummyFunc,
-                   MenuItem=AddMenuItem,NoMenuItem=DummyFunc}
+      local env = {
+        Macro=AddRegularMacro, Event=AddEvent, MenuItem=AddMenuItem, CommandLine=AddPrefixes,
+        NoMacro=DummyFunc, NoEvent=DummyFunc, NoMenuItem=DummyFunc, NoCommandLine=DummyFunc }
       setmetatable(env,gmeta)
       setfenv(f, env)
       AddMacro_filename = FullPath
       local ok, msg = pcall(f, FullPath)
       if ok then
-        env.Macro, env.Event, env.NoMacro, env.NoEvent, env.MenuItem, env.NoMenuItem = nil
+        env.Macro, env.Event, env.MenuItem, env.CommandLine,
+        env.NoMacro, env.NoEvent, env.NoMenuItem, env.NoCommandLine = nil
       else
         numerrors=numerrors+1
         ErrMsgLoad(msg,FullPath,isMoonScript,"run")
@@ -663,7 +696,7 @@ local function LoadMacros (unload, paths)
     if paths then
       paths = ExpandEnv(paths)
     else
-      paths = dir.."\\scripts"
+      paths = DirMacros.."\\scripts"
       local cfg, msg = ReadIniFile(far.PluginStartupInfo().ModuleDir.."luamacro.ini")
       if cfg then
         if cfg.General then
@@ -687,7 +720,7 @@ local function LoadMacros (unload, paths)
       far.RecursiveSearch (p, "*.lua,*.moon", LoadRegularFile, bor(F.FRS_RECUR,F.FRS_SCANSYMLINK), macroinit)
     end
 
-    far.RecursiveSearch (dir.."\\internal", "*.lua", LoadRecordedFile, 0)
+    far.RecursiveSearch (DirMacros.."\\internal", "*.lua", LoadRecordedFile, 0)
 
     LoadMacrosDone = true
   end
@@ -759,10 +792,14 @@ local function GetFromMenu (macrolist)
     if not descr or descr=="" then
       descr = ("< No description: Id=%d >"):format(macro.id)
     end
-    menuitems[i] = { text = descr }
+    local ch = i<10 and i or i<36 and string.char(i+55)
+    menuitems[i] = { text = ch and (ch..". "..descr) or descr }
   end
 
-  local props, bkeys = {Title=Msg.UtExecuteMacroTitle,Bottom=Msg.UtExecuteMacroBottom}, {{BreakKey="A+F4"}}
+  local props, bkeys = {
+      Title = Msg.UtExecuteMacroTitle, Bottom = Msg.UtExecuteMacroBottom,
+      Flags = { FMENU_AUTOHIGHLIGHT=1, FMENU_WRAPMODE=1 },
+      Id = win.Uuid("165AA6E3-C89B-4F82-A0C5-C309243FD21B") }, { {BreakKey="A+F4"} }
   while true do
     local item, pos = far.Menu(props, menuitems, bkeys)
     if not item then
@@ -905,9 +942,8 @@ end
 local function GetMacroWrapper (argMode, argKey, argUseCommon)
   local macro,area = GetMacro(argMode, argKey, argUseCommon, true)
   if macro then
-    LastMessage = macro.id and pack(macro.id, GetAreaCode(area), macro.code or "",
-      macro.description or "", macro.flags) or pack(0)
-    return F.MPRT_NORMALFINISH, LastMessage
+    LastMessage = pack(GetAreaCode(area), macro.code or "", macro.description or "", macro.flags)
+    return LastMessage
   end
 end
 
@@ -1013,24 +1049,25 @@ local function GetMacroCopy (id)
 end
 
 return {
+  AddMacroFromFAR = AddMacroFromFAR,
+  CheckFileName = CheckFileName,
   DelMacro = DelMacro,
   EnumMacros = EnumMacros,
+  FixInitialModules = FixInitialModules,
+  FlagsToString = FlagsToString,
   GetAreaCode = GetAreaCode,
   GetMacro = GetMacro,
+  GetMacroCopy = GetMacroCopy,
   GetMacroWrapper = GetMacroWrapper,
+  GetMenuItems = function() return AddedMenuItems end,
+  GetMoonscriptLineNumber = GetMoonscriptLineNumber,
+  GetPrefixes = function() return AddedPrefixes end,
   GetTrueAreaName = GetTrueAreaName,
+  InitMacroSystem = InitMacroSystem,
+  LoadingInProgress = function() return LoadingInProgress end,
   LoadMacros = LoadMacros,
   ProcessRecordedMacro = ProcessRecordedMacro,
-  AddMacroFromFAR = AddMacroFromFAR,
   RunStartMacro = RunStartMacro,
   UnloadMacros = InitMacroSystem,
-  InitMacroSystem = InitMacroSystem,
   WriteMacros = WriteMacros,
-  GetMacroCopy = GetMacroCopy,
-  CheckFileName = CheckFileName,
-  FlagsToString = FlagsToString,
-  GetMoonscriptLineNumber = GetMoonscriptLineNumber,
-  GetMenuItems = function() return AddedMenuItems end,
-  LoadingInProgress = function() return LoadingInProgress end,
-  FixInitialModules = FixInitialModules,
 }

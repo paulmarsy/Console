@@ -1,6 +1,6 @@
 ﻿.Language=Hungarian,Hungarian (Magyar)
 
-//Version: 3.0 build 4242
+//Version: 3.0 build 4400
 
 "Igen"
 "Nem"
@@ -550,7 +550,12 @@
 "Nem írható adat ide:"
 
 " %1 fájl kész"
-" %1 fájl kész %2 fájlból"
+// need translation:
+"Files: %1 / %2"
+// need translation:
+"Bytes processed: %1"
+// need translation:
+"Bytes: %1 / %2"
 "Fájl mozgatása"
 "Fájl másolása"
 "ide:"
@@ -2968,6 +2973,8 @@
 "Do not ask again in the current session"
 // need translation:
 "History"
+// need translation:
+"Environment"
 // need translation:
 "Files"
 // need translation:

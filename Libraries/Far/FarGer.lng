@@ -1,6 +1,6 @@
 ﻿.Language=German,German (Deutsch)
 
-//Version: 3.0 build 4242
+//Version: 3.0 build 4400
 
 "Ja"
 "Nein"
@@ -557,7 +557,12 @@
 "Dann Daten nicht schreiben in"
 
 "Dateien verarbeitet: %1"
-"Dateien verarbeitet: %1 von %2"
+// need translation:
+"Files: %1 / %2"
+// need translation:
+"Bytes processed: %1"
+// need translation:
+"Bytes: %1 / %2"
 "Verschiebe die Datei"
 "Kopiere die Datei"
 "nach"
@@ -3011,6 +3016,8 @@
 "Do not ask again in the current session"
 // need translation:
 "History"
+// need translation:
+"Environment"
 // need translation:
 "Files"
 // need translation:

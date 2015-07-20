@@ -1,6 +1,6 @@
 ﻿.Language=Italian,Italian (Italiano)
 
-//Version: 3.0 build 4242
+//Version: 3.0 build 4400
 
 "&Si"
 "&No"
@@ -457,7 +457,12 @@
 "Non Posso Scrivere Su"
 
 "Files Elaborati: %1"
-"Files Elaborati: %1 di %2"
+// need translation:
+"Files: %1 / %2"
+// need translation:
+"Bytes processed: %1"
+// need translation:
+"Bytes: %1 / %2"
 "Spostamento File"
 "Copia Del File"
 "In"
@@ -2662,6 +2667,8 @@
 "Esegui Per &Tutti Gli Oggetti"
 "Non Richiedere Per Questa Sessione"
 "Cronologia"
+// need translation:
+"Environment"
 "Files"
 "L'Oggetto è %1 in:"
 "esegui"

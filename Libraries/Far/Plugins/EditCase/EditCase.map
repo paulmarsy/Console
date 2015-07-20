@@ -1,6 +1,6 @@
  EditCase
 
- Timestamp is 54ba6e30 (Sat Jan 17 17:14:08 2015)
+ Timestamp is 559d99ec (Thu Jul 09 00:45:16 2015)
 
  Preferred load address is 0000000180000000
 
@@ -15,7 +15,7 @@
  0001:000011e8 00000080H .idata$6                CODE
  0001:00001270 000000a4H .edata                  CODE
  0002:00000000 00000060H .data                   DATA
- 0002:00000060 000002a0H .bss                    DATA
+ 0002:00000060 000002a8H .bss                    DATA
  0003:00000000 000000d8H .pdata                  DATA
  0004:00000000 00000058H .rsrc$01                DATA
  0004:00000060 00000388H .rsrc$02                DATA

@@ -1,6 +1,6 @@
  SameFolder
 
- Timestamp is 54ba6e44 (Sat Jan 17 17:14:28 2015)
+ Timestamp is 559d9a00 (Thu Jul 09 00:45:36 2015)
 
  Preferred load address is 0000000180000000
 
@@ -15,7 +15,7 @@
  0001:00002230 00000050H .idata$6                CODE
  0001:00002280 000000a8H .edata                  CODE
  0002:00000000 00000018H .data                   DATA
- 0002:00000020 000002b0H .bss                    DATA
+ 0002:00000020 000002b8H .bss                    DATA
  0003:00000000 00000240H .pdata                  DATA
  0004:00000000 00000058H .rsrc$01                DATA
  0004:00000060 00000388H .rsrc$02                DATA
@@ -116,7 +116,7 @@
  0002:00000000       ?OptName@@3UOptionsName@@A 0000000180004000     SameFolder.obj
  0002:00000020       ?Info@@3UPluginStartupInfo@@A 0000000180004020     SameFolder.obj
  0002:00000130       ?FSF@@3UFarStandardFunctions@@A 0000000180004130     SameFolder.obj
- 0002:000002a8       ?Opt@@3UOptions@@A         00000001800042a8     SameFolder.obj
+ 0002:000002b0       ?Opt@@3UOptions@@A         00000001800042b0     SameFolder.obj
 
  entry point at        0000:00000000
 

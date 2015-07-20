@@ -1,6 +1,6 @@
 ﻿.Language=Czech,Czech (Čeština)
 
-//Version: 3.0 build 4242
+//Version: 3.0 build 4400
 
 "Ano"
 "Ne"
@@ -493,7 +493,12 @@
 "Nelze zapisovat data do"
 
 "Zpracováno souborů: %1"
-"Zpracováno souborů: %1 z %2"
+// need translation:
+"Files: %1 / %2"
+// need translation:
+"Bytes processed: %1"
+// need translation:
+"Bytes: %1 / %2"
 "Přesunuji soubor"
 "Kopíruji soubor"
 "do"
@@ -2732,6 +2737,8 @@
 "Udělat toto se všemi &aktuálními objekty"
 "Neptat se znovu v aktuální relaci"
 "Historie"
+// need translation:
+"Environment"
 "Soubory"
 "Objekt je %1 v:"
 "přehráván"

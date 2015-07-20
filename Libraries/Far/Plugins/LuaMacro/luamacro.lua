@@ -4,21 +4,17 @@
 if far.ReloadDefaultScript then return end
 
 local function LOG (fmt, ...)
-  local log = io.open("c:\\lua.log",--[["at"]]"a")
-  if log then
-    log:write("LUA: ", fmt:format(...), "\n")
-    log:close()
-  end
+  win.OutputDebugString(fmt:format(...))
 end
 
 local F, Msg = far.Flags, nil
 local bor = bit64.bor
-local co_yield, co_resume, co_status, co_wrap =
-  coroutine.yield, coroutine.resume, coroutine.status, coroutine.wrap
+local co_yield, co_resume, co_status = coroutine.yield, coroutine.resume, coroutine.status
 
 local PROPAGATE={} -- a unique value, inaccessible to scripts.
 local gmeta = { __index=_G }
-local LastMessage = {}
+local LastMessage
+local Shared
 local TablePanelSort -- must be separate from LastMessage, otherwise Far crashes after a macro is called from CtrlF12.
 local TableExecString -- must be separate from LastMessage, otherwise Far crashes
 local utils, macrobrowser, panelsort, keymacro
@@ -29,15 +25,17 @@ local function pack (...)
   return { n=select("#",...), ... }
 end
 
+local function yield_resume (co, ...)
+  local t1, t2 = ...
+  if t1==true and t2==PROPAGATE then
+    return co_resume(co, co_yield(select(2, ...)))
+  end
+  return ...
+end
+
 -- Override coroutine.resume for scripts, making it possible to call Keys(),
 -- print(), Plugin.Call(), exit(), etc. from nested coroutines.
-function coroutine.resume(co, ...)
-  local t = pack(co_resume(co, ...))
-  while t[1]==true and t[2]==PROPAGATE do
-    t = pack(co_resume(co, co_yield(unpack(t, 2, t.n))))
-  end
-  return unpack(t, 1, t.n)
-end
+function coroutine.resume(co, ...) return yield_resume(co, co_resume(co, ...)) end
 
 local ErrMsg = function(msg, title, buttons, flags)
   if type(msg)=="string" and not msg:utf8valid() then
@@ -62,7 +60,7 @@ function _G.Keys (...)
     local str=select(n,...)
     if type(str)=="string" then
       for key in str:gmatch("%S+") do
-        co_yield(PROPAGATE, F.MPRT_KEYS, pack(keymacro.TransformKey(key)))
+        co_yield(PROPAGATE, F.MPRT_KEYS, keymacro.TransformKey(key))
       end
     end
   end
@@ -71,7 +69,7 @@ end
 function _G.print (...)
   local param = ""
   if select("#", ...)>0 then param = (...) end
-  co_yield(PROPAGATE, F.MPRT_PRINT, pack(tostring(param)))
+  co_yield(PROPAGATE, F.MPRT_PRINT, tostring(param))
 end
 
 function _G.printf (fmt, ...)
@@ -83,8 +81,8 @@ function _G.exit ()
   co_yield(PROPAGATE, "exit")
 end
 
-local function yieldcall (ret_code, ...)
-  return co_yield(PROPAGATE, ret_code, pack(...))
+local function yieldcall (...)
+  return co_yield(PROPAGATE, ...)
 end
 
 -------------------------------------------------------------------------------
@@ -96,7 +94,7 @@ local PluginInfo
 function export.GetPluginInfo()
   local out = {
     Flags = bor(F.PF_PRELOAD,F.PF_FULLCMDLINE,F.PF_EDITOR,F.PF_VIEWER,F.PF_DIALOG),
-    CommandPrefix = "lm:macro:lua:moon",
+    CommandPrefix = "lm:macro:lua:moon:luas:moons"..utils.GetPrefixes()[1],
     PluginMenuGuids = win.Uuid("EF6D67A2-59F7-4DF3-952E-F9049877B492"),
     PluginMenuStrings = { "Macro Browser" },
   }
@@ -147,24 +145,24 @@ function export.GetPluginInfo()
   return out
 end
 
-local function SplitMacroString (Text)
+local function GetFileParams (Text)
   local from,to = Text:find("^%s*@%s*")
   if from then
     local from2,to2,fname = Text:find("^\"([^\"]+)\"", to+1) -- test for quoted file name
     if not from2 then
-      from2,to2,fname = Text:find("^([^%s\"]+)", to+1) -- test for unquoted file name
+      from2,to2,fname = Text:find("^(%S+)", to+1) -- test for unquoted file name
     end
     if from2 then
       local space,params = Text:match("^(%s*)(.*)", to2+1)
       if space~="" or params=="" then
-        return fname, params
+        return ExpandEnv(fname), params
       end
     end
     error("Invalid macrosequence specification")
   end
 end
 
-local function loadmacro (Lang, Text, Env)
+local function loadmacro (Lang, Text, Env, ConvertPath)
   local _loadstring, _loadfile = loadstring, loadfile
   if Lang == "moonscript" then
     local ms = require "moonscript"
@@ -172,13 +170,11 @@ local function loadmacro (Lang, Text, Env)
   end
 
   local f1,f2,msg
-  local fname,params = SplitMacroString(Text)
+  local fname,params = GetFileParams(Text)
   if fname then
-    fname = ExpandEnv(fname)
-    if params then
-      f2,msg = _loadstring("return "..params)
-      if not f2 then return nil,msg end
-    end
+    fname = ConvertPath and far.ConvertPath(fname, F.CPM_NATIVE) or fname
+    f2,msg = _loadstring("return "..params)
+    if not f2 then return nil,msg end
     f1,msg = _loadfile(fname)
   else
     f1,msg = _loadstring(Text)
@@ -220,6 +216,24 @@ local function MacroInit (Id)
   end
 end
 
+local function FixReturn (handle, ok, ...)
+  local ret1, ret_type = ...
+  if ok then
+    local status = co_status(handle.coro)
+    if status == "suspended" and ret1 == PROPAGATE and ret_type ~= "exit" then
+      handle._store = pack(select(3, ...))
+      return ret_type, handle._store
+    else
+      return F.MPRT_NORMALFINISH, pack(true, ...)
+    end
+  else
+    ret1 = type(ret1)=="string" and ret1 or "(error object is not a string)"
+    ret1 = debug.traceback(handle.coro, ret1):gsub("\n\t","\n   ")
+    ErrMsg(ret1)
+    return F.MPRT_ERRORFINISH
+  end
+end
+
 local function MacroStep (handle, ...)
   if handle then
     local status = co_status(handle.coro)
@@ -228,32 +242,15 @@ local function MacroStep (handle, ...)
       if handle.params then
         local params = handle.params
         handle.params = nil
-        ok, ret1, ret_type, ret_values = co_resume(handle.coro, params())
+        return FixReturn(handle, co_resume(handle.coro, params()))
       else
-        ok, ret1, ret_type, ret_values = co_resume(handle.coro, ...)
-      end
-      if ok then
-        status = co_status(handle.coro)
-        if status == "suspended" and ret1 == PROPAGATE and ret_type ~= "exit" then
-          handle._store = ret_values
-          return ret_type, ret_values
-        else
-          LastMessage[1] = ""
-          return F.MPRT_NORMALFINISH
-        end
-      else
-        ret1 = type(ret1)=="string" and ret1 or "(error object is not a string)"
-        ret1 = debug.traceback(handle.coro, ret1):gsub("\n\t","\n   ")
-        ErrMsg(ret1)
-        LastMessage[1] = ret1
-        return F.MPRT_ERRORFINISH, LastMessage
+        return FixReturn(handle, co_resume(handle.coro, ...))
       end
     else
-      ErrMsg("Step: called on macro in "..status.." status")
+      ErrMsg("Step: called on macro in "..status.." status") -- debug only: should not be here
     end
   else
-    -- Far debug only: should not be here
-    ErrMsg(("Step: handle %d does not exist"):format(handle))
+    ErrMsg(("Step: handle %d does not exist"):format(handle)) -- debug only: should not be here
   end
 end
 
@@ -265,29 +262,25 @@ local function MacroParse (Lang, Text, onlyCheck, skipFile)
   end
 
   local ok,msg = true,nil
-  local fname,params = SplitMacroString(Text)
+  local fname,params = GetFileParams(Text)
   if fname then
-    if params then
-      ok,msg = _loadstring("return "..params)
-    end
+    ok,msg = _loadstring("return "..params)
     if ok and not skipFile then
-      ok,msg = _loadfile(ExpandEnv(fname))
+      ok,msg = _loadfile(fname)
     end
   else
     ok,msg = _loadstring(Text)
   end
 
-  if not ok then
+  if ok then
+    return F.MPRT_NORMALFINISH
+  else
     if not onlyCheck then
       far.Message(msg, Msg.MMacroParseErrorTitle, Msg.MOk, "lw")
     end
-    LastMessage = pack(
-      msg, -- keep alive from gc
-      tonumber(msg:match(":(%d+): ")) or 0)
+    LastMessage = pack(msg, tonumber(msg:match(":(%d+): ")) or 0)
     return F.MPRT_ERRORPARSE, LastMessage
   end
-
-  return F.MPRT_NORMALFINISH
 end
 
 local function ExecString (lang, text, params)
@@ -323,8 +316,10 @@ local function About()
   far.Message(text, "About", nil, "l")
 end
 
-local function ProcessCommandLine (CmdLine)
-  local prefix, text = CmdLine:match("^%s*(%w+):%s*(.-)%s*$")
+local function ShowAndPass(...) far.Show(...) return ... end
+
+local function ProcessCommandLine (strCmdLine)
+  local prefix, text = strCmdLine:match("^%s*(%w+):%s*(.-)%s*$")
   if not prefix then return end -- this can occur with Plugin.Command()
   prefix = prefix:lower()
   if prefix == "lm" or prefix == "macro" then
@@ -337,25 +332,32 @@ local function ProcessCommandLine (CmdLine)
     elseif cmd == "unload" then utils.UnloadMacros()
     elseif cmd == "about" then About()
     elseif cmd ~= "" then ErrMsg(Msg.CL_UnsupportedCommand .. cmd) end
-  elseif prefix == "lua" or prefix == "moon" then
-    if text~="" then
-      if text:find("^=") then
-        text = "far.Show(" .. text:sub(2) .. ")"
-      else
-        local fname, params = SplitMacroString(text)
-        if fname then
-          fname = ExpandEnv(fname)
-          fname = far.ConvertPath(fname, F.CPM_NATIVE)
-          if fname:find("%s") then fname = '"'..fname..'"' end
-          text = "@"..fname
-          if params then text = text.." "..params end
-        end
-      end
-      local f1,f2 = loadmacro(prefix=="lua" and "lua" or "moonscript", text)
-      if f1 then keymacro.PostNewMacro({ f1,f2,HasFunction=true }, 0, nil, true)
-      else ErrMsg(f2)
-      end
+  elseif prefix == "lua" or prefix == "moon" or prefix == "luas" or prefix == "moons" then
+    local show = false
+    if text:find("^=") then
+      show, text = true, text:sub(2)
     end
+    local fname, params = GetFileParams(text)
+    if show and not fname then
+      text = "return "..text
+    end
+    local lang = (prefix=="lua" or prefix=="luas") and "lua" or "moonscript"
+    local f1,f2 = loadmacro(lang, text, nil, true)
+    if f1 then
+      local ff1 = show and function(...) return ShowAndPass(f1(...)) end or f1
+      if prefix=="lua" or prefix=="moon" then
+        keymacro.PostNewMacro({ ff1,f2,HasFunction=true }, 0, nil, true)
+      else
+        f2 = f2 or function() end
+        Shared.CmdLineResult = nil
+        Shared.CmdLineResult = pack(ff1(f2()))
+      end
+    else
+      ErrMsg(f2)
+    end
+  else
+    local item = utils.GetPrefixes()[prefix]
+    if item then item.action(prefix, text) end
   end
 end
 
@@ -379,12 +381,12 @@ function export.Open (OpenFrom, arg1, ...)
     elseif calltype==F.MCT_PANELSORT      then
       if panelsort then
         TablePanelSort = { panelsort.SortPanelItems(...) }
-        if TablePanelSort[1] then return F.MPRT_NORMALFINISH, TablePanelSort end
+        if TablePanelSort[1] then return TablePanelSort end
       end
     elseif calltype==F.MCT_GETCUSTOMSORTMODES then
       if panelsort then
         TablePanelSort = panelsort.GetSortModes()
-        return F.MPRT_NORMALFINISH, TablePanelSort
+        return TablePanelSort
       end
     end
 
@@ -431,8 +433,8 @@ local function AddCfindFunction()
 end
 
 local function Init()
-  local Shared = { ErrMsg=ErrMsg, pack=pack, checkarg=checkarg, loadmacro=loadmacro, yieldcall=yieldcall,
-                   MacroInit=MacroInit, MacroStep=MacroStep, ExpandEnv=ExpandEnv }
+  Shared = { ErrMsg=ErrMsg, pack=pack, checkarg=checkarg, loadmacro=loadmacro, yieldcall=yieldcall,
+             MacroInit=MacroInit, MacroStep=MacroStep, ExpandEnv=ExpandEnv }
 
   local ModuleDir = far.PluginStartupInfo().ModuleDir
   local function RunPluginFile (fname, param)

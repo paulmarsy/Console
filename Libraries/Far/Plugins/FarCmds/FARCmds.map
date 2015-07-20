@@ -1,21 +1,21 @@
  FARCmds
 
- Timestamp is 54ba6e3f (Sat Jan 17 17:14:23 2015)
+ Timestamp is 559d99fb (Thu Jul 09 00:45:31 2015)
 
  Preferred load address is 0000000180000000
 
  Start         Length     Name                   Class
  0001:00000000 000001c0H .idata$5                CODE
  0001:000001c0 000005c8H .rdata                  CODE
- 0001:00000790 000061efH .text                   CODE
- 0001:00006980 000006f8H .xdata                  CODE
- 0001:00007078 00000064H .idata$2                CODE
- 0001:000070dc 00000014H .idata$3                CODE
- 0001:000070f0 000001c0H .idata$4                CODE
- 0001:000072b0 000003d8H .idata$6                CODE
- 0001:00007690 000000a5H .edata                  CODE
+ 0001:00000790 000061ffH .text                   CODE
+ 0001:00006990 000006f8H .xdata                  CODE
+ 0001:00007088 00000064H .idata$2                CODE
+ 0001:000070ec 00000014H .idata$3                CODE
+ 0001:00007100 000001c0H .idata$4                CODE
+ 0001:000072c0 000003d8H .idata$6                CODE
+ 0001:000076a0 000000a5H .edata                  CODE
  0002:00000000 00000138H .data                   DATA
- 0002:00000140 00001700H .bss                    DATA
+ 0002:00000140 00001710H .bss                    DATA
  0003:00000000 0000057cH .pdata                  DATA
  0004:00000000 00000058H .rsrc$01                DATA
  0004:00000060 00000378H .rsrc$02                DATA
@@ -211,39 +211,39 @@
  0001:00003750       ?ConvertBuffer@@YAPEA_WPEA_W_KHAEA_KPEA_N@Z 0000000180004750 f   Mix.obj
  0001:000038b0       ??0ConsoleTitle@@QEAA@PEB_W@Z 00000001800048b0 f i OpenCmd.obj
  0001:00003960       ??0MakeVETitle@@QEAA@PEB_W0@Z 0000000180004960 f i OpenCmd.obj
- 0001:00003c10       ?isDevice@@YA_NPEB_W0@Z    0000000180004c10 f i OpenCmd.obj
- 0001:00004060       ?ThreadWhatUpdateScreen@@YAKPEAX@Z 0000000180005060 f   OpenCmd.obj
- 0001:00004740       ?__proc_Load@@YAPEA_WHPEA_W@Z 0000000180005740 f   OpenCmd.obj
- 0001:000047b0       ?__proc_Unload@@YAPEA_WHPEA_W@Z 00000001800057b0 f   OpenCmd.obj
- 0001:000048b0       ?__proc_Goto@@YAPEA_WHPEA_W@Z 00000001800058b0 f   OpenCmd.obj
- 0001:00004930       ?__proc_WhereIs@@YAPEA_WHPEA_W_N@Z 0000000180005930 f   OpenCmd.obj
- 0001:00004fc0       ?__proc_Link@@YA_NHPEA_W@Z 0000000180005fc0 f   OpenCmd.obj
- 0001:00005490       ?OpenFromCommandLine@@YAPEA_WPEB_W@Z 0000000180006490 f   OpenCmd.obj
- 0001:00006600       memcpy                     0000000180007600 f   libCRT64:memcpy.obj
- 0001:00006630       free                       0000000180007630 f   libCRT64:free.obj
- 0001:00006660       malloc                     0000000180007660 f   libCRT64:malloc.obj
- 0001:00006690       ??_V@YAXPEAX@Z             0000000180007690 f   libCRT64:delete_array.obj
- 0001:000066a0       ??_U@YAPEAX_K@Z            00000001800076a0 f   libCRT64:new_array.obj
- 0001:000066b0       memset                     00000001800076b0 f   libCRT64:memset.obj
- 0001:000066e0       ??3@YAXPEAX@Z              00000001800076e0 f   libCRT64:delete.obj
- 0001:000066f0       ??2@YAPEAX_K@Z             00000001800076f0 f   libCRT64:new.obj
- 0001:00006700       wcschr                     0000000180007700 f   libCRT64:strchr.obj
- 0001:00006720       wcsstr                     0000000180007720 f   libCRT64:strstr.obj
- 0001:00006790       memmove                    0000000180007790 f   libCRT64:memmove.obj
- 0001:000067f0       _memicmp                   00000001800077f0 f   libCRT64:memicmp.obj
- 0001:00006860       memcmp                     0000000180007860 f   libCRT64:memcmp.obj
- 0001:00006890       realloc                    0000000180007890 f   libCRT64:realloc.obj
- 0001:00006920       swab                       0000000180007920 f   libCRT64:swab.obj
- 0001:00007078       __IMPORT_DESCRIPTOR_KERNEL32 0000000180008078     kernel32:KERNEL32.dll
- 0001:0000708c       __IMPORT_DESCRIPTOR_USER32 000000018000808c     user32:USER32.dll
- 0001:000070a0       __IMPORT_DESCRIPTOR_ADVAPI32 00000001800080a0     advapi32:ADVAPI32.dll
- 0001:000070b4       __IMPORT_DESCRIPTOR_ole32  00000001800080b4     ole32:ole32.dll
- 0001:000070c8       __IMPORT_DESCRIPTOR_RPCRT4 00000001800080c8     rpcrt4:RPCRT4.dll
- 0001:000070dc       __NULL_IMPORT_DESCRIPTOR   00000001800080dc     kernel32:KERNEL32.dll
+ 0001:00003c20       ?isDevice@@YA_NPEB_W0@Z    0000000180004c20 f i OpenCmd.obj
+ 0001:00004070       ?ThreadWhatUpdateScreen@@YAKPEAX@Z 0000000180005070 f   OpenCmd.obj
+ 0001:00004750       ?__proc_Load@@YAPEA_WHPEA_W@Z 0000000180005750 f   OpenCmd.obj
+ 0001:000047c0       ?__proc_Unload@@YAPEA_WHPEA_W@Z 00000001800057c0 f   OpenCmd.obj
+ 0001:000048c0       ?__proc_Goto@@YAPEA_WHPEA_W@Z 00000001800058c0 f   OpenCmd.obj
+ 0001:00004940       ?__proc_WhereIs@@YAPEA_WHPEA_W_N@Z 0000000180005940 f   OpenCmd.obj
+ 0001:00004fd0       ?__proc_Link@@YA_NHPEA_W@Z 0000000180005fd0 f   OpenCmd.obj
+ 0001:000054a0       ?OpenFromCommandLine@@YAPEA_WPEB_W@Z 00000001800064a0 f   OpenCmd.obj
+ 0001:00006610       memcpy                     0000000180007610 f   libCRT64:memcpy.obj
+ 0001:00006640       free                       0000000180007640 f   libCRT64:free.obj
+ 0001:00006670       malloc                     0000000180007670 f   libCRT64:malloc.obj
+ 0001:000066a0       ??_V@YAXPEAX@Z             00000001800076a0 f   libCRT64:delete_array.obj
+ 0001:000066b0       ??_U@YAPEAX_K@Z            00000001800076b0 f   libCRT64:new_array.obj
+ 0001:000066c0       memset                     00000001800076c0 f   libCRT64:memset.obj
+ 0001:000066f0       ??3@YAXPEAX@Z              00000001800076f0 f   libCRT64:delete.obj
+ 0001:00006700       ??2@YAPEAX_K@Z             0000000180007700 f   libCRT64:new.obj
+ 0001:00006710       wcschr                     0000000180007710 f   libCRT64:strchr.obj
+ 0001:00006730       wcsstr                     0000000180007730 f   libCRT64:strstr.obj
+ 0001:000067a0       memmove                    00000001800077a0 f   libCRT64:memmove.obj
+ 0001:00006800       _memicmp                   0000000180007800 f   libCRT64:memicmp.obj
+ 0001:00006870       memcmp                     0000000180007870 f   libCRT64:memcmp.obj
+ 0001:000068a0       realloc                    00000001800078a0 f   libCRT64:realloc.obj
+ 0001:00006930       swab                       0000000180007930 f   libCRT64:swab.obj
+ 0001:00007088       __IMPORT_DESCRIPTOR_KERNEL32 0000000180008088     kernel32:KERNEL32.dll
+ 0001:0000709c       __IMPORT_DESCRIPTOR_USER32 000000018000809c     user32:USER32.dll
+ 0001:000070b0       __IMPORT_DESCRIPTOR_ADVAPI32 00000001800080b0     advapi32:ADVAPI32.dll
+ 0001:000070c4       __IMPORT_DESCRIPTOR_ole32  00000001800080c4     ole32:ole32.dll
+ 0001:000070d8       __IMPORT_DESCRIPTOR_RPCRT4 00000001800080d8     rpcrt4:RPCRT4.dll
+ 0001:000070ec       __NULL_IMPORT_DESCRIPTOR   00000001800080ec     kernel32:KERNEL32.dll
  0002:00000000       ?OptName@@3UOptionsName@@A 0000000180009000     FARCmds.obj
  0002:00000140       ?Info@@3UPluginStartupInfo@@A 0000000180009140     FARCmds.obj
  0002:00000250       ?FSF@@3UFarStandardFunctions@@A 0000000180009250     FARCmds.obj
- 0002:000003c8       ?Opt@@3UOptions@@A         00000001800093c8     FARCmds.obj
+ 0002:000003d0       ?Opt@@3UOptions@@A         00000001800093d0     FARCmds.obj
 
  entry point at        0000:00000000
 
@@ -251,12 +251,12 @@
 
  0001:00002dc0       ?GetAlias@@YAPEA_WPEB_W0@Z 0000000180003dc0 f   Mix.obj
  0001:00003a00       ?getCurrDir@@YAPEA_W_N@Z   0000000180004a00 f   OpenCmd.obj
- 0001:00003aa0       ?killTemp@@YAXPEA_W@Z      0000000180004aa0 f   OpenCmd.obj
- 0001:00003ae0       ?createFile@@YAPEAXPEA_WH@Z 0000000180004ae0 f   OpenCmd.obj
- 0001:00003b90       ?createFileStream@@YAXPEB_WPEAXPEAUTShowOutputStreamData@@1@Z 0000000180004b90 f   OpenCmd.obj
- 0001:00003ca0       ?validForView@@YA_NPEB_W_N1@Z 0000000180004ca0 f   OpenCmd.obj
- 0001:00003f60       ?showPartOfOutput@@YAKPEAUTShowOutputStreamData@@_N@Z 0000000180004f60 f   OpenCmd.obj
- 0001:00004230       ?MakeTempNames@@YA_NPEAPEA_W0@Z 0000000180005230 f   OpenCmd.obj
- 0001:000043f0       ?loadFile@@YAPEA_WPEB_WKHAEA_KAEA_N@Z 00000001800053f0 f   OpenCmd.obj
- 0001:00004610       ?__getContent@@YAPEA_WHPEA_W@Z 0000000180005610 f   OpenCmd.obj
- 0001:00005250       ?MakeExecuteString@@YAPEB_WPEB_W@Z 0000000180006250 f   OpenCmd.obj
+ 0001:00003ab0       ?killTemp@@YAXPEA_W@Z      0000000180004ab0 f   OpenCmd.obj
+ 0001:00003af0       ?createFile@@YAPEAXPEA_WH@Z 0000000180004af0 f   OpenCmd.obj
+ 0001:00003ba0       ?createFileStream@@YAXPEB_WPEAXPEAUTShowOutputStreamData@@1@Z 0000000180004ba0 f   OpenCmd.obj
+ 0001:00003cb0       ?validForView@@YA_NPEB_W_N1@Z 0000000180004cb0 f   OpenCmd.obj
+ 0001:00003f70       ?showPartOfOutput@@YAKPEAUTShowOutputStreamData@@_N@Z 0000000180004f70 f   OpenCmd.obj
+ 0001:00004240       ?MakeTempNames@@YA_NPEAPEA_W0@Z 0000000180005240 f   OpenCmd.obj
+ 0001:00004400       ?loadFile@@YAPEA_WPEB_WKHAEA_KAEA_N@Z 0000000180005400 f   OpenCmd.obj
+ 0001:00004620       ?__getContent@@YAPEA_WHPEA_W@Z 0000000180005620 f   OpenCmd.obj
+ 0001:00005260       ?MakeExecuteString@@YAPEB_WPEB_W@Z 0000000180006260 f   OpenCmd.obj

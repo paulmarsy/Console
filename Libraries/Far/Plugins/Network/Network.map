@@ -1,6 +1,6 @@
  Network
 
- Timestamp is 54ba6e54 (Sat Jan 17 17:14:44 2015)
+ Timestamp is 559d9a0f (Thu Jul 09 00:45:51 2015)
 
  Preferred load address is 0000000180000000
 
@@ -15,7 +15,7 @@
  0001:0000a2b8 000002a2H .idata$6                CODE
  0001:0000a560 00000182H .edata                  CODE
  0002:00000000 000001c0H .data                   DATA
- 0002:000001c0 000010e0H .bss                    DATA
+ 0002:000001c0 000010e8H .bss                    DATA
  0003:00000000 00000870H .pdata                  DATA
  0004:00000000 00000058H .rsrc$01                DATA
  0004:00000060 00000370H .rsrc$02                DATA
@@ -315,8 +315,8 @@
  0002:00000fb0       ?CommonCurResource@@3U_NETRESOURCEW@@A 000000018000cfb0     NetCommon.obj
  0002:00000fe0       ?Info@@3UPluginStartupInfo@@A 000000018000cfe0     NetCommon.obj
  0002:000010f0       ?FSF@@3UFarStandardFunctions@@A 000000018000d0f0     NetCommon.obj
- 0002:00001268       ?Opt@@3UOptions@@A         000000018000d268     NetCommon.obj
- 0002:00001298       ?PCommonCurResource@@3PEAU_NETRESOURCEW@@EA 000000018000d298     NetCommon.obj
+ 0002:00001270       ?Opt@@3UOptions@@A         000000018000d270     NetCommon.obj
+ 0002:000012a0       ?PCommonCurResource@@3PEAU_NETRESOURCEW@@EA 000000018000d2a0     NetCommon.obj
 
  entry point at        0000:00000000
 

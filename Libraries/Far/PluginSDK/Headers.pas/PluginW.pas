@@ -1,7 +1,7 @@
 {
   PluginW.pas
 
-  Plugin API for FAR Manager 3.0 build 4242
+  Plugin API for FAR Manager 3.0 build 4400
 
   Статус готовности: ~95%
   Недоделанные структуры (~15 шт) помечены !!!
@@ -104,8 +104,6 @@ type
   TGuidsArray = packed array[0..Pred(MaxLongint div SizeOf(TGUID))] of TGUID;
 
 const
-  FARMACRO_KEY_EVENT = KEY_EVENT or $8000;
-
   CP_UNICODE    = 1200;
   CP_REVERSEBOM = 1201;
   CP_DEFAULT    = TUIntPtr(-1);
@@ -351,6 +349,7 @@ const
   DM_SETHISTORY           = 47;
   DM_GETITEMPOSITION      = 48;
   DM_SETMOUSEEVENTNOTIFY  = 49;
+  DM_SETINPUTNOTIFY       = 49;
   DM_EDITUNCHANGEDFLAG    = 50;
   DM_GETITEMDATA          = 51;
   DM_SETITEMDATA          = 52;

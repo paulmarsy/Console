@@ -1,7 +1,27 @@
 ﻿-- encoding: utf-8
 -- Started: 2012-08-20.
 
+--[[
+-- The following macro can be used to run all the tests.
+
+Macro {
+  description="Macro-engine test";
+  area="Shell"; key="CtrlShiftF12";
+  action = function()
+    local f = assert(loadfile(far.PluginStartupInfo().ModuleDir.."macrotest.lua"))
+    setfenv(f, getfenv())().test_all()
+    far.Message("All tests OK", "LuaMacro")
+  end;
+}
+--]]
+
+local MT = {} -- "macrotest", this module
+local F = far.Flags
 local luamacroId="4ebbefc8-2084-4b7f-94c0-692ce136894d" -- LuaMacro plugin GUID
+
+local function pack (...)
+  return { n=select("#",...), ... }
+end
 
 local function IsNumOrInt(v)
   return type(v)=="number" or bit64.type(v)
@@ -23,7 +43,7 @@ local function TestArea (area, msg)
   assert(Area[area]==true and Area.Current==area, msg or "assertion failed")
 end
 
-local function test_areas()
+function MT.test_areas()
   Keys "AltIns"              TestArea "Other"      Keys "Esc"
   Keys "ShiftF4 CtrlY Enter" TestArea "Editor"     Keys "Esc"
   Keys "F7"                  TestArea "Dialog"     Keys "Esc"
@@ -36,8 +56,8 @@ local function test_areas()
   Keys "F1"                  TestArea "Help"       Keys "Esc"
   Keys "CtrlL Tab"           TestArea "Info"       Keys "Tab CtrlL"
   Keys "CtrlQ Tab"           TestArea "QView"      Keys "Tab CtrlQ"
-  Keys "CtrlT Tab"           TestArea "Tree"       Keys "Tab CtrlT"
-  Keys "AltF10"              TestArea "FindFolder" Keys "Esc"
+--Keys "CtrlT Tab"           TestArea "Tree"       Keys "Tab CtrlT"
+--Keys "AltF10"              TestArea "FindFolder" Keys "Esc"
   Keys "F2"                  TestArea "UserMenu"   Keys "Esc"
 
   assert(Area.Current              =="Shell")
@@ -95,6 +115,9 @@ local function test_bit64()
   assert(w == bit64.new("0x8000".."0000".."0000".."0000"))
   assert(rshift(w,63)==1)
   assert(rshift(w,64)==0)
+  assert(bit64.arshift(w,62)==-2)
+  assert(bit64.arshift(w,63)==-1)
+  assert(bit64.arshift(w,64)==-1)
 end
 
 local function test_eval()
@@ -124,14 +147,13 @@ local function test_eval()
     local key = akey(1,0)
     assert(key=="CtrlShiftF12" or key=="RCtrlShiftF12")
     assert(akey(1,1)=="CtrlA")
-    _G.abcd=_G.abcd+1
+    foobar = (foobar or 0) + 1
+    return foobar,false,5,nil,"foo"
   ]]))
-  _G.abcd=0
   for k=1,3 do
-    assert(eval("CtrlA",2)==0)
-    assert(_G.abcd==k)
+    local ret1,a,b,c,d,e = eval("CtrlA",2)
+    assert(ret1==0 and a==k and b==false and c==5 and d==nil and e=="foo")
   end
-  _G.abcd=nil
   assert(far.MacroDelete(Id))
 end
 
@@ -570,14 +592,13 @@ local function test_usermenu()
   assert(type(mf.usermenu) == "function")
 end
 
-local function test_mf()
+function MT.test_mf()
   test_abs()
   test_acall()
   test_akey()
   test_asc()
   test_atoi()
   test_beep()
-  test_bit64()
   test_chr()
   test_clip()
   test_date()
@@ -624,7 +645,7 @@ local function test_mf()
   test_xlat()
 end
 
-local function test_CmdLine()
+function MT.test_CmdLine()
   Keys"Esc f o o Space Б а р"
   assert(CmdLine.Bof==false)
   assert(CmdLine.Eof==true)
@@ -926,6 +947,7 @@ local function test_Far_GetConfig()
     "System.Executor.UseHomeDir", "boolean",
     "System.Executor.NotQuotedShell", "string",
     "System.Executor.ComSpecParams", "string",
+    "System.WordDiv", "string",
     "Viewer.AutoDetectCodePage", "boolean",
     "Viewer.DefaultCodePage", "integer",
     "Viewer.ExternalViewerName", "string",
@@ -971,7 +993,7 @@ local function test_Far_GetConfig()
   end
 end
 
-local function test_Far()
+function MT.test_Far()
   local temp = Far.UpTime
   mf.sleep(50)
   temp = Far.UpTime - temp
@@ -1011,7 +1033,7 @@ local function test_CheckAndGetHotKey()
   Keys("Esc")
 end
 
-local function test_Object()
+function MT.test_Object()
   assert(type(Object.Bof)         == "boolean")
   assert(type(Object.CurPos)      == "number")
   assert(type(Object.Empty)       == "boolean")
@@ -1025,7 +1047,7 @@ local function test_Object()
   test_CheckAndGetHotKey()
 end
 
-local function test_Drv()
+function MT.test_Drv()
   Keys"AltF1"
   assert(type(Drv.ShowMode) == "number")
   assert(Drv.ShowPos == 1)
@@ -1035,7 +1057,7 @@ local function test_Drv()
   Keys"Esc"
 end
 
-local function test_Help()
+function MT.test_Help()
   Keys"F1"
   assert(type(Help.FileName)=="string")
   assert(type(Help.SelTopic)=="string")
@@ -1043,7 +1065,7 @@ local function test_Help()
   Keys"Esc"
 end
 
-local function test_Mouse()
+function MT.test_Mouse()
   assert(type(Mouse.X) == "number")
   assert(type(Mouse.Y) == "number")
   assert(type(Mouse.Button) == "number")
@@ -1052,7 +1074,7 @@ local function test_Mouse()
   assert(type(Mouse.LastCtrlState) == "number")
 end
 
-local function test_XPanel(pan) -- (@pan: either APanel or PPanel)
+function MT.test_XPanel(pan) -- (@pan: either APanel or PPanel)
   assert(type(pan.Bof)         == "boolean")
   assert(type(pan.ColumnCount) == "number")
   assert(type(pan.CurPos)      == "number")
@@ -1117,7 +1139,7 @@ local function test_Panel_Item()
   end
 end
 
-local function test_Panel()
+function MT.test_Panel()
   test_Panel_Item()
 
   assert(Panel.FAttr(0,":")==-1)
@@ -1132,7 +1154,7 @@ local function test_Panel()
   assert(type(Panel.SetPosIdx) == "function")
 end
 
-local function test_Dlg()
+function MT.test_Dlg()
   Keys"F7 a b c"
   assert(Area.Dialog)
   assert(Dlg.Id == "FAD00DBE-3FFF-4095-9232-E1CC70C67737")
@@ -1153,7 +1175,7 @@ local function test_Dlg()
   Keys"Esc"
 end
 
-local function test_Plugin()
+function MT.test_Plugin()
   assert(Plugin.Menu()==false)
   assert(Plugin.Config()==false)
   assert(Plugin.Command()==false)
@@ -1265,27 +1287,356 @@ local function test_far_MacroCheck()
   assert(not far.MacroCheck([[@//////]], "KMFLAGS_SILENTCHECK"))
 end
 
-do
+local function test_far_MacroGetArea()
+  assert(far.MacroGetArea()==F.MACROAREA_SHELL)
+end
+
+local function test_far_MacroGetLastError()
+  assert(far.MacroCheck("a=1"))
+  assert(far.MacroGetLastError().ErrSrc=="")
+  assert(not far.MacroCheck("a=", "KMFLAGS_SILENTCHECK"))
+  assert(far.MacroGetLastError().ErrSrc:len() > 0)
+end
+
+local function test_far_MacroGetState()
+  local st = far.MacroGetState()
+  assert(st==F.MACROSTATE_EXECUTING or st==F.MACROSTATE_EXECUTING_COMMON)
+end
+
+local function test_MacroControl()
+  test_far_MacroAdd()
+  test_far_MacroCheck()
+  test_far_MacroExecute()
+  test_far_MacroGetArea()
+  test_far_MacroGetLastError()
+  test_far_MacroGetState()
+end
+
+local function test_RegexControl()
+  local L = win.Utf8ToUtf16
+  local pat = "([bc]+)"
+  local rep = "%1%1"
+  local R = regex.new(pat)
+
+  assert(R:bracketscount()==2)
+
+  local fr,to,cap = regex.find("abc", pat)
+  assert(fr==2 and to==3 and cap=="bc")
+  fr,to,cap = regex.findW(L"abc", pat)
+  assert(fr==2 and to==3 and cap==L"bc")
+
+  fr,to,cap = R:find("abc")
+  assert(fr==2 and to==3 and cap=="bc")
+  fr,to,cap = R:findW(L"abc")
+  assert(fr==2 and to==3 and cap==L"bc")
+
+  assert(regex.match("abc", pat)=="bc")
+  assert(regex.matchW(L"abc", pat)==L"bc")
+
+  assert(R:match("abc")=="bc")
+  assert(R:matchW(L"abc")==L"bc")
+
+  local s, nf, nr = regex.gsub("abc", pat, rep)
+  assert(s=="abcbc" and nf==1 and nr==1)
+  s, nf, nr = regex.gsubW(L"abc", pat, rep)
+  assert(s==L"abcbc" and nf==1 and nr==1)
+
+  local s, nf, nr = R:gsub("abc", rep)
+  assert(s=="abcbc" and nf==1 and nr==1)
+  s, nf, nr = R:gsubW(L"abc", rep)
+  assert(s==L"abcbc" and nf==1 and nr==1)
+
+  local t = {}
+  for cap in regex.gmatch("abc", ".") do t[#t+1]=cap end
+  assert(#t==3 and t[1]=="a" and t[2]=="b" and t[3]=="c")
+  for cap in regex.gmatchW(L"abc", ".") do t[#t+1]=cap end
+  assert(#t==6 and t[4]==L"a" and t[5]==L"b" and t[6]==L"c")
+end
+
+--[[------------------------------------------------------------------------------------------------
+0001722: DN_EDITCHANGE приходит лишний раз и с ложной информацией
+
+Description:
+  [ Far 2.0.1807, Far 3.0.1897 ]
+  Допустим диалог состоит из единственного элемента DI_EDIT, больше элементов нет. При появлении
+  диалога сразу нажмём на клавишу, допустим, W. Приходят два события DN_EDITCHANGE вместо одного,
+  причём в первом из них PtrData указывает на пустую строку.
+
+  Последующие нажатия на клавиши, вызывающие изменения текста, отрабатываются правильно, лишние
+  ложные события не приходят.
+--]]------------------------------------------------------------------------------------------------
+function MT.test_mantis_1722()
+  local check = 0
+  local function DlgProc (hDlg, msg, p1, p2)
+    if msg == F.DN_EDITCHANGE then
+      check = check + 1
+      assert(p1 == 1)
+    end
+  end
+  local Dlg = { {"DI_EDIT", 3,1,56,10, 0,0,0,0, "a"}, }
+  mf.acall(far.Dialog, "",-1,-1,60,3,"Contents",Dlg, 0, DlgProc)
+  assert(Area.Dialog)
+  Keys("W 1 2 3 4 BS Esc")
+  assert(check == 6)
+  assert(Dlg[1][10] == "W123")
+end
+
+---------------------------------------------------------------------------------------------------
+-- ACTL_GETWINDOWCOUNT, ACTL_GETWINDOWTYPE, ACTL_GETWINDOWINFO, ACTL_SETCURRENTWINDOW, ACTL_COMMIT
+---------------------------------------------------------------------------------------------------
+local function test_AdvControl_Window()
+  local num, t
+
+  num = far.AdvControl("ACTL_GETWINDOWCOUNT")
+  assert(num == 2)
+  mf.acall(far.Show); mf.acall(far.Show)
+  assert(far.AdvControl("ACTL_GETWINDOWTYPE").Type == F.WTYPE_VMENU)
+  assert(num+2 == far.AdvControl("ACTL_GETWINDOWCOUNT"))
+  Keys("Esc Esc")
+  assert(num == far.AdvControl("ACTL_GETWINDOWCOUNT"))
+
+  -- Get information about 2 available windows
+  t = assert(far.AdvControl("ACTL_GETWINDOWINFO", 1))
+  assert(t.Type==F.WTYPE_DESKTOP and t.Id==0 and t.Pos==1 and t.Flags==0 and #t.TypeName>0 and
+         t.Name=="")
+
+  t = assert(far.AdvControl("ACTL_GETWINDOWINFO", 2))
+  assert(t.Type==F.WTYPE_PANELS and t.Id==0 and t.Pos==2 and t.Flags==F.WIF_CURRENT and
+         #t.TypeName>0 and #t.Name>0)
+  assert(far.AdvControl("ACTL_GETWINDOWTYPE").Type == F.WTYPE_PANELS)
+
+  -- Set "Desktop" as the current window
+  assert(1 == far.AdvControl("ACTL_SETCURRENTWINDOW", 1))
+  assert(1 == far.AdvControl("ACTL_COMMIT"))
+  t = assert(far.AdvControl("ACTL_GETWINDOWINFO", 2)) -- "z-order": the window that was #1 is now #2
+  assert(t.Type==0 and t.Id==0 and t.Pos==2 and t.Flags==F.WIF_CURRENT and #t.TypeName>0 and
+         t.Name=="")
+  assert(far.AdvControl("ACTL_GETWINDOWTYPE").Type == F.WTYPE_DESKTOP)
+  t = assert(far.AdvControl("ACTL_GETWINDOWINFO", 1))
+  assert(t.Type==F.WTYPE_PANELS and t.Id==0 and t.Pos==1 and t.Flags==0 and #t.TypeName>0 and
+         #t.Name>0)
+
+  -- Restore "Panels" as the current window
+  assert(1 == far.AdvControl("ACTL_SETCURRENTWINDOW", 1))
+  assert(1 == far.AdvControl("ACTL_COMMIT"))
+  assert(far.AdvControl("ACTL_GETWINDOWTYPE").Type == F.WTYPE_PANELS)
+end
+
+local function test_AdvControl_Colors()
+  local t = assert(far.AdvControl("ACTL_GETARRAYCOLOR"))
+  assert(#t == 146)
+  for n=1,#t do
+    local color = assert(far.AdvControl("ACTL_GETCOLOR", n-1))
+    assert(color.Flags and color.ForegroundColor and color.BackgroundColor)
+    for k,v in pairs(color) do
+      assert(t[n][k] == v)
+    end
+  end
+  assert(not far.AdvControl("ACTL_GETCOLOR", #t))
+  assert(not far.AdvControl("ACTL_GETCOLOR", -1))
+
+  -- change the colors
+  local arr, elem = {StartIndex=0; Flags=0}, {Flags=100; ForegroundColor=101; BackgroundColor=102}
+  for n=1,#t do arr[n]=elem end
+  assert(far.AdvControl("ACTL_SETARRAYCOLOR", nil, arr))
+  for n=1,#t do
+    local color = assert(far.AdvControl("ACTL_GETCOLOR", n-1))
+    for k,v in pairs(elem) do
+      assert(color[k] == v)
+    end
+  end
+
+  -- restore the colors
+  assert(far.AdvControl("ACTL_SETARRAYCOLOR", nil, t))
+end
+
+local function test_AdvControl_Synchro()
+  local pass = 0
+  local oldProcessSynchroEvent = export.ProcessSynchroEvent
+  export.ProcessSynchroEvent =
+    function(event,param)
+      assert(pass==0 and param==123 or pass==1 and param==-456)
+      pass = pass + 1
+    end
+  far.AdvControl("ACTL_SYNCHRO", 123)
+  far.AdvControl("ACTL_SYNCHRO", -456)
+  for k=1,2 do
+    mf.acall(far.Show); Keys"Esc"
+  end
+  export.ProcessSynchroEvent = oldProcessSynchroEvent
+  assert(pass == 2)
+end
+
+local function test_AdvControl_Misc()
+  local t
+
+  assert(type(far.AdvControl("ACTL_GETFARHWND"))=="userdata")
+
+  assert(far.AdvControl("ACTL_GETFARMANAGERVERSION"):sub(1,1)=="3")
+  assert(far.AdvControl("ACTL_GETFARMANAGERVERSION",true)==3)
+
+  t = far.AdvControl("ACTL_GETFARRECT")
+  assert(t.Left>=0 and t.Top>=0 and t.Right>t.Left and t.Bottom>t.Top)
+
+  assert(0 == far.AdvControl("ACTL_SETCURSORPOS", nil, {X=-1,Y=0}))
+  for k=0,2 do
+    assert(1 == far.AdvControl("ACTL_SETCURSORPOS", nil, {X=k,Y=k+1}))
+    t = assert(far.AdvControl("ACTL_GETCURSORPOS"))
+    assert(t.X==k and t.Y==k+1)
+  end
+
+  assert(true == mf.acall(far.AdvControl, "ACTL_WAITKEY", nil, "F1"))
+  Keys("F1")
+  assert(true == mf.acall(far.AdvControl, "ACTL_WAITKEY"))
+  Keys("F2")
+end
+
+local function test_AdvControl()
+  test_AdvControl_Window()
+  test_AdvControl_Colors()
+  test_AdvControl_Synchro()
+  test_AdvControl_Misc()
+end
+
+local function test_far_GetMsg()
+  assert(type(far.GetMsg(0))=="string")
+end
+
+local function test_clipboard()
+  local orig = far.PasteFromClipboard()
+  local values = { nil, "foo", "", n=3 }
+  for k=1,values.n do
+    local v = values[k]
+    far.CopyToClipboard(v)
+    assert(far.PasteFromClipboard() == v)
+  end
+  far.CopyToClipboard(orig)
+  assert(far.PasteFromClipboard() == orig)
+end
+
+local function test_far_FarClock()
+  local temp = far.FarClock()
+  mf.sleep(50)
+  temp = far.FarClock() - temp
+  assert(temp > 40000 and temp < 70000)
+end
+
+local function test_FarStandardFunctions()
+  test_clipboard()
+  test_far_FarClock()
+
+  assert(far.ConvertPath([[c:\foo\bar\..\..\abc]], "CPM_FULL") == [[c:\abc]])
+
+  assert(far.FormatFileSize(123456, 8)  == "  123456")
+  assert(far.FormatFileSize(123456, -8) == "123456  ")
+
+  assert(type(far.GetCurrentDirectory()) == "string")
+
+  assert(far.GetPathRoot[[D:\foo\bar]] == [[D:\]])
+
+  assert(far.LIsAlpha("A") == true)
+  assert(far.LIsAlpha("Я") == true)
+  assert(far.LIsAlpha("7") == false)
+  assert(far.LIsAlpha(";") == false)
+
+  assert(far.LIsAlphanum("A") == true)
+  assert(far.LIsAlphanum("Я") == true)
+  assert(far.LIsAlphanum("7") == true)
+  assert(far.LIsAlphanum(";") == false)
+
+  assert(far.LIsLower("A") == false)
+  assert(far.LIsLower("a") == true)
+  assert(far.LIsLower("Я") == false)
+  assert(far.LIsLower("я") == true)
+  assert(far.LIsLower("7") == false)
+  assert(far.LIsLower(";") == false)
+
+  assert(far.LIsUpper("A") == true)
+  assert(far.LIsUpper("a") == false)
+  assert(far.LIsUpper("Я") == true)
+  assert(far.LIsUpper("я") == false)
+  assert(far.LIsUpper("7") == false)
+  assert(far.LIsUpper(";") == false)
+
+  assert(far.LLowerBuf("abc-ABC-эюя-ЭЮЯ-7;") == "abc-abc-эюя-эюя-7;")
+  assert(far.LUpperBuf("abc-ABC-эюя-ЭЮЯ-7;") == "ABC-ABC-ЭЮЯ-ЭЮЯ-7;")
+
+  assert(far.LStricmp("abc","def") < 0)
+  assert(far.LStricmp("def","abc") > 0)
+  assert(far.LStricmp("abc","abc") == 0)
+  assert(far.LStricmp("ABC","def") < 0)
+  assert(far.LStricmp("DEF","abc") > 0)
+  assert(far.LStricmp("ABC","abc") == 0)
+
+  assert(far.LStrnicmp("abc","def",3) < 0)
+  assert(far.LStrnicmp("def","abc",3) > 0)
+  assert(far.LStrnicmp("abc","abc",3) == 0)
+  assert(far.LStrnicmp("ABC","def",3) < 0)
+  assert(far.LStrnicmp("DEF","abc",3) > 0)
+  assert(far.LStrnicmp("ABC","abc",3) == 0)
+  assert(far.LStrnicmp("111abc","111def",3) == 0)
+  assert(far.LStrnicmp("111abc","111def",4) < 0)
+end
+
+function MT.test_luafar()
+  test_AdvControl()
+  test_bit64()
+  test_far_GetMsg()
+  test_FarStandardFunctions()
+  test_MacroControl()
+  test_RegexControl()
+end
+
+-- Test in particular that Plugin.Call (a so-called "restricted" function) works properly
+-- from inside a deeply nested coroutine.
+local function test_coroutine()
+  for k=1,2 do
+    local Call = k==1 and Plugin.Call or Plugin.SyncCall
+    local function f1()
+      coroutine.yield(Call(luamacroId, "argtest", 1, false, "foo", nil))
+    end
+    local function f2() return coroutine.resume(coroutine.create(f1)) end
+    local function f3() return coroutine.resume(coroutine.create(f2)) end
+    local function f4() return coroutine.resume(coroutine.create(f3)) end
+    local t = pack(f4())
+    assert(t.n==7 and t[1]==true and t[2]==true and t[3]==true and
+           t[4]==1 and t[5]==false and t[6]=="foo" and t[7]==nil)
+  end
+end
+
+local function test_cfind()
+  assert(type(("").cfind) == "function")
+  assert(("").cfind == unicode.utf8.cfind)
+  local from, to, c1, c2 = ("абвгд"):cfind("(г)(д)", 4)
+  assert(from==4 and to==5 and c1=="г" and c2=="д")
+  assert(nil == ("абвгд"):cfind("(г)(д)", 5))
+end
+
+function MT.test_misc()
+  test_coroutine()
+  test_cfind()
+end
+
+function MT.test_all()
   TestArea("Shell", "Run these tests from the Shell area.")
   assert(not APanel.Plugin and not PPanel.Plugin, "Run these tests when neither of panels is a plugin panel.")
 
-  test_areas()
-  test_mf()
-  test_CmdLine()
-  test_Help()
-  test_Dlg()
-  test_Drv()
-  test_Far()
-  test_Mouse()
-  test_Object()
-  test_Panel()
-  test_Plugin()
-  test_XPanel(APanel)
-  test_XPanel(PPanel)
-  test_far_MacroExecute()
-  test_far_MacroAdd()
-  test_far_MacroCheck()
-
-  --far.Message("All tests OK", "LuaMacro")
-  far.MacroPost([[far.Message "All tests OK", "LuaMacro"]], "KMFLAGS_MOONSCRIPT")
+  MT.test_areas()
+  MT.test_mf()
+  MT.test_CmdLine()
+  MT.test_Help()
+  MT.test_Dlg()
+  MT.test_Drv()
+  MT.test_Far()
+  MT.test_Mouse()
+  MT.test_Object()
+  MT.test_Panel()
+  MT.test_Plugin()
+  MT.test_XPanel(APanel)
+  MT.test_XPanel(PPanel)
+  MT.test_mantis_1722()
+  MT.test_luafar()
+  MT.test_misc()
 end
+
+return MT

@@ -5,7 +5,7 @@
 /*
   plugin.hpp
 
-  Plugin API for Far Manager 3.0 build 4242
+  Plugin API for Far Manager 3.0 build 4400
 */
 
 /*
@@ -43,7 +43,7 @@ other possible license with no implications from the above license on them.
 #define FARMANAGERVERSION_MAJOR 3
 #define FARMANAGERVERSION_MINOR 0
 #define FARMANAGERVERSION_REVISION 0
-#define FARMANAGERVERSION_BUILD 4242
+#define FARMANAGERVERSION_BUILD 4400
 #define FARMANAGERVERSION_STAGE VS_RELEASE
 
 #ifndef RC_INVOKED
@@ -52,8 +52,6 @@ other possible license with no implications from the above license on them.
 #include <windows.h>
 
 #undef DefDlgProc
-
-#define FARMACRO_KEY_EVENT  (KEY_EVENT|0x8000)
 
 
 #define CP_UNICODE    ((uintptr_t)1200)
@@ -302,7 +300,8 @@ enum FARMESSAGE
 	DM_SETHISTORY                   = 47,
 
 	DM_GETITEMPOSITION              = 48,
-	DM_SETMOUSEEVENTNOTIFY          = 49,
+	DM_SETINPUTNOTIFY               = 49,
+	DM_SETMOUSEEVENTNOTIFY          = DM_SETINPUTNOTIFY,
 
 	DM_EDITUNCHANGEDFLAG            = 50,
 
@@ -1428,6 +1427,7 @@ enum SYNCHRO_EVENTS
 };
 
 #define EEREDRAW_ALL    (void*)0
+
 #define CURRENT_EDITOR -1
 
 enum EDITOR_CONTROL_COMMANDS
@@ -2029,6 +2029,7 @@ typedef void (WINAPI *FARSTDLOCALSTRUPR)(wchar_t *s1);
 typedef void (WINAPI *FARSTDLOCALSTRLWR)(wchar_t *s1);
 typedef int (WINAPI *FARSTDLOCALSTRICMP)(const wchar_t *s1,const wchar_t *s2);
 typedef int (WINAPI *FARSTDLOCALSTRNICMP)(const wchar_t *s1,const wchar_t *s2,intptr_t n);
+typedef unsigned __int64 (WINAPI *FARSTDFARCLOCK)();
 
 typedef unsigned __int64 PROCESSNAME_FLAGS;
 static const PROCESSNAME_FLAGS
@@ -2176,6 +2177,7 @@ typedef struct FarStandardFunctions
 	FARGETREPARSEPOINTINFO     GetReparsePointInfo;
 	FARGETCURRENTDIRECTORY     GetCurrentDirectory;
 	FARFORMATFILESIZE          FormatFileSize;
+	FARSTDFARCLOCK             FarClock;
 } FARSTANDARDFUNCTIONS;
 
 struct PluginStartupInfo
@@ -2259,13 +2261,11 @@ struct MacroPluginReturn
 };
 
 typedef intptr_t (WINAPI *FARAPICALLFAR)(intptr_t CheckCode, struct FarMacroCall* Data);
-typedef void (WINAPI *FARAPICALLPLUGIN)(struct MacroPluginReturn* Data, struct FarMacroCall** Target, int* Boolean);
 
 struct MacroPrivateInfo
 {
 	size_t StructSize;
 	FARAPICALLFAR CallFar;
-	FARAPICALLPLUGIN CallPlugin;
 };
 
 typedef unsigned __int64 PLUGIN_FLAGS;

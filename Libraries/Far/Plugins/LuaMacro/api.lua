@@ -70,13 +70,14 @@ mf.iif = function(Expr, res1, res2)
 end
 
 mf.usermenu = function(mode, filename)
-  if mode and type(mode)~="number" then return 0 end
+  if Shared.OnlyEditorViewerUsed then return end -- mantis #2986 (crash)
+  if mode and type(mode)~="number" then return end
   mode = mode or 0
   local sync_call = band(mode,0x100) ~= 0
   mode = band(mode,0xFF)
   if mode==0 or mode==1 then
-    if sync_call then return MacroCallFar(MCODE_F_USERMENU, mode==1)
-    else return yieldcall(F.MPRT_USERMENU, mode==1)
+    if sync_call then MacroCallFar(MCODE_F_USERMENU, mode==1)
+    else yieldcall(F.MPRT_USERMENU, mode==1)
     end
   elseif (mode==2 or mode==3) and type(filename)=="string" then
     if mode==3 then
@@ -84,11 +85,10 @@ mf.usermenu = function(mode, filename)
         filename = win.GetEnv("farprofile").."\\Menus\\"..filename
       end
     end
-    if sync_call then return MacroCallFar(MCODE_F_USERMENU, filename)
-    else return yieldcall(F.MPRT_USERMENU, filename)
+    if sync_call then MacroCallFar(MCODE_F_USERMENU, filename)
+    else yieldcall(F.MPRT_USERMENU, filename)
     end
   end
-  return 0
 end
 
 mf.GetMacroCopy = utils.GetMacroCopy
@@ -203,6 +203,7 @@ local prop_CmdLine = {
   CurPos    = function() return MacroCallFar(0x8083C) end,
   ItemCount = function() return MacroCallFar(0x8083B) end,
   Value     = function() return MacroCallFar(0x8083D) end,
+  Result    = function() return Shared.CmdLineResult end,
 }
 
 local prop_Drv = {
@@ -346,12 +347,11 @@ Plugin = {
   Load    = function(...) return MacroCallFar(0x80C51, ...) end,
   Unload  = function(...) return MacroCallFar(0x80C53, ...) end,
 
---Call     = function(...) return MacroCallFar(0x80C50, ...) end,
---Command  = function(...) return MacroCallFar(0x80C52, ...) end,
---Config   = function(...) return MacroCallFar(0x80C4F, ...) end,
---Menu     = function(...) return MacroCallFar(0x80C4E, ...) end,
+  SyncCall = function(...)
+    local v = Shared.keymacro.CallPlugin(Shared.pack(...), false)
+    if type(v)=="userdata" then return far.FarMacroCallToLua(v) else return v end
+  end
 }
-Plugin.SyncCall, far.MacroCallPlugin = far.MacroCallPlugin, nil
 --------------------------------------------------------------------------------
 
 Panel = {
@@ -375,7 +375,7 @@ Mouse   = SetProperties({}, prop_Mouse)
 Viewer  = SetProperties({}, prop_Viewer)
 --------------------------------------------------------------------------------
 
-local function GetEvalData (str) -- Получение данных макроса для Eval(S,2).
+local function Eval_GetData (str) -- Получение данных макроса для Eval(S,2).
   local Mode=far.MacroGetArea()
   local UseCommon=false
   str = str:match("^%s*(.-)%s*$")
@@ -394,6 +394,10 @@ local function GetEvalData (str) -- Получение данных макроса для Eval(S,2).
   return Mode, strKey, UseCommon
 end
 
+local function Eval_FixReturn (ok, ...)
+  return ok and 0 or -4, ...
+end
+
 function mf.eval (str, mode, lang)
   if type(str) ~= "string" then return -1 end
   mode = mode or 0
@@ -402,18 +406,18 @@ function mf.eval (str, mode, lang)
   if not (lang=="lua" or lang=="moonscript") then return -1 end
 
   if mode == 2 then
-    local area,key,usecommon = GetEvalData(str)
+    local area,key,usecommon = Eval_GetData(str)
     if not area then return -2 end
 
     local macro = utils.GetMacro(area,key,usecommon,false)
     if not macro then return -2 end
     if not macro.id then return -3 end
 
-    yieldcall("eval", macro, key)
-    return 0
+    return Eval_FixReturn(yieldcall("eval", macro, key))
   end
 
-  local chunk, params = Shared.loadmacro(lang, str, getfenv(2))
+  local ok, env = pcall(getfenv, 3)
+  local chunk, params = Shared.loadmacro(lang, str, ok and env)
   if chunk then
     if mode==1 then return 0 end
     if mode==3 then return "" end
