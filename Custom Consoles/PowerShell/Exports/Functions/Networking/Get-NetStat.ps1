@@ -1,6 +1,9 @@
 function Get-NetStat
 {
     param(
+        [Parameter(ParameterSetName="ProcessId",Mandatory=$true)]$ProcessId,
+        [Parameter(ParameterSetName="OwnerProcess",Mandatory=$true)]$OwnerProcess,
+        [Parameter(ParameterSetName="All",Mandatory=$true)][switch]$All,
         [switch]$ResolveAddresses
     )
     
@@ -48,6 +51,11 @@ function Get-NetStat
         
         if (-not $ProcessCache.Contains($ownerPid)) {
             $ProcessCache[$ownerPid] = Get-Process -Id $ownerPid | % Name
+        }
+        
+        if (-not $All) {
+            if ($null -ne $ProcessId -and $ownerPid -ne $ProcessId) { return }
+            if ($null -ne $OwnerProcess -and $ProcessCache[$ownerPid] -ne $OwnerProcess) { return }
         }
         
 		$outputObject = New-Object -TypeName PSObject -Property @{
