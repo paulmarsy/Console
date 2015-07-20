@@ -7,6 +7,6 @@ $Path = @(
 	$Env:PATH
 	$pathExtensionsDir
 	(Get-ChildItem -Path $pathExtensionsDir -Directory | % FullName)
-) -Join ";"
+) -Join ([System.IO.Path]::PathSeparator)
 
 [System.Environment]::SetEnvironmentVariable("PATH", $Path, [System.EnvironmentVariableTarget]::Process)
