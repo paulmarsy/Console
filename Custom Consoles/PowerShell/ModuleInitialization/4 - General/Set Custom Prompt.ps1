@@ -4,7 +4,6 @@ if ($GetModuleStepDetails) { return (@{RunLevel = 3; Critical = $false}) }
 if ($ProfileConfig.General.IsAdmin) { $promptSecurityContext = "Red" }
 else { $promptSecurityContext = "Green" }
 
-
 if (Test-Path -Path Function:Global:prompt) {
     Remove-Item -Path Function:Global:prompt -Force
 }
@@ -12,38 +11,40 @@ if (Test-Path -Path Function:Global:prompt) {
 New-Item -Path Function:Global:prompt -Force -Value ([ScriptBlock]::Create({
     [CmdletBinding()]
     param ()
-
-    function _writePrompt {
-        param ($Object)
-        
-        Write-Host -ForegroundColor $promptSecurityContext -NoNewLine -Object $Object
-    }
-
+    
+    $originalLASTEXITCODE = $Global:LASTEXITCODE
     try {
-        $realLASTEXITCODE = Get-Variable -Name LASTEXITCODE -Scope Global -ValueOnly
-
         if ($PSCmdlet.GetVariableValue("PSDebugContext")) {
-           _writePrompt "[DBG] "
+           Write-Host -ForegroundColor $promptSecurityContext -NoNewLine "[DBG] "
         }
 
-        $currentPath = Get-Variable -Name PWD -Scope Global -ValueOnly
-        if ([string]::IsNullOrWhiteSpace((Split-Path -Resolve $currentPath -Parent))) { $path = $currentPath.Drive.Name }
-        else { $path = Split-Path $currentPath -Parent | Get-ChildItem -Force | ? PSChildName -eq (Split-Path $currentPath -Leaf) | Select-Object -ExpandProperty PSChildName }
-        if ($path) {
-            _writePrompt $path
-            if ($currentPath.Provider.Name -eq "FileSystem" -and $null -ne (Get-Module posh-git)) { Write-VcsStatus }
+        $currentPath = $PWD.Path
+        $parentPath = Split-Path -Path $currentPath -Parent
+        if ([string]::IsNullOrWhiteSpace($parentPath)) {
+            $path = $PWD.Drive
+        }  else {
+            $currentBaseName = Split-Path $currentPath -Leaf
+            $path = Get-ChildItem -Path $parentPath -Force -ErrorAction Ignore | ? PSChildName -eq $currentBaseName | Select-Object -ExpandProperty PSChildName -First 1
+        }
+        
+        if ([string]::IsNullOrWhiteSpace($path)) {
+            Write-Host -ForegroundColor $promptSecurityContext -NoNewLine "<Invalid Path>"
         } else {
-            _writePrompt "<Invalid Path>"
+            Write-Host -ForegroundColor $promptSecurityContext -NoNewLine $path
+            if (Test-Path Function:\Write-VcsStatus) { Write-VcsStatus }
+            Start-Process -FilePath $PowerShellConsoleConstants.Executables.ConEmuC -ArgumentList "-StoreCWD `"$path`"" -WindowStyle Hidden
         }
 
-        $npl = Get-Variable -Name NestedPromptLevel -ValueOnly
-        if ($npl -ne 0) {
-            _writePrompt " ($npl)"
+        if ($NestedPromptLevel -ne 0) {
+            Write-Host -ForegroundColor $promptSecurityContext -NoNewLine " ($NestedPromptLevel)"
         }
 
         return "$ "
     }
     finally {
-        Set-Variable -Name LASTEXITCODE -Scope Global -Value $realLASTEXITCODE
+        # Make sure the exit code is preserved
+        if ($Global:LASTEXITCODE -ne $originalLASTEXITCODE) {
+            Set-Variable -Name LASTEXITCODE -Scope Global -Value $originalLASTEXITCODE -Force
+        }
     }
 }).GetNewClosure())
