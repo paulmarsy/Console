@@ -4,7 +4,11 @@ function Edit-InAtom {
         [switch]$CreateFile
     )
     
-    $Path = Get-AbsolutePath -Path $Path
+    if ([System.IO.Path]::IsPathRooted($Path)) {
+        $Path = Get-AbsolutePath -Path $Path
+    } else {
+        $Path = Get-AbsolutePath -Path (Join-Path -Path $PWD -ChildPath $Path)
+    }
     
     if ($CreateFile -and -not (Test-Path -Path $Path -PathType Leaf)) {
         Set-File -Path $Path
