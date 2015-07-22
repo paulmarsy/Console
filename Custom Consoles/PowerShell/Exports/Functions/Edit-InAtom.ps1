@@ -4,7 +4,8 @@ function Edit-InAtom {
         [switch]$CreateFile
     )
     
-    $Path = (Resolve-Path -Path $Path).ToString()
+    $Path = Get-AbsolutePath -Path $Path
+    
     if ($CreateFile -and -not (Test-Path -Path $Path -PathType Leaf)) {
         Set-File -Path $Path
     }
