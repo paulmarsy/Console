@@ -21,6 +21,7 @@ $private:FunctionExportsRoot = Join-Path $InstallPath "Custom Consoles\PowerShel
     "PowerShell Utilities\Test-PowerShellScriptSyntax.ps1"
     "PowerShell Utilities\Test-PowerShellScript.ps1"
     "PowerShell Utilities\Test-PowerShellDirectory.ps1"
+    "PowerShell Utilities\New-DynamicParam.ps1"
     "Windows\ConvertTo-DirectoryJunction.ps1"
     "Invoke-Ternary.ps1"
     "Test-Null.ps1"
