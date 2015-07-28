@@ -1,9 +1,10 @@
 function Get-NetStat
 {
+    [CmdletBinding(DefaultParameterSetName="All")]
     param(
+        [Parameter(ParameterSetName="All",Mandatory=$false)][switch]$All,
         [Parameter(ParameterSetName="ProcessId",Mandatory=$true)]$ProcessId,
         [Parameter(ParameterSetName="OwnerProcess",Mandatory=$true)]$OwnerProcess,
-        [Parameter(ParameterSetName="All",Mandatory=$true)][switch]$All,
         [switch]$ResolveAddresses
     )
     
