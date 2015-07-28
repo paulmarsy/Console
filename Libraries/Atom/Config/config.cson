@@ -64,4 +64,5 @@
   minimap:
     displayPluginsControls: false
     displayCodeHighlights: false
+    scrollAnimation: true
   "status-bar": {}
