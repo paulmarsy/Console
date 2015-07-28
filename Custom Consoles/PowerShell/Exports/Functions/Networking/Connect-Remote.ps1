@@ -3,7 +3,6 @@ function Connect-Remote {
     param(
         [Parameter(Mandatory=$true,Position=0)]$ComputerName,
         [Parameter(Position=1)][ValidateSet("PowerShell", "RDP", "SSH", "TELNET", "VNC", "HTTP", "HTTPS")]$InteractiveType = "RDP",
-        [Parameter(Position=2)][ValidateScript({ @("PowerShell") -contains $InteractiveType })]$Command,
         [switch]$UseWindowsLogon,
         [switch]$ResetWindowsLogon,
         $Port = $null,
@@ -13,19 +12,17 @@ function Connect-Remote {
     
     DynamicParam
     {
-        $paramDictionary = New-Object System.Management.Automation.RuntimeDefinedParameterDictionary
-        $attributeCollection = New-Object -Type System.Collections.ObjectModel.Collection[System.Attribute]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    teCollection = New-Object -Type System.Collections.ObjectModel.Collection[System.Attribute]
-
-        $defaultParameter = New-Object System.Management.Automation.ParameterAttribute
-        $defaultParameter.ParameterSetName = "__AllParameterSets"
-        $attributeCollection.Add($defaultParameter)
-
-        if ($InteractiveType -eq "SSH") {
-            $paramDictionary.Add('DontStartShell', (New-Object System.Management.Automation.RuntimeDefinedParameter('DontStartShell', [System.Diagnostics.Switch], $attributeCollection)))
-            $paramDictionary.Add('RemoteCommand', (New-Object System.Management.Automation.RuntimeDefinedParameter('RemoteCommand', [System.String], $attributeCollection)))
+        $runtimeParameterDictionary = New-Object System.Management.Automation.RuntimeDefinedParameterDictionary
+        switch ($InteractiveType) {            
+            "SSH" {
+                New-DynamicParam -Name DontStartShell -Type ([System.Diagnostics.Switch]) -DPDictionary $runtimeParameterDictionary
+                New-DynamicParam -Name RemoteCommand -Type ([System.String]) -DPDictionary $runtimeParameterDictionary
+            }
+            "PowerShell" {
+                New-DynamicParam -Name RemoteCommand -Type ([System.String]) -DPDictionary $runtimeParameterDictionary
+            }
         }
-
-        return $paramDictionary
+        return $runtimeParameterDictionary
     }
     
     PROCESS {
@@ -57,8 +54,8 @@ function Connect-Remote {
                     $credentials = New-Object System.Management.Automation.PSCredential ($Username, $securePassword)
                     $parameters += @{"Credential" = $credentials}
                 }
-                if ($Command) {
-                    $parameters += @{"ScriptBlock" = $Command}
+                if (Test-Path Variable:RemoteCommand) {
+                    $parameters += @{"ScriptBlock" = $RemoteCommand}
                     Invoke-Command @parameters
                 } else {
                     Enter-PSSession @parameters
