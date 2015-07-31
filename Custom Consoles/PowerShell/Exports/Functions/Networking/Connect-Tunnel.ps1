@@ -31,7 +31,7 @@ function Connect-Tunnel {
 
 	if ($null -eq $LocalPort) { $LocalPort = Get-Random -Minimum 10000 -Maximum 60000 }
 
-    $plinkArguments = @($TunnelHost, "-C", "-N", "-v", "-L $("{0}:{1}:{2}" -f $LocalPort, $DestinationHost, $DestinationPort)")
+    $plinkArguments = @($TunnelHost, "-ssh", "-2", "-C", "-N", "-v", "-L $("127.0.0.1:{0}:{1}:{2}" -f $LocalPort, $DestinationHost, $DestinationPort)")
     if ($null -ne $TunnelPort) { $plinkArguments += "-P $TunnelPort" }
     if ($null -ne $TunnelUsername) { $plinkArguments += "-l `"$TunnelUsername`"" }
     if ($null -ne $TunnelPassword) { $plinkArguments += "-pw `"$TunnelPassword`"" }
