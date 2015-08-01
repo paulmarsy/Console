@@ -15,7 +15,7 @@ function Connect-Remote {
         $runtimeParameterDictionary = New-Object System.Management.Automation.RuntimeDefinedParameterDictionary
         switch ($InteractiveType) {            
             "SSH" {
-                New-DynamicParam -Name DontStartShell -Type ([System.Diagnostics.Switch]) -DPDictionary $runtimeParameterDictionary
+                New-DynamicParam -Name DontStartShell -Type ([System.Management.Automation.SwitchParameter]) -DPDictionary $runtimeParameterDictionary
                 New-DynamicParam -Name RemoteCommand -Type ([System.String]) -DPDictionary $runtimeParameterDictionary
             }
             "PowerShell" {
