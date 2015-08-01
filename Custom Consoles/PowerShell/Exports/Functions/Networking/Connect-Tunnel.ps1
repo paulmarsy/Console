@@ -29,7 +29,7 @@ function Connect-Tunnel {
     	}
 	}
 
-	if ($null -eq $LocalPort) { $LocalPort = Get-Random -Minimum 10000 -Maximum 60000 }
+	if ($null -eq $LocalPort) { $LocalPort = Get-Random -Minimum 30000 -Maximum 40000 } # 30000..39999 = 3xxxx
 
     $plinkArguments = @($TunnelHost, "-ssh", "-2", "-C", "-N", "-v", "-L $("127.0.0.1:{0}:{1}:{2}" -f $LocalPort, $DestinationHost, $DestinationPort)")
     if ($null -ne $TunnelPort) { $plinkArguments += "-P $TunnelPort" }
@@ -43,7 +43,7 @@ function Connect-Tunnel {
     	$host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown") | Out-Null
     	Write-Host ("`nConnecting to {0}..." -f $DestinationHost)
 
-    	$remoteArguments = @{"ComputerName" = "localhost"; "InteractiveType" = $DestinationType; "Port" = $LocalPort}
+    	$remoteArguments = @{"ComputerName" = "127.0.0.1"; "InteractiveType" = $DestinationType; "Port" = $LocalPort}
    		if ($null -ne $DestinationUsername) { $remoteArguments += @{"Username" = "`"$DestinationUsername`"" } }
     	if ($null -ne $DestinationPassword) { $remoteArguments += @{"Password" = "`"$DestinationPassword`"" } }
 
