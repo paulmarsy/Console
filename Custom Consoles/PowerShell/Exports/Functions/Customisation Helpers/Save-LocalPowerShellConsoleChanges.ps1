@@ -34,8 +34,10 @@ function Save-LocalPowerShellConsoleChanges {
 		return $output
 	} 
 
-	Update-PowerShellConsoleVersion -Major:$Major -Minor:$Minor -Patch:$Patch 
-	
+	if ($PsCmdlet.ParameterSetName -eq "Major") { Update-PowerShellConsoleVersion -Major -Quiet }
+	if ($PsCmdlet.ParameterSetName -eq "Minor") { Update-PowerShellConsoleVersion -Minor -Quiet }
+	if ($PsCmdlet.ParameterSetName -eq "Patch") { Update-PowerShellConsoleVersion -Patch -Quiet }
+
 	$ProfileConfig.Module.InstallPath | commitChanges "Main Console Repo..."
 
 	if ($script:changesCommited) {
