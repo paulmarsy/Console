@@ -5,9 +5,10 @@ function Show-PowerShellConsoleStatus {
 		[switch]$IncludeIgnored,
 		[switch]$OnlyThisBranch
     )
-
+	
 	_workOnConsoleWorkingDirectory {
-		$currentBranch = _getCurrentBranch
+		$currentBranch = & git rev-parse --abbrev-ref HEAD
+		if ($LASTEXITCODE -ne 0) { throw "Git command returned exit code: $LASTEXITCODE" }
 
 		Write-Host
 		Write-Host -ForegroundColor Cyan "Currently on branch:"
@@ -55,7 +56,7 @@ function Show-PowerShellConsoleStatus {
 		if ($Detailed) {
 			Write-Host
 			Write-Host -ForegroundColor Cyan "Showing uncommited changes:"
-			_invokeGitCommand "diff $(_getCurrentBranch)"
+			_invokeGitCommand "diff $currentBranch"
 		}
     }
 }

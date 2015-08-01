@@ -10,13 +10,13 @@ function Save-LocalPowerShellConsoleChanges {
 
 	Optimize-PowerShellConsoleFiles
 
-
 	$script:changesCommited = $false
 	filter commitChanges {
 		try {
 			Push-Location $_
 			
-			if ((_getNumberOfUncommitedChanges) -eq 0) { return }
+			if ((& git status --porcelain 2>$null | Measure-Object -Line | Select-Object -ExpandProperty Lines) -eq 0) { return }
+			if ($LASTEXITCODE -ne 0) { throw "Git command returned exit code: $LASTEXITCODE" }
 
 			Write-Host -ForegroundColor Cyan "Commiting changes to $(Split-Path $_ -Leaf)..."
 			_invokeGitCommand "add -A" | Out-Null
@@ -28,7 +28,11 @@ function Save-LocalPowerShellConsoleChanges {
 		}
 	}
 
-	_getSubmodulePaths | commitChanges
+	_workOnConsoleWorkingDirectory {
+		$output = & git submodule foreach --quiet 'echo $path' | % Replace "/" "\" | commitChanges
+		if ($LASTEXITCODE -ne 0) { throw "Git command returned exit code: $LASTEXITCODE" }
+		return $output
+	} 
 
 	Update-PowerShellConsoleVersion -Major:$Major -Minor:$Minor -Patch:$Patch 
 	
