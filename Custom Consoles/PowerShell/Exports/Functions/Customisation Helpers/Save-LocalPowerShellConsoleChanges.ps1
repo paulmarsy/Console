@@ -1,9 +1,9 @@
 function Save-LocalPowerShellConsoleChanges {
-	[CmdletBinding(DefaultParameterSetName="Patch")]
+	[CmdletBinding()]
 	param(
-		[Parameter(ParameterSetName="Major", Mandatory=$false)][switch]$Major,
-        [Parameter(ParameterSetName="Minor", Mandatory=$false)][switch]$Minor,
-        [Parameter(ParameterSetName="Patch", Mandatory=$false)][switch]$Patch,
+		[Parameter(ParameterSetName="Major", Mandatory=$true)][switch]$Major,
+        [Parameter(ParameterSetName="Minor", Mandatory=$true)][switch]$Minor,
+        [Parameter(ParameterSetName="Patch", Mandatory=$true)][switch]$Patch,
 		
 		[Parameter(ValueFromRemainingArguments=$true)][ValidateNotNullOrEmpty()][string]$CommitMessage
     )
