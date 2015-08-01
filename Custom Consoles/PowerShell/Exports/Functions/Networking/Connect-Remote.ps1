@@ -17,6 +17,7 @@ function Connect-Remote {
             "SSH" {
                 New-DynamicParam -Name DontStartShell -Type ([System.Management.Automation.SwitchParameter]) -DPDictionary $runtimeParameterDictionary
                 New-DynamicParam -Name RemoteCommand -Type ([System.String]) -DPDictionary $runtimeParameterDictionary
+                New-DynamicParam -Name KeyFile -Type ([System.String]) -DPDictionary $runtimeParameterDictionary
             }
             "PowerShell" {
                 New-DynamicParam -Name RemoteCommand -Type ([System.String]) -DPDictionary $runtimeParameterDictionary
@@ -90,12 +91,13 @@ function Connect-Remote {
                 } -ArgumentList @($ProfileConfig.Module.InstallPath, $ComputerName, $Port, $Username, $Password) | Out-Null # TODO: Clean up this job once it has finished somehow
             }
             "SSH" {
-                $arguments = @($ComputerName)
+                $arguments = @($ComputerName, "-agent")
                 if ($null -ne $Port) { $arguments += "-P $Port" }
                 if ($null -ne $Username) { $arguments += "-l `"$Username`"" }
                 if ($null -ne $Password) { $arguments += "-pw `"$Password`"" }
                 if (Test-Path Variable:DontStartShell) { $arguments += "-N" }
                 if ((Test-Path Variable:RemoteCommand) -and -not ([string]::IsNullOrWhiteSpace((Get-Variable -Name RemoteCommand -ValueOnly)))) { $arguments += "-s $RemoteCommand" }
+                if ((Test-Path Variable:KeyFile) -and (Test-Path (Get-Variable -Name KeyFile -ValueOnly))) { $arguments += "-i `"$KeyFile`"" }
 
                 Start-Process -FilePath "putty.exe" -ArgumentList $arguments
             }
