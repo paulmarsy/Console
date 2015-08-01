@@ -22,3 +22,6 @@
 [submodule "Libraries/PowerShell Modules/Everything"]
 	path = Libraries/PowerShell Modules/Everything
 	url = https://github.com/paulmarsy/Everything-PowerShell-Module.git
+[submodule "Libraries/PowerShell Modules/PowerForensics"]
+	path = Libraries/PowerShell Modules/PowerForensics
+	url = https://github.com/Invoke-IR/PowerForensics
