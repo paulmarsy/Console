@@ -118,7 +118,11 @@ function Connect-Remote {
                 }
                 
                 if ($null -ne $Password) {
-                    $obfuscatedPassword = & (Join-Path $ProfileConfig.Module.InstallPath 'Libraries\Custom Helper Apps\VncPassword\vncpassword.exe') "$Password" | % {
+                    $vncpasswordApp = switch ([System.Environment]::Is64BitOperatingSystem) {
+                        $true { "vncpassword-x64.exe" }
+                        $false { "vncpassword-x86.exe" }
+                    }
+                    $obfuscatedPassword = & ([System.IO.Path]::Combine($ProfileConfig.Module.InstallPath, 'Libraries\Custom Helper Apps\VncPassword', $vncpasswordApp)) "$Password" | % {
                         [byte]::Parse($_, [System.Globalization.NumberStyles]::AllowHexSpecifier)
                     }
                     $passwordFile = [System.IO.Path]::GetTempFileName()
