@@ -5,8 +5,8 @@ function Connect-Tunnel {
         $TunnelHost,
         [Parameter(Mandatory=$true,Position=1)]
         $DestinationHost,
-        [Parameter(ParameterSetName="Type",Mandatory=$true,Position=2)][ValidateSet("RDC", "RDP", "SSH", "TELNET", "HTTP", "HTTPS")]
-        $DestinationType = "RDC",
+        [Parameter(ParameterSetName="Type",Mandatory=$true,Position=2)][ValidateSet("RDP", "SSH", "TELNET", "VNC", "HTTP", "HTTPS")]
+        $DestinationType = "RDP",
         [Parameter(ParameterSetName="Port",Mandatory=$true,Position=2)]
         $DestinationPort,
         [switch]$LeaveTunnelOpen,
@@ -20,12 +20,12 @@ function Connect-Tunnel {
 
      if ($PsCmdlet.ParameterSetName -eq "Type") {
     	switch ($DestinationType) {
-    		 "RDC" { $DestinationPort = 3389 }
-    		 "RDP" { $DestinationPort = 3389 }
-    		 "SSH" { $DestinationPort = 22 }
+    		 "RDP"    { $DestinationPort = 3389 }
+    		 "SSH"    { $DestinationPort = 22 }
     		 "TELNET" { $DestinationPort = 23 }
-             "HTTP" { $DestinationPort = 80 }
-             "HTTPS" { $DestinationPort = 443 }
+             "VNC"    { $DestinationPort = 5900 }
+             "HTTP"   { $DestinationPort = 80 }
+             "HTTPS"  { $DestinationPort = 443 }
     	}
 	}
 
