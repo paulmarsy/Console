@@ -1,7 +1,7 @@
 param([switch]$GetModuleStepDetails)
 if ($GetModuleStepDetails) { return (@{RunLevel = 3; Critical = $true}) }
 
-Get-ChildItem (Join-Path $ProfileConfig.ConsolePaths.PowerShell "Exports\Functions") -Filter "*.ps1" -Recurse -File |
+Get-ChildItem (Join-Path $ProfileConfig.ConsolePaths.PowerShell "Exports\Functions") -Filter "*.ps1" -Recurse -File -Exclude "*.Tests.*" |
 	Sort-Object -Property FullName |
 	% {
 		$functionName = $_.BaseName
