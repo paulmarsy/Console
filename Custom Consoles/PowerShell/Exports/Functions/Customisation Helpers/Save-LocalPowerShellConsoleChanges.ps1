@@ -4,6 +4,7 @@ function Save-LocalPowerShellConsoleChanges {
 		[Parameter(ParameterSetName="Major", Mandatory=$true)][switch]$Major,
         [Parameter(ParameterSetName="Minor", Mandatory=$true)][switch]$Minor,
         [Parameter(ParameterSetName="Patch", Mandatory=$true)][switch]$Patch,
+		[Parameter(ParameterSetName="None", Mandatory=$false)][switch]$NoVersionChange,
 		
 		[Parameter(ValueFromRemainingArguments=$true)][ValidateNotNullOrEmpty()][string]$CommitMessage
     )
