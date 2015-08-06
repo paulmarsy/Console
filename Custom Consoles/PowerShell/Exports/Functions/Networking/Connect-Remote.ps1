@@ -1,13 +1,12 @@
 function Connect-Remote {
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingConvertToSecureStringWithPlainText', '')] 
     param(
-        [Parameter(Mandatory=$true,Position=0)]$ComputerName,
-        [Parameter(Position=1)][ValidateSet("PowerShell", "RDP", "SSH", "TELNET", "VNC", "HTTP", "HTTPS")]$InteractiveType = "RDP",
-        [switch]$UseWindowsLogon,
-        [switch]$ResetWindowsLogon,
-        $Port = $null,
-        $Username = $null,
-        $Password = $null
+        [Parameter(Mandatory=$true, Position=1)][System.String]$ComputerName,
+        [Parameter(Mandatory=$false, Position=2)][ValidateSet("PowerShell", "RDP", "SSH", "TELNET", "VNC", "HTTP", "HTTPS")][System.String]$InteractiveType = "RDP",
+        [AllowNull()][System.UInt16]$Port = $null,
+        [System.String]$Username = $null,
+		[System.String]$Password = $null,
+        [switch]$UseWindowsLogon
     )
     
     DynamicParam
@@ -27,19 +26,11 @@ function Connect-Remote {
     }
     
     PROCESS {
-        if ($ResetWindowsLogon) {
-            Set-ProtectedProfileConfigSetting -Name "WindowsLogon" -Value ([string]::Empty) -Force
-        }
-
         if ($UseWindowsLogon -or ($InteractiveType -eq "RDP" -and $null -eq $UserName -and $null -eq $Password)) {
-            $windowsLogon = Get-ProtectedProfileConfigSetting -Name "WindowsLogon"
+            $windowsLogon = Get-RemoteAccessCredential
             if ([string]::IsNullOrWhiteSpace($windowsLogon)) {
-                $windowsCredentials = Get-Credential -Username ("{0}\{1}" -f ([Environment]::UserDomainName), ([Environment]::UserName)) -Message "Enter your windows logon credentials"
-                $windowsLogon = @{
-                    UserName = $windowsCredentials.UserName
-                    Password = $windowsCredentials.Password.Peek()
-                }
-                Set-ProtectedProfileConfigSetting -Name "WindowsLogon" -Value $windowsLogon -Force
+                Write-Warning "Unable to access stored Windows Credentials for remote access try 'Set-RemoteAccessCredentials'"
+                return
             }
             $UserName = $windowsLogon.UserName
             $Password = $windowsLogon.Password
