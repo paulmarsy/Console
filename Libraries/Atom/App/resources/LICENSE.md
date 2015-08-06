@@ -536,7 +536,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: ast-types@0.8.2
+Package: ast-types@0.8.5
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -564,7 +564,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: ast-types@0.8.3
+Package: ast-types@0.8.7
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -735,7 +735,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: atom-keymap@5.1.8
+Package: atom-keymap@5.1.10
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -909,7 +909,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: atom@1.0.3
+Package: atom@1.0.4
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -943,7 +943,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: autocomplete-css@0.9.0
+Package: autocomplete-css@0.10.1
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -1164,7 +1164,7 @@ Source Text:
 <content omitted>
 -------------------------------------------------------------------------
 
-Package: babel-core@5.8.14
+Package: babel-core@5.8.20
 License: MIT
 License Source: package.json
 
@@ -1260,13 +1260,34 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: babylon@5.8.13
+Package: babylon@5.8.20
 License: MIT
-License Source: package.json
+License Source: LICENSE
+Source Text:
+
+Copyright (C) 2012-2014 by various contributors (see AUTHORS)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: background-tips@0.25.0
+Package: background-tips@0.26.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -1414,7 +1435,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: bookmarks@0.35.0
+Package: bookmarks@0.36.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -1564,7 +1585,7 @@ license
 MIT/X11
 -------------------------------------------------------------------------
 
-Package: camelcase@1.1.0
+Package: camelcase@1.2.1
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -2362,7 +2383,7 @@ License Source: http://rock.mit-license.org linked in source files and bower.jso
 
 -------------------------------------------------------------------------
 
-Package: core-js@0.9.18
+Package: core-js@1.0.1
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -2717,7 +2738,7 @@ Clones the current set of dependencies into its own object.
 
 -------------------------------------------------------------------------
 
-Package: deprecation-cop@0.53.1
+Package: deprecation-cop@0.54.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -3105,18 +3126,6 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: esprima-fb@13001.1.0-dev-harmony-fb
-License: BSD
-License Source: package.json
-
--------------------------------------------------------------------------
-
-Package: esprima-fb@14001.1.0-dev-harmony-fb
-License: BSD
-License Source: package.json
-
--------------------------------------------------------------------------
-
 Package: esprima-fb@15001.1.0-dev-harmony-fb
 License: BSD
 License Source: package.json
@@ -3285,7 +3294,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: find-and-replace@0.175.0
+Package: find-and-replace@0.176.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -4889,6 +4898,12 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 -------------------------------------------------------------------------
 
+Package: json5@0.4.0
+License: MIT
+License Source: package.json
+
+-------------------------------------------------------------------------
+
 Package: key-path-helpers@0.1.0
 License: MIT
 License Source: LICENSE.md
@@ -5003,7 +5018,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: language-c@0.45.0
+Package: language-c@0.47.0
 License: MIT
 License Source: package.json
 
@@ -5071,13 +5086,13 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-csharp@0.6.0
+Package: language-csharp@0.7.0
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-css@0.32.1
+Package: language-css@0.32.2
 License: MIT
 License Source: package.json
 
@@ -5117,13 +5132,13 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-go@0.31.0
+Package: language-go@0.35.0
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-html@0.40.0
+Package: language-html@0.40.1
 License: MIT
 License Source: package.json
 
@@ -5135,31 +5150,31 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-java@0.15.0
+Package: language-java@0.16.0
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-javascript@0.85.0
+Package: language-javascript@0.87.1
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-json@0.15.0
+Package: language-json@0.16.0
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-less@0.28.1
+Package: language-less@0.28.2
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-make@0.14.0
+Package: language-make@0.15.0
 License: MIT
 License Source: package.json
 
@@ -5205,7 +5220,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-php@0.27.0
+Package: language-php@0.28.0
 License: MIT
 License Source: package.json
 
@@ -5235,7 +5250,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-sass@0.40.0
+Package: language-sass@0.40.1
 License: MIT
 License Source: package.json
 
@@ -5265,7 +5280,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-todo@0.25.0
+Package: language-todo@0.26.0
 License: MIT
 License Source: package.json
 
@@ -5299,13 +5314,13 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: language-xml@0.30.0
+Package: language-xml@0.32.0
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-yaml@0.22.0
+Package: language-yaml@0.24.0
 License: MIT
 License Source: package.json
 
@@ -5616,7 +5631,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: lodash@3.10.0
+Package: lodash@3.10.1
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -5675,7 +5690,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: loophole@1.0.0
+Package: loophole@1.1.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -5726,7 +5741,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: ls-archive@1.1.1
+Package: ls-archive@1.2.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -5811,7 +5826,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: marked@0.3.3
+Package: marked@0.3.5
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -7483,7 +7498,7 @@ IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: recast@0.10.18
+Package: recast@0.10.24
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -7511,7 +7526,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: recast@0.10.21
+Package: recast@0.10.26
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -7545,7 +7560,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: regenerator@0.8.34
+Package: regenerator@0.8.35
 License: BSD
 License Source: LICENSE
 Source Text:
@@ -8123,7 +8138,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: settings-view@0.211.2
+Package: settings-view@0.212.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -9102,12 +9117,6 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: strip-json-comments@1.0.2
-License: MIT
-License Source: package.json
-
--------------------------------------------------------------------------
-
 Package: styleguide@0.44.0
 License: MIT
 License Source: LICENSE.md
@@ -9363,7 +9372,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: text-buffer@6.4.0
+Package: text-buffer@6.5.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -9549,7 +9558,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: tree-view@0.180.0
+Package: tree-view@0.181.1
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -10405,6 +10414,12 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
+Package: y18n@3.0.0
+License: ISC
+License Source: package.json
+
+-------------------------------------------------------------------------
+
 Package: yargs@1.3.3
 License: MIT
 License Source: LICENSE
@@ -10434,7 +10449,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: yargs@3.15.0
+Package: yargs@3.17.1
 License: MIT
 License Source: LICENSE
 Source Text:
