@@ -3,7 +3,7 @@ function Connect-Remote {
     param(
         [Parameter(Mandatory=$true, Position=1)][System.String]$ComputerName,
         [Parameter(Mandatory=$false, Position=2)][ValidateSet("PowerShell", "RDP", "SSH", "TELNET", "VNC", "HTTP", "HTTPS")][System.String]$InteractiveType = "RDP",
-        [AllowNull()][System.UInt16]$Port = $null,
+        [AllowNull()][System.UInt16]$Port = 0,
         [System.String]$Username = $null,
 		[System.String]$Password = $null,
         [switch]$UseWindowsLogon
@@ -40,7 +40,7 @@ function Connect-Remote {
         {
             "PowerShell" {
                 $parameters = @{ComputerName = $ComputerName}
-                if ($null -ne $Port) { $parameters += @{"Port" = $Port} }
+                if (0 -ne $Port) { $parameters += @{"Port" = $Port} }
                 if ($null -ne $Username -and $null -ne $Password) {
                     $securePassword = ConvertTo-SecureString $Password -AsPlainText -Force
                     $credentials = New-Object System.Management.Automation.PSCredential ($Username, $securePassword)
@@ -68,7 +68,7 @@ function Connect-Remote {
                     param($InstallPath, $ComputerName, $Port, $Username, $Password)
 
                     $arguments = @("`"$(Join-Path $InstallPath 'Libraries\Resources\Default.rdp')`"")
-                    if ($null -ne $Port) {
+                    if (0 -ne $Port) {
                         $arguments += "/v:`"$($ComputerName):$($Port)`""
                     } else {
                         $arguments += "/v:`"$($ComputerName)`""
@@ -83,7 +83,7 @@ function Connect-Remote {
             }
             "SSH" {
                 $arguments = @($ComputerName, "-agent")
-                if ($null -ne $Port) { $arguments += "-P $Port" }
+                if (0 -ne $Port) { $arguments += "-P $Port" }
                 if ($null -ne $Username) { $arguments += "-l `"$Username`"" }
                 if ($null -ne $Password) { $arguments += "-pw `"$Password`"" }
                 if (Test-Path Variable:DontStartShell) { $arguments += "-N" }
@@ -93,9 +93,12 @@ function Connect-Remote {
                 Start-Process -FilePath "putty.exe" -ArgumentList $arguments
             }
             "TELNET" {
-                if ($null -eq $Port) { $Port = 23 }
+                $arguments = @()
+                if ($null -ne $Username) { "-l $Username" }
+                $arguments += $ComputerName
+                if (0 -ne $Port) { $arguments += $Port }
 
-                & telnet ($(if ($null -ne $Username) { "-l $Username" })) $ComputerName $Port
+                Start-Process -FilePath (Join-Path $env:windir "system32\telnet.exe") -ArgumentList $arguments -NoNewLine
             }
             "VNC" {
                 $vncExecutable = Join-Path $ProfileConfig.Module.InstallPath 'Libraries\Misc\VNC-Viewer-5.2.3-Windows-64bit.exe'
@@ -123,7 +126,7 @@ function Connect-Remote {
                     $PasswordFile = $null
                 }
 
-                if ($null -ne $Port) { $arguments += "$($ComputerName):{0}" -f $Port }
+                if (0 -ne $Port) { $arguments += "$($ComputerName):{0}" -f $Port }
                 else { $arguments += $ComputerName }
 
                 Start-Thread -ScriptBlock {
@@ -137,7 +140,7 @@ function Connect-Remote {
                 } -ArgumentList @($vncExecutable, $arguments, $passwordFile) | Out-Null
             }
             "HTTP" {
-                if ($null -eq $Port) { $Port = 80 }
+                if (0 -eq $Port) { $Port = 80 }
                 $prefix = [string]::Empty
                 if ($null -ne $Username -or $null -ne $Password) {
                     if ($null -ne $Username) { $prefix = $Username }
@@ -149,7 +152,7 @@ function Connect-Remote {
                 Open-UrlWithDefaultBrowser -Url ("http://{0}{1}:{2}/" -f $prefix, $ComputerName, $Port)
             }
             "HTTPS" {
-                if ($null -eq $Port) { $Port = 443 }
+                if (0 -eq $Port) { $Port = 443 }
                 $prefix = [string]::Empty
                 if ($null -ne $Username -or $null -ne $Password) {
                     if ($null -ne $Username) { $prefix = $Username }
