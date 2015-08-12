@@ -11,6 +11,8 @@ function Connect-Remote {
     
     DynamicParam
     {
+    	if (-not (Test-Path Variable:InteractiveType)) { return }
+    	
         $runtimeParameterDictionary = New-Object System.Management.Automation.RuntimeDefinedParameterDictionary
         switch ($InteractiveType) {            
             "SSH" {
