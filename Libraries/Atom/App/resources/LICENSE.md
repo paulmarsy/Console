@@ -564,7 +564,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: ast-types@0.8.7
+Package: ast-types@0.8.8
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -735,7 +735,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: atom-keymap@5.1.10
+Package: atom-keymap@5.1.11
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -881,7 +881,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: atom-space-pen-views@2.0.5
+Package: atom-space-pen-views@2.1.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -909,7 +909,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: atom@1.0.4
+Package: atom@1.0.6
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -1164,7 +1164,7 @@ Source Text:
 <content omitted>
 -------------------------------------------------------------------------
 
-Package: babel-core@5.8.20
+Package: babel-core@5.8.22
 License: MIT
 License Source: package.json
 
@@ -1260,7 +1260,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: babylon@5.8.20
+Package: babylon@5.8.22
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -3132,6 +3132,12 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
+Package: esprima-fb@15001.1001.0-dev-harmony-fb
+License: BSD
+License Source: package.json
+
+-------------------------------------------------------------------------
+
 Package: esprima-fb@8001.1001.0-dev-harmony-fb
 License: BSD
 License Source: package.json
@@ -3294,7 +3300,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: find-and-replace@0.176.0
+Package: find-and-replace@0.177.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -3350,7 +3356,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: first-mate@4.1.8
+Package: first-mate@4.2.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -5092,7 +5098,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-css@0.32.2
+Package: language-css@0.33.0
 License: MIT
 License Source: package.json
 
@@ -5132,7 +5138,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-go@0.35.0
+Package: language-go@0.37.0
 License: MIT
 License Source: package.json
 
@@ -5174,7 +5180,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-make@0.15.0
+Package: language-make@0.16.0
 License: MIT
 License Source: package.json
 
@@ -5220,7 +5226,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-php@0.28.0
+Package: language-php@0.29.0
 License: MIT
 License Source: package.json
 
@@ -6106,7 +6112,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: minimist@1.1.2
+Package: minimist@1.1.3
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -6658,7 +6664,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: one-dark-ui@1.0.2
+Package: one-dark-ui@1.0.3
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -6714,7 +6720,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: one-light-ui@1.0.2
+Package: one-light-ui@1.0.3
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -6770,7 +6776,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: open-on-github@0.37.0
+Package: open-on-github@0.38.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -7029,6 +7035,34 @@ THE SOFTWARE.
 -------------------------------------------------------------------------
 
 Package: pathwatcher@4.4.3
+License: MIT
+License Source: LICENSE.md
+Source Text:
+
+Copyright (c) 2013 GitHub Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-------------------------------------------------------------------------
+
+Package: pathwatcher@5.0.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -7526,7 +7560,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: recast@0.10.26
+Package: recast@0.10.28
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -7919,7 +7953,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: scandal@2.1.1
+Package: scandal@2.1.2
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -9372,7 +9406,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: text-buffer@6.5.0
+Package: text-buffer@6.5.2
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -9558,7 +9592,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: tree-view@0.181.1
+Package: tree-view@0.182.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -10449,7 +10483,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: yargs@3.17.1
+Package: yargs@3.18.0
 License: MIT
 License Source: LICENSE
 Source Text:
