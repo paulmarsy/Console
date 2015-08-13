@@ -60,28 +60,30 @@ function Connect-Remote {
             	if (-not (Test-Path $localDevicesPath)) {
            			New-Item $localDevicesPath -Force | Out-Null
            		}
-           		New-ItemProperty $localDevicesPath $ComputerName -Value "111" -Type DWord -Force | Out-Null # Not sure what '111' means, can't find any documentation for it
+           		New-ItemProperty $localDevicesPath $ComputerName -Value 0x26f -Type DWord -Force | Out-Null
 
                 if ($null -ne $Username -and $null -ne $Password) {
                     Start-Process -FilePath "cmdkey.exe" -ArgumentList @("/generic:`"TERMSRV/$ComputerName`"", "/user:`"$Username`"", "/pass:`"$Password`"") -WindowStyle Hidden
                 }
+                
+                $arguments = @("`"$(Join-Path $InstallPath 'Libraries\Resources\Default.rdp')`"")
+                if (0 -ne $Port) {
+                    $arguments += "/v:`"$($ComputerName):$($Port)`""
+                } else {
+                    $arguments += "/v:`"$($ComputerName)`""
+                }
 
                 Start-Thread -ScriptBlock {
-                    param($InstallPath, $ComputerName, $Port, $Username, $Password)
+                    param($ArgumentList, $ComputerName, $Username, $Password, $LocalDevicesPath)
 
-                    $arguments = @("`"$(Join-Path $InstallPath 'Libraries\Resources\Default.rdp')`"")
-                    if (0 -ne $Port) {
-                        $arguments += "/v:`"$($ComputerName):$($Port)`""
-                    } else {
-                        $arguments += "/v:`"$($ComputerName)`""
-                    }
+                    Start-Process -FilePath "mstsc.exe" -ArgumentList $ArgumentList -Wait
 
-                    Start-Process -FilePath "mstsc.exe" -ArgumentList $arguments -Wait
+                    Remove-ItemProperty $LocalDevicesPath $ComputerName -Value 0x26f -Force | Out-Null
 
                     if ($null -ne $Username -and $null -ne $Password) {
                         Start-Process -FilePath "cmdkey.exe" -ArgumentList @("/delete:`"TERMSRV/$ComputerName`"") -WindowStyle Hidden
                     }
-                } -ArgumentList @($ProfileConfig.Module.InstallPath, $ComputerName, $Port, $Username, $Password) | Out-Null # TODO: Clean up this job once it has finished somehow
+                } -ArgumentList @($ComputerName, $Username, $Password, $arguments, $localDevicesPath) | Out-Null # TODO: Clean up this job once it has finished somehow
             }
             "SSH" {
                 $arguments = @($ComputerName, "-agent")
