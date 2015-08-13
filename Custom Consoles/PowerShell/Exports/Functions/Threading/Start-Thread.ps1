@@ -16,9 +16,14 @@ function Start-Thread {
         }
     }
     $ArgumentList | % { $script.AddArgument($_) } | Out-Null
+    
     $asyncWaitHandle = $powerShellHost.BeginInvoke()
-    return @{
+    
+    return (New-Object -TypeName psobject -Property @{
+        Id = $powerShellHost.InstanceId
+        Commands = $powerShellHost.Commands
+        Streams = $powerShellHost.Streams
         Host = $powerShellHost
         AsyncWaitHandle = $asyncWaitHandle
-    }
+    })
 }
