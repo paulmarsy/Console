@@ -66,7 +66,7 @@ function Connect-Remote {
                     Start-Process -FilePath "cmdkey.exe" -ArgumentList @("/generic:`"TERMSRV/$ComputerName`"", "/user:`"$Username`"", "/pass:`"$Password`"") -WindowStyle Hidden
                 }
                 
-                $arguments = @("`"$(Join-Path $InstallPath 'Libraries\Resources\Default.rdp')`"")
+                $arguments = @("`"$(Join-Path $ProfileConfig.Module.InstallPath 'Libraries\Resources\Default.rdp')`"")
                 if (0 -ne $Port) {
                     $arguments += "/v:`"$($ComputerName):$($Port)`""
                 } else {
@@ -83,7 +83,7 @@ function Connect-Remote {
                     if ($null -ne $Username -and $null -ne $Password) {
                         Start-Process -FilePath "cmdkey.exe" -ArgumentList @("/delete:`"TERMSRV/$ComputerName`"") -WindowStyle Hidden
                     }
-                } -ArgumentList @($ComputerName, $Username, $Password, $arguments, $localDevicesPath) | Out-Null # TODO: Clean up this job once it has finished somehow
+                } -ArgumentList @($arguments, $ComputerName, $Username, $Password, $localDevicesPath) | Out-Null # TODO: Clean up this job once it has finished somehow
             }
             "SSH" {
                 $arguments = @($ComputerName, "-agent")
