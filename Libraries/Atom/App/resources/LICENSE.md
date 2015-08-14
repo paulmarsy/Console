@@ -701,7 +701,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: atom-dark-ui@0.49.0
+Package: atom-dark-ui@0.50.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -791,7 +791,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: atom-light-ui@0.41.0
+Package: atom-light-ui@0.43.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -909,7 +909,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: atom@1.0.6
+Package: atom@1.0.7
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -3300,7 +3300,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: find-and-replace@0.177.0
+Package: find-and-replace@0.180.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -8172,7 +8172,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: settings-view@0.212.0
+Package: settings-view@0.213.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -9592,7 +9592,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: tree-view@0.182.0
+Package: tree-view@0.183.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -10223,7 +10223,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 -------------------------------------------------------------------------
 
-Package: welcome@0.29.0
+Package: welcome@0.30.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
