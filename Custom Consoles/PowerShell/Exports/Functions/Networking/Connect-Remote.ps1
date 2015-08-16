@@ -63,7 +63,7 @@ function Connect-Remote {
            		New-ItemProperty $localDevicesPath $ComputerName -Value 0x26f -Type DWord -Force | Out-Null
 
                 if ($null -ne $Username -and $null -ne $Password) {
-                    Start-Process -FilePath "cmdkey.exe" -ArgumentList @("/generic:`"TERMSRV/$ComputerName`"", "/user:`"$Username`"", "/pass:`"$Password`"") -WindowStyle Hidden
+                    Start-Process -FilePath "cmdkey.exe" -ArgumentList @("/generic:`"TERMSRV/$ComputerName`"", "/user:`"$Username`"", "/pass:`"$Password`"") -WindowStyle Hidden -Wait
                 }
                 
                 $arguments = @("`"$(Join-Path $ProfileConfig.Module.InstallPath 'Libraries\Resources\Default.rdp')`"")
@@ -78,7 +78,7 @@ function Connect-Remote {
 
                     Start-Process -FilePath "mstsc.exe" -ArgumentList $ArgumentList -Wait
 
-                    Remove-ItemProperty $LocalDevicesPath $ComputerName -Value 0x26f -Force | Out-Null
+                    Remove-ItemProperty $LocalDevicesPath $ComputerName -Force | Out-Null
 
                     if ($null -ne $Username -and $null -ne $Password) {
                         Start-Process -FilePath "cmdkey.exe" -ArgumentList @("/delete:`"TERMSRV/$ComputerName`"") -WindowStyle Hidden
