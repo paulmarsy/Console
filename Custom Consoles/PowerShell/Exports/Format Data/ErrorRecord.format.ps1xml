@@ -18,7 +18,7 @@
                                     {
                                         "CommandNotFoundException" { "Command not found: {0}" -f $errorrecord.TargetObject }
                                         "NativeCommandErrorMessage" { $errorrecord.Exception.Message }
-                                        default { $errorrecord | Format-List -Property * -Force }
+                                        default { $errorrecord | Format-List -Property * -Force | Out-Default }
                                     }
                                 </ScriptBlock>
                             </ExpressionBinding>
