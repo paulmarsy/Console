@@ -12,8 +12,14 @@
                     <CustomEntry>
                         <CustomItem>
                             <ExpressionBinding>
-                                <ScriptBlock>
-                                    $_ | Format-List -Property * -Force | Out-Host
+                                <ScriptBlock>                            
+                                    $errorrecord = $_
+                                    switch ($errorrecord.FullyQualifiedErrorId)
+                                    {
+                                        "CommandNotFoundException" { "Command not found: {0}" -f $errorrecord.TargetObject }
+                                        "NativeCommandErrorMessage" { $errorrecord.Exception.Message }
+                                        default { $errorrecord | Format-List -Property * -Force }
+                                    }
                                 </ScriptBlock>
                             </ExpressionBinding>
                         </CustomItem>

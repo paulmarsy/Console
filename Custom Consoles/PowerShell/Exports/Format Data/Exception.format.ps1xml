@@ -13,7 +13,7 @@
                         <CustomItem>
                             <ExpressionBinding>
                                 <ScriptBlock>
-                                    $_ | Format-List -Property * -Force | Out-Host
+                                    $_ | Format-List -Property * -Force
                                 </ScriptBlock>
                             </ExpressionBinding>
                         </CustomItem>
