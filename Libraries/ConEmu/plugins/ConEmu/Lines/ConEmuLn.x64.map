@@ -1,23 +1,24 @@
  ConEmuLn.x64
 
- Timestamp is 559a44d4 (Mon Jul 06 12:05:24 2015)
+ Timestamp is 55cda9bf (Fri Aug 14 11:41:35 2015)
 
  Preferred load address is 0000000180000000
 
  Start         Length     Name                   Class
- 0001:00000000 00004440H .text                   CODE
- 0001:00004440 0000005eH .text$00                CODE
+ 0001:00000000 00004481H .text                   CODE
+ 0001:00004490 0000005eH .text$00                CODE
+ 0001:000044ee 00000000H .text$x                 CODE
  0002:00000000 00000128H .idata$5                DATA
  0002:00000130 00000431H .rdata                  DATA
- 0002:00000568 00000230H .xdata                  DATA
- 0002:00000798 00000064H .idata$2                DATA
- 0002:000007fc 00000014H .idata$3                DATA
- 0002:00000810 00000128H .idata$4                DATA
- 0002:00000938 00000226H .idata$6                DATA
- 0002:00000b60 0000018fH .edata                  DATA
- 0003:00000000 00000130H .data                   DATA
- 0003:00000130 000007d0H .bss                    DATA
- 0004:00000000 00000348H .pdata                  DATA
+ 0002:00000568 0000023cH .xdata                  DATA
+ 0002:000007a4 00000064H .idata$2                DATA
+ 0002:00000808 00000014H .idata$3                DATA
+ 0002:00000820 00000128H .idata$4                DATA
+ 0002:00000948 00000226H .idata$6                DATA
+ 0002:00000b70 0000018fH .edata                  DATA
+ 0003:00000000 00000140H .data                   DATA
+ 0003:00000140 000087d0H .bss                    DATA
+ 0004:00000000 0000036cH .pdata                  DATA
  0005:00000000 00000058H .rsrc$01                DATA
  0005:00000060 000002e8H .rsrc$02                DATA
 
@@ -25,6 +26,7 @@
 
  0000:00000000       ___safe_se_handler_count   0000000000000000     <absolute>
  0000:00000000       ___safe_se_handler_table   0000000000000000     <absolute>
+ 0000:00000000       __ImageBase                0000000180000000     <linker-defined>
  0001:000001bc       GetMinFarVersionW          00000001800011bc f   ConEmuLn.obj
  0001:000001c4       ?GetPluginInfoWcmn@@YAXPEAX@Z 00000001800011c4 f   ConEmuLn.obj
  0001:00000358       ?LoadFarVersion@@YAHXZ     0000000180001358 f   ConEmuLn.obj
@@ -35,8 +37,8 @@
  0001:000008a8       ?SettingsSaveReg@@YAXPEB_W@Z 00000001800018a8 f   ConEmuLn.obj
  0001:0000096c       ?StartPlugin@@YAXH@Z       000000018000196c f   ConEmuLn.obj
  0001:00000a90       ?ExitPlugin@@YAXXZ         0000000180001a90 f   ConEmuLn.obj
- 0001:00000ae4       ?ExitFARW3@@YAXPEAX@Z      0000000180001ae4 f   ConEmuLn.obj
  0001:00000ae4       ExitFARW                   0000000180001ae4 f   ConEmuLn.obj
+ 0001:00000ae4       ?ExitFARW3@@YAXPEAX@Z      0000000180001ae4 f   ConEmuLn.obj
  0001:00000b20       ?GetMsgW@@YAPEB_WH@Z       0000000180001b20 f   ConEmuLn.obj
  0001:00000b6c       ConfigureW                 0000000180001b6c f   ConEmuLn.obj
  0001:00000bb4       ?ConfigureW3@@YAHPEAX@Z    0000000180001bb4 f   ConEmuLn.obj
@@ -83,16 +85,19 @@
  0001:00003f50       ?HeapDeinitialize@@YAXXZ   0000000180004f50 f   Memory.obj
  0001:00003f74       ?xf_calloc@@YAPEAX_K0@Z    0000000180004f74 f   Memory.obj
  0001:00003f90       ?xf_free@@YAXPEAX@Z        0000000180004f90 f   Memory.obj
- 0001:00003fc0       memmove                    0000000180004fc0 f   libCRT64:memmove.obj
- 0001:00004020       memset                     0000000180005020 f   libCRT64:memset.obj
- 0001:00004220       wcstoul                    0000000180005220 f   libCRT64:strtol.obj
- 0001:00004230       memcpy                     0000000180005230 f   libCRT64:memcpy.obj
+ 0001:00003fc0       memset                     0000000180004fc0 f   libCRT64:memset.obj
+ 0001:00003ff0       memcpy                     0000000180004ff0 f   libCRT64:memcpy.obj
+ 0001:00004020       memmove                    0000000180005020 f   libCRT64:memmove.obj
+ 0001:00004250       wcstoul                    0000000180005250 f   libCRT64:strtol.obj
  0001:00004420       strtoul                    0000000180005420 f   libCRT64:strtol.obj
  0001:0000442c       VerQueryValueW             000000018000542c f   version:VERSION.dll
  0001:00004432       GetFileVersionInfoW        0000000180005432 f   version:VERSION.dll
  0001:00004438       GetFileVersionInfoSizeW    0000000180005438 f   version:VERSION.dll
- 0001:00004450       _alloca_probe              0000000180005450     LIBCMT:chkstk.obj
- 0001:00004450       __chkstk                   0000000180005450 f   LIBCMT:chkstk.obj
+ 0001:00004450       _NLG_Notify                0000000180005450 f   LIBCMT:notify.obj
+ 0001:00004470       __NLG_Dispatch2            0000000180005470 f   LIBCMT:notify.obj
+ 0001:00004480       __NLG_Return2              0000000180005480 f   LIBCMT:notify.obj
+ 0001:000044a0       _alloca_probe              00000001800054a0     LIBCMT:chkstk.obj
+ 0001:000044a0       __chkstk                   00000001800054a0 f   LIBCMT:chkstk.obj
  0002:00000000       __imp_RegQueryValueExW     0000000180006000     advapi32:ADVAPI32.dll
  0002:00000008       __imp_RegOpenKeyExW        0000000180006008     advapi32:ADVAPI32.dll
  0002:00000010       __imp_RegSetValueExW       0000000180006010     advapi32:ADVAPI32.dll
@@ -106,29 +111,29 @@
  0002:00000050       __imp_LineTo               0000000180006050     gdi32:GDI32.dll
  0002:00000058       __imp_CreateSolidBrush     0000000180006058     gdi32:GDI32.dll
  0002:00000060       \177GDI32_NULL_THUNK_DATA  0000000180006060     gdi32:GDI32.dll
- 0002:00000068       __imp_HeapAlloc            0000000180006068     kernel32:KERNEL32.dll
- 0002:00000070       __imp_VirtualProtect       0000000180006070     kernel32:KERNEL32.dll
- 0002:00000078       __imp_HeapDestroy          0000000180006078     kernel32:KERNEL32.dll
- 0002:00000080       __imp_GetModuleFileNameW   0000000180006080     kernel32:KERNEL32.dll
- 0002:00000088       __imp_lstrcpyW             0000000180006088     kernel32:KERNEL32.dll
- 0002:00000090       __imp_GetLastError         0000000180006090     kernel32:KERNEL32.dll
- 0002:00000098       __imp_lstrcatW             0000000180006098     kernel32:KERNEL32.dll
- 0002:000000a0       __imp_HeapCreate           00000001800060a0     kernel32:KERNEL32.dll
- 0002:000000a8       __imp_lstrcpyA             00000001800060a8     kernel32:KERNEL32.dll
- 0002:000000b0       __imp_lstrcpynA            00000001800060b0     kernel32:KERNEL32.dll
- 0002:000000b8       __imp_lstrlenA             00000001800060b8     kernel32:KERNEL32.dll
- 0002:000000c0       __imp_MultiByteToWideChar  00000001800060c0     kernel32:KERNEL32.dll
- 0002:000000c8       __imp_lstrcpynW            00000001800060c8     kernel32:KERNEL32.dll
- 0002:000000d0       __imp_HeapFree             00000001800060d0     kernel32:KERNEL32.dll
- 0002:000000d8       __imp_lstrlenW             00000001800060d8     kernel32:KERNEL32.dll
+ 0002:00000068       __imp_VirtualProtect       0000000180006068     kernel32:KERNEL32.dll
+ 0002:00000070       __imp_lstrcpynW            0000000180006070     kernel32:KERNEL32.dll
+ 0002:00000078       __imp_MultiByteToWideChar  0000000180006078     kernel32:KERNEL32.dll
+ 0002:00000080       __imp_lstrlenA             0000000180006080     kernel32:KERNEL32.dll
+ 0002:00000088       __imp_lstrcpyA             0000000180006088     kernel32:KERNEL32.dll
+ 0002:00000090       __imp_HeapCreate           0000000180006090     kernel32:KERNEL32.dll
+ 0002:00000098       __imp_HeapAlloc            0000000180006098     kernel32:KERNEL32.dll
+ 0002:000000a0       __imp_GetModuleFileNameW   00000001800060a0     kernel32:KERNEL32.dll
+ 0002:000000a8       __imp_HeapFree             00000001800060a8     kernel32:KERNEL32.dll
+ 0002:000000b0       __imp_lstrcpyW             00000001800060b0     kernel32:KERNEL32.dll
+ 0002:000000b8       __imp_lstrcatW             00000001800060b8     kernel32:KERNEL32.dll
+ 0002:000000c0       __imp_lstrlenW             00000001800060c0     kernel32:KERNEL32.dll
+ 0002:000000c8       __imp_GetLastError         00000001800060c8     kernel32:KERNEL32.dll
+ 0002:000000d0       __imp_HeapDestroy          00000001800060d0     kernel32:KERNEL32.dll
+ 0002:000000d8       __imp_lstrcpynA            00000001800060d8     kernel32:KERNEL32.dll
  0002:000000e0       \177KERNEL32_NULL_THUNK_DATA 00000001800060e0     kernel32:KERNEL32.dll
  0002:000000e8       __imp_FillRect             00000001800060e8     user32:USER32.dll
  0002:000000f0       __imp_wsprintfW            00000001800060f0     user32:USER32.dll
  0002:000000f8       __imp_wsprintfA            00000001800060f8     user32:USER32.dll
  0002:00000100       \177USER32_NULL_THUNK_DATA 0000000180006100     user32:USER32.dll
- 0002:00000108       __imp_GetFileVersionInfoW  0000000180006108     version:VERSION.dll
- 0002:00000110       __imp_GetFileVersionInfoSizeW 0000000180006110     version:VERSION.dll
- 0002:00000118       __imp_VerQueryValueW       0000000180006118     version:VERSION.dll
+ 0002:00000108       __imp_GetFileVersionInfoSizeW 0000000180006108     version:VERSION.dll
+ 0002:00000110       __imp_VerQueryValueW       0000000180006110     version:VERSION.dll
+ 0002:00000118       __imp_GetFileVersionInfoW  0000000180006118     version:VERSION.dll
  0002:00000120       \177VERSION_NULL_THUNK_DATA 0000000180006120     version:VERSION.dll
  0002:00000130       ??_C@_0L@DJCGGOCO@ConfigureW?$AA@ 0000000180006130     ConEmuLn.obj
  0002:00000140       ??_C@_08BCACMCCB@ExitFARW?$AA@ 0000000180006140     ConEmuLn.obj
@@ -154,38 +159,40 @@
  0002:00000528       ??_C@_1CE@PCHJHFGJ@?$AAC?$AAo?$AAn?$AAE?$AAm?$AAu?$AA?5?$AAU?$AAn?$AAd?$AAe?$AAr?$AAl?$AAi?$AAn?$AAe?$AAs?$AA?$AA@ 0000000180006528     ConEmuLn2800.obj
  0002:0000054c       ??_C@_04JCFDBOEJ@?$CF06X?$AA@ 000000018000654c     ConEmuLnA.obj
  0002:00000558       ??_C@_08KOICIHPP@0xXXXXXX?$AA@ 0000000180006558     ConEmuLnA.obj
- 0002:00000798       __IMPORT_DESCRIPTOR_KERNEL32 0000000180006798     kernel32:KERNEL32.dll
- 0002:000007ac       __IMPORT_DESCRIPTOR_USER32 00000001800067ac     user32:USER32.dll
- 0002:000007c0       __IMPORT_DESCRIPTOR_GDI32  00000001800067c0     gdi32:GDI32.dll
- 0002:000007d4       __IMPORT_DESCRIPTOR_ADVAPI32 00000001800067d4     advapi32:ADVAPI32.dll
- 0002:000007e8       __IMPORT_DESCRIPTOR_VERSION 00000001800067e8     version:VERSION.dll
- 0002:000007fc       __NULL_IMPORT_DESCRIPTOR   00000001800067fc     kernel32:KERNEL32.dll
- 0003:00000000       ?gcrLinesColor@@3KA        0000000180007000     ConEmuLn.obj
- 0003:00000004       ?gcrHilightPlugBack@@3KA   0000000180007004     ConEmuLn.obj
- 0003:00000010       ?gSettings@@3PAUConEmuLnSettings@@A 0000000180007010     ConEmuLn.obj
- 0003:000000a0       ?Far3Func@@3PAUExportFunc@@A 00000001800070a0     ConEmuLn.obj
- 0003:000000e8       ?guid_ConEmuLn@@3U_GUID@@A 00000001800070e8     ConEmuLn2800.obj
- 0003:000000f8       ?guid_ConEmuLnCfgDlg@@3U_GUID@@A 00000001800070f8     ConEmuLn2800.obj
- 0003:00000108       ?guid_ConEmuLnPluginMenu@@3U_GUID@@A 0000000180007108     ConEmuLn2800.obj
- 0003:00000118       ?guid_ConEmuLnPluginConfig@@3U_GUID@@A 0000000180007118     ConEmuLn2800.obj
- 0003:00000130       ?ghPluginModule@@3PEAUHINSTANCE__@@EA 0000000180007130     ConEmuLn.obj
- 0003:00000138       ?gFarVersion@@3UFarVersion@@A 0000000180007138     ConEmuLn.obj
- 0003:00000144       ?gbInStartPlugin@@3_NA     0000000180007144     ConEmuLn.obj
- 0003:00000145       ?gbSetStartupInfoOk@@3_NA  0000000180007145     ConEmuLn.obj
- 0003:00000150       ?gbBackgroundEnabled@@3HA  0000000180007150     ConEmuLn.obj
- 0003:00000154       ?giHilightType@@3HA        0000000180007154     ConEmuLn.obj
- 0003:00000158       ?gbHilightPlugins@@3HA     0000000180007158     ConEmuLn.obj
- 0003:0000015c       ?gbInfoW_OK@@3HA           000000018000715c     ConEmuLn.obj
- 0003:00000168       ?InfoW995@@3PEAUPluginStartupInfo@@EA 0000000180007168     ConEmuLn995.obj
- 0003:00000170       ?FSFW995@@3PEAUFarStandardFunctions@@EA 0000000180007170     ConEmuLn995.obj
- 0003:00000390       ?InfoW1900@@3PEAUPluginStartupInfo@@EA 0000000180007390     ConEmuLn1900.obj
- 0003:00000398       ?FSFW1900@@3PEAUFarStandardFunctions@@EA 0000000180007398     ConEmuLn1900.obj
- 0003:000005b0       ?InfoW2800@@3PEAUPluginStartupInfo@@EA 00000001800075b0     ConEmuLn2800.obj
- 0003:000005b8       ?FSFW2800@@3PEAUFarStandardFunctions@@EA 00000001800075b8     ConEmuLn2800.obj
- 0003:000007d0       ?InfoA@@3PEAUPluginStartupInfo@@EA 00000001800077d0     ConEmuLnA.obj
- 0003:000007d8       ?FSFA@@3PEAUFarStandardFunctions@@EA 00000001800077d8     ConEmuLnA.obj
- 0003:000008f0       ?AssertMsgBox@@3P6AHPEB_WI0PEAUHWND__@@_N@ZEA 00000001800078f0     MAssert.obj
- 0003:000008f8       ?ghHeap@@3PEAXEA           00000001800078f8     Memory.obj
+ 0002:000007a4       __IMPORT_DESCRIPTOR_KERNEL32 00000001800067a4     kernel32:KERNEL32.dll
+ 0002:000007b8       __IMPORT_DESCRIPTOR_USER32 00000001800067b8     user32:USER32.dll
+ 0002:000007cc       __IMPORT_DESCRIPTOR_GDI32  00000001800067cc     gdi32:GDI32.dll
+ 0002:000007e0       __IMPORT_DESCRIPTOR_ADVAPI32 00000001800067e0     advapi32:ADVAPI32.dll
+ 0002:000007f4       __IMPORT_DESCRIPTOR_VERSION 00000001800067f4     version:VERSION.dll
+ 0002:00000808       __NULL_IMPORT_DESCRIPTOR   0000000180006808     kernel32:KERNEL32.dll
+ 0003:00000000       ?g_TerminatedThreadIdx@@3JA 0000000180007000     WThreads.obj
+ 0003:00000010       ?gcrLinesColor@@3KA        0000000180007010     ConEmuLn.obj
+ 0003:00000014       ?gcrHilightPlugBack@@3KA   0000000180007014     ConEmuLn.obj
+ 0003:00000020       ?gSettings@@3PAUConEmuLnSettings@@A 0000000180007020     ConEmuLn.obj
+ 0003:000000b0       ?Far3Func@@3PAUExportFunc@@A 00000001800070b0     ConEmuLn.obj
+ 0003:000000f8       ?guid_ConEmuLn@@3U_GUID@@A 00000001800070f8     ConEmuLn2800.obj
+ 0003:00000108       ?guid_ConEmuLnCfgDlg@@3U_GUID@@A 0000000180007108     ConEmuLn2800.obj
+ 0003:00000118       ?guid_ConEmuLnPluginMenu@@3U_GUID@@A 0000000180007118     ConEmuLn2800.obj
+ 0003:00000128       ?guid_ConEmuLnPluginConfig@@3U_GUID@@A 0000000180007128     ConEmuLn2800.obj
+ 0003:00008140       ?g_ThreadsIdx@@3JA         000000018000f140     WThreads.obj
+ 0003:00008148       ?ghPluginModule@@3PEAUHINSTANCE__@@EA 000000018000f148     ConEmuLn.obj
+ 0003:00008150       ?gFarVersion@@3UFarVersion@@A 000000018000f150     ConEmuLn.obj
+ 0003:0000815c       ?gbInStartPlugin@@3_NA     000000018000f15c     ConEmuLn.obj
+ 0003:0000815d       ?gbSetStartupInfoOk@@3_NA  000000018000f15d     ConEmuLn.obj
+ 0003:00008168       ?gbBackgroundEnabled@@3HA  000000018000f168     ConEmuLn.obj
+ 0003:0000816c       ?giHilightType@@3HA        000000018000f16c     ConEmuLn.obj
+ 0003:00008170       ?gbHilightPlugins@@3HA     000000018000f170     ConEmuLn.obj
+ 0003:00008174       ?gbInfoW_OK@@3HA           000000018000f174     ConEmuLn.obj
+ 0003:00008180       ?InfoW995@@3PEAUPluginStartupInfo@@EA 000000018000f180     ConEmuLn995.obj
+ 0003:00008188       ?FSFW995@@3PEAUFarStandardFunctions@@EA 000000018000f188     ConEmuLn995.obj
+ 0003:000083a0       ?InfoW1900@@3PEAUPluginStartupInfo@@EA 000000018000f3a0     ConEmuLn1900.obj
+ 0003:000083a8       ?FSFW1900@@3PEAUFarStandardFunctions@@EA 000000018000f3a8     ConEmuLn1900.obj
+ 0003:000085c0       ?InfoW2800@@3PEAUPluginStartupInfo@@EA 000000018000f5c0     ConEmuLn2800.obj
+ 0003:000085c8       ?FSFW2800@@3PEAUFarStandardFunctions@@EA 000000018000f5c8     ConEmuLn2800.obj
+ 0003:000087e0       ?InfoA@@3PEAUPluginStartupInfo@@EA 000000018000f7e0     ConEmuLnA.obj
+ 0003:000087e8       ?FSFA@@3PEAUFarStandardFunctions@@EA 000000018000f7e8     ConEmuLnA.obj
+ 0003:00008900       ?AssertMsgBox@@3P6AHPEB_WI0PEAUHWND__@@_N@ZEA 000000018000f900     MAssert.obj
+ 0003:00008908       ?ghHeap@@3PEAXEA           000000018000f908     Memory.obj
 
  entry point at        0001:00000cbc
 
@@ -201,5 +208,5 @@
  0001:00002980       ?ConfigureProc@@YAHH@Z     0000000180003980 f   ConEmuLn2800.obj
  0001:00003660       ?ConfigDlgProc@@YA_JPEAXHH_J@Z 0000000180004660 f   ConEmuLnA.obj
  0001:00003760       ?ConfigureProc@@YAHH@Z     0000000180004760 f   ConEmuLnA.obj
- 0001:00004050       ?strtoxl@@YAKPEB_WPEAPEA_WHH@Z 0000000180005050 f   libCRT64:strtol.obj
+ 0001:00004080       ?strtoxl@@YAKPEB_WPEAPEA_WHH@Z 0000000180005080 f   libCRT64:strtol.obj
  0001:00004260       ?strtoxl@@YAKPEBDPEAPEADHH@Z 0000000180005260 f   libCRT64:strtol.obj
