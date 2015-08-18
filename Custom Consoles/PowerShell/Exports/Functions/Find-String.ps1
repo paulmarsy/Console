@@ -5,6 +5,7 @@ function Find-String {
 		$Path = $PWD,
         $Exclude = @('*\bin\*', '*\obj\*', '*\.git\*', '*\.hg\*', '*\.svn\*', '*\_ReSharper\*'),
 		[switch]$ShowContext,
+        [switch]$DisableRecursion,
 		[switch]$IncludeLargeFiles
     )
 
@@ -13,7 +14,7 @@ function Find-String {
 	$searchErrors = @()
 
 	Write-Host "Finding '$Pattern' in $Path...`n" -ForegroundColor White
-	Get-ChildItem -Path $Path -Recurse -File -ErrorAction SilentlyContinue -ErrorVariable +searchErrors |
+	Get-ChildItem -Path $Path -Recurse:$(-not $DisableRecursion) -File -ErrorAction SilentlyContinue -ErrorVariable +searchErrors |
 		? {
 			$FullName = $_.FullName
 			if ($Exclude | % { if ($FullName -like $_) { return $true } }) { return $false }
