@@ -1,7 +1,13 @@
 {
   "name": "language-powershell",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "PowerShell language support for Atom",
+  "keywords": [
+    "powershell",
+    "microsoft",
+    "windows",
+    "grammar"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/jugglingnutcase/language-powershell"
@@ -24,10 +30,10 @@
     "url": "https://github.com/jugglingnutcase/language-powershell/issues"
   },
   "homepage": "https://github.com/jugglingnutcase/language-powershell",
-  "_id": "language-powershell@2.0.1",
-  "_shasum": "83a3e4366a11faebe8c648198a03c67e8128fa64",
-  "_resolved": "file:..\\d-11544-8684-1vcacqg\\package.tgz",
-  "_from": "..\\d-11544-8684-1vcacqg\\package.tgz",
+  "_id": "language-powershell@2.0.2",
+  "_shasum": "a8838153b53ac660a733d47e13f7a378144b70ae",
+  "_resolved": "file:..\\d-115720-5692-z3z909\\package.tgz",
+  "_from": "..\\d-115720-5692-z3z909\\package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [],
