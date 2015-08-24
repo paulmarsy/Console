@@ -1,5 +1,7 @@
 filter Get-ProcessId {
     param($ProcessName)
     
-    Get-Process -Name $ProcessName | % Id
+    $baseProcessName = [System.IO.Path]::GetFileNameWithoutExtension($ProcessName)
+    
+    Get-Processs | ? ProcessName -eq $ProcessName | % Id
 }
