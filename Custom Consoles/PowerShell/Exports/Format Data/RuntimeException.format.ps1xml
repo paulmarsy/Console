@@ -2,7 +2,7 @@
 <Configuration>
     <ViewDefinitions>
         <View>
-            <Name>Exception</Name>
+            <Name>RuntimeException</Name>
             <OutOfBand />
             <ViewSelectedBy>
                 <TypeName>System.Management.Automation.RuntimeException</TypeName>
@@ -13,7 +13,7 @@
                         <CustomItem>
                             <ExpressionBinding>
                                 <ScriptBlock>
-                                    $_ | Format-List -Property * -Force | Out-Default
+                                    $PSItem | Format-List -Property * -Force | Out-Default
                                 </ScriptBlock>
                             </ExpressionBinding>
                         </CustomItem>
