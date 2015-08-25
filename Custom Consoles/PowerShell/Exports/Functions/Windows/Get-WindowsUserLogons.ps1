@@ -1,7 +1,9 @@
 function Get-WindowsUserLogons {
     param(
         $ComputerName = $env:COMPUTERNAME,
-        [switch]$IncludeMachineLogons
+        [switch]$IncludeMachineLogons,
+        [switch]$ExcludeSystemLogons,
+        [switch]$ExcludeMyLogons
     )
     
     function Get-LogonTypeName { 
@@ -46,6 +48,17 @@ function Get-WindowsUserLogons {
             return
         }
         if ($User -like '*$' -and -not $IncludeMachineLogons) { return }
+        if ($User -in @(
+            "SYSTEM"
+            "LOCAL SERVICE"
+            "NETWORK SERVICE"
+            "DWM-1"
+            "DWM-2"
+            "DWM-3"
+            "DWM-4"
+            "DWM-5"
+            ) -and $ExcludeSystemLogons) { return }
+        if ($User -eq $env:USERNAME -and $ExcludeMyLogons) { return }
         
         New-Object -TypeName PSObject -Property @{
             Date = $date
