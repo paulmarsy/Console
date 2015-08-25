@@ -12,13 +12,19 @@
                     <CustomEntry>
                         <CustomItem>
                             <ExpressionBinding>
-                                <ScriptBlock>                            
-                                    $errorrecord = $_
-                                    switch ($errorrecord.FullyQualifiedErrorId)
+                                <ScriptBlock>
+                                    $PSItemrecord = $PSItem
+                                    $originCommandName = Get-PSCallStack | Select-Object -Skip 1 -First 1 | % InvocationInfo | % MyCommand | % Name 
+                                    if ([string]::IsNullOrWhiteSpace($originCommandName)) {
+                                        $PSItemrecord | Format-List -Property * -Force | Out-Default
+                                        return
+                                    }
+                                    
+                                    switch -wildcard ($PSItemrecord.FullyQualifiedErrorId)
                                     {
-                                        "CommandNotFoundException" { "Command not found: {0}" -f $errorrecord.TargetObject }
-                                        "NativeCommandErrorMessage" { $errorrecord.Exception.Message }
-                                        default { $errorrecord | Format-List -Property * -Force | Out-Default }
+                                        "CommandNotFoundException" { "Command not found: {0}" -f $PSItemrecord.TargetObject }
+                                        "System.Security.SecurityException,*" { "You do not have access to perform the requested action ('Run As Administrator'?), error details:{0}{1}" -f ([System.Environment]::NewLine), $PSItemrecord.Exception.Message }
+                                        default { $PSItemrecord | Format-List -Property * -Force | Out-Default }
                                     }
                                 </ScriptBlock>
                             </ExpressionBinding>
