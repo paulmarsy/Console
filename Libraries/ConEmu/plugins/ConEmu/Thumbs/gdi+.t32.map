@@ -1,6 +1,6 @@
  gdi+
 
- Timestamp is 55cda8ad (Fri Aug 14 11:37:01 2015)
+ Timestamp is 55dc3022 (Tue Aug 25 12:06:42 2015)
 
  Preferred load address is 10000000
 
@@ -8,12 +8,12 @@
  0001:00000000 000000c8H .idata$5                CODE
  0001:000000d0 00000888H .rdata                  CODE
  0001:00000958 00000062H .rdata$debug            CODE
- 0001:000009c0 00001ce6H .text                   CODE
- 0001:000026a8 00000050H .idata$2                CODE
- 0001:000026f8 00000014H .idata$3                CODE
- 0001:0000270c 000000c8H .idata$4                CODE
- 0001:000027d4 000002feH .idata$6                CODE
- 0001:00002ae0 00000092H .edata                  CODE
+ 0001:000009c0 00001cf6H .text                   CODE
+ 0001:000026b8 00000050H .idata$2                CODE
+ 0001:00002708 00000014H .idata$3                CODE
+ 0001:0000271c 000000c8H .idata$4                CODE
+ 0001:000027e4 000002feH .idata$6                CODE
+ 0001:00002af0 00000092H .edata                  CODE
  0002:00000000 00000010H .data                   DATA
  0002:00000010 0000744cH .bss                    DATA
  0003:00000000 00000058H .rsrc$01                DATA
@@ -258,66 +258,66 @@
  0001:000020c9       ?lstrmerge@@YI_NPAPA_WPB_W111@Z 100030c9 f   Memory.obj
  0001:00002100       ??0ConEmuThreadStartArg@@QAE@P6GKPAX@Z0K@Z 10003100 f i WThreads.obj
  0001:00002121       ?apiThreadHelper@@YGKPAX@Z 10003121 f   WThreads.obj
- 0001:000021e6       ?apiCreateThread@@YIPAXP6GKPAX@Z0PAKPBDH@Z 100031e6 f   WThreads.obj
- 0001:000022d5       ?apiTerminateThreadEx@@YIHPAXKPBDH@Z 100032d5 f   WThreads.obj
- 0001:00002390       _memmove                   10003390 f   libCRT:memmove.obj
- 0001:000023f0       __alldiv                   100033f0 f   libCRT:vc_lldiv.obj
- 0001:000024a0       __allmul                   100034a0 f   libCRT:vc_llmul.obj
- 0001:000024e0       _wcsrchr                   100034e0 f   libCRT:strrchr.obj
- 0001:00002510       _memset                    10003510 f   libCRT:memset.obj
- 0001:00002550       _strchr                    10003550 f   libCRT:strchr.obj
- 0001:00002570       _strrchr                   10003570 f   libCRT:strrchr.obj
- 0001:00002592       _HeapFree@12               10003592 f   kernel32:KERNEL32.dll
- 0001:00002598       _GetProcessHeap@0          10003598 f   kernel32:KERNEL32.dll
- 0001:0000259e       _HeapAlloc@12              1000359e f   kernel32:KERNEL32.dll
- 0001:000025a4       _HeapReAlloc@16            100035a4 f   kernel32:KERNEL32.dll
- 0001:000025aa       _SystemTimeToFileTime@8    100035aa f   kernel32:KERNEL32.dll
- 0001:000025b0       _GetLocalTime@4            100035b0 f   kernel32:KERNEL32.dll
- 0001:000025b6       _FreeLibrary@4             100035b6 f   kernel32:KERNEL32.dll
- 0001:000025bc       _GetLastError@0            100035bc f   kernel32:KERNEL32.dll
- 0001:000025c2       _GetProcAddress@8          100035c2 f   kernel32:KERNEL32.dll
- 0001:000025c8       _LoadLibraryW@4            100035c8 f   kernel32:KERNEL32.dll
- 0001:000025ce       _CloseHandle@4             100035ce f   kernel32:KERNEL32.dll
- 0001:000025d4       _WaitForSingleObject@8     100035d4 f   kernel32:KERNEL32.dll
- 0001:000025da       _DeleteFileW@4             100035da f   kernel32:KERNEL32.dll
- 0001:000025e0       _lstrcatW@8                100035e0 f   kernel32:KERNEL32.dll
- 0001:000025e6       _lstrlenW@4                100035e6 f   kernel32:KERNEL32.dll
- 0001:000025ec       _lstrcpyW@8                100035ec f   kernel32:KERNEL32.dll
- 0001:000025f2       _WriteFile@20              100035f2 f   kernel32:KERNEL32.dll
- 0001:000025f8       _CreateFileW@28            100035f8 f   kernel32:KERNEL32.dll
- 0001:000025fe       _GetTempFileNameW@16       100035fe f   kernel32:KERNEL32.dll
- 0001:00002604       _GetTempPathW@8            10003604 f   kernel32:KERNEL32.dll
- 0001:0000260a       _lstrcpynW@12              1000360a f   kernel32:KERNEL32.dll
- 0001:00002610       _HeapCreate@12             10003610 f   kernel32:KERNEL32.dll
- 0001:00002616       _HeapDestroy@4             10003616 f   kernel32:KERNEL32.dll
- 0001:0000261c       _HeapValidate@12           1000361c f   kernel32:KERNEL32.dll
- 0001:00002622       _lstrcpyA@8                10003622 f   kernel32:KERNEL32.dll
- 0001:00002628       _lstrlenA@4                10003628 f   kernel32:KERNEL32.dll
- 0001:0000262e       _MultiByteToWideChar@24    1000362e f   kernel32:KERNEL32.dll
- 0001:00002634       _lstrcpynA@12              10003634 f   kernel32:KERNEL32.dll
- 0001:0000263a       _GetTickCount@0            1000363a f   kernel32:KERNEL32.dll
- 0001:00002640       _GetCurrentThreadId@0      10003640 f   kernel32:KERNEL32.dll
- 0001:00002646       _SetLastError@4            10003646 f   kernel32:KERNEL32.dll
- 0001:0000264c       _ResumeThread@4            1000364c f   kernel32:KERNEL32.dll
- 0001:00002652       _CreateThread@24           10003652 f   kernel32:KERNEL32.dll
- 0001:00002658       _TerminateThread@8         10003658 f   kernel32:KERNEL32.dll
- 0001:0000265e       _FillRect@12               1000365e f   user32:USER32.dll
- 0001:00002664       _wsprintfW                 10003664 f   user32:USER32.dll
- 0001:0000266a       _CharLowerBuffW@8          1000366a f   user32:USER32.dll
- 0001:00002670       _wsprintfA                 10003670 f   user32:USER32.dll
- 0001:00002676       _DeleteDC@4                10003676 f   gdi32:GDI32.dll
- 0001:0000267c       _DeleteObject@4            1000367c f   gdi32:GDI32.dll
- 0001:00002682       _SelectObject@8            10003682 f   gdi32:GDI32.dll
- 0001:00002688       _CreateSolidBrush@4        10003688 f   gdi32:GDI32.dll
- 0001:0000268e       _CreateDIBSection@24       1000368e f   gdi32:GDI32.dll
- 0001:00002694       _CreateCompatibleDC@4      10003694 f   gdi32:GDI32.dll
- 0001:0000269a       _CoInitialize@4            1000369a f   ole32:ole32.dll
- 0001:000026a0       _CoUninitialize@0          100036a0 f   ole32:ole32.dll
- 0001:000026a8       __IMPORT_DESCRIPTOR_KERNEL32 100036a8     kernel32:KERNEL32.dll
- 0001:000026bc       __IMPORT_DESCRIPTOR_USER32 100036bc     user32:USER32.dll
- 0001:000026d0       __IMPORT_DESCRIPTOR_GDI32  100036d0     gdi32:GDI32.dll
- 0001:000026e4       __IMPORT_DESCRIPTOR_ole32  100036e4     ole32:ole32.dll
- 0001:000026f8       __NULL_IMPORT_DESCRIPTOR   100036f8     kernel32:KERNEL32.dll
+ 0001:000021ed       ?apiCreateThread@@YIPAXP6GKPAX@Z0PAKPBDH@Z 100031ed f   WThreads.obj
+ 0001:000022dc       ?apiTerminateThreadEx@@YIHPAXKPBDH@Z 100032dc f   WThreads.obj
+ 0001:000023a0       _memmove                   100033a0 f   libCRT:memmove.obj
+ 0001:00002400       __alldiv                   10003400 f   libCRT:vc_lldiv.obj
+ 0001:000024b0       __allmul                   100034b0 f   libCRT:vc_llmul.obj
+ 0001:000024f0       _wcsrchr                   100034f0 f   libCRT:strrchr.obj
+ 0001:00002520       _memset                    10003520 f   libCRT:memset.obj
+ 0001:00002560       _strchr                    10003560 f   libCRT:strchr.obj
+ 0001:00002580       _strrchr                   10003580 f   libCRT:strrchr.obj
+ 0001:000025a2       _HeapFree@12               100035a2 f   kernel32:KERNEL32.dll
+ 0001:000025a8       _GetProcessHeap@0          100035a8 f   kernel32:KERNEL32.dll
+ 0001:000025ae       _HeapAlloc@12              100035ae f   kernel32:KERNEL32.dll
+ 0001:000025b4       _HeapReAlloc@16            100035b4 f   kernel32:KERNEL32.dll
+ 0001:000025ba       _SystemTimeToFileTime@8    100035ba f   kernel32:KERNEL32.dll
+ 0001:000025c0       _GetLocalTime@4            100035c0 f   kernel32:KERNEL32.dll
+ 0001:000025c6       _FreeLibrary@4             100035c6 f   kernel32:KERNEL32.dll
+ 0001:000025cc       _GetLastError@0            100035cc f   kernel32:KERNEL32.dll
+ 0001:000025d2       _GetProcAddress@8          100035d2 f   kernel32:KERNEL32.dll
+ 0001:000025d8       _LoadLibraryW@4            100035d8 f   kernel32:KERNEL32.dll
+ 0001:000025de       _CloseHandle@4             100035de f   kernel32:KERNEL32.dll
+ 0001:000025e4       _WaitForSingleObject@8     100035e4 f   kernel32:KERNEL32.dll
+ 0001:000025ea       _DeleteFileW@4             100035ea f   kernel32:KERNEL32.dll
+ 0001:000025f0       _lstrcatW@8                100035f0 f   kernel32:KERNEL32.dll
+ 0001:000025f6       _lstrlenW@4                100035f6 f   kernel32:KERNEL32.dll
+ 0001:000025fc       _lstrcpyW@8                100035fc f   kernel32:KERNEL32.dll
+ 0001:00002602       _WriteFile@20              10003602 f   kernel32:KERNEL32.dll
+ 0001:00002608       _CreateFileW@28            10003608 f   kernel32:KERNEL32.dll
+ 0001:0000260e       _GetTempFileNameW@16       1000360e f   kernel32:KERNEL32.dll
+ 0001:00002614       _GetTempPathW@8            10003614 f   kernel32:KERNEL32.dll
+ 0001:0000261a       _lstrcpynW@12              1000361a f   kernel32:KERNEL32.dll
+ 0001:00002620       _HeapCreate@12             10003620 f   kernel32:KERNEL32.dll
+ 0001:00002626       _HeapDestroy@4             10003626 f   kernel32:KERNEL32.dll
+ 0001:0000262c       _HeapValidate@12           1000362c f   kernel32:KERNEL32.dll
+ 0001:00002632       _lstrcpyA@8                10003632 f   kernel32:KERNEL32.dll
+ 0001:00002638       _lstrlenA@4                10003638 f   kernel32:KERNEL32.dll
+ 0001:0000263e       _MultiByteToWideChar@24    1000363e f   kernel32:KERNEL32.dll
+ 0001:00002644       _lstrcpynA@12              10003644 f   kernel32:KERNEL32.dll
+ 0001:0000264a       _GetTickCount@0            1000364a f   kernel32:KERNEL32.dll
+ 0001:00002650       _GetCurrentThreadId@0      10003650 f   kernel32:KERNEL32.dll
+ 0001:00002656       _SetLastError@4            10003656 f   kernel32:KERNEL32.dll
+ 0001:0000265c       _ResumeThread@4            1000365c f   kernel32:KERNEL32.dll
+ 0001:00002662       _CreateThread@24           10003662 f   kernel32:KERNEL32.dll
+ 0001:00002668       _TerminateThread@8         10003668 f   kernel32:KERNEL32.dll
+ 0001:0000266e       _FillRect@12               1000366e f   user32:USER32.dll
+ 0001:00002674       _wsprintfW                 10003674 f   user32:USER32.dll
+ 0001:0000267a       _CharLowerBuffW@8          1000367a f   user32:USER32.dll
+ 0001:00002680       _wsprintfA                 10003680 f   user32:USER32.dll
+ 0001:00002686       _DeleteDC@4                10003686 f   gdi32:GDI32.dll
+ 0001:0000268c       _DeleteObject@4            1000368c f   gdi32:GDI32.dll
+ 0001:00002692       _SelectObject@8            10003692 f   gdi32:GDI32.dll
+ 0001:00002698       _CreateSolidBrush@4        10003698 f   gdi32:GDI32.dll
+ 0001:0000269e       _CreateDIBSection@24       1000369e f   gdi32:GDI32.dll
+ 0001:000026a4       _CreateCompatibleDC@4      100036a4 f   gdi32:GDI32.dll
+ 0001:000026aa       _CoInitialize@4            100036aa f   ole32:ole32.dll
+ 0001:000026b0       _CoUninitialize@0          100036b0 f   ole32:ole32.dll
+ 0001:000026b8       __IMPORT_DESCRIPTOR_KERNEL32 100036b8     kernel32:KERNEL32.dll
+ 0001:000026cc       __IMPORT_DESCRIPTOR_USER32 100036cc     user32:USER32.dll
+ 0001:000026e0       __IMPORT_DESCRIPTOR_GDI32  100036e0     gdi32:GDI32.dll
+ 0001:000026f4       __IMPORT_DESCRIPTOR_ole32  100036f4     ole32:ole32.dll
+ 0001:00002708       __NULL_IMPORT_DESCRIPTOR   10003708     kernel32:KERNEL32.dll
  0002:00000000       ?g_TerminatedThreadIdx@@3JA 10004000     WThreads.obj
  0002:00000010       ?ghModule@@3PAUHINSTANCE__@@A 10004010     gdip.obj
  0002:00000048       ?gnLastWin32Error@@3KA     10004048     gdip.obj

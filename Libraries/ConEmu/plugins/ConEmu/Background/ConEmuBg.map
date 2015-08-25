@@ -1,6 +1,6 @@
  ConEmuBg
 
- Timestamp is 55cda8bc (Fri Aug 14 11:37:16 2015)
+ Timestamp is 55dc3031 (Tue Aug 25 12:06:57 2015)
 
  Preferred load address is 10000000
 
@@ -142,8 +142,8 @@
  0001:00005a3d       ??1MSectionLockSimple@@QAE@XZ 10006a3d f   MSectionSimple.obj
  0001:00005a49       ?Lock@MSectionLockSimple@@QAEHPAUMSectionSimple@@K@Z 10006a49 f   MSectionSimple.obj
  0001:00005ab5       ?apiThreadHelper@@YGKPAX@Z 10006ab5 f   WThreads.obj
- 0001:00005b7a       ?apiCreateThread@@YIPAXP6GKPAX@Z0PAKPBDH@Z 10006b7a f   WThreads.obj
- 0001:00005c69       ?apiTerminateThreadEx@@YIHPAXKPBDH@Z 10006c69 f   WThreads.obj
+ 0001:00005b81       ?apiCreateThread@@YIPAXP6GKPAX@Z0PAKPBDH@Z 10006b81 f   WThreads.obj
+ 0001:00005c70       ?apiTerminateThreadEx@@YIHPAXKPBDH@Z 10006c70 f   WThreads.obj
  0001:00005d30       _wcschr                    10006d30 f   libCRT:strchr.obj
  0001:00005d60       _wcsrchr                   10006d60 f   libCRT:strrchr.obj
  0001:00005d90       _wcsstr                    10006d90 f   libCRT:strstr.obj

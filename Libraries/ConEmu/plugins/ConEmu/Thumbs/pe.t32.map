@@ -1,6 +1,6 @@
  pe
 
- Timestamp is 55cda8b0 (Fri Aug 14 11:37:04 2015)
+ Timestamp is 55dc3024 (Tue Aug 25 12:06:44 2015)
 
  Preferred load address is 10000000
 
@@ -142,8 +142,8 @@
  0001:00001a0d       ?lstrmerge@@YI_NPAPA_WPB_W111@Z 10002a0d f   Memory.obj
  0001:00001a44       ??0ConEmuThreadStartArg@@QAE@P6GKPAX@Z0K@Z 10002a44 f i WThreads.obj
  0001:00001a65       ?apiThreadHelper@@YGKPAX@Z 10002a65 f   WThreads.obj
- 0001:00001b2a       ?apiCreateThread@@YIPAXP6GKPAX@Z0PAKPBDH@Z 10002b2a f   WThreads.obj
- 0001:00001c19       ?apiTerminateThreadEx@@YIHPAXKPBDH@Z 10002c19 f   WThreads.obj
+ 0001:00001b31       ?apiCreateThread@@YIPAXP6GKPAX@Z0PAKPBDH@Z 10002b31 f   WThreads.obj
+ 0001:00001c20       ?apiTerminateThreadEx@@YIHPAXKPBDH@Z 10002c20 f   WThreads.obj
  0001:00001ce0       _wcschr                    10002ce0 f   libCRT:strchr.obj
  0001:00001d10       _wcsrchr                   10002d10 f   libCRT:strrchr.obj
  0001:00001d40       _memset                    10002d40 f   libCRT:memset.obj

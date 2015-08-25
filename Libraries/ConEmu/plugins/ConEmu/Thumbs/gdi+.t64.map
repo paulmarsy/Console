@@ -1,6 +1,6 @@
  gdi+
 
- Timestamp is 55cda993 (Fri Aug 14 11:40:51 2015)
+ Timestamp is 55dc3100 (Tue Aug 25 12:10:24 2015)
 
  Preferred load address is 0000000180000000
 
@@ -255,8 +255,8 @@
  0001:00002a08       ?lstrmerge@@YA_NPEAPEA_WPEB_W111@Z 0000000180003a08 f   Memory.obj
  0001:00002a4c       ??0ConEmuThreadStartArg@@QEAA@P6AKPEAX@Z0K@Z 0000000180003a4c f i WThreads.obj
  0001:00002a64       ?apiThreadHelper@@YAKPEAX@Z 0000000180003a64 f   WThreads.obj
- 0001:00002b6c       ?apiCreateThread@@YAPEAXP6AKPEAX@Z0PEAKPEBDH@Z 0000000180003b6c f   WThreads.obj
- 0001:00002cb8       ?apiTerminateThreadEx@@YAHPEAXKPEBDH@Z 0000000180003cb8 f   WThreads.obj
+ 0001:00002b70       ?apiCreateThread@@YAPEAXP6AKPEAX@Z0PEAKPEBDH@Z 0000000180003b70 f   WThreads.obj
+ 0001:00002cbc       ?apiTerminateThreadEx@@YAHPEAXKPEBDH@Z 0000000180003cbc f   WThreads.obj
  0001:00002dc0       memmove                    0000000180003dc0 f   libCRT64:memmove.obj
  0001:00002e20       memset                     0000000180003e20 f   libCRT64:memset.obj
  0001:00002e50       wcsrchr                    0000000180003e50 f   libCRT64:strrchr.obj

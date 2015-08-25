@@ -1,6 +1,6 @@
  ConEmuTh.x64
 
- Timestamp is 55cda98d (Fri Aug 14 11:40:45 2015)
+ Timestamp is 55dc30fb (Tue Aug 25 12:10:19 2015)
 
  Preferred load address is 0000000180000000
 
@@ -347,8 +347,8 @@
  0001:00012b58       ?apiTerminateThreadEx@@YAHPEAXKPEBDH@Z 0000000180013b58 f   WThreads.obj
  0001:00012c5c       ?SetThreadName@@YAXKPEAD@Z 0000000180013c5c f   WThreads.obj
  0001:00012c94       ?apiThreadHelper@@YAKPEAX@Z 0000000180013c94 f   WThreads.obj
- 0001:00012da8       ?apiCreateThread@@YAPEAXP6AKPEAX@Z0PEAKPEBDH@Z 0000000180013da8 f   WThreads.obj
- 0001:00012ef4       ?apiShowWindow@@YA_NPEAUHWND__@@H@Z 0000000180013ef4 f   WUser.obj
+ 0001:00012dac       ?apiCreateThread@@YAPEAXP6AKPEAX@Z0PEAKPEBDH@Z 0000000180013dac f   WThreads.obj
+ 0001:00012ef8       ?apiShowWindow@@YA_NPEAUHWND__@@H@Z 0000000180013ef8 f   WUser.obj
  0001:00012f10       wcschr                     0000000180013f10 f   libCRT64:strchr.obj
  0001:00012f30       wcsrchr                    0000000180013f30 f   libCRT64:strrchr.obj
  0001:00012f60       wcspbrk                    0000000180013f60 f   libCRT64:strpbrk.obj

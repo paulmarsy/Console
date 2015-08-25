@@ -1,6 +1,6 @@
  ConEmuBg.x64
 
- Timestamp is 55cda9d0 (Fri Aug 14 11:41:52 2015)
+ Timestamp is 55dc3115 (Tue Aug 25 12:10:45 2015)
 
  Preferred load address is 0000000180000000
 
@@ -139,8 +139,8 @@
  0001:000079c4       ??1MSectionLockSimple@@QEAA@XZ 00000001800089c4 f   MSectionSimple.obj
  0001:000079d8       ?Lock@MSectionLockSimple@@QEAAHPEAUMSectionSimple@@K@Z 00000001800089d8 f   MSectionSimple.obj
  0001:00007a70       ?apiThreadHelper@@YAKPEAX@Z 0000000180008a70 f   WThreads.obj
- 0001:00007b78       ?apiCreateThread@@YAPEAXP6AKPEAX@Z0PEAKPEBDH@Z 0000000180008b78 f   WThreads.obj
- 0001:00007cc4       ?apiTerminateThreadEx@@YAHPEAXKPEBDH@Z 0000000180008cc4 f   WThreads.obj
+ 0001:00007b7c       ?apiCreateThread@@YAPEAXP6AKPEAX@Z0PEAKPEBDH@Z 0000000180008b7c f   WThreads.obj
+ 0001:00007cc8       ?apiTerminateThreadEx@@YAHPEAXKPEBDH@Z 0000000180008cc8 f   WThreads.obj
  0001:00007dd0       wcschr                     0000000180008dd0 f   libCRT64:strchr.obj
  0001:00007df0       wcsrchr                    0000000180008df0 f   libCRT64:strrchr.obj
  0001:00007e20       wcsstr                     0000000180008e20 f   libCRT64:strstr.obj
