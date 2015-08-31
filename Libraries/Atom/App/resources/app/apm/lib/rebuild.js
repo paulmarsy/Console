@@ -32,34 +32,44 @@
       return options.alias('h', 'help').describe('help', 'Print this usage message');
     };
 
+    Rebuild.prototype.installNode = function(callback) {
+      return config.loadNpm(function(error, npm) {
+        var install;
+        install = new Install();
+        install.npm = npm;
+        return install.loadInstalledAtomMetadata(function() {
+          return install.installNode(callback);
+        });
+      });
+    };
+
+    Rebuild.prototype.forkNpmRebuild = function(options, callback) {
+      var env, rebuildArgs;
+      process.stdout.write('Rebuilding modules ');
+      rebuildArgs = ['--globalconfig', config.getGlobalConfigPath(), '--userconfig', config.getUserConfigPath(), 'rebuild', "--target=" + this.electronVersion, "--arch=" + (config.getElectronArch())];
+      rebuildArgs = rebuildArgs.concat(options.argv._);
+      env = _.extend({}, process.env, {
+        HOME: this.atomNodeDirectory
+      });
+      if (config.isWin32()) {
+        env.USERPROFILE = env.HOME;
+      }
+      return this.fork(this.atomNpmPath, rebuildArgs, {
+        env: env
+      }, callback);
+    };
+
     Rebuild.prototype.run = function(options) {
       var callback;
       callback = options.callback;
       options = this.parseOptions(options.commandArgs);
-      return config.loadNpm((function(_this) {
-        return function(error, npm) {
-          var install;
-          install = new Install();
-          install.npm = npm;
-          return install.installNode(function(error) {
-            var env, rebuildArgs;
+      return this.loadInstalledAtomMetadata((function(_this) {
+        return function() {
+          return _this.installNode(function(error) {
             if (error != null) {
               return callback(error);
             }
-            process.stdout.write('Rebuilding modules ');
-            rebuildArgs = ['--globalconfig', config.getGlobalConfigPath(), '--userconfig', config.getUserConfigPath(), 'rebuild'];
-            rebuildArgs.push("--target=" + (config.getNodeVersion()));
-            rebuildArgs.push("--arch=" + (config.getNodeArch()));
-            rebuildArgs = rebuildArgs.concat(options.argv._);
-            env = _.extend({}, process.env, {
-              HOME: _this.atomNodeDirectory
-            });
-            if (config.isWin32()) {
-              env.USERPROFILE = env.HOME;
-            }
-            return _this.fork(_this.atomNpmPath, rebuildArgs, {
-              env: env
-            }, function(code, stderr) {
+            return _this.forkNpmRebuild(options, function(code, stderr) {
               if (stderr == null) {
                 stderr = '';
               }

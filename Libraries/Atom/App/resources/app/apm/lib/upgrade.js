@@ -99,19 +99,7 @@
           };
         })(this));
       } else {
-        return config.getResourcePath((function(_this) {
-          return function(resourcePath) {
-            var version, _ref;
-            try {
-              version = ((_ref = require(path.join(resourcePath, 'package.json'))) != null ? _ref : {}).version;
-              version = _this.normalizeVersion(version);
-              if (semver.valid(version)) {
-                _this.installedAtomVersion = version;
-              }
-            } catch (_error) {}
-            return callback();
-          };
-        })(this));
+        return this.loadInstalledAtomMetadata(callback);
       }
     };
 
@@ -175,18 +163,16 @@
     };
 
     Upgrade.prototype.getAvailableUpdates = function(packages, callback) {
-      return async.map(packages, this.getLatestVersion.bind(this), (function(_this) {
-        return function(error, updates) {
-          if (error != null) {
-            return callback(error);
-          }
-          updates = _.compact(updates);
-          updates.sort(function(updateA, updateB) {
-            return updateA.pack.name.localeCompare(updateB.pack.name);
-          });
-          return callback(null, updates);
-        };
-      })(this));
+      return async.map(packages, this.getLatestVersion.bind(this), function(error, updates) {
+        if (error != null) {
+          return callback(error);
+        }
+        updates = _.compact(updates);
+        updates.sort(function(updateA, updateB) {
+          return updateA.pack.name.localeCompare(updateB.pack.name);
+        });
+        return callback(null, updates);
+      });
     };
 
     Upgrade.prototype.promptForConfirmation = function(callback) {

@@ -88,9 +88,9 @@
       var _ref;
       return (_ref = process.env.ATOM_REPOS_HOME) != null ? _ref : path.join(this.getHomeDirectory(), 'github');
     },
-    getNodeUrl: function() {
-      var _ref;
-      return (_ref = process.env.ATOM_NODE_URL) != null ? _ref : 'https://atom.io/download/atom-shell';
+    getElectronUrl: function() {
+      var _ref, _ref1;
+      return (_ref = (_ref1 = process.env.ATOM_ELECTRON_URL) != null ? _ref1 : process.env.ATOM_NODE_URL) != null ? _ref : 'https://atom.io/download/atom-shell';
     },
     getAtomPackagesUrl: function() {
       var _ref;
@@ -100,11 +100,7 @@
       var _ref;
       return (_ref = process.env.ATOM_API_URL) != null ? _ref : 'https://atom.io/api';
     },
-    getNodeVersion: function() {
-      var _ref;
-      return (_ref = process.env.ATOM_NODE_VERSION) != null ? _ref : '0.22.0';
-    },
-    getNodeArch: function() {
+    getElectronArch: function() {
       switch (process.platform) {
         case 'darwin':
           return 'x64';

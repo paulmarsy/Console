@@ -60,18 +60,16 @@
       console.log("" + directoryPath.cyan + " (" + links.length + ")");
       return tree(links, {
         emptyMessage: '(no links)'
-      }, (function(_this) {
-        return function(link) {
-          var error, realpath;
-          try {
-            realpath = fs.realpathSync(link);
-          } catch (_error) {
-            error = _error;
-            realpath = '???'.red;
-          }
-          return "" + (path.basename(link).yellow) + " -> " + realpath;
-        };
-      })(this));
+      }, function(link) {
+        var error, realpath;
+        try {
+          realpath = fs.realpathSync(link);
+        } catch (_error) {
+          error = _error;
+          realpath = '???'.red;
+        }
+        return "" + (path.basename(link).yellow) + " -> " + realpath;
+      });
     };
 
     Links.prototype.run = function(options) {

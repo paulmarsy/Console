@@ -41,8 +41,8 @@
     Dedupe.prototype.installNode = function(callback) {
       var env, installNodeArgs;
       installNodeArgs = ['install'];
-      installNodeArgs.push("--target=" + (config.getNodeVersion()));
-      installNodeArgs.push("--dist-url=" + (config.getNodeUrl()));
+      installNodeArgs.push("--target=" + this.electronVersion);
+      installNodeArgs.push("--dist-url=" + (config.getElectronUrl()));
       installNodeArgs.push('--arch=ia32');
       installNodeArgs.push('--ensure');
       env = _.extend({}, process.env, {
@@ -104,7 +104,7 @@
     Dedupe.prototype.forkDedupeCommand = function(options, callback) {
       var dedupeArgs, dedupeOptions, env, packageName, vsArgs, _i, _len, _ref;
       dedupeArgs = ['--globalconfig', config.getGlobalConfigPath(), '--userconfig', config.getUserConfigPath(), 'dedupe'];
-      dedupeArgs.push("--target=" + (config.getNodeVersion()));
+      dedupeArgs.push("--target=" + this.electronVersion);
       dedupeArgs.push('--arch=ia32');
       if (options.argv.silent) {
         dedupeArgs.push('--silent');
@@ -147,6 +147,11 @@
       options.cwd = cwd;
       this.createAtomDirectories();
       commands = [];
+      commands.push((function(_this) {
+        return function(callback) {
+          return _this.loadInstalledAtomMetadata(callback);
+        };
+      })(this));
       commands.push((function(_this) {
         return function(callback) {
           return _this.installNode(callback);

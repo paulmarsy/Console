@@ -51,39 +51,37 @@
     };
 
     View.prototype.getLatestCompatibleVersion = function(pack, options, callback) {
-      return this.loadInstalledAtomVersion(options, (function(_this) {
-        return function(installedAtomVersion) {
-          var engine, latestVersion, metadata, version, _ref, _ref1, _ref2, _ref3;
-          if (!installedAtomVersion) {
-            return callback(pack.releases.latest);
+      return this.loadInstalledAtomVersion(options, function(installedAtomVersion) {
+        var engine, latestVersion, metadata, version, _ref, _ref1, _ref2, _ref3;
+        if (!installedAtomVersion) {
+          return callback(pack.releases.latest);
+        }
+        latestVersion = null;
+        _ref1 = (_ref = pack.versions) != null ? _ref : {};
+        for (version in _ref1) {
+          metadata = _ref1[version];
+          if (!semver.valid(version)) {
+            continue;
           }
-          latestVersion = null;
-          _ref1 = (_ref = pack.versions) != null ? _ref : {};
-          for (version in _ref1) {
-            metadata = _ref1[version];
-            if (!semver.valid(version)) {
-              continue;
-            }
-            if (!metadata) {
-              continue;
-            }
-            engine = (_ref2 = (_ref3 = metadata.engines) != null ? _ref3.atom : void 0) != null ? _ref2 : '*';
-            if (!semver.validRange(engine)) {
-              continue;
-            }
-            if (!semver.satisfies(installedAtomVersion, engine)) {
-              continue;
-            }
-            if (latestVersion == null) {
-              latestVersion = version;
-            }
-            if (semver.gt(version, latestVersion)) {
-              latestVersion = version;
-            }
+          if (!metadata) {
+            continue;
           }
-          return callback(latestVersion);
-        };
-      })(this));
+          engine = (_ref2 = (_ref3 = metadata.engines) != null ? _ref3.atom : void 0) != null ? _ref2 : '*';
+          if (!semver.validRange(engine)) {
+            continue;
+          }
+          if (!semver.satisfies(installedAtomVersion, engine)) {
+            continue;
+          }
+          if (latestVersion == null) {
+            latestVersion = version;
+          }
+          if (semver.gt(version, latestVersion)) {
+            latestVersion = version;
+          }
+        }
+        return callback(latestVersion);
+      });
     };
 
     View.prototype.getRepository = function(pack) {

@@ -24,7 +24,6 @@
     function Login() {
       this.saveToken = __bind(this.saveToken, this);
       this.getToken = __bind(this.getToken, this);
-      this.openURL = __bind(this.openURL, this);
       this.welcomeMessage = __bind(this.welcomeMessage, this);
       return Login.__super__.constructor.apply(this, arguments);
     }

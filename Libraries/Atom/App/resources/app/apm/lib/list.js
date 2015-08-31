@@ -147,44 +147,42 @@
     };
 
     List.prototype.listBundledPackages = function(options, callback) {
-      return config.getResourcePath((function(_this) {
-        return function(resourcePath) {
-          var metadata, metadataPath, packageName, packages, _atomPackages;
-          try {
-            metadataPath = path.join(resourcePath, 'package.json');
-            _atomPackages = JSON.parse(fs.readFileSync(metadataPath))._atomPackages;
-          } catch (_error) {}
-          if (_atomPackages == null) {
-            _atomPackages = {};
+      return config.getResourcePath(function(resourcePath) {
+        var metadata, metadataPath, packageName, packages, _atomPackages;
+        try {
+          metadataPath = path.join(resourcePath, 'package.json');
+          _atomPackages = JSON.parse(fs.readFileSync(metadataPath))._atomPackages;
+        } catch (_error) {}
+        if (_atomPackages == null) {
+          _atomPackages = {};
+        }
+        packages = (function() {
+          var _results;
+          _results = [];
+          for (packageName in _atomPackages) {
+            metadata = _atomPackages[packageName].metadata;
+            _results.push(metadata);
           }
-          packages = (function() {
-            var _results;
-            _results = [];
-            for (packageName in _atomPackages) {
-              metadata = _atomPackages[packageName].metadata;
-              _results.push(metadata);
-            }
-            return _results;
-          })();
-          packages = packages.filter(function(metadata) {
-            if (options.argv.themes) {
-              return metadata.theme;
-            } else if (options.argv.packages) {
-              return !metadata.theme;
-            } else {
-              return true;
-            }
-          });
-          if (!(options.argv.bare || options.argv.json)) {
-            if (options.argv.themes) {
-              console.log("" + 'Built-in Atom themes'.cyan + " (" + packages.length + ")");
-            } else {
-              console.log("" + 'Built-in Atom packages'.cyan + " (" + packages.length + ")");
-            }
+          return _results;
+        })();
+        packages = packages.filter(function(metadata) {
+          if (options.argv.themes) {
+            return metadata.theme;
+          } else if (options.argv.packages) {
+            return !metadata.theme;
+          } else {
+            return true;
           }
-          return typeof callback === "function" ? callback(null, packages) : void 0;
-        };
-      })(this));
+        });
+        if (!(options.argv.bare || options.argv.json)) {
+          if (options.argv.themes) {
+            console.log("" + 'Built-in Atom themes'.cyan + " (" + packages.length + ")");
+          } else {
+            console.log("" + 'Built-in Atom packages'.cyan + " (" + packages.length + ")");
+          }
+        }
+        return typeof callback === "function" ? callback(null, packages) : void 0;
+      });
     };
 
     List.prototype.listInstalledPackages = function(options) {

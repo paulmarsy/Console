@@ -87,8 +87,9 @@
     };
 
     Unlink.prototype.unlinkPackage = function(options, callback) {
-      var error, linkPath, packageName, targetPath, _ref;
-      linkPath = path.resolve(process.cwd(), (_ref = options.argv._[0]) != null ? _ref : '.');
+      var error, linkPath, packageName, packagePath, targetPath, _ref, _ref1;
+      packagePath = (_ref = (_ref1 = options.argv._[0]) != null ? _ref1.toString() : void 0) != null ? _ref : '.';
+      linkPath = path.resolve(process.cwd(), packagePath);
       try {
         packageName = CSON.readFileSync(CSON.resolve(path.join(linkPath, 'package'))).name;
       } catch (_error) {}

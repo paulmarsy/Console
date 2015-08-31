@@ -65,9 +65,9 @@
     Install.prototype.installNode = function(callback) {
       var env, installNodeArgs, opts, proxy, useStrictSsl, _ref;
       installNodeArgs = ['install'];
-      installNodeArgs.push("--target=" + (config.getNodeVersion()));
-      installNodeArgs.push("--dist-url=" + (config.getNodeUrl()));
-      installNodeArgs.push("--arch=" + (config.getNodeArch()));
+      installNodeArgs.push("--target=" + this.electronVersion);
+      installNodeArgs.push("--dist-url=" + (config.getElectronUrl()));
+      installNodeArgs.push("--arch=" + (config.getElectronArch()));
       installNodeArgs.push("--ensure");
       if (this.verbose) {
         installNodeArgs.push("--verbose");
@@ -156,8 +156,8 @@
       var env, installArgs, installDirectory, installGlobally, installOptions, nodeModulesDirectory, vsArgs, _ref;
       installArgs = ['--globalconfig', config.getGlobalConfigPath(), '--userconfig', config.getUserConfigPath(), 'install'];
       installArgs.push(modulePath);
-      installArgs.push("--target=" + (config.getNodeVersion()));
-      installArgs.push("--arch=" + (config.getNodeArch()));
+      installArgs.push("--target=" + this.electronVersion);
+      installArgs.push("--arch=" + (config.getElectronArch()));
       if (options.argv.silent) {
         installArgs.push('--silent');
       }
@@ -282,8 +282,8 @@
     Install.prototype.forkInstallCommand = function(options, callback) {
       var env, installArgs, installOptions, vsArgs;
       installArgs = ['--globalconfig', config.getGlobalConfigPath(), '--userconfig', config.getUserConfigPath(), 'install'];
-      installArgs.push("--target=" + (config.getNodeVersion()));
-      installArgs.push("--arch=" + (config.getNodeArch()));
+      installArgs.push("--target=" + this.electronVersion);
+      installArgs.push("--arch=" + (config.getElectronArch()));
       if (options.argv.silent) {
         installArgs.push('--silent');
       }
@@ -575,8 +575,8 @@
           }
           buildArgs = ['--globalconfig', config.getGlobalConfigPath(), '--userconfig', config.getUserConfigPath(), 'build'];
           buildArgs.push(path.resolve(__dirname, '..', 'native-module'));
-          buildArgs.push("--target=" + (config.getNodeVersion()));
-          buildArgs.push("--arch=" + (config.getNodeArch()));
+          buildArgs.push("--target=" + _this.electronVersion);
+          buildArgs.push("--arch=" + (config.getElectronArch()));
           if (vsArgs = _this.getVisualStudioFlags()) {
             buildArgs.push(vsArgs);
           }
@@ -612,23 +612,6 @@
       }
       packages = fs.readFileSync(filePath, 'utf8');
       return this.sanitizePackageNames(packages.split(/\s/));
-    };
-
-    Install.prototype.getResourcePath = function(callback) {
-      if (this.resourcePath) {
-        return process.nextTick((function(_this) {
-          return function() {
-            return callback(_this.resourcePath);
-          };
-        })(this));
-      } else {
-        return config.getResourcePath((function(_this) {
-          return function(resourcePath) {
-            _this.resourcePath = resourcePath;
-            return callback(_this.resourcePath);
-          };
-        })(this));
-      }
     };
 
     Install.prototype.buildModuleCache = function(packageName, callback) {
@@ -715,22 +698,6 @@
       return latestVersion;
     };
 
-    Install.prototype.loadInstalledAtomVersion = function(callback) {
-      return this.getResourcePath((function(_this) {
-        return function(resourcePath) {
-          var version, _ref;
-          try {
-            version = ((_ref = require(path.join(resourcePath, 'package.json'))) != null ? _ref : {}).version;
-            version = _this.normalizeVersion(version);
-            if (semver.valid(version)) {
-              _this.installedAtomVersion = version;
-            }
-          } catch (_error) {}
-          return callback();
-        };
-      })(this));
-    };
-
     Install.prototype.run = function(options) {
       var callback, commands, error, installPackage, packageNames, packagesFilePath;
       callback = options.callback;
@@ -741,7 +708,9 @@
         config.loadNpm((function(_this) {
           return function(error, npm) {
             _this.npm = npm;
-            return _this.checkNativeBuildTools(callback);
+            return _this.loadInstalledAtomMetadata(function() {
+              return _this.checkNativeBuildTools(callback);
+            });
           };
         })(this));
         return;
@@ -798,7 +767,7 @@
       })(this));
       commands.push((function(_this) {
         return function(callback) {
-          return _this.loadInstalledAtomVersion(callback);
+          return _this.loadInstalledAtomMetadata(callback);
         };
       })(this));
       packageNames.forEach(function(packageName) {
