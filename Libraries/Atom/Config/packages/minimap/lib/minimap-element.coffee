@@ -302,6 +302,7 @@ class MinimapElement extends HTMLElement
       @requestUpdate()
 
     @setAttribute('stand-alone', true) if @minimap.isStandAlone()
+    @minimap.setScreenHeightAndWidth(@height, @width) if @width? and @height?
 
     @minimap
 
@@ -410,13 +411,15 @@ class MinimapElement extends HTMLElement
   # forceUpdate - A {Boolean} that forces the update even when no changes were
   #               detected.
   measureHeightAndWidth: (visibilityChanged, forceUpdate=true) ->
+    return unless @minimap?
+
     wasResized = @width isnt @clientWidth or @height isnt @clientHeight
 
     @height = @clientHeight
     @width = @clientWidth
     canvasWidth = @width
 
-    @minimap.setScreenHeightAndWidth(@height, @width)
+    @minimap.setScreenHeightAndWidth(@height, @width) if @minimap?
 
     @requestForcedUpdate() if wasResized or visibilityChanged or forceUpdate
 

@@ -16,6 +16,9 @@
 // Package icon
 .icon-file-directory[data-name=".bundle"]:before { .package-icon; }
 
+// Meteor icon
+.icon-file-directory[data-name=".meteor"]:before { .meteor-icon; }
+
 // Default icon: image
 .icon-file-media[data-name$=".png"]:before { .medium-orange; }
 .icon-file-media[data-name$=".gif"]:before { .medium-yellow; }
@@ -95,16 +98,21 @@
   &[data-name$=".fsx"]:before    { .fsharp-icon; .medium-blue; }
   &[data-name$=".fsi"]:before    { .fsharp-icon; .medium-blue; }
 
+  // Git icon
+  &[data-name$=".gitignore"]:before { .git-icon; }
+  &[data-name$=".gitattributes"]:before { .git-icon; }
+  &[data-name$=".gitmodules"]:before { .git-icon; }
 
-  // HTML5 icon
-  &[data-name$=".html"]:before { .html5-icon; .medium-orange; }
+  &[data-name$=".html"]:before  { .html5-icon; .medium-orange; }
+  &[data-name$=".htm"]:before   { .html5-icon; .medium-orange; }
   &[data-name$=".shtml"]:before { .html5-icon; .medium-cyan;  }
-  &[data-name$=".haml"]:before { .haml-icon; .medium-yellow;  }
-  &[data-name$=".jade"]:before { .html5-icon; .medium-green;  }
-  &[data-name$=".jsp"]:before  { .html5-icon; .medium-purple; }
-  &[data-name$=".ctp"]:before  { .html5-icon; .medium-blue;   }
-  &[data-name$=".ejs"]:before  { .html5-icon; .medium-green;  }
+  &[data-name$=".haml"]:before  { .haml-icon; .medium-yellow;  }
+  &[data-name$=".jade"]:before  { .html5-icon; .medium-green;  }
+  &[data-name$=".jsp"]:before   { .html5-icon; .medium-purple; }
+  &[data-name$=".ctp"]:before   { .html5-icon; .medium-blue;   }
+  &[data-name$=".ejs"]:before   { .html5-icon; .medium-green;  }
   &[data-name$=".swig"]:before  { .html5-icon; .medium-green;  }
+  &[data-name$=".cshtml"]:before { .html5-icon; .medium-red; }
 
   // Mustache icon
   &[data-name$=".hbs"]:before,
@@ -122,11 +130,10 @@
 
   // Gear icon
   &[data-name$=".hgignore"]:before      { .gear-icon;                 }
-  &[data-name$=".gitignore"]:before     { .gear-icon;                 }
-  &[data-name$=".gitattributes"]:before { .gear-icon;                 }
-  &[data-name=".gitmodules"]:before     { .gear-icon;                 }
   &[data-name=".mailmap"]:before        { .gear-icon;                 }
   &[data-name$=".editorconfig"]:before  { .gear-icon; .medium-orange; }
+  &[data-name=".csscomb.json"]:before   { .gear-icon; .medium-yellow; }
+  &[data-name$=".csslintrc"]:before     { .gear-icon; .medium-yellow; }
   &[data-name$=".jshintrc"]:before      { .gear-icon; .medium-yellow; }
   &[data-name$=".jshintignore"]:before  { .gear-icon;                 }
   &[data-name$=".eslintrc"]:before      { .gear-icon; .medium-yellow; }
@@ -151,8 +158,8 @@
   &[data-name="bower.json"]:before   { .bower-icon; .medium-yellow; }
 
   // Sass icon
-  &[data-name$=".sass"]:before { .sass-icon; .light-purple; }
-  &[data-name$=".scss"]:before { .sass-icon; .dark-purple; }
+  &[data-name$=".sass"]:before { .sass-icon; .dark-pink; }
+  &[data-name$=".scss"]:before { .sass-icon; .light-pink; }
 
   // PHP icon
   &[data-name$=".php"]:before  { .php-icon; .dark-blue; }
@@ -352,7 +359,7 @@
   &[data-name^=".travis"]:before { .travis-icon; .medium-red; }
 
   // Dockerfile icon
-  &[data-name="Dockerfile"]:before { .docker-icon; .dark-blue; }
+  &[data-name^="Dockerfile"]:before { .docker-icon; .dark-blue; }
 
   // XAML icon
   &[data-name$=".xaml"]:before { .code-icon; .medium-blue;   }
@@ -375,6 +382,9 @@
   &[data-name$=".png"]:before { .image-icon; .medium-orange; }
   &[data-name$=".gif"]:before { .image-icon; .medium-yellow; }
   &[data-name$=".jpg"]:before { .image-icon; .medium-green;  }
+  &[data-name$=".PNG"]:before { .image-icon; .medium-orange; }
+  &[data-name$=".GIF"]:before { .image-icon; .medium-yellow; }
+  &[data-name$=".JPG"]:before { .image-icon; .medium-green;  }
 
   // Windows specific Files
   &[data-name$=".bat"]:before { .windows-icon; .medium-purple;}
@@ -388,7 +398,7 @@
   &[data-name$=".sty"]:before { .tex-icon; .medium-red; }
   &[data-name$=".cls"]:before { .tex-icon; .medium-orange; }
   &[data-name$=".bib"]:before { .bibtex-icon; .medium-yellow; }
-  
+
   // Seperated Value files
   &[data-name$=".csv"]:before { .graph-icon; .light-red; }
   &[data-name$=".tsv"]:before { .graph-icon; .light-green; }
