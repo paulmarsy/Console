@@ -7,7 +7,7 @@ function Set-RemoteAccessCredentials {
     Clear-RemoteAccessCredentials
     
     do {
-        $windowsCredentials = Get-Credential -Username $Userna1me -Message "Enter your logon credentials to use for remote access"
+        $windowsCredentials = Get-Credential -Username $Username -Message "Enter your logon credentials to use for remote access"
         $windowsLogon = @{
             UserName = $windowsCredentials.UserName
             Password = $windowsCredentials.Password.Peek()
