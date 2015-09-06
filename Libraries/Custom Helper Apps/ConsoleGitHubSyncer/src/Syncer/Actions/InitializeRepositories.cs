@@ -12,10 +12,10 @@
             Git.Invoke((Command) "submodule init");
             Git.Invoke((SubmoduleCommand) "submodule init");
 
-            Write.Status.Line("Checking out {0} branch", _currentBranch);
+            Write.Status.Line($"Checking out {_currentBranch} branch");
             CheckoutBranch();
 
-            Write.Success.Line("Git repository initialized and {0} branch checked out", _currentBranch);
+            Write.Success.Line($"Git repository initialized and {_currentBranch} branch checked out");
 
             return Program.ExitCode.ERROR_SUCCESS;
         }
@@ -24,8 +24,8 @@
         {
             Write.Status.Line("Checking out branch...");
 
-            Git.Invoke((Command) new[] {"checkout {0}", _currentBranch});
-            Git.Invoke((SubmoduleCommand) new[] {"checkout $('{0}' rev-parse --symbolic-full-name --abbrev-ref HEAD)", Git.GitExe});
+            Git.Invoke((Command) $"checkout {_currentBranch}");
+            Git.Invoke((SubmoduleCommand) $"checkout $('{Git.GitExe}' rev-parse --symbolic-full-name --abbrev-ref HEAD)");
         }
     }
 }

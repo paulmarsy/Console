@@ -39,13 +39,13 @@
             foreach (var superproject in GetSuperProjectsAndSubmodulePaths().GroupBy(x => x.Item1).OrderByDescending(x => x.Key))
             {
                 foreach (var submodule in superproject)
-                    Git.Invoke((Command) new[] {"add \"{0}\"", submodule.Item2}, new GitOptions {GitRepository = superproject.Key, ThrowOnErrorExitCode = false});
+                    Git.Invoke((Command) $"add \"{submodule.Item2}\"", new GitOptions {GitRepository = superproject.Key, ThrowOnErrorExitCode = false});
 
                 if (GetNumberOfStagedFiles(superproject.Key) > 0)
                 {
                     var superprojectName = Path.GetFileName(superproject.Key);
-                    Write.Status.Line("Integrating updated submodules in repository {0}", superprojectName);
-                    Git.Invoke((Command) new[] {"commit -m \"Updating submodule references in {0} to point to latest commits\"", superprojectName}, new GitOptions {GitRepository = superproject.Key});
+                    Write.Status.Line($"Integrating updated submodules in repository {superprojectName}");
+                    Git.Invoke((Command) $"commit -m \"Updating submodule references in {superprojectName} to point to latest commits\"", new GitOptions {GitRepository = superproject.Key});
                 }
             }
 

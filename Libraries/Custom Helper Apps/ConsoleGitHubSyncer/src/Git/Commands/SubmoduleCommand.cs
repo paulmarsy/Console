@@ -12,18 +12,14 @@
             IsGitCommand = true;
             IsRecursive = true;
         }
-
-        public SubmoduleCommand(string format, params object[] args) : this(string.Format(format, args))
-        {
-        }
-
+        
         public bool IsGitCommand { get; set; }
         
         public bool IsRecursive { get; set; }
 
         public string SubCommand
         {
-            get { return IsGitCommand ? string.Format("'{0}' {1}", Git.GitExe, _subCommand) : _subCommand; }
+            get { return IsGitCommand ? $"'{Git.GitExe}' {_subCommand}" : _subCommand; }
         }
 
         public override string GitCommand
@@ -36,14 +32,9 @@
             return new SubmoduleCommand(command);
         }
 
-        public static implicit operator SubmoduleCommand(object[] stringFormat)
-        {
-            return new SubmoduleCommand((string) stringFormat[0], stringFormat.Skip(1).ToArray());
-        }
-
         public static string GetSubmoduleCommandFormat(bool isRecursive)
         {
-            return string.Format("submodule foreach --quiet {0} \"{{0}}\"", isRecursive ? "--recursive" : null);
+            return $"submodule foreach --quiet {(isRecursive ? "--recursive" : null)} \"{{0}}\"";
         }
     }
 }

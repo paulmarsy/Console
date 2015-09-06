@@ -35,10 +35,10 @@
 
         private bool CheckForUpstreamChanges()
         {
-            if (Git.InvokeWithOutput((Command) new[] {"rev-list HEAD..{0}@{{upstream}} --count", _currentBranch}).StandardOutput.Select(int.Parse).Single() > 0)
+            if (Git.InvokeWithOutput((Command)$"rev-list HEAD..{_currentBranch}@{{upstream}} --count").StandardOutput.Select(int.Parse).Single() > 0)
                 return true;
 
-            if (Git.InvokeWithOutput((SubmoduleCommand)new[] { "rev-list HEAD..$('{0}' rev-parse --symbolic-full-name --abbrev-ref HEAD)@{{upstream}} --count", Git.GitExe }).StandardOutput.Select(int.Parse).Any(x => x > 0))
+            if (Git.InvokeWithOutput((SubmoduleCommand)$"rev-list HEAD..$('{Git.GitExe}' rev-parse --symbolic-full-name --abbrev-ref HEAD)@{{upstream}} --count").StandardOutput.Select(int.Parse).Any(x => x > 0))
                 return true;
 
             return false;

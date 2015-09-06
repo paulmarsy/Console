@@ -31,7 +31,7 @@
             var exitCode = Invoke();
 
             Write.Trace.Line();
-            Write.Trace.Line("Exit Code: {0} ({1})", Enum.GetName(typeof (ExitCode), exitCode), (int) exitCode);
+            Write.Trace.Line($"Exit Code: {Enum.GetName(typeof (ExitCode), exitCode)} ({exitCode})");
             Write.Trace.PressAnyKeyToContinue();
 
             return (int) exitCode;
@@ -42,7 +42,7 @@
             try
             {
                 var args = Environment.GetCommandLineArgs().Skip(1).ToArray();
-                Write.Trace.Line("Argument List: {0}", string.Join(",", args));
+                Write.Trace.Line($"Argument List: {string.Join(",", args)}");
 
                 Git.Git.Initialize(args);
                 var synchronizer = new Synchronizer();
@@ -50,10 +50,7 @@
                 var command = Command.GetCommand(args);
                 if (command == null)
                 {
-                    Write.Error.Line("Invalid usage: {0} {1} <\"Git Repository Path\"> [\"Post Command File Path\"] [\"Post Command Arguments\"]",
-                        Path.GetFileName(Assembly.GetExecutingAssembly().Location),
-                        Command.GetCommandLineArgsList());
-                    
+                    Write.Error.Line($"Invalid usage: {Path.GetFileName(Assembly.GetExecutingAssembly().Location)} {Command.GetCommandLineArgsList()} <\"Git Repository Path\"> [\"Post Command File Path\"] [\"Post Command Arguments\"]");                    
                     return ExitCode.ERROR_BAD_ARGUMENTS;
                 }
                 
@@ -61,12 +58,12 @@
             }
             catch (System.Net.WebException e) when (e.Status == System.Net.WebExceptionStatus.ConnectFailure)
             {
-                Write.Error.Line(string.Format("GitHub synchronizer cannot continue, unable connect to '{0}'", e.Message));
+                Write.Error.Line($"GitHub synchronizer cannot continue, unable connect to '{e.Message}'");
                 return ExitCode.ERROR_BAD_COMMAND;
             }
             catch (Exception e)
             {
-                Write.Error.Line(string.Format("ERROR: {0}", e.Message));
+                Write.Error.Line($"ERROR: {e.Message}");
                 Write.Error.Line(e.StackTrace);
                 Write.Error.PressAnyKeyToContinue();
                 

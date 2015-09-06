@@ -28,7 +28,6 @@
     public interface IWriter
     {
         void Line();
-        void Line(string format, params object[] arg);
         void Line(string message);
         void Character(char chr);
         void PressAnyKeyToContinue();
@@ -41,11 +40,6 @@
         public void Line()
         {
             Write(null);
-        }
-
-        public void Line(string format, params object[] arg)
-        {
-            Line(string.Format(format, arg));
         }
 
         public void Line(string message)

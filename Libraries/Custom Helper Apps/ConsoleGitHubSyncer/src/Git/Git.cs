@@ -49,7 +49,7 @@
 
         private void Start(bool returnOutput)
         {
-            Write.Trace.Line("[{0}]: git.exe {1}", _gitOptions.GitRepository, _command);
+            Write.Trace.Line($"[{_gitOptions.GitRepository}]: git.exe {_command}");
             _gitProcess = Process.Start(new ProcessStartInfo
             {
                 FileName = GitExe,
@@ -70,11 +70,7 @@
 
             if (_gitProcess.ExitCode != 0 && _gitOptions.ThrowOnErrorExitCode)
                 throw new GitException(Program.ExitCode.ERROR_BAD_COMMAND,
-                    string.Format("Error executing Git command:{0}{1}{0}Standard Output:{0}{2}{0}Standard Error:{0}{3}",
-                        Environment.NewLine,
-                        _command,
-                        _gitOutputs.StandardOutputAsString,
-                        _gitOutputs.StandardErrorAsString));
+                $"Error executing Git command:{Environment.NewLine}{_command}{Environment.NewLine}Standard Output:{Environment.NewLine}{_gitOutputs.StandardOutputAsString}{Environment.NewLine}Standard Error:{Environment.NewLine}{_gitOutputs.StandardErrorAsString}");
         }
 
         public static void Initialize(string[] args)
@@ -89,7 +85,7 @@
                 throw new GitException(Program.ExitCode.ERROR_BAD_ARGUMENTS);
 
             if (!Directory.Exists(Path.Combine(GitRepository, ".git")))
-                throw new GitException(Program.ExitCode.ERROR_BAD_PATHNAME, string.Format("'{0}' is not a valid git repository", GitRepository));
+                throw new GitException(Program.ExitCode.ERROR_BAD_PATHNAME, $"'{GitRepository}' is not a valid git repository");
         }
 
         private static string GetGitPath()
@@ -110,7 +106,7 @@
             if (gitPath == null)
                 throw new GitException(Program.ExitCode.ERROR_ENVVAR_NOT_FOUND, "Unable to locate git.exe");
 
-            Write.Trace.Line("Using git.exe from: {0}", gitPath);
+            Write.Trace.Line($"Using git.exe from: {gitPath}");
 
             return gitPath;
         }

@@ -16,7 +16,7 @@
             if (updateCheck == Program.ExitCode.ERROR_REVISION_MISMATCH)
             {
                 Write.Status.Line("Local Git repository needs to be updated with remote changes before continuing...");
-                _postCommandArguments = String.Format("-UpdateRemote \"{0}\" \"{1}\" \"{2}\"", Git.GitRepository, _postCommandFilePath, _postCommandArguments);
+                _postCommandArguments = $"-UpdateRemote \"{Git.GitRepository}\" \"{_postCommandFilePath}\" \"{_postCommandArguments}\"";
                 _postCommandFilePath = Assembly.GetExecutingAssembly().Location;
 
                 var updateLocalResult = UpdateLocal();

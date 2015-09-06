@@ -40,7 +40,7 @@ namespace ConsoleGitHubSyncer.Syncer.Actions
             string assertFailMessage = null;
             // Only do something if we are using the primary branch
             if (_currentBranch != MasterBranch)
-                assertFailMessage = string.Format("Local branch is {0} - ignoring synchronisation", _currentBranch);
+                assertFailMessage = $"Local branch is {_currentBranch} - ignoring synchronisation";
 
             // Make sure the working tree is clean
             if (GetNumberOfUnCommitedChanges() > 0)
@@ -48,7 +48,7 @@ namespace ConsoleGitHubSyncer.Syncer.Actions
 
             if (assertFailMessage != null)
             {
-                assertFailMessage = String.Format("Git repository is not in a clean state: {0}", assertFailMessage);
+                assertFailMessage = $"Git repository is not in a clean state: {assertFailMessage}";
                 
                 Write.Error.Line(assertFailMessage);
                 InvokePostCommand(assertFailMessage);
@@ -69,7 +69,7 @@ namespace ConsoleGitHubSyncer.Syncer.Actions
             if (String.IsNullOrWhiteSpace(_postCommandFilePath))
                 return;
 
-            Write.Status.Line("Starting: {0} {1}", Path.GetFileName(_postCommandFilePath), _postCommandArguments);
+            Write.Status.Line($"Starting: {Path.GetFileName(_postCommandFilePath)} {_postCommandArguments}");
 
             if (message != null)
                 Environment.SetEnvironmentVariable("PowerShellConsoleStartUpMessage", message, EnvironmentVariableTarget.Process);
