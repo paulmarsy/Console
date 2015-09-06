@@ -59,9 +59,14 @@
                 
                 return command.Invoke(synchronizer);
             }
+            catch (System.Net.WebException e) when (e.Status == System.Net.WebExceptionStatus.ConnectFailure)
+            {
+                Write.Error.Line(string.Format("GitHub synchronizer cannot continue, unable connect to '{0}'", e.Message));
+                return ExitCode.ERROR_BAD_COMMAND;
+            }
             catch (Exception e)
             {
-                Write.Error.Line(string.Format("Error: {0}", e.Message));
+                Write.Error.Line(string.Format("ERROR: {0}", e.Message));
                 Write.Error.Line(e.StackTrace);
                 Write.Error.PressAnyKeyToContinue();
                 

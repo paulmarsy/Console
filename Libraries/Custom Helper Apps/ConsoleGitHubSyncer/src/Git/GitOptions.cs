@@ -2,17 +2,9 @@
 {
     public class GitOptions
     {
-        public GitOptions()
-        {
-            GitRepository = Git.GitRepository;
-            DisplayStandardOutput = false;
-            ErrorStreamHasStandardOutput = false;
-            ThrowOnErrorExitCode = true;
-        }
-
-        public string GitRepository { get; set; }
-        public bool DisplayStandardOutput { get; set; }
-        public bool ErrorStreamHasStandardOutput { get; set; }
-        public bool ThrowOnErrorExitCode { get; set; }
+        public string GitRepository { get; set; } = Git.GitRepository;
+        public bool DisplayStandardOutput { get; set; } = false;
+        public bool ErrorStreamHasStandardOutput { get; set; } = false;
+        public bool ThrowOnErrorExitCode { get; set; } = true;
     }
 }

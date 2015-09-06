@@ -24,14 +24,15 @@ namespace ConsoleGitHubSyncer.Syncer.Actions
 
             _currentBranch = Git.InvokeWithOutput((Command) "rev-parse --symbolic-full-name --abbrev-ref HEAD").StandardOutput.Single();
 
-            if (!CheckGitHubConnectivity()) throw new GitException(Program.ExitCode.ERROR_BAD_ENVIRONMENT, "Unable to contact github.com - is there internet connectivity?");
+            CheckGitHubConnectivity();
         }
 
-        private bool CheckGitHubConnectivity()
+        private void CheckGitHubConnectivity()
         {
             var githubUrl = Git.InvokeWithOutput((Command) "config --get remote.origin.url").StandardOutput.Single();
 
-            return Network.CheckInternetConnection(githubUrl);
+            if (!Network.CheckInternetConnection(githubUrl))
+                throw new System.Net.WebException(githubUrl, System.Net.WebExceptionStatus.ConnectFailure);
         }
 
         private bool IsRepositoryIsInCleanState()

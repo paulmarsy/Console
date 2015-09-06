@@ -18,6 +18,7 @@
         }
 
         public bool IsGitCommand { get; set; }
+        
         public bool IsRecursive { get; set; }
 
         public string SubCommand

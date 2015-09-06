@@ -28,6 +28,7 @@
         }
 
         public static string GitExe { get; set; }
+        
         public static string GitRepository { get; set; }
 
         public static void Invoke(BaseGitCommand command, GitOptions gitOptions = null)
@@ -102,7 +103,6 @@
             var gitPath = new[]
             {
                 Path.Combine(gitInstallPath, "cmd")
-                
             }
                 .Select(folder => Path.Combine(folder, "git.exe"))
                 .Where(File.Exists).FirstOrDefault();
