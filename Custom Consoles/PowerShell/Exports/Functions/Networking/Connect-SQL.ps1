@@ -21,7 +21,7 @@ function Connect-SQL {
         throw "Unable to find SQL Server Management Tools, has it been installed?"
     } 
 
-    $arguments = @("-nosplash")
+    $arguments = @()
     if ($SqlServer) {
         $arguments += @("-S $SqlServer") 
         if ($DefaultDatabase) { $arguments += @("-d $DefaultDatabase") }
