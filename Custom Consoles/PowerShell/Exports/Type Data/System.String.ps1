@@ -52,5 +52,25 @@
 					)
 					$Values | ? { $this -like $_ } | Measure-Object -Line | ? Lines -gt 0 | % { $true }
 				}
+	},	@ {
+		MemberType = "ScriptMethod"
+		MemberName = "Hash"
+		Value = {
+			param(
+				[ValidateSet("MD5", "RIPEMD160", "SHA1", "SHA256", "SHA284", "SHA512")]$Algorithm
+			)
+			
+			switch ($Algorithm)
+			{
+				"MD5" { $hasher = [System.Security.Cryptography.MD5]::Create() }
+				"RIPEMD160" { $hasher = [System.Security.Cryptography.RIPEMD160]::Create() }
+				"SHA1" { $hasher = [System.Security.Cryptography.SHA1]::Create() }
+				"SHA256" { $hasher = [System.Security.Cryptography.SHA256]::Create() }
+				"SHA284" { $hasher = [System.Security.Cryptography.SHA384]::Create() }
+				"SHA512" { $hasher = [System.Security.Cryptography.SHA512]::Create() }
+			}
+			
+    		[string]::Concat(($hasher.ComputeHash(([System.Text.Encoding]::UTF8.GetBytes($this))) | % ToString "X2"))
+		}
 	}
 )
