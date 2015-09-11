@@ -52,7 +52,7 @@
 					)
 					$Values | ? { $this -like $_ } | Measure-Object -Line | ? Lines -gt 0 | % { $true }
 				}
-	},	@ {
+	},	@{
 		MemberType = "ScriptMethod"
 		MemberName = "Hash"
 		Value = {
