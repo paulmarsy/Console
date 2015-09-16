@@ -57,6 +57,7 @@ function New-ProfileConfig {
 		}
 		TFS = @{
 			Server					= (OverridableConfigSetting "TFS.Server"							"Your TFS Server URL")
+			Version					= (OverridableConfigSetting "TFS.Version"							"2015")
 		}
 		ProtectedConfig = @{
 			CurrentUser				= (OverridableConfigSetting "ProtectedConfig.CurrentUser"			$null)

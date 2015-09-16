@@ -18,7 +18,7 @@ $private:FunctionExportsRoot = Join-Path $InstallPath "Custom Consoles\PowerShel
     "Working Directory Helpers\User Scripts\_Internal\_Promote-NewUserObjects.ps1"
     "Working Directory Helpers\User Scripts\_Internal\_Remove-ExistingUserScripts.ps1"
     "Working Directory Helpers\User Scripts\Import-UserScripts.ps1"
-    "Customisation Helpers\New-DynamicParam.ps1"
+    "PowerShell Utilities\New-DynamicParam.ps1"
     "PowerShell Utilities\Test-PowerShellScriptSyntax.ps1"
     "PowerShell Utilities\Test-PowerShellScript.ps1"
     "PowerShell Utilities\Test-PowerShellDirectory.ps1"
