@@ -6,6 +6,7 @@
             <OutOfBand />
             <ViewSelectedBy>
                 <TypeName>System.Management.Automation.ErrorRecord</TypeName>
+                <TypeName>System.Management.Automation.RuntimeException</TypeName>
             </ViewSelectedBy>
             <CustomControl>
                 <CustomEntries>
