@@ -90,9 +90,9 @@ function Connect-Remote {
                 if (0 -ne $Port) { $arguments += "-P $Port" }
                 if ($null -ne $Username) { $arguments += "-l `"$Username`"" }
                 if ($null -ne $Password) { $arguments += "-pw `"$Password`"" }
-                if (Test-Path Variable:DontStartShell) { $arguments += "-N" }
-                if ((Test-Path Variable:RemoteCommand) -and -not ([string]::IsNullOrWhiteSpace((Get-Variable -Name RemoteCommand -ValueOnly)))) { $arguments += "-s $RemoteCommand" }
-                if ((Test-Path Variable:KeyFile) -and (Test-Path (Get-Variable -Name KeyFile -ValueOnly))) { $arguments += "-i `"$KeyFile`"" }
+                if ($null -ne $PSCmdlet.MyInvocation.BoundParameters["DontStartShell"]) { $arguments += "-N" }
+                if (-not ([string]::IsNullOrWhiteSpace($PSCmdlet.MyInvocation.BoundParameters["RemoteCommand"]))) { $arguments += "-s $($PSCmdlet.MyInvocation.BoundParameters["RemoteCommand"])" }
+                if ($null -ne $PSCmdlet.MyInvocation.BoundParameters["KeyFile"] -and (Test-Path $PSCmdlet.MyInvocation.BoundParameters["KeyFile"])) { $arguments += "-i `"$($PSCmdlet.MyInvocation.BoundParameters["KeyFile"])`"" }
 
                 Start-Process -FilePath "putty.exe" -ArgumentList $arguments
             }
