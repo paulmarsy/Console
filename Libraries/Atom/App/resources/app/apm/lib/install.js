@@ -1,5 +1,5 @@
 (function() {
-  var CSON, Command, Install, RebuildModuleCache, async, config, fs, git, isDeprecatedPackage, path, request, semver, temp, yargs, _,
+  var CSON, Command, Install, RebuildModuleCache, async, config, fs, isDeprecatedPackage, path, request, semver, temp, yargs, _,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -24,8 +24,6 @@
   Command = require('./command');
 
   fs = require('./fs');
-
-  git = require('./git');
 
   RebuildModuleCache = require('./rebuild-module-cache');
 
@@ -109,49 +107,6 @@
       });
     };
 
-    Install.prototype.updateWindowsEnv = function(env) {
-      var localModuleBins;
-      env.USERPROFILE = env.HOME;
-      localModuleBins = path.resolve(__dirname, '..', 'node_modules', '.bin');
-      if (env.Path) {
-        env.Path += "" + path.delimiter + localModuleBins;
-      } else {
-        env.Path = localModuleBins;
-      }
-      return git.addGitToEnv(env);
-    };
-
-    Install.prototype.addNodeBinToEnv = function(env) {
-      var nodeBinFolder, pathKey;
-      nodeBinFolder = path.resolve(__dirname, '..', 'bin');
-      pathKey = config.isWin32() ? 'Path' : 'PATH';
-      if (env[pathKey]) {
-        return env[pathKey] = "" + nodeBinFolder + path.delimiter + env[pathKey];
-      } else {
-        return env[pathKey] = nodeBinFolder;
-      }
-    };
-
-    Install.prototype.addProxyToEnv = function(env) {
-      var httpProxy, httpsProxy;
-      httpProxy = this.npm.config.get('proxy');
-      if (httpProxy) {
-        if (env.HTTP_PROXY == null) {
-          env.HTTP_PROXY = httpProxy;
-        }
-        if (env.http_proxy == null) {
-          env.http_proxy = httpProxy;
-        }
-      }
-      httpsProxy = this.npm.config.get('https-proxy');
-      if (httpsProxy) {
-        if (env.HTTPS_PROXY == null) {
-          env.HTTPS_PROXY = httpsProxy;
-        }
-        return env.https_proxy != null ? env.https_proxy : env.https_proxy = httpsProxy;
-      }
-    };
-
     Install.prototype.installModule = function(options, pack, modulePath, callback) {
       var env, installArgs, installDirectory, installGlobally, installOptions, nodeModulesDirectory, vsArgs, _ref;
       installArgs = ['--globalconfig', config.getGlobalConfigPath(), '--userconfig', config.getUserConfigPath(), 'install'];
@@ -173,11 +128,7 @@
       env = _.extend({}, process.env, {
         HOME: this.atomNodeDirectory
       });
-      if (config.isWin32()) {
-        this.updateWindowsEnv(env);
-      }
-      this.addNodeBinToEnv(env);
-      this.addProxyToEnv(env);
+      this.addBuildEnvVars(env);
       installOptions = {
         env: env
       };
@@ -259,13 +210,6 @@
       }
       message += "\nRun apm -v after installing Git to see what version has been detected.";
       return message;
-    };
-
-    Install.prototype.getVisualStudioFlags = function() {
-      var vsVersion;
-      if (vsVersion = config.getInstalledVisualStudioFlag()) {
-        return "--msvs_version=" + vsVersion;
-      }
     };
 
     Install.prototype.installModules = function(options, callback) {

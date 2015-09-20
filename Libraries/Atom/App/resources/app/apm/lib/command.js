@@ -1,5 +1,5 @@
 (function() {
-  var Command, child_process, config, path, semver, _,
+  var Command, child_process, config, git, path, semver, _,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __slice = [].slice;
 
@@ -12,6 +12,8 @@
   semver = require('npm/node_modules/semver');
 
   config = require('./apm');
+
+  git = require('./git');
 
   module.exports = Command = (function() {
     function Command() {
@@ -142,6 +144,64 @@
             return callback(_this.resourcePath);
           };
         })(this));
+      }
+    };
+
+    Command.prototype.addBuildEnvVars = function(env) {
+      if (config.isWin32()) {
+        this.updateWindowsEnv(env);
+      }
+      this.addNodeBinToEnv(env);
+      return this.addProxyToEnv(env);
+    };
+
+    Command.prototype.getVisualStudioFlags = function() {
+      var vsVersion;
+      if (vsVersion = config.getInstalledVisualStudioFlag()) {
+        return "--msvs_version=" + vsVersion;
+      }
+    };
+
+    Command.prototype.updateWindowsEnv = function(env) {
+      var localModuleBins;
+      env.USERPROFILE = env.HOME;
+      localModuleBins = path.resolve(__dirname, '..', 'node_modules', '.bin');
+      if (env.Path) {
+        env.Path += "" + path.delimiter + localModuleBins;
+      } else {
+        env.Path = localModuleBins;
+      }
+      return git.addGitToEnv(env);
+    };
+
+    Command.prototype.addNodeBinToEnv = function(env) {
+      var nodeBinFolder, pathKey;
+      nodeBinFolder = path.resolve(__dirname, '..', 'bin');
+      pathKey = config.isWin32() ? 'Path' : 'PATH';
+      if (env[pathKey]) {
+        return env[pathKey] = "" + nodeBinFolder + path.delimiter + env[pathKey];
+      } else {
+        return env[pathKey] = nodeBinFolder;
+      }
+    };
+
+    Command.prototype.addProxyToEnv = function(env) {
+      var httpProxy, httpsProxy;
+      httpProxy = this.npm.config.get('proxy');
+      if (httpProxy) {
+        if (env.HTTP_PROXY == null) {
+          env.HTTP_PROXY = httpProxy;
+        }
+        if (env.http_proxy == null) {
+          env.http_proxy = httpProxy;
+        }
+      }
+      httpsProxy = this.npm.config.get('https-proxy');
+      if (httpsProxy) {
+        if (env.HTTPS_PROXY == null) {
+          env.HTTPS_PROXY = httpsProxy;
+        }
+        return env.https_proxy != null ? env.https_proxy : env.https_proxy = httpsProxy;
       }
     };
 

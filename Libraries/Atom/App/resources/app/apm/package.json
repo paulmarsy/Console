@@ -1,7 +1,7 @@
 {
   "name": "atom-package-manager",
   "description": "Atom package manager",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -40,7 +40,7 @@
     "underscore-plus": "1.x",
     "wordwrap": "0.0.2",
     "wrench": "~1.5.1",
-    "yargs": "3.19.0"
+    "yargs": "^3.23.0"
   },
   "devDependencies": {
     "jasmine-focused": ">=1.0.7 <2.0",
@@ -52,16 +52,20 @@
     "grunt-coffeelint": "0.0.13",
     "coffee-script": "^1.8.0"
   },
-  "gitHead": "55f0725f3247a6583e08826d34b57dbbfe9a5fd4",
+  "gitHead": "4d8cdbd4e15f464a46b8e4f8cd28976a88590637",
   "homepage": "https://github.com/atom/apm#readme",
-  "_id": "atom-package-manager@1.0.4",
-  "_shasum": "9fdce68d814ad52a15d50ed60e593b22b9e883ad",
-  "_from": "atom-package-manager@1.0.4",
-  "_npmVersion": "2.13.3",
-  "_nodeVersion": "0.10.40",
+  "_id": "atom-package-manager@1.0.5",
+  "_shasum": "26525de3896df44b4a8cee9e06b9779c2b58cb72",
+  "_from": "atom-package-manager@1.0.5",
+  "_npmVersion": "2.11.3",
+  "_nodeVersion": "0.12.7",
   "_npmUser": {
-    "name": "kevinsawicki",
-    "email": "kevinsawicki@gmail.com"
+    "name": "nathansobo",
+    "email": "nathan@github.com"
+  },
+  "dist": {
+    "shasum": "26525de3896df44b4a8cee9e06b9779c2b58cb72",
+    "tarball": "http://registry.npmjs.org/atom-package-manager/-/atom-package-manager-1.0.5.tgz"
   },
   "maintainers": [
     {
@@ -89,11 +93,6 @@
       "email": "izuzak@gmail.com"
     }
   ],
-  "dist": {
-    "shasum": "9fdce68d814ad52a15d50ed60e593b22b9e883ad",
-    "tarball": "http://registry.npmjs.org/atom-package-manager/-/atom-package-manager-1.0.4.tgz"
-  },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/atom-package-manager/-/atom-package-manager-1.0.4.tgz",
-  "readme": "ERROR: No README data found!"
+  "_resolved": "https://registry.npmjs.org/atom-package-manager/-/atom-package-manager-1.0.5.tgz"
 }

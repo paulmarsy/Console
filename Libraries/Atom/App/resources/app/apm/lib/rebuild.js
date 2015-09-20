@@ -44,16 +44,20 @@
     };
 
     Rebuild.prototype.forkNpmRebuild = function(options, callback) {
-      var env, rebuildArgs;
+      var env, rebuildArgs, vsArgs;
       process.stdout.write('Rebuilding modules ');
       rebuildArgs = ['--globalconfig', config.getGlobalConfigPath(), '--userconfig', config.getUserConfigPath(), 'rebuild', "--target=" + this.electronVersion, "--arch=" + (config.getElectronArch())];
       rebuildArgs = rebuildArgs.concat(options.argv._);
+      if (vsArgs = this.getVisualStudioFlags()) {
+        rebuildArgs.push(vsArgs);
+      }
       env = _.extend({}, process.env, {
         HOME: this.atomNodeDirectory
       });
       if (config.isWin32()) {
         env.USERPROFILE = env.HOME;
       }
+      this.addBuildEnvVars(env);
       return this.fork(this.atomNpmPath, rebuildArgs, {
         env: env
       }, callback);
@@ -63,23 +67,26 @@
       var callback;
       callback = options.callback;
       options = this.parseOptions(options.commandArgs);
-      return this.loadInstalledAtomMetadata((function(_this) {
-        return function() {
-          return _this.installNode(function(error) {
-            if (error != null) {
-              return callback(error);
-            }
-            return _this.forkNpmRebuild(options, function(code, stderr) {
-              if (stderr == null) {
-                stderr = '';
+      return config.loadNpm((function(_this) {
+        return function(error, npm) {
+          _this.npm = npm;
+          return _this.loadInstalledAtomMetadata(function() {
+            return _this.installNode(function(error) {
+              if (error != null) {
+                return callback(error);
               }
-              if (code === 0) {
-                _this.logSuccess();
-                return callback();
-              } else {
-                _this.logFailure();
-                return callback(stderr);
-              }
+              return _this.forkNpmRebuild(options, function(code, stderr) {
+                if (stderr == null) {
+                  stderr = '';
+                }
+                if (code === 0) {
+                  _this.logSuccess();
+                  return callback();
+                } else {
+                  _this.logFailure();
+                  return callback(stderr);
+                }
+              });
             });
           });
         };
