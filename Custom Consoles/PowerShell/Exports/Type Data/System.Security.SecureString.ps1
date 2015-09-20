@@ -22,5 +22,15 @@
 					$String.ToCharArray() | % { $this.AppendChar($_) }
 					$this.MakeReadOnly()
 				}
+	}, @{
+		MemberType = "ScriptMethod"
+		MemberName = "GetHash"
+		Value = {
+			param(
+				[ValidateSet("MD5", "RIPEMD160", "SHA1", "SHA256", "SHA284", "SHA512")]$Algorithm
+			)
+			
+			$this.Peek().GetHash($Algorithm)
+		}
 	}
 )
