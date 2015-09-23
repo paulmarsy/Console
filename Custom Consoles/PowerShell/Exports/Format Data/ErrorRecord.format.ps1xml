@@ -7,6 +7,8 @@
             <ViewSelectedBy>
                 <TypeName>System.Management.Automation.ErrorRecord</TypeName>
                 <TypeName>System.Management.Automation.RuntimeException</TypeName>
+                <TypeName>System.RuntimeTypeHandle</TypeName> 
+                <TypeName>System.SystemException</TypeName>
             </ViewSelectedBy>
             <CustomControl>
                 <CustomEntries>
