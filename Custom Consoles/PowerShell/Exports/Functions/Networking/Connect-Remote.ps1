@@ -92,7 +92,18 @@ function Connect-Remote {
                 if ($null -ne $Password) { $arguments += "-pw `"$Password`"" }
                 if ($null -ne $PSCmdlet.MyInvocation.BoundParameters["DontStartShell"]) { $arguments += "-N" }
                 if (-not ([string]::IsNullOrWhiteSpace($PSCmdlet.MyInvocation.BoundParameters["RemoteCommand"]))) { $arguments += "-s $($PSCmdlet.MyInvocation.BoundParameters["RemoteCommand"])" }
-                if ($null -ne $PSCmdlet.MyInvocation.BoundParameters["KeyFile"] -and (Test-Path $PSCmdlet.MyInvocation.BoundParameters["KeyFile"])) { $arguments += "-i `"$($PSCmdlet.MyInvocation.BoundParameters["KeyFile"])`"" }
+                $keyFilePath = $PSCmdlet.MyInvocation.BoundParameters["KeyFile"]
+                if ($null -ne $keyFilePath -and (Test-Path $keyFilePath)) {
+                      if (-not ([System.IO.File]::GetAttributes($keyFilePath) -band [System.IO.FileAttributes]::Encrypted)) {
+                          try {
+                              [System.IO.File]::Encrypt($keyFilePath)
+                         } catch [System.IO.IOException] {
+                             Write-Warning ("Could not encrypt SSH key: {0}" -f $_.Message)
+                         }
+                      }
+
+                    $arguments += "-i `"$keyFilePath`""
+                }
 
                 Start-Process -FilePath "putty.exe" -ArgumentList $arguments
             }
