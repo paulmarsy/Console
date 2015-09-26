@@ -3,7 +3,10 @@ function Get-WindowsUserLogons {
         $ComputerName = $env:COMPUTERNAME,
         [switch]$IncludeMachineLogons,
         [switch]$ExcludeSystemLogons,
-        [switch]$ExcludeMyLogons
+        [switch]$ExcludeServerAppLogons,
+        [switch]$ExcludeMyLogons,
+        [switch]$ExcludeAnonymousLogons,
+        [string[]]$Exclude = @()
     )
     
     function Get-LogonTypeName { 
@@ -47,24 +50,28 @@ function Get-WindowsUserLogons {
         else {
             return
         }
-        if ($User -like '*$' -and -not $IncludeMachineLogons) { return }
-        if ($User -in @(
-            "SYSTEM"
-            "LOCAL SERVICE"
-            "NETWORK SERVICE"
-            "DWM-1"
-            "DWM-2"
-            "DWM-3"
-            "DWM-4"
-            "DWM-5"
-            ) -and $ExcludeSystemLogons) { return }
-        if ($User -eq $env:USERNAME -and $ExcludeMyLogons) { return }
+        if ($User -in $Exclude) { return }
+        if (!$IncludeMachineLogons -and $User -like '*$') { return }
+        if ($ExcludeSystemLogons -and ($User -in @(
+            'SYSTEM'
+            'LOCAL SERVICE'
+            'NETWORK SERVICE'
+            'IUSR'
+            ) -or $User -like 'DWM-?')) { return }
+        if ($ExcludeServerAppLogons -and ($User -in @(
+            "IUSR"
+            ) -or $User -like 'MsDtsServer???')) { return }
+        if ($ExcludeMyLogons -and $User -eq $env:USERNAME) { return }
+        if ($ExcludeAnonymousLogons -and $User -eq 'ANONYMOUS LOGON') { return }
         
-        New-Object -TypeName PSObject -Property @{
+        $outputObject = New-Object -TypeName PSObject -Property @{
             Date = $date
             LogonType = $logonType
             Successful = $successful
             User = $user
         }
+        $outputObject.PSTypeNames.Insert(0, 'WindowsLogon')
+        
+        return $outputObject
     }
 }
