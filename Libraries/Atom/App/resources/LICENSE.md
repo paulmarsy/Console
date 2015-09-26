@@ -565,7 +565,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: ast-types@0.8.11
+Package: ast-types@0.8.12
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -938,7 +938,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: atom@1.0.15
+Package: atom@1.0.19
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -1193,7 +1193,7 @@ Source Text:
 <content omitted>
 -------------------------------------------------------------------------
 
-Package: babel-core@5.8.24
+Package: babel-core@5.8.25
 License: MIT
 License Source: package.json
 
@@ -1435,7 +1435,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: bluebird@2.10.0
+Package: bluebird@2.10.1
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -1930,7 +1930,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: color-name@1.0.0
+Package: color-name@1.0.1
 License: Unlicense
 License Source: UNLICENSE
 Source Text:
@@ -3216,6 +3216,12 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
+Package: esprima@2.6.0
+License: BSD
+License Source: package.json
+
+-------------------------------------------------------------------------
+
 Package: esutils@2.0.2
 License: BSD
 License Source: package.json
@@ -3529,6 +3535,12 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
+Package: first-mate-select-grammar@1.0.1
+License: ISC
+License Source: package.json
+
+-------------------------------------------------------------------------
+
 Package: first-mate@3.1.0
 License: MIT
 License Source: LICENSE.md
@@ -3557,7 +3569,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: first-mate@5.0.0
+Package: first-mate@5.0.2
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -4376,7 +4388,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: highlights@1.2.0
+Package: highlights@1.3.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -7175,7 +7187,35 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: oniguruma@4.2.2
+Package: oniguruma@4.2.4
+License: MIT
+License Source: LICENSE.md
+Source Text:
+
+Copyright (c) 2013 GitHub Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-------------------------------------------------------------------------
+
+Package: oniguruma@5.1.1
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -8101,7 +8141,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: recast@0.10.32
+Package: recast@0.10.33
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -8157,7 +8197,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 -------------------------------------------------------------------------
 
-Package: regexpu@1.2.0
+Package: regexpu@1.3.0
 License: MIT
 License Source: package.json
 
@@ -8853,7 +8893,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: snippets@0.98.0
+Package: snippets@0.99.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -9014,6 +9054,12 @@ License Source: package.json
 -------------------------------------------------------------------------
 
 Package: source-map@0.4.4
+License: BSD
+License Source: package.json
+
+-------------------------------------------------------------------------
+
+Package: source-map@0.5.1
 License: BSD
 License Source: package.json
 
@@ -9861,7 +9907,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: text-buffer@6.7.2
+Package: text-buffer@6.7.4
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -11012,7 +11058,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: y18n@3.1.0
+Package: y18n@3.2.0
 License: ISC
 License Source: package.json
 
@@ -11047,7 +11093,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: yargs@3.25.0
+Package: yargs@3.26.0
 License: MIT
 License Source: LICENSE
 Source Text:
