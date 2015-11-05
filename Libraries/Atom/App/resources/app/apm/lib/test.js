@@ -45,7 +45,7 @@
         }
       }
       packagePath = process.cwd();
-      testArgs = ['--dev', '--test', "--spec-directory=" + (path.join(packagePath, 'spec'))];
+      testArgs = ['--dev', '--test', path.join(packagePath, 'spec')];
       if (process.platform === 'win32') {
         logFile = temp.openSync({
           suffix: '.log',
