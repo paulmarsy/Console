@@ -34,6 +34,8 @@ No output is reported if no valid account is found.
 -- 2011-12-29 Patrik Karlsson - Added lport to sniff_snmp_responses to fix
 --                              bug preventing multiple scripts from working
 --                              properly.
+-- 2015-05-31 Gioacchino Mazzurco - Add IPv6 support by making the script IP
+--                              version agnostic
 
 ---
 -- @usage
@@ -172,6 +174,7 @@ local sniff_snmp_responses = function(host, port, lport, result)
   pcap:set_timeout(host.times.timeout * 1000 * 3)
   pcap:pcap_open(host.interface, 300, false, "src host ".. host.ip .." and udp and src port 161 and dst port "..lport)
 
+  local communities = creds.Credentials:new(SCRIPT_NAME, host, port)
 
   -- last_run indicated whether there will be only one more receive
   local last_run = false
@@ -195,7 +198,7 @@ local sniff_snmp_responses = function(host, port, lport, result)
       _, res = snmp.decode(response)
 
       if type(res) == "table" then
-        result.communities[ #(result.communities) + 1 ] = res[2]
+        communities:add(nil, res[2], creds.State.VALID)
       else
         result.status = false
         result.msg = "Wrong type of SNMP response received"
@@ -218,11 +221,13 @@ local sniff_snmp_responses = function(host, port, lport, result)
   return
 end
 
+local function fail (err) return stdnse.format_output(false, err) end
+
 action = function(host, port)
   local status, nextcommunity = communities()
 
   if not status then
-    return "\n  ERROR: Failed to read the communities database"
+    return fail("Failed to read the communities database")
   end
 
   local result = {}
@@ -231,7 +236,6 @@ action = function(host, port)
   local condvar = nmap.condvar(result)
 
   result.sent = false --whether the probes are sent
-  result.communities = {} -- list of valid community strings
   result.msg = "" -- Error/Status msg
   result.status = true -- Status (is everything ok)
 
@@ -239,12 +243,12 @@ action = function(host, port)
   status = socket:connect(host, port)
 
   if ( not(status) ) then
-    return "\n  ERROR: Failed to connect to server"
+    return fail("Failed to connect to server")
   end
 
   local status, _, lport = socket:get_info()
   if( not(status) ) then
-    return "\n  ERROR: Failed to retrieve local port"
+    return fail("Failed to retrieve local port")
   end
 
   local recv_co = stdnse.new_thread(sniff_snmp_responses, host, port, lport, result)
@@ -261,27 +265,7 @@ action = function(host, port)
   socket:close()
 
   if result.status then
-    -- add the community strings to the creds database
-    local c = creds.Credentials:new(SCRIPT_NAME, host, port)
-    for _, community_string in ipairs(result.communities) do
-      c:add("",community_string, creds.State.VALID)
-    end
-
-    -- insert the first community string as a snmpcommunity registry field
-    local creds_iter = c:getCredentials()
-    if creds_iter then
-      local account = creds_iter()
-      if account then
-        if account.pass == "<empty>" then
-          nmap.registry.snmpcommunity = ""
-        else
-          nmap.registry.snmpcommunity = account.pass
-        end
-      end
-    end
-
-    -- return output
-    return c:getTable()
+    return creds.Credentials:new(SCRIPT_NAME, host, port):getTable()
   else
     stdnse.debug1("An error occurred: "..result.msg)
   end

@@ -6,11 +6,18 @@ local stdnse = require "stdnse"
 local string = require "string"
 
 description = [[
-Checks for a vulnerability in IIS 5.1/6.0 that allows arbitrary users to access secured WebDAV folders by searching for a password-protected folder and attempting to access it. This vulnerability was patched in Microsoft Security Bulletin MS09-020, http://nmap.org/r/ms09-020.
+Checks for a vulnerability in IIS 5.1/6.0 that allows arbitrary users to access
+secured WebDAV folders by searching for a password-protected folder and
+attempting to access it. This vulnerability was patched in Microsoft Security
+Bulletin MS09-020, http://nmap.org/r/ms09-020.
 
-A list of well known folders (almost 900) is used by default. Each one is checked, and if returns an authentication request (401), another attempt is tried with the malicious encoding. If that attempt returns a successful result (207), then the folder is marked as vulnerable.
+A list of well known folders (almost 900) is used by default. Each one is
+checked, and if returns an authentication request (401), another attempt is
+tried with the malicious encoding. If that attempt returns a successful result
+(207), then the folder is marked as vulnerable.
 
-This script is based on the Metasploit modules/auxiliary/scanner/http/wmap_dir_webdav_unicode_bypass.rb auxiliary module.
+This script is based on the Metasploit auxiliary module
+auxiliary/scanner/http/wmap_dir_webdav_unicode_bypass
 
 For more information on this vulnerability and script, see:
 * http://blog.zoller.lu/2009/05/iis-6-webdac-auth-bypass-and-data.html
@@ -144,6 +151,8 @@ local function go(host, port)
   return true, results, is_vulnerable
 end
 
+local function fail (err) return stdnse.format_output(false, err) end
+
 action = function(host, port)
   -- Start by checking if '/' is protected -- if it is, we can't do the tests
   local result = go_single(host, port, "/")
@@ -172,7 +181,7 @@ action = function(host, port)
       else
         stdnse.debug1("PROPFIND request failed.")
       end
-      return nmap.verbosity() > 0 and "ERROR: This web server is not supported." or nil
+      return fail("This web server is not supported.")
     end
   end
 
@@ -193,7 +202,7 @@ action = function(host, port)
     local status, results, is_vulnerable = go(host, port)
 
     if(status == false) then
-      return nmap.verbosity() > 0 and "ERROR: " .. results or nil
+      return fail(results)
     else
       if(#results == 0) then
         if(is_vulnerable == false) then

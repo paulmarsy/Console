@@ -167,7 +167,7 @@ LIKELY_HTTP_PORTS = {
 
 LIKELY_HTTP_SERVICES = {
   "http", "https", "ipp", "http-alt", "https-alt", "vnc-http", "oem-agent",
-  "soap", "http-proxy",
+  "soap", "http-proxy", "caldav", "carddav", "webdav",
 }
 
 ---
@@ -194,6 +194,7 @@ local LIKELY_SSL_PORTS = {
   993, -- imaps
   994, -- ircs
   995, -- pop3s
+  3269, -- globalcatLDAPssl
   3389, -- ms-wbt-server
   5061, -- sip-tls
   6679,

@@ -5,10 +5,10 @@ SetCompressor /SOLID lzma
 SetCompressorDictSize 8
 
 ; --------------------
-; HEADER SIZE: 100064
+; HEADER SIZE: 100931
 ; START HEADER SIZE: 300
 ; MAX STRING LENGTH: 1024
-; STRING CHARS: 45378
+; STRING CHARS: 45713
 
 OutFile [NSIS].exe
 !include WinMessages.nsh
@@ -163,7 +163,7 @@ Page custom func_185 func_198
 
 ; --------------------
 ; SECTIONS: 9
-; COMMANDS: 1575
+; COMMANDS: 1594
 
 Function func_0
   Exch $0
@@ -452,7 +452,7 @@ FunctionEnd
 
 
 Section "Nmap Core Files" ; Section_0
-  ; AddSize 20606
+  ; AddSize 21233
   StrCpy $R0 $INSTDIR "" -2
   StrCmp $R0 :\ label_215
   StrCpy $R0 $INSTDIR "" -14
@@ -646,6 +646,7 @@ label_217:
   File hbase-master-info.nse
   File hbase-region-info.nse
   File hddtemp-info.nse
+  File hnap-info.nse
   File hostmap-bfk.nse
   File hostmap-ip2hosts.nse
   File hostmap-robtex.nse
@@ -667,7 +668,7 @@ label_217:
   File http-comments-displayer.nse
   File http-config-backup.nse
   File http-cors.nse
-  File http-crossdomainxml.nse
+  File http-cross-domain-policy.nse
   File http-csrf.nse
   File http-date.nse
   File http-default-accounts.nse
@@ -676,13 +677,13 @@ label_217:
   File http-dombased-xss.nse
   File http-domino-enum-passwords.nse
   File http-drupal-enum-users.nse
-  File http-drupal-modules.nse
-  File http-email-harvest.nse
+  File http-drupal-enum.nse
   File http-enum.nse
   File http-errors.nse
   File http-exif-spider.nse
   File http-favicon.nse
   File http-feed.nse
+  File http-fetch.nse
   File http-fileupload-exploiter.nse
   File http-form-brute.nse
   File http-form-fuzzer.nse
@@ -700,6 +701,7 @@ label_217:
   File http-iis-webdav-vuln.nse
   File http-joomla-brute.nse
   File http-litespeed-sourcecode-download.nse
+  File http-ls.nse
   File http-majordomo2-dir-traversal.nse
   File http-malware-host.nse
   File http-method-tamper.nse
@@ -727,6 +729,8 @@ label_217:
   File http-slowloris.nse
   File http-sql-injection.nse
   File http-stored-xss.nse
+  File http-svn-enum.nse
+  File http-svn-info.nse
   File http-title.nse
   File http-tplink-dir-traversal.nse
   File http-trace.nse
@@ -757,6 +761,7 @@ label_217:
   File http-vuln-wnr1000-creds.nse
   File http-waf-detect.nse
   File http-waf-fingerprint.nse
+  File http-webdav-scan.nse
   File http-wordpress-brute.nse
   File http-wordpress-enum.nse
   File http-wordpress-users.nse
@@ -790,6 +795,8 @@ label_217:
   File jdwp-info.nse
   File jdwp-inject.nse
   File jdwp-version.nse
+  File knx-gateway-discover.nse
+  File knx-gateway-info.nse
   File krb5-enum-users.nse
   File ldap-brute.nse
   File ldap-novell-getpass.nse
@@ -913,7 +920,6 @@ label_217:
   File sip-methods.nse
   File skypev2-version.nse
   File smb-brute.nse
-  File smb-check-vulns.nse
   File smb-enum-domains.nse
   File smb-enum-groups.nse
   File smb-enum-processes.nse
@@ -929,8 +935,14 @@ label_217:
   File smb-security-mode.nse
   File smb-server-stats.nse
   File smb-system-info.nse
+  File smb-vuln-conficker.nse
+  File smb-vuln-cve2009-3103.nse
+  File smb-vuln-ms06-025.nse
+  File smb-vuln-ms07-029.nse
+  File smb-vuln-ms08-067.nse
   File smb-vuln-ms10-054.nse
   File smb-vuln-ms10-061.nse
+  File smb-vuln-regsvc-dos.nse
   File smbv2-enabled.nse
   File smtp-brute.nse
   File smtp-commands.nse
@@ -988,6 +1000,7 @@ label_217:
   File telnet-encryption.nse
   File tftp-enum.nse
   File tls-nextprotoneg.nse
+  File tor-consensus-checker.nse
   File traceroute-geolocation.nse
   File unittest.nse
   File unusual-port.nse
@@ -1007,6 +1020,7 @@ label_217:
   File wsdd-discover.nse
   File x11-access.nse
   File xdmcp-discover.nse
+  File xmlrpc-methods.nse
   File xmpp-brute.nse
   File xmpp-info.nse
   SetOutPath $_OUTDIR
@@ -1059,6 +1073,7 @@ label_217:
   File lfs.luadoc
   File listop.lua
   File lpeg-utility.lua
+  File ls.lua
   File match.lua
   File membase.lua
   File mobileme.lua
@@ -1095,6 +1110,7 @@ label_217:
   File sasl.lua
   File shortport.lua
   File sip.lua
+  File slaxml.lua
   File smb.lua
   File smbauth.lua
   File smtp.lua
@@ -1128,6 +1144,7 @@ label_217:
   SetOutPath $_OUTDIR\nselib\data
   File dns-srv-names
   File drupal-modules.lst
+  File drupal-themes.lst
   File enterprise_numbers.txt
   File favicon-db
   File http-default-accounts-fingerprints.lua
@@ -1174,8 +1191,8 @@ label_217:
   SetOutPath $_OUTDIR
   File icon1.ico
   WriteRegStr HKCU Software\Nmap "" $INSTDIR
-  Call func_1376
-  Call func_1416
+  Call func_1395
+  Call func_1435
 SectionEnd
 
 
@@ -1189,17 +1206,17 @@ Section "WinPcap 4.1.3" ; Section_2
   ; AddSize 423
   SetOutPath $INSTDIR
   File winpcap-nmap-4.13.exe
-  IfSilent label_925 label_1061
-label_925:
+  IfSilent label_942 label_1078
+label_942:
   StrCpy $1 ""
-  Call :label_928
-  Goto label_961
-label_928:
-  StrCmp $CMDLINE "" 0 label_931
+  Call :label_945
+  Goto label_978
+label_945:
+  StrCmp $CMDLINE "" 0 label_948
   Push ""
   Return
 
-label_931:
+label_948:
   Push $0
   Push $1
   Push $2
@@ -1207,27 +1224,27 @@ label_931:
   StrLen $1 $CMDLINE
   StrCpy $2 2
   StrCpy $3 $CMDLINE 1
-  StrCmp $3 $\" label_940
+  StrCmp $3 $\" label_957
   StrCpy $3 " "
-label_940:
-  IntCmp $2 $1 label_944 0 label_944
+label_957:
+  IntCmp $2 $1 label_961 0 label_961
   StrCpy $0 $CMDLINE 1 $2
   IntOp $2 $2 + 1
-  StrCmp $3 $0 0 label_940
-label_944:
-  IntCmp $2 $1 label_949 0 label_949
+  StrCmp $3 $0 0 label_957
+label_961:
+  IntCmp $2 $1 label_966 0 label_966
   StrCpy $0 $CMDLINE 1 $2
-  StrCmp $0 " " 0 label_949
+  StrCmp $0 " " 0 label_966
   IntOp $2 $2 + 1
-  Goto label_944
-label_949:
+  Goto label_961
+label_966:
   StrCpy $0 $CMDLINE "" $2
-label_950:
+label_967:
   StrCpy $1 $0 1 -1
-  StrCmp $1 " " 0 label_954
+  StrCmp $1 " " 0 label_971
   StrCpy $0 $0 -1
-  Goto label_950
-label_954:
+  Goto label_967
+label_971:
   Pop $3
   Pop $2
   Pop $1
@@ -1237,14 +1254,14 @@ label_954:
     ; Pop $0
   Return
 
-label_961:
+label_978:
   Pop $R0
   ClearErrors
   Push $R0
   Push /NPFSTARTUP=
-  Call :label_967
-  Goto label_1056
-label_967:
+  Call :label_984
+  Goto label_1073
+label_984:
   Exch $1
     ; Push $1
     ; Exch
@@ -1266,82 +1283,82 @@ label_967:
   StrCpy $1 $1 1
   StrLen $3 $2
   StrCpy $7 0
-label_986:
+label_1003:
   StrCpy $4 -1
   StrCpy $6 ""
-label_988:
+label_1005:
   IntOp $4 $4 + 1
   StrCpy $5 $0 1 $4
-  StrCmp $5$7 0 label_1043
-  StrCmp $5 "" label_1030
-  StrCmp $5 $\" 0 label_999
-  StrCmp $6 "" 0 label_996
+  StrCmp $5$7 0 label_1060
+  StrCmp $5 "" label_1047
+  StrCmp $5 $\" 0 label_1016
+  StrCmp $6 "" 0 label_1013
   StrCpy $6 $\"
-  Goto label_988
-label_996:
-  StrCmp $6 $\" 0 label_999
-  StrCpy $6 ""
-  Goto label_988
-label_999:
-  StrCmp $5 ' 0 label_1006
-  StrCmp $6 "" 0 label_1003
-  StrCpy $6 '
-  Goto label_988
-label_1003:
-  StrCmp $6 ' 0 label_1006
-  StrCpy $6 ""
-  Goto label_988
-label_1006:
-  StrCmp $5 ` 0 label_1013
-  StrCmp $6 "" 0 label_1010
-  StrCpy $6 `
-  Goto label_988
-label_1010:
-  StrCmp $6 ` 0 label_1013
-  StrCpy $6 ""
-  Goto label_988
+  Goto label_1005
 label_1013:
-  StrCmp $6 $\" label_988
-  StrCmp $6 ' label_988
-  StrCmp $6 ` label_988
-  StrCmp $5 $1 0 label_988
-  StrCmp $7 0 label_1018 label_1030
-label_1018:
+  StrCmp $6 $\" 0 label_1016
+  StrCpy $6 ""
+  Goto label_1005
+label_1016:
+  StrCmp $5 ' 0 label_1023
+  StrCmp $6 "" 0 label_1020
+  StrCpy $6 '
+  Goto label_1005
+label_1020:
+  StrCmp $6 ' 0 label_1023
+  StrCpy $6 ""
+  Goto label_1005
+label_1023:
+  StrCmp $5 ` 0 label_1030
+  StrCmp $6 "" 0 label_1027
+  StrCpy $6 `
+  Goto label_1005
+label_1027:
+  StrCmp $6 ` 0 label_1030
+  StrCpy $6 ""
+  Goto label_1005
+label_1030:
+  StrCmp $6 $\" label_1005
+  StrCmp $6 ' label_1005
+  StrCmp $6 ` label_1005
+  StrCmp $5 $1 0 label_1005
+  StrCmp $7 0 label_1035 label_1047
+label_1035:
   IntOp $4 $4 + 1
   StrCpy $5 $0 $3 $4
-  StrCmp $5 "" label_1043
-  StrCmp $5 $2 0 label_988
+  StrCmp $5 "" label_1060
+  StrCmp $5 $2 0 label_1005
   IntOp $4 $4 + $3
   StrCpy $0 $0 "" $4
-label_1024:
+label_1041:
   StrCpy $4 $0 1
-  StrCmp $4 " " 0 label_1028
+  StrCmp $4 " " 0 label_1045
   StrCpy $0 $0 "" 1
-  Goto label_1024
-label_1028:
+  Goto label_1041
+label_1045:
   StrCpy $7 1
-  Goto label_986
-label_1030:
+  Goto label_1003
+label_1047:
   StrCpy $0 $0 $4
-label_1031:
+label_1048:
   StrCpy $4 $0 1 -1
-  StrCmp $4 " " 0 label_1035
+  StrCmp $4 " " 0 label_1052
   StrCpy $0 $0 -1
-  Goto label_1031
-label_1035:
+  Goto label_1048
+label_1052:
   StrCpy $3 $0 1
   StrCpy $4 $0 1 -1
-  StrCmp $3 $4 0 label_1045
-  StrCmp $3 $\" label_1041
-  StrCmp $3 ' label_1041
-  StrCmp $3 ` 0 label_1045
-label_1041:
+  StrCmp $3 $4 0 label_1062
+  StrCmp $3 $\" label_1058
+  StrCmp $3 ' label_1058
+  StrCmp $3 ` 0 label_1062
+label_1058:
   StrCpy $0 $0 -1 1
-  Goto label_1045
-label_1043:
+  Goto label_1062
+label_1060:
   SetErrors
   StrCpy $0 ""
-label_1045:
+label_1062:
   Pop $7
   Pop $6
   Pop $5
@@ -1355,16 +1372,16 @@ label_1045:
     ; Pop $0
   Return
 
-label_1056:
+label_1073:
   Pop $2
-  StrCmp $2 NO 0 label_1059
+  StrCmp $2 NO 0 label_1076
   StrCpy $1 "/NPFSTARTUP=NO $1"
-label_1059:
+label_1076:
   ExecWait "$\"$INSTDIR\winpcap-nmap-4.13.exe$\" $1 /S"
-  Goto label_1062
-label_1061:
+  Goto label_1079
+label_1078:
   ExecWait $\"$INSTDIR\winpcap-nmap-4.13.exe$\"
-label_1062:
+label_1079:
   Delete $INSTDIR\winpcap-nmap-4.13.exe
 SectionEnd
 
@@ -1378,7 +1395,7 @@ SectionEnd
 
 
 Section "Zenmap (GUI Frontend)" ; Section_4
-  ; AddSize 27083
+  ; AddSize 29015
   SetOutPath $INSTDIR
   File zenmap.exe
   File ZENMAP_README
@@ -1484,6 +1501,7 @@ Section "Zenmap (GUI Frontend)" ; Section_4
   SetOutPath $_OUTDIR
   StrCpy $_OUTDIR $OUTDIR
   SetOutPath $_OUTDIR\py2exe
+  File CRYPT32.dll
   File _ctypes.pyd
   File _hashlib.pyd
   File _socket.pyd
@@ -1572,8 +1590,8 @@ Section "Zenmap (GUI Frontend)" ; Section_4
   File gtkrc
   SetOutPath $_OUTDIR
   StrCpy $_3_ true
-  Call func_1396
-  Call func_1416
+  Call func_1415
+  Call func_1435
 SectionEnd
 
 
@@ -1582,19 +1600,20 @@ Section "Ncat (Modern Netcat reincarnation)" ; Section_5
   SetOutPath $INSTDIR
   File ncat.exe
   File ca-bundle.crt
-  Call func_1376
-  Call func_1416
+  Call func_1395
+  Call func_1435
 SectionEnd
 
 
 Section "Ndiff (Scan comparison tool)" ; Section_6
-  ; AddSize 25912
+  ; AddSize 27844
   SetOutPath $INSTDIR
   File ndiff.exe
   File NDIFF_README
   File python27.dll
   StrCpy $_OUTDIR $OUTDIR
   SetOutPath $_OUTDIR\py2exe
+  File CRYPT32.dll
   File _ctypes.pyd
   File _hashlib.pyd
   File _socket.pyd
@@ -1682,8 +1701,8 @@ Section "Ndiff (Scan comparison tool)" ; Section_6
   SetOutPath $_OUTDIR\py2exe\share\themes\MS-Windows\gtk-2.0
   File gtkrc
   SetOutPath $_OUTDIR
-  Call func_1396
-  Call func_1416
+  Call func_1415
+  Call func_1435
 SectionEnd
 
 
@@ -1691,8 +1710,8 @@ Section "Nping (Packet generator)" ; Section_7
   ; AddSize 310
   SetOutPath $INSTDIR
   File nping.exe
-  Call func_1376
-  Call func_1416
+  Call func_1395
+  Call func_1435
 SectionEnd
 
 
@@ -1700,81 +1719,81 @@ Section "nmap-update (updater for architecture-independent files)" ; Section_8
   ; AddSize 2089
   SetOutPath $INSTDIR
   File nmap-update.exe
-  Call func_1376
-  Call func_1416
+  Call func_1395
+  Call func_1435
 SectionEnd
 
 
-Function func_1376
-  StrCmp $_5_ "" 0 label_1395
+Function func_1395
+  StrCmp $_5_ "" 0 label_1414
   StrCpy $_5_ true
   ReadRegStr $0 HKLM SOFTWARE\Microsoft\DevDiv\vc\Servicing\12.0\RuntimeMinimum Install
-  StrCmp $0 1 label_1395 label_1380
-label_1380:
+  StrCmp $0 1 label_1414 label_1399
+label_1399:
   ReadRegStr $0 HKLM SOFTWARE\Wow6432Node\Microsoft\DevDiv\vc\Servicing\12.0\RuntimeMinimum Install
-  StrCmp $0 1 label_1395 label_1382
-label_1382:
+  StrCmp $0 1 label_1414 label_1401
+label_1401:
   DetailPrint "Installing Microsoft Visual C++ 2013 Redistributable"
   File vcredist_x86.exe
   ExecWait "$\"$INSTDIR\vcredist_x86.exe$\" /q" $0
   ReadRegStr $0 HKLM SOFTWARE\Microsoft\DevDiv\vc\Servicing\12.0\RuntimeMinimum Install
-  StrCmp $0 1 label_1393 label_1387
-label_1387:
+  StrCmp $0 1 label_1412 label_1406
+label_1406:
   ReadRegStr $0 HKLM SOFTWARE\Wow6432Node\Microsoft\DevDiv\vc\Servicing\12.0\RuntimeMinimum Install
-  StrCmp $0 1 label_1393 label_1389
-label_1389:
+  StrCmp $0 1 label_1412 label_1408
+label_1408:
   DetailPrint "Microsoft Visual C++ 2013 Redistributable failed to install"
-  IfSilent label_1395 label_1391
-label_1391:
+  IfSilent label_1414 label_1410
+label_1410:
   MessageBox MB_OK "Microsoft Visual C++ 2013 Redistributable Package (x86) failed to install ($INSTDIR\vcredist_x86.exe). Please ensure your system meets the minimum requirements before running the installer again."
-  Goto label_1395
-label_1393:
+  Goto label_1414
+label_1412:
   Delete $INSTDIR\vcredist_x86.exe
   DetailPrint "Microsoft Visual C++ 2013 Redistributable was successfully installed"
-label_1395:
+label_1414:
 FunctionEnd
 
 
-Function func_1396
-  StrCmp $_6_ "" 0 label_1415
+Function func_1415
+  StrCmp $_6_ "" 0 label_1434
   StrCpy $_6_ true
   ReadRegStr $0 HKLM SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{9BE518E6-ECC6-35A9-88E4-87755C07200F} DisplayName
-  StrCmp $0 "Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.6161" label_1415 label_1400
-label_1400:
+  StrCmp $0 "Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.6161" label_1434 label_1419
+label_1419:
   ReadRegStr $0 HKLM SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{9BE518E6-ECC6-35A9-88E4-87755C07200F} DisplayName
-  StrCmp $0 "Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.6161" label_1415 label_1402
-label_1402:
+  StrCmp $0 "Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.6161" label_1434 label_1421
+label_1421:
   DetailPrint "Installing Microsoft Visual C++ 2008 Redistributable"
   File vcredist2008_x86.exe
   ExecWait "$\"$INSTDIR\vcredist2008_x86.exe$\" /q" $0
   ReadRegStr $0 HKLM SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{9BE518E6-ECC6-35A9-88E4-87755C07200F} DisplayName
-  StrCmp $0 "Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.6161" label_1413 label_1407
-label_1407:
+  StrCmp $0 "Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.6161" label_1432 label_1426
+label_1426:
   ReadRegStr $0 HKLM SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{9BE518E6-ECC6-35A9-88E4-87755C07200F} DisplayName
-  StrCmp $0 "Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.6161" label_1413 label_1409
-label_1409:
+  StrCmp $0 "Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.6161" label_1432 label_1428
+label_1428:
   DetailPrint "Microsoft Visual C++ 2008 Redistributable failed to install"
-  IfSilent label_1415 label_1411
-label_1411:
+  IfSilent label_1434 label_1430
+label_1430:
   MessageBox MB_OK "Microsoft Visual C++ 2008 Redistributable Package (x86) failed to install ($INSTDIR\vcredist2008_x86.exe). Please ensure your system meets the minimum requirements before running the installer again."
-  Goto label_1415
-label_1413:
+  Goto label_1434
+label_1432:
   Delete $INSTDIR\vcredist2008_x86.exe
   DetailPrint "Microsoft Visual C++ 2008 Redistributable was successfully installed"
-label_1415:
+label_1434:
 FunctionEnd
 
 
-Function func_1416
-  StrCmp $_4_ "" 0 label_1424
-  WriteRegStr HKLM Software\Microsoft\Windows\CurrentVersion\Uninstall\Nmap DisplayName "Nmap 6.49BETA4"
+Function func_1435
+  StrCmp $_4_ "" 0 label_1443
+  WriteRegStr HKLM Software\Microsoft\Windows\CurrentVersion\Uninstall\Nmap DisplayName "Nmap 6.49BETA6"
   WriteRegStr HKLM Software\Microsoft\Windows\CurrentVersion\Uninstall\Nmap UninstallString $\"$INSTDIR\uninstall.exe$\"
   WriteRegStr HKLM Software\Microsoft\Windows\CurrentVersion\Uninstall\Nmap DisplayIcon $\"$INSTDIR\icon1.ico$\"
   WriteRegDWORD HKLM Software\Microsoft\Windows\CurrentVersion\Uninstall\Nmap NoModify 1
   WriteRegDWORD HKLM Software\Microsoft\Windows\CurrentVersion\Uninstall\Nmap NoRepair 1
   WriteUninstaller $INSTDIR\Uninstall.exe ;  $INSTDIR\$INSTDIR\Uninstall.exe
   StrCpy $_4_ true
-label_1424:
+label_1443:
 FunctionEnd
 
 
@@ -1789,174 +1808,174 @@ Function .onInit
     ; SetDetailsPrint lastused
   File $PLUGINSDIR\final.ini
   WriteINIStr $PLUGINSDIR\final.ini Settings RTL $(LSTR_56)    ;  0
-  Call :label_928
+  Call :label_945
   Pop $0
   Push $0
   Push /NMAP=
-  Call :label_967
+  Call :label_984
   Pop $1
-  StrCmp $1 NO 0 label_1443
+  StrCmp $1 NO 0 label_1462
   SectionGetFlags 0 $2
   IntOp $2 $2 & 0xFFFFFFFE
   SectionSetFlags 0 $2
-label_1443:
+label_1462:
   Push $0
   Push /REGISTERPATH=
-  Call :label_967
+  Call :label_984
   Pop $1
-  StrCmp $1 NO 0 label_1451
+  StrCmp $1 NO 0 label_1470
   SectionGetFlags 1 $2
   IntOp $2 $2 & 0xFFFFFFFE
   SectionSetFlags 1 $2
-label_1451:
+label_1470:
   Push $0
   Push /WINPCAP=
-  Call :label_967
+  Call :label_984
   Pop $1
-  StrCmp $1 NO 0 label_1459
+  StrCmp $1 NO 0 label_1478
   SectionGetFlags 2 $2
   IntOp $2 $2 & 0xFFFFFFFE
   SectionSetFlags 2 $2
-label_1459:
+label_1478:
   Push $0
   Push /REGISTRYMODS=
-  Call :label_967
+  Call :label_984
   Pop $1
-  StrCmp $1 NO 0 label_1467
+  StrCmp $1 NO 0 label_1486
   SectionGetFlags 3 $2
   IntOp $2 $2 & 0xFFFFFFFE
   SectionSetFlags 3 $2
-label_1467:
+label_1486:
   Push $0
   Push /ZENMAP=
-  Call :label_967
+  Call :label_984
   Pop $1
-  StrCmp $1 NO 0 label_1475
+  StrCmp $1 NO 0 label_1494
   SectionGetFlags 4 $2
   IntOp $2 $2 & 0xFFFFFFFE
   SectionSetFlags 4 $2
-label_1475:
+label_1494:
   Push $0
   Push /NCAT=
-  Call :label_967
+  Call :label_984
   Pop $1
-  StrCmp $1 NO 0 label_1483
+  StrCmp $1 NO 0 label_1502
   SectionGetFlags 5 $2
   IntOp $2 $2 & 0xFFFFFFFE
   SectionSetFlags 5 $2
-label_1483:
+label_1502:
   Push $0
   Push /NDIFF=
-  Call :label_967
+  Call :label_984
   Pop $1
-  StrCmp $1 NO 0 label_1491
+  StrCmp $1 NO 0 label_1510
   SectionGetFlags 6 $2
   IntOp $2 $2 & 0xFFFFFFFE
   SectionSetFlags 6 $2
-label_1491:
+label_1510:
   Push $0
   Push /NPING=
-  Call :label_967
+  Call :label_984
   Pop $1
-  StrCmp $1 NO 0 label_1499
+  StrCmp $1 NO 0 label_1518
   SectionGetFlags 7 $2
   IntOp $2 $2 & 0xFFFFFFFE
   SectionSetFlags 7 $2
-label_1499:
+label_1518:
   Push $0
   Push /NMAPUPDATE=
-  Call :label_967
+  Call :label_984
   Pop $1
-  StrCmp $1 NO 0 label_1507
+  StrCmp $1 NO 0 label_1526
   SectionGetFlags 8 $2
   IntOp $2 $2 & 0xFFFFFFFE
   SectionSetFlags 8 $2
-label_1507:
+label_1526:
 FunctionEnd
 
 
 Function .onMouseOverSection
   FindWindow $_0_ "#32770" "" $HWNDPARENT
   GetDlgItem $_0_ $_0_ 1043
-  StrCmp $0 -1 0 label_1515
+  StrCmp $0 -1 0 label_1534
   SendMessage $_0_ ${WM_SETTEXT} 0 STR:
   EnableWindow $_0_ 0
   SendMessage $_0_ ${WM_SETTEXT} 0 STR:$_2_
-  Goto label_1560
-label_1515:
-  StrCmp $0 0 0 label_1520
+  Goto label_1579
+label_1534:
+  StrCmp $0 0 0 label_1539
   SendMessage $_0_ ${WM_SETTEXT} 0 STR:
   EnableWindow $_0_ 1
   SendMessage $_0_ ${WM_SETTEXT} 0 STR:$(LSTR_57)    ;  "Installs Nmap executable, NSE scripts and Visual C++ 2013 runtime components"
-  Goto label_1560
-label_1520:
-  StrCmp $0 2 0 label_1525
+  Goto label_1579
+label_1539:
+  StrCmp $0 2 0 label_1544
   SendMessage $_0_ ${WM_SETTEXT} 0 STR:
   EnableWindow $_0_ 1
   SendMessage $_0_ ${WM_SETTEXT} 0 STR:$(LSTR_58)    ;  "Installs WinPcap 4.1.3 (required for most Nmap scans unless it is already installed)"
-  Goto label_1560
-label_1525:
-  StrCmp $0 1 0 label_1530
+  Goto label_1579
+label_1544:
+  StrCmp $0 1 0 label_1549
   SendMessage $_0_ ${WM_SETTEXT} 0 STR:
   EnableWindow $_0_ 1
   SendMessage $_0_ ${WM_SETTEXT} 0 STR:$(LSTR_59)    ;  "Registers Nmap path to System path so you can execute it from any directory"
-  Goto label_1560
-label_1530:
-  StrCmp $0 3 0 label_1535
+  Goto label_1579
+label_1549:
+  StrCmp $0 3 0 label_1554
   SendMessage $_0_ ${WM_SETTEXT} 0 STR:
   EnableWindow $_0_ 1
   SendMessage $_0_ ${WM_SETTEXT} 0 STR:$(LSTR_60)    ;  "Modifies Windows registry values to improve TCP connect scan performance.  Recommended."
-  Goto label_1560
-label_1535:
-  StrCmp $0 4 0 label_1540
+  Goto label_1579
+label_1554:
+  StrCmp $0 4 0 label_1559
   SendMessage $_0_ ${WM_SETTEXT} 0 STR:
   EnableWindow $_0_ 1
   SendMessage $_0_ ${WM_SETTEXT} 0 STR:$(LSTR_61)    ;  "Installs Zenmap, the official Nmap graphical user interface, and Visual C++ 2008 runtime components.  Recommended."
-  Goto label_1560
-label_1540:
-  StrCmp $0 5 0 label_1545
+  Goto label_1579
+label_1559:
+  StrCmp $0 5 0 label_1564
   SendMessage $_0_ ${WM_SETTEXT} 0 STR:
   EnableWindow $_0_ 1
   SendMessage $_0_ ${WM_SETTEXT} 0 STR:$(LSTR_62)    ;  "Installs Ncat, Nmap's Netcat replacement."
-  Goto label_1560
-label_1545:
-  StrCmp $0 6 0 label_1550
+  Goto label_1579
+label_1564:
+  StrCmp $0 6 0 label_1569
   SendMessage $_0_ ${WM_SETTEXT} 0 STR:
   EnableWindow $_0_ 1
   SendMessage $_0_ ${WM_SETTEXT} 0 STR:$(LSTR_63)    ;  "Installs Ndiff, a tool for comparing Nmap XML files."
-  Goto label_1560
-label_1550:
-  StrCmp $0 7 0 label_1555
+  Goto label_1579
+label_1569:
+  StrCmp $0 7 0 label_1574
   SendMessage $_0_ ${WM_SETTEXT} 0 STR:
   EnableWindow $_0_ 1
   SendMessage $_0_ ${WM_SETTEXT} 0 STR:$(LSTR_64)    ;  "Installs Nping, a packet generation tool."
-  Goto label_1560
-label_1555:
-  StrCmp $0 8 0 label_1560
+  Goto label_1579
+label_1574:
+  StrCmp $0 8 0 label_1579
   SendMessage $_0_ ${WM_SETTEXT} 0 STR:
   EnableWindow $_0_ 1
   SendMessage $_0_ ${WM_SETTEXT} 0 STR:$(LSTR_65)    ;  "Installs nmap-update, an updater for architecture-independent files."
-  Goto label_1560
-label_1560:
+  Goto label_1579
+label_1579:
 FunctionEnd
 
 
 /*
 Function Initialize_____Plugins
   SetDetailsPrint none
-  StrCmp $PLUGINSDIR "" 0 label_1571
+  StrCmp $PLUGINSDIR "" 0 label_1590
   Push $0
   SetErrors
   GetTempFileName $0
   Delete $0
   CreateDirectory $0
-  IfErrors label_1572
+  IfErrors label_1591
   StrCpy $PLUGINSDIR $0
   Pop $0
-label_1571:
+label_1590:
   Return
 
-label_1572:
+label_1591:
   MessageBox MB_OK|MB_ICONSTOP "Error! Can't initialize plug-ins directory. Please try again later." /SD IDOK
   Quit
 FunctionEnd
