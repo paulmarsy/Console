@@ -1,0 +1,12 @@
+// August 2015
+// ATTENTION - THIS DIRECTORY CONTAINS THIRD PARTY OPEN SOURCE MATERIALS:
+// THEY ARE CLEARED ONLY FOR LIMITED USE BY MONACO FOR THE MONACO PRODUCT.
+// DO NOT USE OR SHARE THIS CODE WITHOUT APPROVAL PURSUANT TO THE MICROSOFT OPEN SOURCE SOFTWARE APPROVAL POLICY.
+
+[{
+	"name": "language-rust",
+	"version": "0.4.4",
+	"license": "MIT",
+	"repositoryURL": "https://github.com/zargony/atom-language-rust",
+	"description": "The files syntaxes/rust.json and snippets/rust.json were derived from the Atom package https://atom.io/packages/language-rust."
+}]

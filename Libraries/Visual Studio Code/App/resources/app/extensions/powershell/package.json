@@ -1,0 +1,22 @@
+{
+	"name": "powershell",
+	"version": "0.1.0",
+	"publisher": "vscode",
+	"engines": { "vscode": "*" },
+	"activationEvents": ["onLanguage:powershell"],
+	"main": "./out/powershellMain",
+	"contributes": {
+		"languages": [{
+			"id": "powershell",
+			"extensions": [ ".ps1", ".psm1", ".psd1" ],
+			"aliases": [ "PowerShell", "powershell", "ps", "ps1" ]
+		}]
+	},
+	"isAMD": true,
+	"scripts": {
+		"vscode:prepublish": "node ../../node_modules/gulp/bin/gulp.js --gulpfile ../../gulpfile.plugins.js compile-plugin:powershell"
+	},
+	"_bundling": [
+		{ "name": "./out/powershellMain" }
+	]
+}

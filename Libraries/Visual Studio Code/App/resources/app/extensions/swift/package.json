@@ -1,0 +1,24 @@
+{
+	"name": "swift",
+	"version": "0.1.0",
+	"publisher": "vscode",
+	"engines": { "vscode": "*" },
+	"activationEvents": ["onLanguage:swift"],
+	"main": "./out/swiftMain",
+	"scripts": {
+		"vscode:prepublish": "node ../../node_modules/gulp/bin/gulp.js --gulpfile ../../gulpfile.plugins.js compile-plugin:swift"
+	},
+	"contributes": {
+		"languages": [{
+			"id": "swift",
+			"aliases": ["Swift","swift"],
+			"extensions": [".swift"],
+			"mimetypes": ["text/swift"]
+		}]
+	},
+	"isAMD": true,
+	"_testing": "./tests/swiftTests",
+	"_bundling": [
+		{ "name": "./out/swiftMain" }
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"name": "vb",
+	"version": "0.1.0",
+	"publisher": "vscode",
+	"engines": { "vscode": "*" },
+	"activationEvents": ["onLanguage:vb"],
+	"main": "./out/vbMain",
+	"contributes": {
+		"languages": [{
+			"id": "vb",
+			"extensions": [ ".vb" ],
+			"aliases": [ "Visual Basic", "vb" ]
+		}]
+	},
+	"isAMD": true,
+	"scripts": {
+		"vscode:prepublish": "node ../../node_modules/gulp/bin/gulp.js --gulpfile ../../gulpfile.plugins.js compile-plugin:vb"
+	},
+	"_bundling": [
+		{ "name": "./out/vbMain" }
+	]
+}

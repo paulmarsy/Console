@@ -1,0 +1,12 @@
+// August 2015
+// ATTENTION - THIS DIRECTORY CONTAINS THIRD PARTY OPEN SOURCE MATERIALS:
+// THEY ARE CLEARED ONLY FOR LIMITED USE BY MONACO FOR THE MONACO PRODUCT.
+// DO NOT USE OR SHARE THIS CODE WITHOUT APPROVAL PURSUANT TO THE MICROSOFT OPEN SOURCE SOFTWARE APPROVAL POLICY.
+
+[{
+	"name": "typescript-sublime-plugin",
+	"version": "0.1.5",
+	"license": "Apache2",
+	"repositoryURL": "https://github.com/Microsoft/TypeScript-Sublime-Plugin",
+	"description": "The file syntaxes/JavaScriptReact.tmLanguage was derived from the TypeScript-Sublime-Plugin https://github.com/Microsoft/TypeScript-Sublime-Plugin."
+}]

@@ -1,0 +1,19 @@
+{
+	"name": "mono-debug",
+	"version": "0.1.0",
+	"publisher": "vscode",
+	"engines": { "vscode": "*" },
+	"contributes": {
+		"debugAdapter": [{
+			"type": "mono",
+			"enableBreakpointsFor": { "languageIds": ["csharp", "fsharp"] },
+			"program": "./debugAdapter/openDebugMono/OpenDebugMono.exe",
+			"osx": {
+				"runtime": "mono"
+			},
+			"linux": {
+				"runtime": "mono"
+			}
+		}]
+	}
+}

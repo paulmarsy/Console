@@ -1,0 +1,37 @@
+{
+	"name": "perl",
+	"version": "0.1.0",
+	"publisher": "vscode",
+	"engines": { "vscode": "*" },
+	"activationEvents": ["onLanguage:perl", "onLanguage:perl6"],
+	"main": "./out/perlMain",
+	"contributes": {
+		"languages": [{
+			"id": "perl",
+			"aliases": ["Perl", "perl"],
+			"extensions": [".pl", ".pm", ".pod", ".t", ".PL", ".psgi"],
+			"firstLine": "^#!.*\\bperl\\b"
+		}, {
+			"id": "perl6",
+			"aliases": ["Perl 6", "perl6"],
+			"extensions": [".p6", ".pl6", ".pm6", ".nqp"],
+			"firstLine": "(^#!.*\\bperl6\\b)|use\\s+v6"
+		}],
+		"grammars": [{
+			"language": "perl",
+			"scopeName": "source.perl",
+			"path": "./syntaxes/Perl.plist"
+		}, {
+			"language": "perl6",
+			"scopeName": "source.perl.6",
+			"path": "./syntaxes/Perl 6.tmLanguage"
+		}]
+	},
+	"isAMD": true,
+	"scripts": {
+		"vscode:prepublish": "node ../../node_modules/gulp/bin/gulp.js --gulpfile ../../gulpfile.plugins.js compile-plugin:perl"
+	},
+	"_bundling": [
+		{ "name": "./out/perlMain" }
+	]
+}

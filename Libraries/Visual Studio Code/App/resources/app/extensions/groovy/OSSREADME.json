@@ -1,0 +1,10 @@
+// August 2015
+// ATTENTION - THIS DIRECTORY CONTAINS THIRD PARTY OPEN SOURCE MATERIALS:
+// THEY ARE CLEARED ONLY FOR LIMITED USE BY MONACO FOR THE MONACO PRODUCT.
+// DO NOT USE OR SHARE THIS CODE WITHOUT APPROVAL PURSUANT TO THE MICROSOFT OPEN SOURCE SOFTWARE APPROVAL POLICY.
+[{
+	"name": "textmate/groovy.tmbundle",
+	"version": "0.0.0",
+	"license": "TextMate Bundle License",
+	"repositoryURL": "https://github.com/textmate/groovy.tmbundle"
+}]

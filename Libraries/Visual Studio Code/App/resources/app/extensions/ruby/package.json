@@ -1,0 +1,23 @@
+{
+	"name": "ruby",
+	"version": "0.1.0",
+	"publisher": "vscode",
+	"engines": { "vscode": "*" },
+	"activationEvents": ["onLanguage:ruby"],
+	"main": "./out/rubyMain",
+	"contributes": {
+		"languages": [{
+			"id": "ruby",
+			"extensions": [ ".rb", ".gemspec", ".pp" ],
+			"filenames": [ "rakefile" ],
+			"aliases": [ "Ruby", "rb" ]
+		}]
+	},
+	"isAMD": true,
+	"scripts": {
+		"vscode:prepublish": "node ../../node_modules/gulp/bin/gulp.js --gulpfile ../../gulpfile.plugins.js compile-plugin:ruby"
+	},
+	"_bundling": [
+		{ "name": "./out/rubyMain" }
+	]
+}

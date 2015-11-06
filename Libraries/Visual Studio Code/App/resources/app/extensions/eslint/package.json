@@ -1,0 +1,43 @@
+{
+	"name": "eslint",
+	"version": "0.1.0",
+	"publisher": "vscode",
+	"engines": { "vscode": "*" },
+	"description": "ESLint Integration for VS",
+	"private": true,
+	"dependencies": {
+		"vscode-languageworker": "^0.2.0"
+	},
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "ESLint configuration",
+			"properties": {
+				"eslint.enable": {
+					"type": "boolean",
+					"default": false,
+					"description": "Control whether eslint is enabled for JavaScript files or not."
+				},
+				"eslint.options": {
+					"type": "object",
+					"default": {},
+					"description": "The eslint options object to provide args to the eslint command."
+				}
+			}
+		},
+		"languageWorkers": {
+			"activate": ["onLanguage:javascript", "onLanguage:javascriptreact"],
+			"executable": {
+				"run": {
+					"nodeModule": "lib/eslint.js"
+				},
+				"debug": {
+					"nodeModule": "lib/eslint.js",
+					"execArgv": ["--debug=6002"]
+				}
+			},
+			"watchFiles": "**/.eslintrc",
+			"settings": "eslint"
+		}
+	}
+}

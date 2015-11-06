@@ -1,0 +1,22 @@
+{
+	"name": "go",
+	"version": "0.1.0",
+	"publisher": "vscode",
+	"engines": { "vscode": "*" },
+	"activationEvents": ["onLanguage:go"],
+	"main": "./out/goMain",
+	"contributes": {
+		"languages": [{
+			"id": "go",
+			"extensions": [ ".go" ],
+			"aliases": [ "Go" ]
+		}]
+	},
+	"isAMD": true,
+	"scripts": {
+		"vscode:prepublish": "node ../../node_modules/gulp/bin/gulp.js --gulpfile ../../gulpfile.plugins.js compile-plugin:go"
+	},
+	"_bundling": [
+		{ "name": "./out/goMain" }
+	]
+}

@@ -1,0 +1,54 @@
+{
+	"name": "typescript",
+	"version": "0.1.0",
+	"publisher": "vscode",
+	"engines": { "vscode": "*" },
+	"activationEvents": ["onLanguage:typescript", "onLanguage:typescriptreact"],
+	"main": "./out/typescriptMain",
+	"scripts": {
+		"vscode:prepublish": "node ../../node_modules/gulp/bin/gulp.js --gulpfile ../../gulpfile.plugins.js compile-plugin:typescript"
+	},
+	"contributes": {
+		"languages": [{
+			"id": "typescript",
+			"aliases": ["TypeScript","ts","typescript"],
+			"extensions": [".ts"],
+			"mimetypes": ["text/typescript"]
+		}, {
+			"id": "typescriptreact",
+			"aliases": ["TypeScript React","tsx"],
+			"extensions": [".tsx"]
+		}],
+		"grammars": [{
+			"language": "typescript",
+			"scopeName": "source.ts",
+			"path": "./syntaxes/TypeScript.tmLanguage"
+		}, {
+			"language": "typescriptreact",
+			"scopeName": "source.tsx",
+			"path": "./syntaxes/TypeScriptReact.tmLanguage"
+		}],
+		"configuration": {
+			"type": "object",
+			"title": "TypeScript configuration",
+			"properties": {
+				"typescript.useCodeSnippetsOnMethodSuggest": {
+					"type": "boolean",
+					"default": false,
+					"description": "Complete functions with their parameter signature."
+				},
+				"typescript.tsdk": {
+					"type": "string",
+					"default": null,
+					"description": "Specifies the folder path containing the tsserver and lib*.d.ts files to use."
+				}
+			}
+		},
+		"keybindings": {
+			"key": ".",
+			"command": "^acceptSelectedSuggestion",
+			"when": "editorTextFocus && suggestWidgetVisible && editorLangId == 'typescript'"
+		}
+	},
+	"isAMD": true
+}

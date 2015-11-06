@@ -1,0 +1,25 @@
+{
+	"name": "xml",
+	"version": "0.1.0",
+	"publisher": "vscode",
+	"engines": { "vscode": "*" },
+	"activationEvents": ["onLanguage:xml"],
+	"main": "./out/xmlMain",
+	"contributes": {
+		"languages": [{
+			"id": "xml",
+			"extensions": [ ".xml", ".ascx", ".csproj", ".config", ".wxi", ".wxl", ".wxs", ".xaml", ".svg", ".svgz" ],
+			"firstLine" : "(\\<\\?xml.*)|(\\<svg)|(\\<\\!doctype\\s+svg)",
+			"aliases": [ "XML", "xml" ],
+			"mimetypes": ["text/xml", "application/xml", "application/xaml+xml"]
+		}]
+	},
+	"isAMD": true,
+	"scripts": {
+		"vscode:prepublish": "node ../../node_modules/gulp/bin/gulp.js --gulpfile ../../gulpfile.plugins.js compile-plugin:xml"
+	},
+	"_bundling": [
+		{ "name": "./out/xmlMain" },
+		{ "name": "./out/xmlWorker", "exclude": ["vs/languages/lib/common/beautify-html"] }
+	]
+}

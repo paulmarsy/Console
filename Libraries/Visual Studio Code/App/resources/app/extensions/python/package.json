@@ -1,0 +1,23 @@
+{
+	"name": "python",
+	"version": "0.1.0",
+	"publisher": "vscode",
+	"engines": { "vscode": "*" },
+	"activationEvents": ["onLanguage:python"],
+	"main": "./out/pythonMain",
+	"contributes": {
+		"languages": [{
+			"id": "python",
+			"extensions": [ ".py" ],
+			"aliases": [ "Python", "py" ],
+			"firstLine": "^#!/.*\\bpython[0-9.-]*\\b"
+		}]
+	},
+	"isAMD": true,
+	"scripts": {
+		"vscode:prepublish": "node ../../node_modules/gulp/bin/gulp.js --gulpfile ../../gulpfile.plugins.js compile-plugin:python"
+	},
+	"_bundling": [
+		{ "name": "./out/pythonMain" }
+	]
+}

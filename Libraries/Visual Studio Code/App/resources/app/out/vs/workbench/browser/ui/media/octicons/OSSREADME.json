@@ -1,0 +1,16 @@
+// September 2015
+// ATTENTION - THIS DIRECTORY CONTAINS THIRD PARTY OPEN SOURCE MATERIALS:
+// THEY ARE CLEARED ONLY FOR LIMITED USE BY MONACO FOR THE MONACO PRODUCT.
+// DO NOT USE OR SHARE THIS CODE WITHOUT APPROVAL PURSUANT TO THE MICROSOFT OPEN SOURCE SOFTWARE APPROVAL POLICY.
+
+[{
+	"name": "octicons-code",
+	"repositoryURL": "https://octicons.github.com",
+	"version": "3.1.0",
+	"license": "MIT"
+},{
+	"name": "octicons-font",
+	"repositoryURL": "https://octicons.github.com",
+	"version": "3.1.0",
+	"license": "SIL OFL 1.1"
+}]

@@ -1,0 +1,1 @@
+define("vs/languages/typescript/common/participants/nlsParticipant.nls",{"vs/languages/typescript/common/participants/nlsParticipant":["String needs localization"]});

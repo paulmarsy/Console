@@ -1,0 +1,22 @@
+{
+	"name": "bat",
+	"version": "0.1.0",
+	"publisher": "vscode",
+	"engines": { "vscode": "*" },
+	"activationEvents": ["onLanguage:bat"],
+	"main": "./out/batMain",
+	"contributes": {
+		"languages": [{
+			"id": "bat",
+			"extensions": [ ".bat", ".cmd"],
+			"aliases": [ "Batch", "bat" ]
+		}]
+	},
+	"isAMD": true,
+	"scripts": {
+		"vscode:prepublish": "node ../../node_modules/gulp/bin/gulp.js --gulpfile ../../gulpfile.plugins.js compile-plugin:bat"
+	},
+	"_bundling": [
+		{ "name": "./out/batMain" }
+	]
+}

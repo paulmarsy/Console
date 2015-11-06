@@ -1,0 +1,18 @@
+{
+	"name": "javascript",
+	"version": "0.1.0",
+	"publisher": "vscode",
+	"engines": { "vscode": "*" },
+	"contributes": {
+		"languages": [{
+			"id": "javascriptreact",
+			"aliases": ["JavaScript React","jsx"],
+			"extensions": [".jsx"]
+		}],
+		"grammars": [{
+			"language": "javascriptreact",
+			"scopeName": "source.jsx",
+			"path": "./syntaxes/JavaScriptReact.tmLanguage"
+		}]
+	}
+}

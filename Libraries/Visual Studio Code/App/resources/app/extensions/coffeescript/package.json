@@ -1,0 +1,23 @@
+{
+	"name": "coffeescript",
+	"version": "0.1.0",
+	"publisher": "vscode",
+	"engines": { "vscode": "*" },
+	"activationEvents": ["onLanguage:coffeescript"],
+	"main": "./out/coffeeMain",
+	"contributes": {
+		"languages": [{
+			"id": "coffeescript",
+			"extensions": [ ".coffee" ],
+			"aliases": [ "CoffeeScript", "coffeescript", "coffee" ],
+			"mimetypes": ["text/x-coffeescript", "text/coffeescript"]
+		}]
+	},
+	"isAMD": true,
+	"scripts": {
+		"vscode:prepublish": "node ../../node_modules/gulp/bin/gulp.js --gulpfile ../../gulpfile.plugins.js compile-plugin:coffeescript"
+	},
+	"_bundling": [
+		{ "name": "./out/coffeeMain" }
+	]
+}

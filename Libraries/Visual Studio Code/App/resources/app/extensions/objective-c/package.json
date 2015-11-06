@@ -1,0 +1,22 @@
+{
+	"name": "objective-c",
+	"version": "0.1.0",
+	"publisher": "vscode",
+	"engines": { "vscode": "*" },
+	"activationEvents": ["onLanguage:objective-c"],
+	"main": "./out/objective-cMain",
+	"contributes": {
+		"languages": [{
+			"id": "objective-c",
+			"extensions": [ ".m" ],
+			"aliases": [ "Objective-C"]
+		}]
+	},
+	"isAMD": true,
+	"scripts": {
+		"vscode:prepublish": "node ../../node_modules/gulp/bin/gulp.js --gulpfile ../../gulpfile.plugins.js compile-plugin:objective-c"
+	},
+	"_bundling": [
+		{ "name": "./out/objective-cMain" }
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"name": "csharp",
+	"version": "0.1.0",
+	"publisher": "vscode",
+	"engines": { "vscode": "*" },
+	"activationEvents": ["onLanguage:csharp"],
+	"main": "./out/csharpMain",
+	"contributes": {
+		"languages": [{
+			"id": "csharp",
+			"extensions": [ ".cs", ".csx" ],
+			"aliases": [ "C#", "csharp" ]
+		}]
+	},
+	"isAMD": true,
+	"scripts": {
+		"vscode:prepublish": "node ../../node_modules/gulp/bin/gulp.js --gulpfile ../../gulpfile.plugins.js compile-plugin:csharp"
+	},
+	"_bundling": [
+		{ "name": "./out/csharpMain" }
+	]
+}

@@ -1,0 +1,14 @@
+
+
+// August 2015
+// ATTENTION - THIS DIRECTORY CONTAINS THIRD PARTY OPEN SOURCE MATERIALS:
+// THEY ARE CLEARED ONLY FOR LIMITED USE BY MONACO FOR THE MONACO PRODUCT.
+// DO NOT USE OR SHARE THIS CODE WITHOUT APPROVAL PURSUANT TO THE MICROSOFT OPEN SOURCE SOFTWARE APPROVAL POLICY.
+
+[{
+	"name": "vscode-swift",
+	"license": "MIT",
+	"version": "0.0.1",
+	"repositoryURL": "https://github.com/owensd/vscode-swift",
+	"description": "The files in this folder are based on https://github.com/owensd/vscode-swift."
+}]

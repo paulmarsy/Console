@@ -1,0 +1,22 @@
+{
+	"name": "r",
+	"version": "0.1.0",
+	"publisher": "vscode",
+	"engines": { "vscode": "*" },
+	"activationEvents": ["onLanguage:r"],
+	"main": "./out/rMain",
+	"contributes": {
+		"languages": [{
+			"id": "r",
+			"extensions": [ ".r", ".rhistory", ".rprofile", ".rt" ],
+			"aliases": [ "R", "r" ]
+		}]
+	},
+	"isAMD": true,
+	"scripts": {
+		"vscode:prepublish": "node ../../node_modules/gulp/bin/gulp.js --gulpfile ../../gulpfile.plugins.js compile-plugin:r"
+	},
+	"_bundling": [
+		{ "name": "./out/rMain" }
+	]
+}

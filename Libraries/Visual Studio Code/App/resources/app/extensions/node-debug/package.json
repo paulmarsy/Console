@@ -1,0 +1,22 @@
+{
+	"name": "node-debug",
+	"version": "0.1.0",
+	"publisher": "vscode",
+	"engines": { "vscode": "*" },
+	"contributes": {
+		"debugAdapter": [
+			{
+				"type": "node",
+				"enableBreakpointsFor": { "languageIds": ["javascript", "typescript", "coffeescript"] },
+				"program": "./debugAdapter/out/node/openDebugNode.js",
+				"runtime": "node"
+			},
+			{
+				"type": "extensionHost",
+				"enableBreakpointsFor": { "languageIds": ["javascript", "typescript"] },
+				"program": "./debugAdapter/out/node/openDebugNode.js",
+				"runtime": "node"
+			}
+		]
+	}
+}

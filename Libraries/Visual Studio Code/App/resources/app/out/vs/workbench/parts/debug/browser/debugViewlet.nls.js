@@ -1,0 +1,1 @@
+define("vs/workbench/parts/debug/browser/debugViewlet.nls",{"vs/workbench/parts/debug/browser/debugViewlet":["Variables","Watch","Call Stack","Paused on {0}.","Breakpoints"]});

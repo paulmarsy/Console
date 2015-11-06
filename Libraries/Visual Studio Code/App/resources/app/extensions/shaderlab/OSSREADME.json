@@ -1,0 +1,12 @@
+// September 2015
+// ATTENTION - THIS DIRECTORY CONTAINS THIRD PARTY OPEN SOURCE MATERIALS:
+// THEY ARE CLEARED ONLY FOR LIMITED USE BY MONACO FOR THE MONACO PRODUCT.
+// DO NOT USE OR SHARE THIS CODE WITHOUT APPROVAL PURSUANT TO THE MICROSOFT OPEN SOURCE SOFTWARE APPROVAL POLICY.
+
+[{
+	"name": "unity-shader-files",
+	"version": "0.1.0",
+	"license": "MIT",
+	"repositoryURL": "https://github.com/nashella/unity-shader-files",
+	"description": "The file syntaxes/shaderlab.json was derived from the Atom package https://github.com/nashella/unity-shader-files."
+}]

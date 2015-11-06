@@ -1,0 +1,22 @@
+{
+	"name": "lua",
+	"version": "0.1.0",
+	"publisher": "vscode",
+	"engines": { "vscode": "*" },
+	"activationEvents": ["onLanguage:lua"],
+	"main": "./out/luaMain",
+	"contributes": {
+		"languages": [{
+			"id": "lua",
+			"extensions": [ ".lua" ],
+			"aliases": [ "Lua", "lua" ]
+		}]
+	},
+	"isAMD": true,
+	"scripts": {
+		"vscode:prepublish": "node ../../node_modules/gulp/bin/gulp.js --gulpfile ../../gulpfile.plugins.js compile-plugin:lua"
+	},
+	"_bundling": [
+		{ "name": "./out/luaMain" }
+	]
+}

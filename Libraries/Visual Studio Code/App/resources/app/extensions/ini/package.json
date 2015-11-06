@@ -1,0 +1,23 @@
+{
+	"name": "ini",
+	"version": "0.1.0",
+	"publisher": "vscode",
+	"engines": { "vscode": "*" },
+	"activationEvents": ["onLanguage:ini"],
+	"main": "./out/iniMain",
+	"contributes": {
+		"languages": [{
+			"id": "ini",
+			"extensions": [ ".ini", ".properties", ".gitconfig" ],
+			"filenames": ["config", ".gitattributes", ".gitconfig", ".editorconfig"],
+			"aliases": [ "Ini", "ini" ]
+		}]
+	},
+	"isAMD": true,
+	"scripts": {
+		"vscode:prepublish": "node ../../node_modules/gulp/bin/gulp.js --gulpfile ../../gulpfile.plugins.js compile-plugin:ini"
+	},
+	"_bundling": [
+		{ "name": "./out/iniMain" }
+	]
+}
