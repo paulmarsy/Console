@@ -18,6 +18,7 @@ A PowerShell Console by [Paul Marston](https://github.com/paulmarsy)
 Thanks to many projects referenced in this PowerShell Console
 * [ConEmu](https://github.com/Maximus5/ConEmu)
 * [Atom Editor](https://github.com/atom/atom/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 * [PowerShell Modules](https://github.com/paulmarsy/Console/tree/master/Libraries/PowerShell%20Modules)
 * [Binaries added to the PATH](https://github.com/paulmarsy/Console/tree/master/Libraries/Binaries)
 
