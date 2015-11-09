@@ -1,3 +1,7 @@
 function Open-PowerShellConsoleHomeFolder {
-	Open-Location -Location Home -AtomEditor
+	param(
+		[ValidateSet("Atom", "Code", "Default")]$Editor = "Default"
+	)
+	
+	Open-Location -Location Home -Editor $Editor
 }

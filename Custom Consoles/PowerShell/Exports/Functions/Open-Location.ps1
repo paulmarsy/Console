@@ -38,7 +38,7 @@ function Open-Location {
         )][Parameter(Position = 0)]$Location = "Folder",
         [Parameter(Position = 1, ValueFromRemainingArguments=$true)]$Path = $PWD.Path,
         [switch]$Shell,
-        [switch]$AtomEditor
+        [ValidateSet("None", "Atom", "Code", "Default")]$Editor = "None"
     )
 
     DynamicParam
@@ -121,8 +121,8 @@ function Open-Location {
                     Set-Location -Path $Path
                 }
             }
-     		elseif ($AtomEditor) {
-                Edit-InAtom $Path
+     		elseif ($Editor -ne "None") {
+                Edit-CustomTextEditor -Path $Path -Editor $Editor
      		}
      		else {
      			& explorer $Path

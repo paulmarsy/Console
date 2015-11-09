@@ -27,6 +27,7 @@ $Constants = @{
 		ConEmu = (Join-Path $InstallPath "Libraries\ConEmu\ConEmu64.exe")
 		ConEmuC = (Join-Path $InstallPath "Libraries\ConEmu\ConEmu\ConEmuC64.exe")
 		Atom = (Join-Path $InstallPath "Libraries\Atom\App\atom.exe")
+		VisualStudioCode = (Join-Path $InstallPath "Libraries\Visual Studio Code\App\Code.exe")
 		Hstart = (Join-Path $InstallPath "Libraries\PATH Extensions\Hstart\hstart64.exe")
 		ConsoleGitHubSyncer = (Join-Path $InstallPath "Libraries\Custom Helper Apps\ConsoleGitHubSyncer\ConsoleGitHubSyncer.exe")
 	}
