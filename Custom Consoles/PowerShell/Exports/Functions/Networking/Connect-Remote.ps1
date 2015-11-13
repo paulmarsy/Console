@@ -29,8 +29,8 @@ function Connect-Remote {
     
     PROCESS {
         if ($UseWindowsLogon -or ($InteractiveType -eq "RDP" -and $null -eq $UserName -and $null -eq $Password)) {
-            $windowsLogon = Get-RemoteAccessCredential
-            if ([string]::IsNullOrWhiteSpace($windowsLogon)) {
+            $windowsLogon = ?? { Get-RemoteAccessCredentials } { $null }
+            if ($null -eq $windowsLogon) {
                 Write-Warning "Unable to access stored Windows Credentials for remote access try 'Set-RemoteAccessCredentials'"
                 return
             }

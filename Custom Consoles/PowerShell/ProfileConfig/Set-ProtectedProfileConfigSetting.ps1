@@ -2,7 +2,7 @@ function Set-ProtectedProfileConfigSetting {
 	[CmdletBinding()]
 	param(
 		[Parameter(Position=0,Mandatory=$true)][string]$Name,
-		[Parameter(Position=1,Mandatory=$true)]$Value,
+		[Parameter(Position=1,Mandatory=$false)]$Value = $null,
 		[switch]$Force,
 		[System.Security.Cryptography.DataProtectionScope]$Scope = [System.Security.Cryptography.DataProtectionScope]::CurrentUser
 	)
