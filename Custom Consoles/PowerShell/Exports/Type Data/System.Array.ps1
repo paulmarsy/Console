@@ -16,7 +16,7 @@
 		MemberName = "Slice"		
 		Value = {
 			param(
-        		[Parameter(Mandatory=$true)][ValidateRange(1,($this.Lenghth))]$Count
+        		[Parameter(Mandatory=$true)][ValidateScript({ $Count -le $_.Length -and $Cound -gt 0})]$Count
     		)
 			
 			 $slice = @()
@@ -30,7 +30,6 @@
 			}
 			Write-Output $slice
         }
-        $slice.Add($item) > $null
 	}, @{
 		MemberType = "ScriptMethod"
 		MemberName = "Reverse"		
@@ -42,4 +41,4 @@
     		}
 		}
 	}
-}
+)
