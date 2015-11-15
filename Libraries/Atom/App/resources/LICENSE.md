@@ -76,6 +76,33 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
+Package: acorn@1.2.2
+License: MIT
+License Source: LICENSE
+Source Text:
+
+Copyright (C) 2012-2014 by various contributors (see AUTHORS)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+-------------------------------------------------------------------------
+
 Package: align-text@0.1.3
 License: MIT
 License Source: LICENSE
@@ -701,7 +728,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: atom-keymap@6.1.0
+Package: atom-keymap@6.1.1
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -875,7 +902,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: atom@1.2.0-beta1
+Package: atom@1.3.0-beta0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -971,7 +998,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: autocomplete-snippets@1.7.1
+Package: autocomplete-snippets@1.8.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -1130,7 +1157,7 @@ Source Text:
 <content omitted>
 -------------------------------------------------------------------------
 
-Package: babel-core@5.8.33
+Package: babel-core@5.8.34
 License: MIT
 License Source: package.json
 
@@ -1226,7 +1253,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: babylon@5.8.29
+Package: babylon@5.8.34
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -1606,6 +1633,35 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+-------------------------------------------------------------------------
+
+Package: cached-run-in-this-context@0.4.0
+License: MIT
+License Source: LICENSE.md
+Source Text:
+
+The MIT License (MIT)
+
+Copyright (c) 2015 Antonio Scandurra
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 -------------------------------------------------------------------------
 
@@ -2070,7 +2126,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: command-palette@0.36.0
+Package: command-palette@0.37.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -2314,13 +2370,37 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: commander@2.5.1
+Package: commander@2.9.0
 License: MIT
-License Source: package.json
+License Source: LICENSE
+Source Text:
+
+(The MIT License)
+
+Copyright (c) 2011 TJ Holowaychuk <tj@vision-media.ca>
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: commoner@0.10.3
+Package: commoner@0.10.4
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -2403,7 +2483,7 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -------------------------------------------------------------------------
 
-Package: convert-source-map@1.1.1
+Package: convert-source-map@1.1.2
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -2440,7 +2520,7 @@ License Source: http://rock.mit-license.org linked in source files and bower.jso
 
 -------------------------------------------------------------------------
 
-Package: core-js@1.2.5
+Package: core-js@1.2.6
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -2643,6 +2723,32 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
+Package: defined@1.0.0
+License: MIT
+License Source: LICENSE
+Source Text:
+
+This software is released under the MIT license:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-------------------------------------------------------------------------
+
 Package: defs@1.1.1
 License: MIT
 License Source: LICENSE
@@ -2779,6 +2885,32 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+-------------------------------------------------------------------------
+
+Package: detective@4.3.1
+License: MIT
+License Source: LICENSE
+Source Text:
+
+This software is released under the MIT license:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
@@ -3383,7 +3515,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: find-and-replace@0.189.0
+Package: find-and-replace@0.191.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -3862,7 +3994,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: git-utils@4.0.5
+Package: git-utils@4.0.7
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -3925,7 +4057,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 -------------------------------------------------------------------------
 
-Package: glob@4.2.2
+Package: glob@4.3.1
 License: ISC
 License Source: LICENSE
 Source Text:
@@ -3948,7 +4080,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: glob@4.3.1
+Package: glob@5.0.15
 License: ISC
 License Source: LICENSE
 Source Text:
@@ -4110,6 +4242,59 @@ ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
 WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
 IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+-------------------------------------------------------------------------
+
+Package: graceful-fs@4.1.2
+License: ISC
+License Source: LICENSE
+Source Text:
+
+The ISC License
+
+Copyright (c) Isaac Z. Schlueter, Ben Noordhuis, and Contributors
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
+IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+-------------------------------------------------------------------------
+
+Package: graceful-readlink@1.0.1
+License: MIT
+License Source: LICENSE
+Source Text:
+
+The MIT License (MIT)
+
+Copyright (c) 2015 Zhiye Li
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
 
 -------------------------------------------------------------------------
 
@@ -4369,7 +4554,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: image-view@0.55.0
+Package: image-view@0.56.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -4518,62 +4703,6 @@ ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
 WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
 IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-
--------------------------------------------------------------------------
-
-Package: install@0.1.8
-License: MIT
-License Source: LICENSE
-Source Text:
-
-Copyright (c) 2012 Ben Newman <bn@cs.stanford.edu>
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
--------------------------------------------------------------------------
-
-Package: interval-skip-list@2.0.1
-License: MIT
-License Source: LICENSE.md
-Source Text:
-
-Copyright (c) 2013 GitHub Inc.
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
@@ -5031,7 +5160,7 @@ License
 LGPL
 -------------------------------------------------------------------------
 
-Package: jschardet@1.4.0
+Package: jschardet@1.4.1
 License: LGPL
 License Source: package.json
 
@@ -5288,7 +5417,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-css@0.34.0
+Package: language-css@0.35.0
 License: MIT
 License Source: package.json
 
@@ -5328,7 +5457,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-go@0.39.0
+Package: language-go@0.40.0
 License: MIT
 License Source: package.json
 
@@ -5346,13 +5475,13 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-java@0.16.0
+Package: language-java@0.16.1
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-javascript@0.98.0
+Package: language-javascript@0.100.0
 License: MIT
 License Source: package.json
 
@@ -5370,7 +5499,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-make@0.19.0
+Package: language-make@0.20.0
 License: MIT
 License Source: package.json
 
@@ -5410,13 +5539,13 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-perl@0.30.0
+Package: language-perl@0.31.0
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-php@0.32.0
+Package: language-php@0.34.0
 License: MIT
 License Source: package.json
 
@@ -5434,25 +5563,25 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-ruby-on-rails@0.23.0
+Package: language-ruby-on-rails@0.24.0
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-ruby@0.60.0
+Package: language-ruby@0.62.0
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-sass@0.42.0
+Package: language-sass@0.43.0
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-shellscript@0.19.0
+Package: language-shellscript@0.20.0
 License: MIT
 License Source: package.json
 
@@ -6080,7 +6209,7 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -------------------------------------------------------------------------
 
-Package: markdown-preview@0.156.0
+Package: markdown-preview@0.156.1
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -6132,6 +6261,12 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+-------------------------------------------------------------------------
+
+Package: marker-index@2.1.0
+License: MIT
+License Source: package.json
 
 -------------------------------------------------------------------------
 
@@ -6279,37 +6414,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 -------------------------------------------------------------------------
 
 Package: minimatch@0.3.0
-License: MIT
-License Source: LICENSE
-Source Text:
-
-Copyright 2009, 2010, 2011 Isaac Z. Schlueter.
-All rights reserved.
-
-Permission is hereby granted, free of charge, to any person
-obtaining a copy of this software and associated documentation
-files (the "Software"), to deal in the Software without
-restriction, including without limitation the rights to use,
-copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the
-Software is furnished to do so, subject to the following
-conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
-
--------------------------------------------------------------------------
-
-Package: minimatch@1.0.0
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -6618,7 +6722,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: node-uuid@1.4.3
+Package: node-uuid@1.4.4
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -7049,7 +7153,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: open-on-github@0.39.0
+Package: open-on-github@0.40.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -7336,7 +7440,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: pathwatcher@6.3.0
+Package: pathwatcher@6.2.5
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -7763,7 +7867,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: q@1.1.2
+Package: q@1.4.1
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -7791,6 +7895,12 @@ IN THE SOFTWARE.
 
 Package: qs@1.0.2
 License: BSD
+License Source: package.json
+
+-------------------------------------------------------------------------
+
+Package: random-seed@0.2.0
+License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
@@ -7864,7 +7974,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: recast@0.10.37
+Package: recast@0.10.38
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -8476,7 +8586,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: settings-view@0.231.0
+Package: settings-view@0.232.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -8616,7 +8726,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: snippets@0.101.0
+Package: snippets@1.0.1
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -8908,35 +9018,9 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: spdx-expression-parse@1.0.0
+Package: spdx-expression-parse@1.0.1
 License: MIT
-License Source: LICENSE
-Source Text:
-
-SPDX:MIT
-
-MIT License
-
-Copyright (c) 2015 Kyle E. Mitchell
-
-Permission is hereby granted, free of charge, to any person obtaining a 
-copy of this software and associated documentation files (the 
-"Software"), to deal in the Software without restriction, including 
-without limitation the rights to use, copy, modify, merge, publish, 
-distribute, sublicense, and/or sell copies of the Software, and to 
-permit persons to whom the Software is furnished to do so, subject to 
-the following conditions:
-
-The above copyright notice and this permission notice shall be included 
-in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS 
-OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+License Source: package.json
 
 -------------------------------------------------------------------------
 
@@ -8978,7 +9062,7 @@ License Source: package.json in repository
 
 -------------------------------------------------------------------------
 
-Package: spell-check@0.62.0
+Package: spell-check@0.63.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -9006,7 +9090,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: spellchecker@3.1.2
+Package: spellchecker@3.1.3
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -9449,7 +9533,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: symbols-view@0.110.0
+Package: symbols-view@0.110.1
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -9619,7 +9703,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: text-buffer@7.1.3
+Package: text-buffer@8.0.3
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -9777,7 +9861,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: tree-view@0.195.0
+Package: tree-view@0.198.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
