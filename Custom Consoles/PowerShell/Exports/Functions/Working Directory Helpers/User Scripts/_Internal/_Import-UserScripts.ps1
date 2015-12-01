@@ -10,7 +10,7 @@ function _Import-UserScripts {
     }
 
     if (-not (Test-Path $IncludeFile) -or (Is NullOrWhiteSpace -InputObject ([IO.File]::ReadAllText($IncludeFile)) -Bool) -and -not $ModuleInit) {
-        Write-Error "Include file ($IncludeFile) is empty or does not exist"
+        Write-Warning "Include file ($IncludeFile) is empty or does not exist"
     } else {
         Push-Location (Split-Path -Path $IncludeFile -Parent)
         try {
