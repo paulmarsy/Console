@@ -1,9 +1,9 @@
 function Test-Null {
 	param(
-		[Parameter(ValueFromPipeline = $true)]$InputObject,
+		[Parameter(Mandatory = $true, Position = 0, ValueFromPipeline = $true)]$InputObject,
 
 		[ValidateSet("Null", "NullOrEmpty", "NullOrWhiteSpace")]
-		[Parameter(Mandatory = $true, Position = 0)]
+		[Parameter(Mandatory = $true, Position = 1)]
 		$Type,
 
 		[switch]$Not,
