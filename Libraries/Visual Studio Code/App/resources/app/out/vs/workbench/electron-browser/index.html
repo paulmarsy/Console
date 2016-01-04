@@ -4,8 +4,6 @@
 	<head>
 		<meta charset="utf-8" />
 
-		<title>Visual Studio Code</title>
-
 		<!-- Theming (do not remove, we want to early load it to avoid flashing background) -->
 		<style>
 			.monaco-shell.vs-dark { background-color: #1E1E1E; }
@@ -95,34 +93,44 @@
 					});
 				}
 
-				// Workaround to prevent page navigation when backspace is pressed
-				window.addEventListener('keydown', function(e) {
-					if (e.which !== 8) {
-						return; // only interested in backspace
-					}
-
-					var targetTagName = e.target && (e.target).tagName && e.target.tagName.toLowerCase();
-					var targetReadOnly = e.target && e.target.readOnly;
-					if (targetTagName && (targetTagName === 'input' || targetTagName === 'textarea') && !targetReadOnly) {
-						return; // allow backspace in editable input/textarea
-					}
-
-					e.preventDefault();
-				});
-
 				process.on('uncaughtException', function(error) { onError(error, enableDeveloperTools) });
 			}
 		</script>
 
 		<!-- Startup Code -->
 		<script type="text/javascript">
+			var webFrame = require('web-frame');
+
 			var mainStarted = false;
 			var args = parseURLQueryArgs();
 			var configuration = JSON.parse(args['config']);
 			var enableDeveloperTools = !configuration.isBuilt || !!configuration.pluginDevelopmentPath;
 
+			process.env['VSCODE_SHARED_IPC_HOOK'] = configuration.sharedIPCHandle;
+
 			registerListeners(enableDeveloperTools);
 
+			// We get the global settings through a remote call from the browser
+			// because its value can change dynamically.
+			var globalSettings;
+			var globalSettingsValue = remote.getGlobal('globalSettingsValue');
+			if (globalSettingsValue) {
+				globalSettings = JSON.parse(globalSettingsValue);
+			} else {
+				globalSettings = {
+					settings: {},
+					keybindings: []
+				};
+			}
+
+			// disable pinch zoom & apply zoom level early to avoid glitches
+			var windowConfiguration = globalSettings.settings && globalSettings.settings.window;
+			webFrame.setZoomLevelLimits(1, 1);
+			if (windowConfiguration && typeof windowConfiguration.zoomLevel === 'number' && windowConfiguration.zoomLevel !== 0) {
+				webFrame.setZoomLevel(windowConfiguration.zoomLevel);
+			}
+
+			// Load the loader and start loading the workbench
 			var rootUrl = uriFromPath(configuration.appRoot) + '/out';
 			createScript(rootUrl + '/vs/loader.js', function() {
 				require.config({
@@ -138,18 +146,11 @@
 				window.MonacoEnvironment = {
 					'platform': remote.process.platform,
 					'enableTasks': hasWorkspaceContext,
-					'enableTelemetry': configuration.isBuilt && !configuration.pluginDevelopmentPath, // no telemetry in a window for plugin development!
-					'enablePrivateTelemetry': true,
 					'enableJavaScriptRewriting': true,
+					'enableSendASmile' : !!configuration.sendASmile,
 					'enableTypeScriptServiceMode': true || !process.env['VSCODE_TSWORKER'],
-					'enableTypeScriptServiceModeForJS': !!process.env['CODE_TSJS'],
-					'workersCount': 2,
-					enableExtensionGallery: !configuration.isBuilt || configuration.enableExtensionGallery
+					'enableTypeScriptServiceModeForJS': !!process.env['CODE_TSJS']
 				};
-
-				if (configuration.workers > 0) {
-					window.MonacoEnvironment.workersCount = configuration.workers;
-				}
 
 				var programStart = remote.getGlobal('programStart');
 				var vscodeStart = remote.getGlobal('vscodeStart');
@@ -172,19 +173,6 @@
 				], function() {
 					timers.afterLoad = new Date();
 
-					// We get the global settings through a remote call from the browser
-					// because its value can change dynamically.
-					var globalSettings;
-					var globalSettingsValue = remote.getGlobal('globalSettingsValue');
-					if (globalSettingsValue) {
-						globalSettings = JSON.parse(globalSettingsValue);
-					} else {
-						globalSettings = {
-							settings: {},
-							keybindings: []
-						};
-					}
-
 					var main = require('vs/workbench/electron-browser/main');
 					main.startup(configuration, globalSettings).then(function() {
 						mainStarted = true;
@@ -198,10 +186,9 @@
 		<script>
 			(function() {
 				try {
-					var defaultTheme = 'vs-dark';
 					var theme = window.localStorage.getItem('storage://global/workbench.theme');
-					if (theme && theme !== defaultTheme) {
-						window.document.body.className = 'monaco-shell'; // remove the default theme bit unless we are in default theme
+					if (theme && theme.indexOf('vs-dark') < 0) {
+						window.document.body.className = 'monaco-shell'; // remove the dark theme class if we are on a light theme
 					}
 				} catch (error) {
 					console.error(error);

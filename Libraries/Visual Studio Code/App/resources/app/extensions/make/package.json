@@ -7,7 +7,8 @@
 		"languages": [{
 			"id": "makefile",
 			"aliases": ["Makefile", "makefile"],
-			"filenames": [ "Makefile", "makefile", "GNUmakefile", "OCamlMakefile" ]
+			"filenames": [ "Makefile", "makefile", "GNUmakefile", "OCamlMakefile" ],
+			"configuration": "./make.configuration.json"
 		}],
 		"grammars": [{
 			"language": "makefile",

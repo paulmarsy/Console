@@ -3,20 +3,17 @@
 	"version": "0.1.0",
 	"publisher": "vscode",
 	"engines": { "vscode": "*" },
-	"activationEvents": ["onLanguage:lua"],
-	"main": "./out/luaMain",
 	"contributes": {
 		"languages": [{
 			"id": "lua",
 			"extensions": [ ".lua" ],
-			"aliases": [ "Lua", "lua" ]
+			"aliases": [ "Lua", "lua" ],
+			"configuration": "./lua.configuration.json"
+		}],
+		"grammars": [{
+			"language": "lua",
+			"scopeName": "source.lua",
+			"path": "./syntaxes/Lua.plist"
 		}]
-	},
-	"isAMD": true,
-	"scripts": {
-		"vscode:prepublish": "node ../../node_modules/gulp/bin/gulp.js --gulpfile ../../gulpfile.plugins.js compile-plugin:lua"
-	},
-	"_bundling": [
-		{ "name": "./out/luaMain" }
-	]
+	}
 }

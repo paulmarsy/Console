@@ -1,1 +1,0 @@
-!function(){var e,n,t=window.external&&window.external.pluginUrl||(e=document.cookie.match(/(?:^|;)\s?pluginUrl=(.*?)(?:;|$)/))&&unescape(e[1])||(n=document.location.search.match(/[\?&]pluginUrl=(.*?)(?:&|#|$)/))&&unescape(n[1])||"plugin.b.js";t&&document.write('<script src="'+t+'" type="text/javascript"></script>')}();

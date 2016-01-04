@@ -3,21 +3,17 @@
 	"version": "0.1.0",
 	"publisher": "vscode",
 	"engines": { "vscode": "*" },
-	"activationEvents": ["onLanguage:java"],
-	"main": "./out/javaMain",
 	"contributes": {
 		"languages": [{
 			"id": "java",
 			"extensions": [ ".java", ".jav" ],
 			"aliases": [ "Java", "java" ],
-			"mimetypes": ["text/x-java-source", "text/x-java"]
+			"configuration": "./java.configuration.json"
+		}],
+		"grammars": [{
+			"language": "java",
+			"scopeName": "source.java",
+			"path": "./syntaxes/Java.plist"
 		}]
-	},
-	"isAMD": true,
-	"scripts": {
-		"vscode:prepublish": "node ../../node_modules/gulp/bin/gulp.js --gulpfile ../../gulpfile.plugins.js compile-plugin:java"
-	},
-	"_bundling": [
-		{ "name": "./out/javaMain" }
-	]
+	}
 }

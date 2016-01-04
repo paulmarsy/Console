@@ -1,9 +1,0 @@
-// These dependencies come in at build time
-// TODO@Joh: unfortunately we're gonna need a deep dependency list
-
-[{
-	"name": "Omnisharp-roslyn",
-	"repositoryURL": "https://github.com/OmniSharp/omnisharp-roslyn",
-	"version": "1.1.1",
-	"license": "MIT"
-}]

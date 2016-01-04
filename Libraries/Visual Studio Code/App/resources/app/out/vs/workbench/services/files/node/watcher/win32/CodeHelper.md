@@ -1,6 +1,6 @@
-# Native File Watching for Windows
+# Native File Watching for Windows using C# FileSystemWatcher
 
-- Repository: https://monacotools.visualstudio.com/DefaultCollection/Monaco/_git/FileWatcher
+- Repository: https://github.com/Microsoft/vscode-filewatcher-windows
 
 # Build
 

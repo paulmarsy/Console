@@ -3,20 +3,17 @@
 	"version": "0.1.0",
 	"publisher": "vscode",
 	"engines": { "vscode": "*" },
-	"activationEvents": ["onLanguage:fsharp"],
-	"main": "./out/fsharpMain",
 	"contributes": {
 		"languages": [{
 			"id": "fsharp",
 			"extensions": [ ".fs", ".fsi", ".ml", ".mli", ".fsx", ".fsscript" ],
-			"aliases": [ "F#", "FSharp", "fsharp" ]
+			"aliases": [ "F#", "FSharp", "fsharp" ],
+			"configuration": "./fsharp.configuration.json"
+		}],
+		"grammars": [{
+			"language": "fsharp",
+			"scopeName": "source.fsharp",
+			"path": "./syntaxes/fsharp.json"
 		}]
-	},
-	"isAMD": true,
-	"scripts": {
-		"vscode:prepublish": "node ../../node_modules/gulp/bin/gulp.js --gulpfile ../../gulpfile.plugins.js compile-plugin:fsharp"
-	},
-	"_bundling": [
-		{ "name": "./out/fsharpMain" }
-	]
+	}
 }

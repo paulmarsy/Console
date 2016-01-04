@@ -3,7 +3,6 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>Visual Studio Code</title>
 		<style>
 			html, body {
 				margin: 0;
@@ -64,13 +63,16 @@
 				font-size: 13px;
 				text-align: center;
 			}
+			input {
+				font-family: "Segoe WPC", "Segoe UI", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback" !important;
+			}
 		</style>
 		<script>
 			var shell = require('shell');
 			var ipc = require('ipc');
 			var remote = require('remote');
 			var currentWindow = remote.getCurrentWindow();
-			
+
 			function init(context) {
 				var $username = document.getElementById('username');
 				var $password = document.getElementById('password');
@@ -78,7 +80,7 @@
 				var $host = document.getElementById('host');
 				var $cancel = document.getElementById('cancel');
 				var $credentialHelper = document.getElementById('credentialhelper');
-				
+
 				var submit = function () {
 					ipc.send('git:askpass', {
 						id: context.id,
@@ -90,13 +92,13 @@
 					currentWindow.close();
 					return false;
 				};
-				
+
 				var cancel = function () {
 					currentWindow.close();
 				};
-				
+
 				$host.textContent = context.host;
-				
+
 				$form.addEventListener('submit', submit);
 				$cancel.addEventListener('click', cancel);
 				$credentialHelper.addEventListener('click', function (e) {
@@ -104,14 +106,14 @@
 					e.stopPropagation();
 					shell.openExternal('https://help.github.com/articles/caching-your-github-password-in-git/');
 				});
-				
+
 				document.body.addEventListener('keydown', function (e) {
 					switch (e.keyCode) {
 						case 27: e.preventDefault(); e.stopPropagation(); return cancel();
 						case 13: e.preventDefault(); e.stopPropagation(); return submit();
 					}
 				});
-				
+
 				$username.focus();
 			}
 		</script>

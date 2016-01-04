@@ -3,20 +3,28 @@
 	"version": "0.1.0",
 	"publisher": "vscode",
 	"engines": { "vscode": "*" },
-	"activationEvents": ["onLanguage:cpp"],
-	"main": "./out/cppMain",
 	"contributes": {
 		"languages": [{
+			"id": "c",
+			"extensions": [ ".c" ],
+			"aliases": [ "C", "c" ],
+			"configuration": "./cpp.configuration.json"
+		},
+		{
 			"id": "cpp",
-			"extensions": [ ".cpp", ".c", ".cc", ".cxx", ".h", ".hpp", ".hh", ".hxx" ],
-			"aliases": [ "C++", "Cpp", "cpp", "c" ]
+			"extensions": [ ".cpp", ".cc", ".cxx", ".hpp", ".hh", ".hxx", ".h" ],
+			"aliases": [ "C++", "Cpp", "cpp"],
+			"configuration": "./cpp.configuration.json"
+		}],
+		"grammars": [{
+			"language": "c",
+			"scopeName": "source.c",
+			"path": "./syntaxes/c.plist"
+		},
+		{
+			"language": "cpp",
+			"scopeName": "source.c++",
+			"path": "./syntaxes/c++.plist"
 		}]
-	},
-	"isAMD": true,
-	"scripts": {
-		"vscode:prepublish": "node ../../node_modules/gulp/bin/gulp.js --gulpfile ../../gulpfile.plugins.js compile-plugin:cpp"
-	},
-	"_bundling": [
-		{ "name": "./out/cppMain" }
-	]
+	}
 }

@@ -7,12 +7,17 @@
 		"languages": [{
 			"id": "groovy",
 			"aliases": ["Groovy", "groovy"],
-			"extensions": [".groovy", ".gvy", ".gradle"]
+			"extensions": [".groovy", ".gvy", ".gradle"],
+			"configuration": "./groovy.configuration.json"
 		}],
 		"grammars": [{
 			"language": "groovy",
 			"scopeName": "source.groovy",
 			"path": "./syntaxes/Groovy.tmLanguage"
+		}],
+		"snippets": [{
+			"language": "groovy",
+			"path": "./snippets/groovy.json"
 		}]
 	}
 }
