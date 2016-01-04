@@ -4,8 +4,8 @@ function Connect-Remote {
         [Parameter(Mandatory=$true, Position=1)][System.String]$ComputerName,
         [Parameter(Mandatory=$false, Position=2)][ValidateSet("PowerShell", "RDP", "SSH", "TELNET", "VNC", "HTTP", "HTTPS")][System.String]$InteractiveType = "RDP",
         [AllowNull()][System.UInt16]$Port = 0,
-        [System.String]$Username = $null,
-		[System.String]$Password = $null,
+        [System.String]$Username,
+		[System.String]$Password,
         [switch]$UseWindowsLogon
     )
     
@@ -43,7 +43,7 @@ function Connect-Remote {
             "PowerShell" {
                 $parameters = @{ComputerName = $ComputerName}
                 if (0 -ne $Port) { $parameters += @{"Port" = $Port} }
-                if ($null -ne $Username -and $null -ne $Password) {
+                if ((Is $Username -Not NullOrWhiteSpace -Bool) -and (Is $Password -Not NullOrWhiteSpace -Bool)) {
                     $securePassword = ConvertTo-SecureString $Password -AsPlainText -Force
                     $credentials = New-Object System.Management.Automation.PSCredential ($Username, $securePassword)
                     $parameters += @{"Credential" = $credentials}
@@ -62,7 +62,7 @@ function Connect-Remote {
            		}
            		New-ItemProperty $localDevicesPath $ComputerName -Value 0x26f -Type DWord -Force | Out-Null
 
-                if ($null -ne $Username -and $null -ne $Password) {
+                if ((Is $Username -Not NullOrWhiteSpace -Bool) -and (Is $Password -Not NullOrWhiteSpace -Bool)) {
                     Start-Process -FilePath "cmdkey.exe" -ArgumentList @("/generic:`"TERMSRV/$ComputerName`"", "/user:`"$Username`"", "/pass:`"$Password`"") -WindowStyle Hidden -Wait
                 }
                 
@@ -80,7 +80,7 @@ function Connect-Remote {
 
                     Remove-ItemProperty $LocalDevicesPath $ComputerName -Force | Out-Null
 
-                    if ($null -ne $Username -and $null -ne $Password) {
+                    if ((Is $Username -Not NullOrWhiteSpace -Bool) -and (Is $Password -Not NullOrWhiteSpace -Bool)) {
                         Start-Process -FilePath "cmdkey.exe" -ArgumentList @("/delete:`"TERMSRV/$ComputerName`"") -WindowStyle Hidden
                     }
                 } -ArgumentList @($arguments, $ComputerName, $Username, $Password, $localDevicesPath) | Out-Null # TODO: Clean up this job once it has finished somehow
@@ -88,8 +88,8 @@ function Connect-Remote {
             "SSH" {
                 $arguments = @($ComputerName, "-agent")
                 if (0 -ne $Port) { $arguments += "-P $Port" }
-                if ($null -ne $Username) { $arguments += "-l `"$Username`"" }
-                if ($null -ne $Password) { $arguments += "-pw `"$Password`"" }
+                if (Is $Username -Not NullOrWhiteSpace -Bool) { $arguments += "-l `"$Username`"" }
+                if (Is $Password -Not NullOrWhiteSpace -Bool) { $arguments += "-pw `"$Password`"" }
                 if ($null -ne $PSCmdlet.MyInvocation.BoundParameters["DontStartShell"]) { $arguments += "-N" }
                 if (-not ([string]::IsNullOrWhiteSpace($PSCmdlet.MyInvocation.BoundParameters["RemoteCommand"]))) { $arguments += "-s $($PSCmdlet.MyInvocation.BoundParameters["RemoteCommand"])" }
                 $keyFilePath = $PSCmdlet.MyInvocation.BoundParameters["KeyFile"]
@@ -109,7 +109,7 @@ function Connect-Remote {
             }
             "TELNET" {
                 $arguments = @()
-                if ($null -ne $Username) { "-l $Username" }
+                if (Is $Username -Not NullOrWhiteSpace -Bool) { "-l $Username" }
                 $arguments += $ComputerName
                 if (0 -ne $Port) { $arguments += $Port }
 
@@ -122,11 +122,11 @@ function Connect-Remote {
                 }
 
                 $arguments = @("WarnUnencrypted=0", "EnableChat=0", "EnableRemotePrinting=0", "SecurityNotificationTimeout=0")
-                if ($null -ne $UserName) {
+                if (Is $Username -Not NullOrWhiteSpace -Bool) {
                     $arguments += "UserName=`"$($UserName)`""
                 }
                 
-                if ($null -ne $Password) {
+                if (Is $Password -Not NullOrWhiteSpace -Bool) {
                     $vncpasswordApp = switch ([System.Environment]::Is64BitOperatingSystem) {
                         $true { "vncpassword-x64.exe" }
                         $false { "vncpassword-x86.exe" }
@@ -149,7 +149,7 @@ function Connect-Remote {
 
                     Start-Process -FilePath $vncExecutable -ArgumentList $arguments -Wait
 
-                    if ($null -ne $passwordFile -and (Test-Path $passwordFile)) {
+                    if (Is $Password -Not NullOrWhiteSpace -BoolFile -and (Test-Path $passwordFile)) {
                         Remove-Item -Path $passwordFile -Force
                     }
                 } -ArgumentList @($vncExecutable, $arguments, $passwordFile) | Out-Null
@@ -157,10 +157,10 @@ function Connect-Remote {
             "HTTP" {
                 if (0 -eq $Port) { $Port = 80 }
                 $prefix = [string]::Empty
-                if ($null -ne $Username -or $null -ne $Password) {
-                    if ($null -ne $Username) { $prefix = $Username }
+                if (Is $Username -Not NullOrWhiteSpace -Bool -or Is $Password -Not NullOrWhiteSpace -Bool) {
+                    if (Is $Username -Not NullOrWhiteSpace -Bool) { $prefix = $Username }
                     $prefix += ":"
-                    if ($null -ne $Password) { $prefix += $Password }
+                    if (Is $Password -Not NullOrWhiteSpace -Bool) { $prefix += $Password }
                     $prefix += "@"
                 }
                 
@@ -169,10 +169,10 @@ function Connect-Remote {
             "HTTPS" {
                 if (0 -eq $Port) { $Port = 443 }
                 $prefix = [string]::Empty
-                if ($null -ne $Username -or $null -ne $Password) {
-                    if ($null -ne $Username) { $prefix = $Username }
+                if (Is $Username -Not NullOrWhiteSpace -Bool -or Is $Password -Not NullOrWhiteSpace -Bool) {
+                    if (Is $Username -Not NullOrWhiteSpace -Bool) { $prefix = $Username }
                     $prefix += ":"
-                    if ($null -ne $Password) { $prefix += $Password }
+                    if (Is $Password -Not NullOrWhiteSpace -Bool) { $prefix += $Password }
                     $prefix += "@"
                 }
                 
