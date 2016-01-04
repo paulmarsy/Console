@@ -3,6 +3,8 @@
 
   apm = require('./apm-cli');
 
+  process.title = 'apm';
+
   apm.run(process.argv.slice(2), function(error) {
     var code, exit;
     code = error != null ? 1 : 0;

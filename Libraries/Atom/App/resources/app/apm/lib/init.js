@@ -1,7 +1,8 @@
 (function() {
   var Command, Init, fs, path, yargs,
     __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   path = require('path');
 
@@ -20,11 +21,14 @@
 
     Init.commandNames = ['init'];
 
+    Init.prototype.supportedSyntaxes = ['coffeescript', 'javascript'];
+
     Init.prototype.parseOptions = function(argv) {
       var options;
       options = yargs(argv).wrap(100);
-      options.usage("Usage:\n  apm init -p <package-name>\n  apm init -p <package-name> -c ~/Downloads/r.tmbundle\n  apm init -p <package-name> -c https://github.com/textmate/r.tmbundle\n  apm init -p <package-name> --template /path/to/your/package/template\n\n  apm init -t <theme-name>\n  apm init -t <theme-name> -c ~/Downloads/Dawn.tmTheme\n  apm init -t <theme-name> -c https://raw.github.com/chriskempson/tomorrow-theme/master/textmate/Tomorrow-Night-Eighties.tmTheme\n  apm init -t <theme-name> --template /path/to/your/theme/template\n\n  apm init -l <language-name>\n\nGenerates code scaffolding for either a theme or package depending\non the option selected.");
+      options.usage("Usage:\n  apm init -p <package-name>\n  apm init -p <package-name> --syntax <javascript-or-coffeescript>\n  apm init -p <package-name> -c ~/Downloads/r.tmbundle\n  apm init -p <package-name> -c https://github.com/textmate/r.tmbundle\n  apm init -p <package-name> --template /path/to/your/package/template\n\n  apm init -t <theme-name>\n  apm init -t <theme-name> -c ~/Downloads/Dawn.tmTheme\n  apm init -t <theme-name> -c https://raw.github.com/chriskempson/tomorrow-theme/master/textmate/Tomorrow-Night-Eighties.tmTheme\n  apm init -t <theme-name> --template /path/to/your/theme/template\n\n  apm init -l <language-name>\n\nGenerates code scaffolding for either a theme or package depending\non the option selected.");
       options.alias('p', 'package').string('package').describe('package', 'Generates a basic package');
+      options.alias('s', 'syntax').string('syntax').describe('syntax', 'Sets package syntax to CoffeeScript or JavaScript');
       options.alias('t', 'theme').string('theme').describe('theme', 'Generates a basic theme');
       options.alias('l', 'language').string('language').describe('language', 'Generates a basic language package');
       options.alias('c', 'convert').string('convert').describe('convert', 'Path or URL to TextMate bundle/theme to convert');
@@ -33,7 +37,7 @@
     };
 
     Init.prototype.run = function(options) {
-      var callback, languageName, languagePath, packagePath, templatePath, themePath, _ref, _ref1, _ref2;
+      var callback, languageName, languagePath, packagePath, syntax, templatePath, themePath, _ref, _ref1, _ref2;
       callback = options.callback;
       options = this.parseOptions(options.commandArgs);
       if (((_ref = options.argv["package"]) != null ? _ref.length : void 0) > 0) {
@@ -41,7 +45,11 @@
           return this.convertPackage(options.argv.convert, options.argv["package"], callback);
         } else {
           packagePath = path.resolve(options.argv["package"]);
-          templatePath = this.getTemplatePath(options.argv, 'package');
+          syntax = options.argv.syntax || this.supportedSyntaxes[0];
+          if (__indexOf.call(this.supportedSyntaxes, syntax) < 0) {
+            return callback("You must specify one of " + (this.supportedSyntaxes.join(', ')) + " after the --syntax argument");
+          }
+          templatePath = this.getTemplatePath(options.argv, "package-" + syntax);
           this.generateFromTemplate(packagePath, templatePath);
           return callback();
         }

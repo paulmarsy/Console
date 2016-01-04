@@ -93,6 +93,9 @@
         if (!fs.isDirectorySync(path.join(directoryPath, child))) {
           continue;
         }
+        if (child.match(/^\./)) {
+          continue;
+        }
         if (!options.argv.links) {
           if (fs.isSymbolicLinkSync(path.join(directoryPath, child))) {
             continue;

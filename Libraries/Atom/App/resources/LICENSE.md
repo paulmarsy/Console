@@ -728,7 +728,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: atom-keymap@6.1.1
+Package: atom-keymap@6.2.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -902,7 +902,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: atom@1.3.0-beta6
+Package: atom@1.4.0-beta3
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -992,13 +992,13 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: autocomplete-plus@2.23.0
+Package: autocomplete-plus@2.25.0
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: autocomplete-snippets@1.8.0
+Package: autocomplete-snippets@1.9.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -1308,7 +1308,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: balanced-match@0.2.1
+Package: balanced-match@0.3.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -1485,7 +1485,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: bootstrap@3.3.5
+Package: bootstrap@3.3.6
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -1514,7 +1514,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: brace-expansion@1.1.1
+Package: brace-expansion@1.1.2
 License: MIT
 License Source: package.json
 
@@ -1636,7 +1636,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: cached-run-in-this-context@0.4.0
+Package: cached-run-in-this-context@0.4.1
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -1666,6 +1666,35 @@ SOFTWARE.
 -------------------------------------------------------------------------
 
 Package: camelcase@1.2.1
+License: MIT
+License Source: LICENSE
+Source Text:
+
+The MIT License (MIT)
+
+Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+-------------------------------------------------------------------------
+
+Package: camelcase@2.0.1
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -1851,7 +1880,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: cliui@3.0.3
+Package: cliui@3.1.0
 License: ISC
 License Source: package.json
 
@@ -2126,7 +2155,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: command-palette@0.37.0
+Package: command-palette@0.38.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -2574,7 +2603,7 @@ IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: crc@3.3.0
+Package: crc@3.4.0
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -3155,7 +3184,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: es5-ext@0.10.8
+Package: es5-ext@0.10.11
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -3263,7 +3292,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: es6-symbol@3.0.1
+Package: es6-symbol@3.0.2
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -3358,7 +3387,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: esprima@2.7.0
+Package: esprima@2.7.1
 License: BSD
 License Source: package.json
 
@@ -3536,7 +3565,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: find-and-replace@0.191.0
+Package: find-and-replace@0.194.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -3910,7 +3939,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: fuzzy-finder@0.93.0
+Package: fuzzy-finder@0.94.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -4436,7 +4465,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: highlights@1.3.0
+Package: highlights@1.3.1
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -5364,13 +5393,13 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: language-c@0.49.0
+Package: language-c@0.51.1
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-clojure@0.18.0
+Package: language-clojure@0.19.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -5426,7 +5455,7 @@ SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: language-coffee-script@0.43.0
+Package: language-coffee-script@0.46.0
 License: MIT
 License Source: package.json
 
@@ -5438,13 +5467,13 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-css@0.35.0
+Package: language-css@0.36.0
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-gfm@0.81.0
+Package: language-gfm@0.82.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -5472,7 +5501,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: language-git@0.10.0
+Package: language-git@0.11.0
 License: MIT
 License Source: package.json
 
@@ -5484,43 +5513,43 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-html@0.42.0
+Package: language-html@0.43.1
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-hyperlink@0.15.0
+Package: language-hyperlink@0.16.0
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-java@0.16.1
+Package: language-java@0.17.0
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-javascript@0.100.0
+Package: language-javascript@0.104.0
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-json@0.17.1
+Package: language-json@0.17.2
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-less@0.28.3
+Package: language-less@0.29.0
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-make@0.20.0
+Package: language-make@0.21.0
 License: MIT
 License Source: package.json
 
@@ -5554,13 +5583,13 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: language-objective-c@0.15.0
+Package: language-objective-c@0.15.1
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-perl@0.31.0
+Package: language-perl@0.32.0
 License: MIT
 License Source: package.json
 
@@ -5578,7 +5607,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-python@0.41.0
+Package: language-python@0.42.1
 License: MIT
 License Source: package.json
 
@@ -5590,19 +5619,19 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-ruby@0.62.0
+Package: language-ruby@0.65.0
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-sass@0.43.0
+Package: language-sass@0.45.0
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-shellscript@0.20.0
+Package: language-shellscript@0.21.0
 License: MIT
 License Source: package.json
 
@@ -5614,7 +5643,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-sql@0.19.0
+Package: language-sql@0.20.0
 License: MIT
 License Source: package.json
 
@@ -5632,7 +5661,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-toml@0.16.0
+Package: language-toml@0.18.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -5660,19 +5689,19 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: language-xml@0.34.0
+Package: language-xml@0.34.2
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-yaml@0.24.0
+Package: language-yaml@0.25.0
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: lazy-cache@0.2.4
+Package: lazy-cache@0.2.7
 License: MIT
 License Source: LICENSE
 Source Text:
@@ -6150,7 +6179,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: lru-cache@2.7.0
+Package: lru-cache@2.7.3
 License: ISC
 License Source: LICENSE
 Source Text:
@@ -6230,7 +6259,7 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -------------------------------------------------------------------------
 
-Package: markdown-preview@0.156.1
+Package: markdown-preview@0.157.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -6285,13 +6314,13 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: marker-index@2.1.1
+Package: marker-index@3.1.0
 License: MIT
 License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: metrics@0.53.0
+Package: metrics@0.53.1
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -6864,7 +6893,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 -------------------------------------------------------------------------
 
-Package: notifications@0.61.0
+Package: notifications@0.62.1
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -7062,7 +7091,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: one-dark-ui@1.1.5
+Package: one-dark-ui@1.1.8
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -7118,7 +7147,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: one-light-ui@1.1.5
+Package: one-light-ui@1.1.8
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -8607,7 +8636,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: settings-view@0.232.0
+Package: settings-view@0.232.1
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -9039,9 +9068,33 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: spdx-expression-parse@1.0.1
+Package: spdx-expression-parse@1.0.2
 License: MIT
-License Source: package.json
+License Source: LICENSE
+Source Text:
+
+The MIT License
+
+Copyright (c) 2015 Kyle E. Mitchell and other contributors
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
@@ -9724,7 +9777,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: text-buffer@8.0.4
+Package: text-buffer@8.1.2
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -9972,7 +10025,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: tunnel-agent@0.4.1
+Package: tunnel-agent@0.4.2
 License: Apache
 License Source: LICENSE
 Source Text:
@@ -10540,7 +10593,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 -------------------------------------------------------------------------
 
-Package: welcome@0.32.0
+Package: welcome@0.33.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -10568,7 +10621,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: whitespace@0.32.0
+Package: whitespace@0.32.1
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -10882,7 +10935,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: yargs@3.30.0
+Package: yargs@3.31.0
 License: MIT
 License Source: LICENSE
 Source Text:

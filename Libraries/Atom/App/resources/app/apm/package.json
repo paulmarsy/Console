@@ -1,7 +1,7 @@
 {
   "name": "atom-package-manager",
   "description": "Atom package manager",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -52,20 +52,20 @@
     "grunt-coffeelint": "0.0.13",
     "coffee-script": "^1.8.0"
   },
-  "gitHead": "42073a7214463af848a54bc134b413fae7df6cbf",
+  "gitHead": "92048258141eab66958f680b309937269a382c03",
   "homepage": "https://github.com/atom/apm#readme",
-  "_id": "atom-package-manager@1.4.1",
-  "_shasum": "114411152b3496e1421e9f453a6bc21f8e50a9ee",
-  "_from": "atom-package-manager@1.4.1",
-  "_npmVersion": "2.11.3",
-  "_nodeVersion": "0.12.7",
+  "_id": "atom-package-manager@1.5.0",
+  "_shasum": "a887de28f7e21033b186b2214b6f99da83b4c817",
+  "_from": "atom-package-manager@1.5.0",
+  "_npmVersion": "3.3.12",
+  "_nodeVersion": "5.1.0",
   "_npmUser": {
-    "name": "izuzak",
-    "email": "izuzak@gmail.com"
+    "name": "thedaniel",
+    "email": "danielwh@gmail.com"
   },
   "dist": {
-    "shasum": "114411152b3496e1421e9f453a6bc21f8e50a9ee",
-    "tarball": "http://registry.npmjs.org/atom-package-manager/-/atom-package-manager-1.4.1.tgz"
+    "shasum": "a887de28f7e21033b186b2214b6f99da83b4c817",
+    "tarball": "http://registry.npmjs.org/atom-package-manager/-/atom-package-manager-1.5.0.tgz"
   },
   "maintainers": [
     {
@@ -93,11 +93,15 @@
       "email": "probablycorey@gmail.com"
     },
     {
+      "name": "thedaniel",
+      "email": "danielwh@gmail.com"
+    },
+    {
       "name": "zcbenz",
       "email": "zcbenz@gmail.com"
     }
   ],
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/atom-package-manager/-/atom-package-manager-1.4.1.tgz",
+  "_resolved": "https://registry.npmjs.org/atom-package-manager/-/atom-package-manager-1.5.0.tgz",
   "readme": "ERROR: No README data found!"
 }
