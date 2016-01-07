@@ -1,4 +1,8 @@
-# Minimap package [![Build Status](https://travis-ci.org/atom-minimap/minimap.svg?branch=master)](https://travis-ci.org/atom-minimap/minimap)
+[![Build Status](https://travis-ci.org/atom-minimap/minimap.svg?branch=master)](https://travis-ci.org/atom-minimap/minimap)
+[![APM Version](https://img.shields.io/apm/v/minimap.svg)](https://atom.io/packages/minimap)
+[![APM Downloads](https://img.shields.io/apm/dm/minimap.svg)](https://atom.io/packages/minimap)
+
+# Minimap package
 
 A preview of the full source code.
 
@@ -27,21 +31,27 @@ Package|Description
 [Auto-Hide](https://atom.io/packages/minimap-autohide)|Hides the Minimap while editing.
 [Bookmarks](https://atom.io/packages/minimap-bookmarks)|Displays Atom bookmarks.
 [Code Glance](https://atom.io/packages/minimap-codeglance)|Shows the code that's under the mouse cursor when hovering the Minimap.
+[Cursor Line](https://atom.io/packages/minimap-cursorline)|Highlights the line with cursor.
 [Find And Replace](https://atom.io/packages/minimap-find-and-replace)|Displays the search matches.
 [Git Diff](https://atom.io/packages/minimap-git-diff)|Displays the file diff.
+[Google-Repo-Diff-Minimap](https://atom.io/packages/google-repo-diff-minimap)|A Minimap binding for the [google-repo-diff](https://atom.io/packages/google-repo-diff) package and [google-repo](https://atom.io/packages/google-repo) package.
+[GPool-Diff-Minimap](https://atom.io/packages/gpool-diff-minimap)|A minimap binding for the [gpool-diff](https://atom.io/packages/gpool-diff) package.
 [Hide on inactive panes](https://atom.io/packages/minimap-hide)|Hide the Minimap when pane isn't focus.
 [Highlight Selected](https://atom.io/packages/minimap-highlight-selected)|A Minimap binding for the [highlight-selected](http://atom.io/packages/highlight-selected) package.
 [Linter](https://atom.io/packages/minimap-linter)|Displays [linter](https://atom.io/packages/linter) markers.
 [Pigments](https://atom.io/packages/minimap-pigments)|Displays the [Pigments](https://atom.io/packages/pigments) colors.
 [Selection](https://atom.io/packages/minimap-selection)|Display the buffer's selections.
 [Split-Diff](https://atom.io/packages/minimap-split-diff)|A Minimap binding for the [split-diff](https://atom.io/packages/split-diff) package.
-[Google-Repo-Diff-Minimap](https://atom.io/packages/google-repo-diff-minimap)|A Minimap binding for the [google-repo-diff](https://atom.io/packages/google-repo-diff) package and [google-repo](https://atom.io/packages/google-repo) package.
 
 ### Settings
 
 #### Auto Toggle
 
 If checked the Minimap is toggled on at startup. `(default=true)`
+
+#### Device Pixel Ratio Rounding
+
+If checked the `devicePixelRatio` will be rounded using `Math.floor`. `(default=true)`
 
 #### Display Code Highlights
 
@@ -109,6 +119,13 @@ Toggles the display of a side line showing which part of the buffer is currently
 
 When plugins are installed, a setting is created for each to enable/disable them directly from the Minimap settings view.
 
+#### Smooth Scrolling
+
+Whether to offset the minimap canvas when scrolling to keep the scroll smooth. When `true` the minimap canvas will be offseted, resulting in a smoother scroll, but with the side-effect of a blurry minimap when the canvas is placed between pixels. When `false` the canvas will always stay at the same position, and will never look blurry, but the scroll will appear more jagged. `(default=true)`
+
+`true`|`false`
+---|---
+![](https://github.com/atom-minimap/minimap/blob/master/resources/smooth-scroll.png?raw=true)|![](https://github.com/atom-minimap/minimap/blob/master/resources/no-smooth-scroll.png?raw=true)
 
 #### Scroll Animation
 
@@ -137,7 +154,7 @@ Note that this setting will do nothing if `Display Minimap On Left` is also enab
 
 The Minimap package doesn't provide any default keybindings. But you can define your own as demonstrated below:
 
-```cson
+```coffee
 'atom-workspace':
   'cmd-m': 'minimap:toggle'
   'ctrl-alt-cmd-j': 'minimap:generate-javascript-plugin'
@@ -256,21 +273,22 @@ Starting with version 4.13, the Minimap can operate in a stand-alone mode. Basic
 
 The example below demonstrates how to retrieve and display a stand-alone Minimap:
 
-```coffee
-atom.packages.serviceHub.consume 'minimap', '1.0.0', (api) ->
+```js
+atom.packages.serviceHub.consume('minimap', '1.0.0', (api) => {
   editor = atom.workspace.getActiveTextEditor()
   minimap = api.standAloneMinimapForEditor(editor)
 
   minimapElement = atom.views.getView(minimap)
   minimapElement.attach(document.body)
-  minimapElement.style.cssText = '''
+  minimapElement.style.cssText = `
     width: 300px;
     height: 300px;
     position: fixed;
     top: 0;
     right: 100px;
     z-index: 10;
-  '''
+  `
+})
 ```
 
 In a nutshell, here's the main changes to expect when using a stand-alone Minimap:
@@ -293,15 +311,15 @@ While the interface is the same, some details such as the available decorations 
 
 The most important change is that decorations on the Minimap doesn't use a `class`, but rather a `scope`
 
-```coffee
-minimapView.decorateMarker(marker, type: 'line', scope: '.scope .to .the.marker.style')
+```js
+minimapView.decorateMarker(marker, {type: 'line', scope: '.scope .to .the.marker.style'})
 ```
 
 It's still possible to pass a class parameter to the decoration:
 
 
-```coffee
-minimapView.decorateMarker(marker, type: 'line', class: 'the marker style')
+```js
+minimapView.decorateMarker(marker, {type: 'line', class: 'the marker style'})
 ```
 
 In that case, when rendering the decoration a scope will be build that will look like `.minimap .editor .the.marker.style`.
@@ -322,8 +340,8 @@ Also note that only the `background` property will be retrieved to style a decor
 
 A last option is to pass a css color directly in a `color` option, such as:
 
-```coffee
-minimapView.decorateMarker(marker, type: 'line', color: '#ff0000')
+```js
+minimapView.decorateMarker(marker, {type: 'line', color: '#ff0000'})
 ```
 
 In that case neither the scope nor the class will be used.
@@ -339,4 +357,4 @@ Another non-trivial change is the list of available decoration's type. At the ti
 
 ### License
 
-MIT
+[MIT](./LICENSE)
