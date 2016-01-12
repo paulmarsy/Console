@@ -4,6 +4,6 @@ Invoke-InstallStep "Redirecting SmartGit updates directory" {
 	@("updates", "updater") | % {
 		$redirectedPath = Join-Path $Env:TEMP "SmartGit-$($_)"
 		$originalPath = Join-Path $smartGitCustomSettingsPath $_
-		ConvertTo-DirectoryJunction -JunctionPath $originalPath -TargetPath $redirectedPath
+		ConvertTo-DirectoryJunction -JunctionPath $redirectedPath -TargetPath $originalPath
 	}
 }
