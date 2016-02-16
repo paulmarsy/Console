@@ -1,7 +1,7 @@
 -- started: 2012-04-20
 
 -- This plugin does not support reloading the default script on the fly.
-if far.ReloadDefaultScript then return end
+if not (...) then return end
 
 local function LOG (fmt, ...)
   win.OutputDebugString(fmt:format(...))
@@ -60,7 +60,17 @@ function _G.Keys (...)
     local str=select(n,...)
     if type(str)=="string" then
       for key in str:gmatch("%S+") do
-        co_yield(PROPAGATE, F.MPRT_KEYS, keymacro.TransformKey(key))
+        local cnt,name = key:match("^(%d+)%*(.+)")
+        if cnt then cnt = tonumber(cnt)
+        else        cnt,name = 1,key
+        end
+        local lname = name:lower()
+        if     lname == "disout" then keymacro.mmode(1,1)
+        elseif lname == "enout"  then keymacro.mmode(1,0)
+        else
+          local R1,R2 = keymacro.TransformKey(name)
+          for k=1,cnt do co_yield(PROPAGATE, F.MPRT_KEYS, R1, R2) end
+        end
       end
     end
   end
@@ -70,11 +80,6 @@ function _G.print (...)
   local param = ""
   if select("#", ...)>0 then param = (...) end
   co_yield(PROPAGATE, F.MPRT_PRINT, tostring(param))
-end
-
-function _G.printf (fmt, ...)
-  checkarg(fmt,1,"string")
-  return _G.print(fmt:format(...))
 end
 
 function _G.exit ()
@@ -319,7 +324,7 @@ end
 local function ShowAndPass(...) far.Show(...) return ... end
 
 local function ProcessCommandLine (strCmdLine)
-  local prefix, text = strCmdLine:match("^%s*(%w+):%s*(.-)%s*$")
+  local prefix, text = strCmdLine:match("^%s*([^:%s]+):%s*(.-)%s*$")
   if not prefix then return end -- this can occur with Plugin.Command()
   prefix = prefix:lower()
   if prefix == "lm" or prefix == "macro" then

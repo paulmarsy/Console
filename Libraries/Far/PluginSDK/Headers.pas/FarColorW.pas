@@ -1,7 +1,7 @@
 {
   FarColorW.pas
 
-  Colors Index for Far Manager 3.0 build 4400
+  Colors Index for Far Manager 3.0 build 4545
 }
 
 {

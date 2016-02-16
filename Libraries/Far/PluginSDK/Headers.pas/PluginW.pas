@@ -1,7 +1,7 @@
 {
   PluginW.pas
 
-  Plugin API for FAR Manager 3.0 build 4400
+  Plugin API for FAR Manager 3.0 build 4545
 
   Статус готовности: ~95%
   Недоделанные структуры (~15 шт) помечены !!!

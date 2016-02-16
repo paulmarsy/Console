@@ -1,16 +1,16 @@
+#ifndef PLUGIN_HPP_3FC978E9_63BE_4FC2_8F96_8188B0AF8363
+#define PLUGIN_HPP_3FC978E9_63BE_4FC2_8F96_8188B0AF8363
 #pragma once
-#ifndef __PLUGIN_HPP__
-#define __PLUGIN_HPP__
 
 /*
   plugin.hpp
 
-  Plugin API for Far Manager 3.0 build 4400
+  Plugin API for Far Manager 3.0 build 4545
 */
 
 /*
-Copyright © 1996 Eugene Roshal
-Copyright © 2000 Far Group
+Copyright Â© 1996 Eugene Roshal
+Copyright Â© 2000 Far Group
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -43,7 +43,7 @@ other possible license with no implications from the above license on them.
 #define FARMANAGERVERSION_MAJOR 3
 #define FARMANAGERVERSION_MINOR 0
 #define FARMANAGERVERSION_REVISION 0
-#define FARMANAGERVERSION_BUILD 4400
+#define FARMANAGERVERSION_BUILD 4545
 #define FARMANAGERVERSION_STAGE VS_RELEASE
 
 #ifndef RC_INVOKED
@@ -1183,7 +1183,7 @@ struct FarMacroValue
 	FarMacroValue(unsigned int v)     { Type=FMVT_INTEGER; Integer=v; }
 	FarMacroValue(__int64 v)          { Type=FMVT_INTEGER; Integer=v; }
 	FarMacroValue(unsigned __int64 v) { Type=FMVT_INTEGER; Integer=v; }
-	FarMacroValue(bool v)             { Type=FMVT_BOOLEAN; Boolean=v?1:0; }
+	FarMacroValue(bool v)             { Type=FMVT_BOOLEAN; Boolean=v; }
 	FarMacroValue(double v)           { Type=FMVT_DOUBLE; Double=v; }
 	FarMacroValue(const wchar_t* v)   { Type=FMVT_STRING; String=v; }
 	FarMacroValue(void* v)            { Type=FMVT_POINTER; Pointer=v; }
@@ -2843,4 +2843,4 @@ extern "C"
 
 #endif /* RC_INVOKED */
 
-#endif /* __PLUGIN_HPP__ */
+#endif // PLUGIN_HPP_3FC978E9_63BE_4FC2_8F96_8188B0AF8363

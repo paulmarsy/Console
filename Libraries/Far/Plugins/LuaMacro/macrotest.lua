@@ -569,17 +569,6 @@ local function test_print()
   assert(panel.GetCmdLine() == "")
 end
 
-local function test_printf()
-  assert(printf == mf.printf)
-  assert(type(printf) == "function")
-
-  Keys("Esc")
-  printf("%d + %d = %d", 5, 6, 5+6)
-  assert(panel.GetCmdLine() == "5 + 6 = 11")
-  Keys("Esc")
-  assert(panel.GetCmdLine() == "")
-end
-
 local function test_postmacro()
   assert(type(mf.postmacro) == "function")
 end
@@ -628,7 +617,6 @@ function MT.test_mf()
   test_msgbox()
   test_postmacro()
   test_print()
-  test_printf()
   test_prompt()
   test_replace()
   test_rindex()
@@ -676,7 +664,7 @@ function MT.test_CmdLine()
   assert(CmdLine.Value=="foo Бар")
 
   Keys"Esc"
-  printf("%s %d %s", "foo", 5+7, "Бар")
+  print(("%s %d %s"):format("foo", 5+7, "Бар"))
   assert(CmdLine.Value=="foo 12 Бар")
 
   Keys"Esc"
@@ -717,7 +705,7 @@ local function test_Far_GetConfig()
     "Dialog.CBoxMaxHeight", "integer",
     "Dialog.EditBlock", "boolean",
     "Dialog.EditHistory", "boolean",
-    "Dialog.EditLine", "integer",
+    --"Dialog.EditLine", "integer",
     "Dialog.DelRemovesBlocks", "boolean",
     "Dialog.EULBsClear", "boolean",
     "Dialog.MouseButton", "integer",
@@ -739,7 +727,6 @@ local function test_Far_GetConfig()
     "Editor.ReadOnlyLock", "integer",
     "Editor.SaveEditorPos", "boolean",
     "Editor.SaveEditorShortPos", "boolean",
-    "Editor.SearchPickUpWord", "boolean",
     "Editor.SearchRegexp", "boolean",
     "Editor.SearchSelFound", "boolean",
     "Editor.SearchCursorAtEnd", "boolean",
@@ -942,7 +929,6 @@ local function test_Far_GetConfig()
     "System.Executor.ExcludeCmds", "string",
     "System.Executor.FullTitle", "boolean",
     "System.Executor.RestoreCP", "boolean",
-    "System.Executor.SilentExternal", "boolean",
     "System.Executor.UseAppPath", "boolean",
     "System.Executor.UseHomeDir", "boolean",
     "System.Executor.NotQuotedShell", "string",
@@ -1318,9 +1304,12 @@ local function test_RegexControl()
   local rep = "%1%1"
   local R = regex.new(pat)
 
+  local fr,to,cap
+  local str, nfound, nrep
+
   assert(R:bracketscount()==2)
 
-  local fr,to,cap = regex.find("abc", pat)
+  fr,to,cap = regex.find("abc", pat)
   assert(fr==2 and to==3 and cap=="bc")
   fr,to,cap = regex.findW(L"abc", pat)
   assert(fr==2 and to==3 and cap==L"bc")
@@ -1336,21 +1325,26 @@ local function test_RegexControl()
   assert(R:match("abc")=="bc")
   assert(R:matchW(L"abc")==L"bc")
 
-  local s, nf, nr = regex.gsub("abc", pat, rep)
-  assert(s=="abcbc" and nf==1 and nr==1)
-  s, nf, nr = regex.gsubW(L"abc", pat, rep)
-  assert(s==L"abcbc" and nf==1 and nr==1)
+  str, nfound, nrep = regex.gsub("abc", pat, rep)
+  assert(str=="abcbc" and nfound==1 and nrep==1)
+  str, nfound, nrep = regex.gsubW(L"abc", pat, rep)
+  assert(str==L"abcbc" and nfound==1 and nrep==1)
 
-  local s, nf, nr = R:gsub("abc", rep)
-  assert(s=="abcbc" and nf==1 and nr==1)
-  s, nf, nr = R:gsubW(L"abc", rep)
-  assert(s==L"abcbc" and nf==1 and nr==1)
+  str, nfound, nrep = R:gsub("abc", rep)
+  assert(str=="abcbc" and nfound==1 and nrep==1)
+  str, nfound, nrep = R:gsubW(L"abc", rep)
+  assert(str==L"abcbc" and nfound==1 and nrep==1)
 
   local t = {}
   for cap in regex.gmatch("abc", ".") do t[#t+1]=cap end
   assert(#t==3 and t[1]=="a" and t[2]=="b" and t[3]=="c")
   for cap in regex.gmatchW(L"abc", ".") do t[#t+1]=cap end
   assert(#t==6 and t[4]==L"a" and t[5]==L"b" and t[6]==L"c")
+
+  str, nfound, nrep = regex.gsub(";a;", "a*", "ITEM")
+  assert(str=="ITEM;ITEM;ITEM" and nfound==3 and nrep==3)
+  str, nfound, nrep = regex.gsub(";a;", "a*?", "ITEM")
+  assert(str=="ITEM;ITEMaITEM;ITEM" and nfound==4 and nrep==4)
 end
 
 --[[------------------------------------------------------------------------------------------------
@@ -1578,6 +1572,30 @@ local function test_FarStandardFunctions()
   assert(far.LStrnicmp("111abc","111def",4) < 0)
 end
 
+-- "Several lines are merged into one".
+local function test_issue_3129()
+  local fname = (win.GetEnv("TEMP") or ".").."\\far3-"..win.Uuid(win.Uuid()):sub(1,8)
+  local fp = assert(io.open(fname, "w"))
+  fp:close()
+  local flags = {EF_NONMODAL=1, EF_IMMEDIATERETURN=1, EF_DISABLEHISTORY=1}
+  assert(editor.Editor(fname,nil,nil,nil,nil,nil,flags) == F.EEC_MODIFIED)
+  for k=1,3 do
+    editor.InsertString()
+    editor.SetString(nil, k, "foo")
+  end
+  assert(editor.SaveFile())
+  assert(editor.Quit())
+  local fp = assert(io.open(fname))
+  local k = 0
+  for line in fp:lines() do
+    k = k + 1
+    assert(line=="foo")
+  end
+  fp:close()
+  win.DeleteFile(fname)
+  assert(k == 3)
+end
+
 function MT.test_luafar()
   test_AdvControl()
   test_bit64()
@@ -1585,6 +1603,7 @@ function MT.test_luafar()
   test_FarStandardFunctions()
   test_MacroControl()
   test_RegexControl()
+  test_issue_3129()
 end
 
 -- Test in particular that Plugin.Call (a so-called "restricted" function) works properly
