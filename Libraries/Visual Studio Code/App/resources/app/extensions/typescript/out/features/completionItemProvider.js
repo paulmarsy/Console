@@ -45,6 +45,8 @@ var MyCompletionItem = (function (_super) {
                 return vscode_1.CompletionItemKind.Class;
             case PConst.Kind.interface:
                 return vscode_1.CompletionItemKind.Interface;
+            case PConst.Kind.warning:
+                return vscode_1.CompletionItemKind.File;
         }
         return vscode_1.CompletionItemKind.Property;
     };

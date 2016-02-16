@@ -33,6 +33,7 @@ var Kind = (function () {
     Kind.alias = 'alias';
     Kind.const = 'const';
     Kind.let = 'let';
+    Kind.warning = 'warning';
     return Kind;
 })();
 exports.Kind = Kind;

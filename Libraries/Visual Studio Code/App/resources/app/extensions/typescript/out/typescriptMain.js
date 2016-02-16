@@ -21,19 +21,27 @@ var formattingProvider_1 = require('./features/formattingProvider');
 var bufferSyncSupport_1 = require('./features/bufferSyncSupport');
 var completionItemProvider_1 = require('./features/completionItemProvider');
 var workspaceSymbolProvider_1 = require('./features/workspaceSymbolProvider');
+var SalsaStatus = require('./utils/salsaStatus');
 function activate(context) {
     var MODE_ID_TS = 'typescript';
     var MODE_ID_TSX = 'typescriptreact';
-    var MY_PLUGIN_ID = 'vs.language.typescript';
+    var MODE_ID_JS = 'javascript';
+    var MODE_ID_JSX = 'javascriptreact';
     var clientHost = new TypeScriptServiceClientHost();
     var client = clientHost.serviceClient;
     context.subscriptions.push(vscode_1.commands.registerCommand('typescript.reloadProjects', function () {
         clientHost.reloadProjects();
     }));
+    vscode_1.window.onDidChangeActiveTextEditor(SalsaStatus.showHideStatus, null, context.subscriptions);
     // Register the supports for both TS and TSX so that we can have separate grammars but share the mode
     client.onReady().then(function () {
         registerSupports(MODE_ID_TS, clientHost, client);
         registerSupports(MODE_ID_TSX, clientHost, client);
+        var useSalsa = !!process.env['CODE_TSJS'] || !!process.env['VSCODE_TSJS'];
+        if (useSalsa) {
+            registerSupports(MODE_ID_JS, clientHost, client);
+            registerSupports(MODE_ID_JSX, clientHost, client);
+        }
     }, function () {
         // Nothing to do here. The client did show a message;
     });
@@ -81,7 +89,7 @@ function registerSupports(modeID, host, client) {
             },
             {
                 // e.g.  * ...|
-                beforeText: /^(\t|(\ \ ))*\ \*\ ([^\*]|\*(?!\/))*$/,
+                beforeText: /^(\t|(\ \ ))*\ \*(\ ([^\*]|\*(?!\/))*)?$/,
                 action: { indentAction: vscode_1.IndentAction.None, appendText: '* ' }
             },
             {
@@ -104,7 +112,8 @@ function registerSupports(modeID, host, client) {
                 { open: '[', close: ']' },
                 { open: '(', close: ')' },
                 { open: '"', close: '"', notIn: ['string'] },
-                { open: '\'', close: '\'', notIn: ['string', 'comment'] }
+                { open: '\'', close: '\'', notIn: ['string', 'comment'] },
+                { open: '`', close: '`', notIn: ['string', 'comment'] }
             ]
         }
     });
