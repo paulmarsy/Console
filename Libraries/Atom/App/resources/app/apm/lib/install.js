@@ -81,7 +81,7 @@
       if (!useStrictSsl) {
         env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
       }
-      proxy = this.npm.config.get('https-proxy') || this.npm.config.get('proxy');
+      proxy = this.npm.config.get('https-proxy') || this.npm.config.get('proxy') || env.HTTPS_PROXY || env.HTTP_PROXY;
       if (proxy) {
         installNodeArgs.push("--proxy=" + proxy);
       }

@@ -20,7 +20,7 @@
     return loadNpm(function() {
       var userAgent, _base, _ref;
       if (requestOptions.proxy == null) {
-        requestOptions.proxy = npm.config.get('https-proxy') || npm.config.get('proxy');
+        requestOptions.proxy = npm.config.get('https-proxy') || npm.config.get('proxy') || process.env.HTTPS_PROXY || process.env.HTTP_PROXY;
       }
       if (requestOptions.strictSSL == null) {
         requestOptions.strictSSL = npm.config.get('strict-ssl');
