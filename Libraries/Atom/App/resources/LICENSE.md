@@ -897,7 +897,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: atom-keymap@6.3.0
+Package: atom-keymap@6.2.0
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -1101,7 +1101,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: atom@1.6.0-beta4
+Package: atom@1.6.0-beta3
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -4590,7 +4590,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: glob@7.0.0
+Package: glob@6.0.4
 License: ISC
 License Source: LICENSE
 Source Text:
@@ -9507,7 +9507,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: rimraf@2.5.2
+Package: rimraf@2.5.1
 License: ISC
 License Source: LICENSE
 Source Text:
