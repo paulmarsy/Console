@@ -32,6 +32,7 @@ $Constants = @{
 		ConsoleGitHubSyncer = (Join-Path $InstallPath "Libraries\Custom Helper Apps\ConsoleGitHubSyncer\ConsoleGitHubSyncer.exe")
 	}
 	GitInstallPath = (Join-Path ${Env:ProgramFiles} "Git")
+    GitLfsInstallPath = (Join-Path ${Env:ProgramFiles} "Git LFS")
 	MutexGuid = "edb1fbff-b83d-4d5b-9a03-cc535ee29155"
 }
 

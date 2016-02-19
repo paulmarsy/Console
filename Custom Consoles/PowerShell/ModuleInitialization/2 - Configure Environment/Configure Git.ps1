@@ -8,8 +8,13 @@ if (-not (Test-Path $gitFile)) {
 	throw "Unable to find git.exe in the location: ''$gitFile'"
 }
 
+if (-not (Test-Path $PowerShellConsoleConstants.GitLfsInstallPath)) {
+	throw "Unable to find git lds in the location: ''$($PowerShellConsoleConstants.GitLfsInstallPath)'"
+}
+
 $Path = @(
 	$gitPath
+    $PowerShellConsoleConstants.GitLfsInstallPath
 	$Env:PATH
 ) -Join ';'
 
