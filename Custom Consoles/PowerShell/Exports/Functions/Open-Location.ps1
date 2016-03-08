@@ -16,6 +16,7 @@ function Open-Location {
             "InstallPath",
             "PowerShellConsoleModule",
             "ConsoleModule",
+            "Temp",
         	"PowerShellTemp",
         	"ConsoleGitHub",
             
@@ -80,6 +81,7 @@ function Open-Location {
             "InstallPath" { $ProfileConfig.Module.InstallPath }
             "PowerShellConsoleModule" { $ProfileConfig.ConsolePaths.PowerShell }
             "ConsoleModule" { $ProfileConfig.ConsolePaths.PowerShell }
+            "Temp" { $ProfileConfig.General.TempFolder }
             "PowerShellTemp" { $ProfileConfig.General.TempFolder }
             "ConsoleGitHub" {
                 $type = "URL"
