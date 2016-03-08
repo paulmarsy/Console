@@ -25,3 +25,6 @@
 [submodule "Libraries/PowerShell Modules/PowerForensics"]
 	path = Libraries/PowerShell Modules/PowerForensics
 	url = https://github.com/Invoke-IR/PowerForensics
+[submodule "Libraries/PowerShell Modules/TabExpansionPlusPlus"]
+	path = Libraries/PowerShell Modules/TabExpansionPlusPlus
+	url = https://github.com/lzybkr/TabExpansionPlusPlus
