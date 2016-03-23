@@ -4,7 +4,18 @@ function Initialize-ProfileConfig {
     }
 
     if (Test-Path $profileConfigFile) {
-        $importedProfileConfig =  Get-Content -Path $profileConfigFile -Raw | ConvertFrom-Json
+        try {
+            $importedProfileConfig =  Get-Content -Path $profileConfigFile -Raw | ConvertFrom-Json
+        }
+        catch {
+            Write-Host -ForegroundColor Red "Error loading profile config file: $($_.Exception.Message)"
+            
+            $backupConfigFile = [System.IO.Path]::ChangeExtension($profileConfigFile, "bak")
+            Move-Item -Path $profileConfigFile -Destination $backupConfigFile
+            Write-Host -ForegroundColor Red "Moving corrupt config file to: $backupConfigFile"
+            
+            $importedProfileConfig = $null
+        }
     } else {
         $importedProfileConfig = $null
     }
