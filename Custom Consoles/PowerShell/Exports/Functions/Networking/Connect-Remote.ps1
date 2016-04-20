@@ -14,7 +14,10 @@ function Connect-Remote {
     	if (-not (Test-Path Variable:InteractiveType)) { return }
     	
         $runtimeParameterDictionary = New-Object System.Management.Automation.RuntimeDefinedParameterDictionary
-        switch ($InteractiveType) {            
+        switch ($InteractiveType) {  
+            "RDP" {
+                New-DynamicParam -Name FullScreen -Type ([System.Management.Automation.SwitchParameter]) -DPDictionary $runtimeParameterDictionary
+            }          
             "SSH" {
                 New-DynamicParam -Name DontStartShell -Type ([System.Management.Automation.SwitchParameter]) -DPDictionary $runtimeParameterDictionary
                 New-DynamicParam -Name RemoteCommand -Type ([System.String]) -DPDictionary $runtimeParameterDictionary
@@ -71,6 +74,9 @@ function Connect-Remote {
                     $arguments += "/v:`"$($ComputerName):$($Port)`""
                 } else {
                     $arguments += "/v:`"$($ComputerName)`""
+                }
+                if ($PSCmdlet.MyInvocation.BoundParameters['FullScreen']) {
+                    $arguments += "/f"
                 }
 
                 Start-Thread -ScriptBlock {
