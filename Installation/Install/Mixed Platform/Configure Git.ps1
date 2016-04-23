@@ -44,7 +44,7 @@ Invoke-InstallStep "Configuring Git" {
 	# General tweaks
 	SetGitConfig "core.ignorecase" "true"
 	SetGitConfig "core.autocrlf" "false" 
-	SetGitConfig "core.editor" "'$($PowerShellConsoleConstants.Executables.Atom)'"
+	SetGitConfig "core.editor" "'$($PowerShellConsoleConstants.Executables.VisualStudioCode)'"
 	SetGitConfig "diff.renames" "true"
 	SetGitConfig "color.ui" "always"
 

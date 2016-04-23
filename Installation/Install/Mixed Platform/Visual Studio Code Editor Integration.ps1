@@ -17,6 +17,9 @@ Invoke-InstallStep "Configuring Visual Studio Code Integration" {
 	New-Item "HKCU:\Software\Classes\Folder\shell\Visual Studio Code" -Force | Out-Null
 	New-ItemProperty -LiteralPath "HKCU:\Software\Classes\Folder\shell\Visual Studio Code" "Icon" -Value "$visualStudioCodeIcon" -Type String -Force | Out-Null
 	New-Item "HKCU:\Software\Classes\Folder\shell\Visual Studio Code\command" -Value """$visualStudioCodeExecutable"" ""%L""" -Type String -Force | Out-Null
+
+	New-Item "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Notepad.exe" -Force | Out-Null
+	New-ItemProperty -LiteralPath "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Notepad.exe" "Debugger" -Value """$notepadHijackHelper"" ""$visualStudioCodeExecutable""" -Type String -Force | Out-Null
 }
 
 Invoke-InstallStep "Setting up Visual Studio Code Start Shortcut" {

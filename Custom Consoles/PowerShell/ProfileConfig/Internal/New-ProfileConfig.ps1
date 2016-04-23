@@ -44,7 +44,6 @@ function New-ProfileConfig {
 		PowerShell = @{
 			FormatEnumerationLimit	= (OverridableConfigSetting "PowerShell.FormatEnumerationLimit"		-1)
 			PSEmailServer			= (OverridableConfigSetting "PowerShell.PSEmailServer"				"")
-			CustomTextEditor		= (OverridableConfigSetting "PowerShell.CustomTextEditor"			"Atom")
 		}
 		Email = @{
 			From					= (OverridableConfigSetting "Email.From"							"email@example.com")

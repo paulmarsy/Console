@@ -1,8 +1,7 @@
 function Open-TodoFile {
     param(
-        $Path = (Join-Path $ProfileConfig.General.UserFolder "Todo.txt"),
-        [ValidateSet("Atom", "Code", "Default")]$Editor = "Default"
+        $Path = (Join-Path $ProfileConfig.General.UserFolder "Todo.txt")
     )
     
-    Edit-CustomTextEditor -Path $Path -CreateFile -Editor $Editor
+    Edit-CustomTextEditor -Path $Path -CreateFile
 }
