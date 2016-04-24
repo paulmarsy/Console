@@ -46,6 +46,7 @@ var TypeScriptSignatureHelpProvider = (function () {
         });
     };
     return TypeScriptSignatureHelpProvider;
-})();
+}());
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = TypeScriptSignatureHelpProvider;
+//# sourceMappingURL=signatureHelpProvider.js.map

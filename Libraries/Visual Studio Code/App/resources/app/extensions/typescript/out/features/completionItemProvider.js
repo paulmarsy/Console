@@ -9,7 +9,6 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var vscode_1 = require('vscode');
-var configuration_1 = require('./configuration');
 var PConst = require('../protocol.const');
 var Previewer = require('./previewer');
 var MyCompletionItem = (function (_super) {
@@ -51,17 +50,21 @@ var MyCompletionItem = (function (_super) {
         return vscode_1.CompletionItemKind.Property;
     };
     return MyCompletionItem;
-})(vscode_1.CompletionItem);
+}(vscode_1.CompletionItem));
+var Configuration;
+(function (Configuration) {
+    Configuration.useCodeSnippetsOnMethodSuggest = 'useCodeSnippetsOnMethodSuggest';
+})(Configuration || (Configuration = {}));
 var TypeScriptCompletionItemProvider = (function () {
     function TypeScriptCompletionItemProvider(client) {
         this.triggerCharacters = ['.'];
         this.excludeTokens = ['string', 'comment', 'numeric'];
         this.sortBy = [{ type: 'reference', partSeparator: '/' }];
         this.client = client;
-        this.config = configuration_1.defaultConfiguration;
+        this.config = { useCodeSnippetsOnMethodSuggest: false };
     }
-    TypeScriptCompletionItemProvider.prototype.setConfiguration = function (config) {
-        this.config = config;
+    TypeScriptCompletionItemProvider.prototype.updateConfiguration = function (config) {
+        this.config.useCodeSnippetsOnMethodSuggest = config.get(Configuration.useCodeSnippetsOnMethodSuggest, false);
     };
     TypeScriptCompletionItemProvider.prototype.provideCompletionItems = function (document, position, token) {
         var filepath = this.client.asAbsolutePath(document.uri);
@@ -122,7 +125,7 @@ var TypeScriptCompletionItemProvider = (function () {
                 }
                 if (detail && _this.config.useCodeSnippetsOnMethodSuggest && item.kind === vscode_1.CompletionItemKind.Function) {
                     var codeSnippet = detail.name;
-                    var suggestionArgumentNames;
+                    var suggestionArgumentNames = void 0;
                     suggestionArgumentNames = detail.displayParts
                         .filter(function (part) { return part.kind === 'parameterName'; })
                         .map(function (part) { return ("{{" + part.text + "}}"); });
@@ -141,6 +144,7 @@ var TypeScriptCompletionItemProvider = (function () {
         }
     };
     return TypeScriptCompletionItemProvider;
-})();
+}());
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = TypeScriptCompletionItemProvider;
+//# sourceMappingURL=completionItemProvider.js.map

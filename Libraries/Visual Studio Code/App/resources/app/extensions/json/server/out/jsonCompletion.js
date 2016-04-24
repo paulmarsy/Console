@@ -3,14 +3,27 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 'use strict';
-var nls = require('./utils/nls');
 var vscode_languageserver_1 = require('vscode-languageserver');
+var nls = require('vscode-nls');
+var localize = nls.loadMessageBundle(__filename);
 var JSONCompletion = (function () {
-    function JSONCompletion(schemaService, contributions) {
+    function JSONCompletion(schemaService, console, contributions) {
         if (contributions === void 0) { contributions = []; }
         this.schemaService = schemaService;
         this.contributions = contributions;
+        this.console = console;
     }
+    JSONCompletion.prototype.doResolve = function (item) {
+        for (var i = this.contributions.length - 1; i >= 0; i--) {
+            if (this.contributions[i].resolveSuggestion) {
+                var resolver = this.contributions[i].resolveSuggestion(item);
+                if (resolver) {
+                    return resolver;
+                }
+            }
+        }
+        return Promise.resolve(item);
+    };
     JSONCompletion.prototype.doSuggest = function (document, textDocumentPosition, doc) {
         var _this = this;
         var offset = document.offsetAt(textDocumentPosition.position);
@@ -42,7 +55,10 @@ var JSONCompletion = (function () {
                 result.isIncomplete = true;
             },
             error: function (message) {
-                console.log(message);
+                _this.console.error(message);
+            },
+            log: function (message) {
+                _this.console.log(message);
             }
         };
         return this.schemaService.getSchemaForResource(textDocumentPosition.uri, doc).then(function (schema) {
@@ -76,18 +92,18 @@ var JSONCompletion = (function () {
                         proposed[p.key.value] = true;
                     }
                 });
-                var isLast = properties.length === 0 || offset >= properties[properties.length - 1].start;
+                var isLast_1 = properties.length === 0 || offset >= properties[properties.length - 1].start;
                 if (schema) {
                     // property proposals with schema
-                    _this.getPropertySuggestions(schema, doc, node, addValue, isLast, collector);
+                    _this.getPropertySuggestions(schema, doc, node, addValue, isLast_1, collector);
                 }
                 else {
                     // property proposals without schema
-                    _this.getSchemaLessPropertySuggestions(doc, node, currentKey, currentWord, isLast, collector);
+                    _this.getSchemaLessPropertySuggestions(doc, node, currentKey, currentWord, isLast_1, collector);
                 }
                 var location_1 = node.getNodeLocation();
                 _this.contributions.forEach(function (contribution) {
-                    var collectPromise = contribution.collectPropertySuggestions(textDocumentPosition.uri, location_1, currentWord, addValue, isLast, collector);
+                    var collectPromise = contribution.collectPropertySuggestions(textDocumentPosition.uri, location_1, currentWord, addValue, isLast_1, collector);
                     if (collectPromise) {
                         collectionPromises.push(collectPromise);
                     }
@@ -115,12 +131,12 @@ var JSONCompletion = (function () {
             }
             else {
                 if ((node.type === 'property') && offset > node.colonOffset) {
-                    var parentKey = node.key.value;
+                    var parentKey_1 = node.key.value;
                     var valueNode = node.value;
                     if (!valueNode || offset <= valueNode.end) {
                         var location_2 = node.parent.getNodeLocation();
                         _this.contributions.forEach(function (contribution) {
-                            var collectPromise = contribution.collectValueSuggestions(textDocumentPosition.uri, location_2, parentKey, collector);
+                            var collectPromise = contribution.collectValueSuggestions(textDocumentPosition.uri, location_2, parentKey_1, collector);
                             if (collectPromise) {
                                 collectionPromises.push(collectPromise);
                             }
@@ -137,11 +153,11 @@ var JSONCompletion = (function () {
         doc.validate(schema.schema, matchingSchemas, node.start);
         matchingSchemas.forEach(function (s) {
             if (s.node === node && !s.inverted) {
-                var schemaProperties = s.schema.properties;
-                if (schemaProperties) {
-                    Object.keys(schemaProperties).forEach(function (key) {
-                        var propertySchema = schemaProperties[key];
-                        collector.add({ kind: vscode_languageserver_1.CompletionItemKind.Property, label: key, insertText: _this.getSnippetForProperty(key, propertySchema, addValue, isLast), documentation: propertySchema.description || '' });
+                var schemaProperties_1 = s.schema.properties;
+                if (schemaProperties_1) {
+                    Object.keys(schemaProperties_1).forEach(function (key) {
+                        var propertySchema = schemaProperties_1[key];
+                        collector.add({ kind: vscode_languageserver_1.CompletionItemKind.Property, label: key, insertText: _this.getTextForProperty(key, propertySchema, addValue, isLast), documentation: propertySchema.description || '' });
                     });
                 }
             }
@@ -152,15 +168,15 @@ var JSONCompletion = (function () {
         var collectSuggestionsForSimilarObject = function (obj) {
             obj.properties.forEach(function (p) {
                 var key = p.key.value;
-                collector.add({ kind: vscode_languageserver_1.CompletionItemKind.Property, label: key, insertText: _this.getSnippetForSimilarProperty(key, p.value), documentation: '' });
+                collector.add({ kind: vscode_languageserver_1.CompletionItemKind.Property, label: key, insertText: _this.getTextForSimilarProperty(key, p.value), documentation: '' });
             });
         };
         if (node.parent) {
             if (node.parent.type === 'property') {
                 // if the object is a property value, check the tree for other objects that hang under a property of the same name
-                var parentKey = node.parent.key.value;
+                var parentKey_2 = node.parent.key.value;
                 doc.visit(function (n) {
-                    if (n.type === 'property' && n.key.value === parentKey && n.value && n.value.type === 'object') {
+                    if (n.type === 'property' && n.key.value === parentKey_2 && n.value && n.value.type === 'object') {
                         collectSuggestionsForSimilarObject(n.value);
                     }
                     return true;
@@ -176,14 +192,14 @@ var JSONCompletion = (function () {
             }
         }
         if (!currentKey && currentWord.length > 0) {
-            collector.add({ kind: vscode_languageserver_1.CompletionItemKind.Property, label: JSON.stringify(currentWord), insertText: this.getSnippetForProperty(currentWord, null, true, isLast), documentation: '' });
+            collector.add({ kind: vscode_languageserver_1.CompletionItemKind.Property, label: this.getLabelForValue(currentWord), insertText: this.getTextForProperty(currentWord, null, true, isLast), documentation: '' });
         }
     };
     JSONCompletion.prototype.getSchemaLessValueSuggestions = function (doc, node, offset, document, collector) {
         var _this = this;
         var collectSuggestionsForValues = function (value) {
             if (!value.contains(offset)) {
-                var content = _this.getMatchingSnippet(value, document);
+                var content = _this.getTextForMatchingNode(value, document);
                 collector.add({ kind: _this.getSuggestionKind(value.type), label: content, insertText: content, documentation: '' });
             }
             if (value.type === 'boolean') {
@@ -201,9 +217,9 @@ var JSONCompletion = (function () {
                     return;
                 }
                 // suggest values at the same key
-                var parentKey = node.key.value;
+                var parentKey_3 = node.key.value;
                 doc.visit(function (n) {
-                    if (n.type === 'property' && n.key.value === parentKey && n.value) {
+                    if (n.type === 'property' && n.key.value === parentKey_3 && n.value) {
                         collectSuggestionsForValues(n.value);
                     }
                     return true;
@@ -212,9 +228,9 @@ var JSONCompletion = (function () {
             if (node.type === 'array') {
                 if (node.parent && node.parent.type === 'property') {
                     // suggest items of an array at the same key
-                    var parentKey = node.parent.key.value;
+                    var parentKey_4 = node.parent.key.value;
                     doc.visit(function (n) {
-                        if (n.type === 'property' && n.key.value === parentKey && n.value && n.value.type === 'array') {
+                        if (n.type === 'property' && n.key.value === parentKey_4 && n.value && n.value.type === 'array') {
                             (n.value.items).forEach(function (n) {
                                 collectSuggestionsForValues(n);
                             });
@@ -237,16 +253,16 @@ var JSONCompletion = (function () {
             this.addDefaultSuggestion(schema.schema, collector);
         }
         else {
-            var parentKey = null;
+            var parentKey_5 = null;
             if (node && (node.type === 'property') && offset > node.colonOffset) {
                 var valueNode = node.value;
                 if (valueNode && offset > valueNode.end) {
                     return; // we are past the value node
                 }
-                parentKey = node.key.value;
+                parentKey_5 = node.key.value;
                 node = node.parent;
             }
-            if (node && (parentKey !== null || node.type === 'array')) {
+            if (node && (parentKey_5 !== null || node.type === 'array')) {
                 var matchingSchemas = [];
                 doc.validate(schema.schema, matchingSchemas, node.start);
                 matchingSchemas.forEach(function (s) {
@@ -256,7 +272,7 @@ var JSONCompletion = (function () {
                             _this.addEnumSuggestion(s.schema.items, collector);
                         }
                         if (s.schema.properties) {
-                            var propertySchema = s.schema.properties[parentKey];
+                            var propertySchema = s.schema.properties[parentKey_5];
                             if (propertySchema) {
                                 _this.addDefaultSuggestion(propertySchema, collector);
                                 _this.addEnumSuggestion(propertySchema, collector);
@@ -270,14 +286,22 @@ var JSONCompletion = (function () {
     JSONCompletion.prototype.addBooleanSuggestion = function (value, collector) {
         collector.add({ kind: this.getSuggestionKind('boolean'), label: value ? 'true' : 'false', insertText: this.getTextForValue(value), documentation: '' });
     };
+    JSONCompletion.prototype.addNullSuggestion = function (collector) {
+        collector.add({ kind: this.getSuggestionKind('null'), label: 'null', insertText: 'null', documentation: '' });
+    };
     JSONCompletion.prototype.addEnumSuggestion = function (schema, collector) {
         var _this = this;
         if (Array.isArray(schema.enum)) {
             schema.enum.forEach(function (enm) { return collector.add({ kind: _this.getSuggestionKind(schema.type), label: _this.getLabelForValue(enm), insertText: _this.getTextForValue(enm), documentation: '' }); });
         }
-        else if (schema.type === 'boolean') {
-            this.addBooleanSuggestion(true, collector);
-            this.addBooleanSuggestion(false, collector);
+        else {
+            if (this.isType(schema, 'boolean')) {
+                this.addBooleanSuggestion(true, collector);
+                this.addBooleanSuggestion(false, collector);
+            }
+            if (this.isType(schema, 'null')) {
+                this.addNullSuggestion(collector);
+            }
         }
         if (Array.isArray(schema.allOf)) {
             schema.allOf.forEach(function (s) { return _this.addEnumSuggestion(s, collector); });
@@ -289,6 +313,12 @@ var JSONCompletion = (function () {
             schema.oneOf.forEach(function (s) { return _this.addEnumSuggestion(s, collector); });
         }
     };
+    JSONCompletion.prototype.isType = function (schema, type) {
+        if (Array.isArray(schema.type)) {
+            return schema.type.indexOf(type) !== -1;
+        }
+        return schema.type === type;
+    };
     JSONCompletion.prototype.addDefaultSuggestion = function (schema, collector) {
         var _this = this;
         if (schema.default) {
@@ -296,7 +326,16 @@ var JSONCompletion = (function () {
                 kind: this.getSuggestionKind(schema.type),
                 label: this.getLabelForValue(schema.default),
                 insertText: this.getTextForValue(schema.default),
-                detail: nls.localize('json.suggest.default', 'Default value'),
+                detail: localize(0, null),
+            });
+        }
+        if (Array.isArray(schema.defaultSnippets)) {
+            schema.defaultSnippets.forEach(function (s) {
+                collector.add({
+                    kind: vscode_languageserver_1.CompletionItemKind.Snippet,
+                    label: _this.getLabelForSnippetValue(s.body),
+                    insertText: _this.getTextForSnippetValue(s.body)
+                });
             });
         }
         if (Array.isArray(schema.allOf)) {
@@ -311,17 +350,29 @@ var JSONCompletion = (function () {
     };
     JSONCompletion.prototype.getLabelForValue = function (value) {
         var label = JSON.stringify(value);
-        label = label.replace('{{', '').replace('}}', '');
+        if (label.length > 57) {
+            return label.substr(0, 57).trim() + '...';
+        }
+        return label;
+    };
+    JSONCompletion.prototype.getLabelForSnippetValue = function (value) {
+        var label = JSON.stringify(value);
+        label = label.replace(/\{\{|\}\}/g, '');
         if (label.length > 57) {
             return label.substr(0, 57).trim() + '...';
         }
         return label;
     };
     JSONCompletion.prototype.getTextForValue = function (value) {
+        var text = JSON.stringify(value, null, '\t');
+        text = text.replace(/[\\\{\}]/g, '\\$&');
+        return text;
+    };
+    JSONCompletion.prototype.getTextForSnippetValue = function (value) {
         return JSON.stringify(value, null, '\t');
     };
-    JSONCompletion.prototype.getSnippetForValue = function (value) {
-        var snippet = JSON.stringify(value, null, '\t');
+    JSONCompletion.prototype.getTextForEnumValue = function (value) {
+        var snippet = this.getTextForValue(value);
         switch (typeof value) {
             case 'object':
                 if (value === null) {
@@ -351,7 +402,7 @@ var JSONCompletion = (function () {
             default: return vscode_languageserver_1.CompletionItemKind.Value;
         }
     };
-    JSONCompletion.prototype.getMatchingSnippet = function (node, document) {
+    JSONCompletion.prototype.getTextForMatchingNode = function (node, document) {
         switch (node.type) {
             case 'array':
                 return '[]';
@@ -362,8 +413,8 @@ var JSONCompletion = (function () {
                 return content;
         }
     };
-    JSONCompletion.prototype.getSnippetForProperty = function (key, propertySchema, addValue, isLast) {
-        var result = '"' + key + '"';
+    JSONCompletion.prototype.getTextForProperty = function (key, propertySchema, addValue, isLast) {
+        var result = this.getTextForValue(key);
         if (!addValue) {
             return result;
         }
@@ -371,13 +422,14 @@ var JSONCompletion = (function () {
         if (propertySchema) {
             var defaultVal = propertySchema.default;
             if (typeof defaultVal !== 'undefined') {
-                result = result + this.getSnippetForValue(defaultVal);
+                result = result + this.getTextForEnumValue(defaultVal);
             }
             else if (propertySchema.enum && propertySchema.enum.length > 0) {
-                result = result + this.getSnippetForValue(propertySchema.enum[0]);
+                result = result + this.getTextForEnumValue(propertySchema.enum[0]);
             }
             else {
-                switch (propertySchema.type) {
+                var type = Array.isArray(propertySchema.type) ? propertySchema.type[0] : propertySchema.type;
+                switch (type) {
                     case 'boolean':
                         result += '{{false}}';
                         break;
@@ -409,18 +461,18 @@ var JSONCompletion = (function () {
         }
         return result;
     };
-    JSONCompletion.prototype.getSnippetForSimilarProperty = function (key, templateValue) {
-        return '"' + key + '"';
+    JSONCompletion.prototype.getTextForSimilarProperty = function (key, templateValue) {
+        return this.getTextForValue(key);
     };
     JSONCompletion.prototype.getCurrentWord = function (document, offset) {
         var i = offset - 1;
         var text = document.getText();
-        while (i >= 0 && ' \t\n\r\v"'.indexOf(text.charAt(i)) === -1) {
+        while (i >= 0 && ' \t\n\r\v":{[,'.indexOf(text.charAt(i)) === -1) {
             i--;
         }
         return text.substring(i + 1, offset);
     };
     return JSONCompletion;
-})();
+}());
 exports.JSONCompletion = JSONCompletion;
 //# sourceMappingURL=jsonCompletion.js.map

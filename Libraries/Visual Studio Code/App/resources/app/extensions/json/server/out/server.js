@@ -20,6 +20,9 @@ var bowerJSONContribution_1 = require('./jsoncontributions/bowerJSONContribution
 var packageJSONContribution_1 = require('./jsoncontributions/packageJSONContribution');
 var projectJSONContribution_1 = require('./jsoncontributions/projectJSONContribution');
 var globPatternContribution_1 = require('./jsoncontributions/globPatternContribution');
+var fileAssociationContribution_1 = require('./jsoncontributions/fileAssociationContribution');
+var nls = require('vscode-nls');
+nls.config(process.env['VSCODE_NLS_CONFIG']);
 var TelemetryNotification;
 (function (TelemetryNotification) {
     TelemetryNotification.type = { get method() { return 'telemetry'; } };
@@ -41,16 +44,18 @@ var documents = new vscode_languageserver_1.TextDocuments();
 // Make the text document manager listen on the connection
 // for open, change and close text document events
 documents.listen(connection);
+var filesAssociationContribution = new fileAssociationContribution_1.FileAssociationContribution();
 // After the server has started the client sends an initilize request. The server receives
 // in the passed params the rootPath of the workspace plus the client capabilites.
 var workspaceRoot;
 connection.onInitialize(function (params) {
     workspaceRoot = uri_1.default.parse(params.rootPath);
+    filesAssociationContribution.setLanguageIds(params.initializationOptions.languageIds);
     return {
         capabilities: {
             // Tell the client that the server works in FULL text document sync mode
             textDocumentSync: documents.syncKind,
-            completionProvider: { resolveProvider: false },
+            completionProvider: { resolveProvider: true },
             hoverProvider: true,
             documentSymbolProvider: true,
             documentRangeFormattingProvider: true,
@@ -73,9 +78,9 @@ var telemetry = {
 };
 var request = function (options) {
     if (Strings.startsWith(options.url, 'file://')) {
-        var fsPath = uri_1.default.parse(options.url).fsPath;
+        var fsPath_1 = uri_1.default.parse(options.url).fsPath;
         return new Promise(function (c, e) {
-            fs.readFile(fsPath, 'UTF-8', function (err, result) {
+            fs.readFile(fsPath_1, 'UTF-8', function (err, result) {
                 err ? e({ responseText: '', status: 404 }) : c({ responseText: result.toString(), status: 200 });
             });
         });
@@ -99,11 +104,12 @@ var contributions = [
     new projectJSONContribution_1.ProjectJSONContribution(request),
     new packageJSONContribution_1.PackageJSONContribution(request),
     new bowerJSONContribution_1.BowerJSONContribution(request),
-    new globPatternContribution_1.GlobPatternContribution()
+    new globPatternContribution_1.GlobPatternContribution(),
+    filesAssociationContribution
 ];
 var jsonSchemaService = new jsonSchemaService_1.JSONSchemaService(request, workspaceContext, telemetry);
 jsonSchemaService.setSchemaContributions(configuration_1.schemaContributions);
-var jsonCompletion = new jsonCompletion_1.JSONCompletion(jsonSchemaService, contributions);
+var jsonCompletion = new jsonCompletion_1.JSONCompletion(jsonSchemaService, connection.console, contributions);
 var jsonHover = new jsonHover_1.JSONHover(jsonSchemaService, contributions);
 var jsonDocumentSymbols = new jsonDocumentSymbols_1.JSONDocumentSymbols();
 // The content of a text document has changed. This event is emitted
@@ -222,6 +228,9 @@ connection.onCompletion(function (textDocumentPosition) {
     var document = documents.get(textDocumentPosition.uri);
     var jsonDocument = getJSONDocument(document);
     return jsonCompletion.doSuggest(document, textDocumentPosition, jsonDocument);
+});
+connection.onCompletionResolve(function (item) {
+    return jsonCompletion.doResolve(item);
 });
 connection.onHover(function (textDocumentPosition) {
     var document = documents.get(textDocumentPosition.uri);
