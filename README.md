@@ -4,14 +4,17 @@ A PowerShell Console by [Paul Marston](https://github.com/paulmarsy)
 
 ### Installation
 
-1. Clone the Git repository
-<big><pre>& (Join-Path ${Env:ProgramFiles} "Git\cmd\git.exe") clone --recursive [https://github.com/paulmarsy/Console.git](https://github.com/paulmarsy/Console)</pre></big>
-2. Install the pre-requisites: Install Prerequisites.bat
-3. Run the installer: Install.bat
+1. Install the prerequisites:
+  * [Git for Windows](https://github.com/git-for-windows/git/releases)
+  * [Git LFS](https://github.com/github/git-lfs/releases)
+2. Clone the Git repository
+<big><pre>& (Join-Path ${Env:ProgramFiles} "Git\cmd\git.exe") clone --recurse-submodules [https://github.com/paulmarsy/Console.git](https://github.com/paulmarsy/Console)</pre></big>
+3. Run [`Install Prerequisites.bat`](/Installation/Prerequisites/InstallPrerequisites.ps1)
+4. Run `Install.bat`
 
 ### Uninstallation
 
-1. Run the uninstaller: Uninstall.bat
+1. Run `Uninstall.bat`
 
 ### Contributors
 
