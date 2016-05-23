@@ -8,7 +8,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Json = require('./json-toolbox/json');
+var Json = require('jsonc-parser');
 var jsonLocation_1 = require('./jsonLocation');
 var nls = require('vscode-nls');
 var localize = nls.loadMessageBundle(__filename);
@@ -802,7 +802,7 @@ function parse(text, config) {
             if (_scanner.getToken() === Json.SyntaxKind.Unknown) {
                 // give a more helpful error message
                 var value = _scanner.getTokenValue();
-                if (value.length > 0 && (value.charAt(0) === '\'' || Json.isLetter(value.charAt(0).charCodeAt(0)))) {
+                if (value.match(/^['\w]/)) {
                     _error(localize(29, null));
                 }
             }

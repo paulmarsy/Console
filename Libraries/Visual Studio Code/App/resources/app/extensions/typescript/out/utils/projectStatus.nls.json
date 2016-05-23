@@ -8,7 +8,8 @@
 		"For better performance exclude folders with many files.",
 		"Configure Excludes",
 		"Configure Excludes",
-		"For better performance exclude folders with many files."
+		"For better performance exclude folders with many files.",
+		"// See https://go.microsoft.com/fwlink/?LinkId=759670\n\t// for the documentation about the jsconfig.json format"
 	],
 	"keys": [
 		"hintCreate",
@@ -19,6 +20,7 @@
 		"hintExclude.generic",
 		"open",
 		"large.label",
-		"hintExclude.tooltip"
+		"hintExclude.tooltip",
+		"jsconfig.heading"
 	]
 }

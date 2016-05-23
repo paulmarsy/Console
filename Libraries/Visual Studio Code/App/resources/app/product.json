@@ -4,9 +4,9 @@
 	"applicationName": "code",
 	"dataFolderName": ".vscode",
 	"win32MutexName": "vscode",
-	"licenseUrl": "http://go.microsoft.com/fwlink/?LinkID=533485",
+	"licenseUrl": "https://go.microsoft.com/fwlink/?LinkID=533485",
 	"darwinBundleIdentifier": "com.microsoft.VSCode",
-	"welcomePage": "http://go.microsoft.com/fwlink/?LinkId=723048",
+	"welcomePage": "https://go.microsoft.com/fwlink/?LinkId=723048",
 	"win32AppId": "{{F8A2A208-72B3-4D61-95FC-8A65D340689B}",
 	"win32NameVersion": "Microsoft Visual Studio Code",
 	"win32DirName": "Microsoft VS Code",
@@ -63,15 +63,15 @@
 		"asimovKey": "AIF-444c3af9-8e69-4462-ab49-4191e6ad1916"
 	},
 	"sendASmile": {
-		"reportIssueUrl": "http://go.microsoft.com/fwlink/?LinkId=534872",
-		"requestFeatureUrl": "http://go.microsoft.com/fwlink/?LinkID=533482"
+		"reportIssueUrl": "https://go.microsoft.com/fwlink/?LinkId=534872",
+		"requestFeatureUrl": "https://go.microsoft.com/fwlink/?LinkID=533482"
 	},
-	"documentationUrl": "http://go.microsoft.com/fwlink/?LinkID=533484#vscode",
-	"releaseNotesUrl": "http://go.microsoft.com/fwlink/?LinkID=533483#vscode",
-	"twitterUrl": "http://go.microsoft.com/fwlink/?LinkID=533687",
-	"requestFeatureUrl": "http://go.microsoft.com/fwlink/?LinkID=533482",
-	"reportIssueUrl": "http://go.microsoft.com/fwlink/?LinkId=534872",
-	"privacyStatementUrl": "http://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409",
-	"commit": "fa6d0f03813dfb9df4589c30121e9fcffa8a8ec8",
-	"date": "2016-04-13T14:08:36.599Z"
+	"documentationUrl": "https://go.microsoft.com/fwlink/?LinkID=533484#vscode",
+	"releaseNotesUrl": "https://go.microsoft.com/fwlink/?LinkID=533483#vscode",
+	"twitterUrl": "https://go.microsoft.com/fwlink/?LinkID=533687",
+	"requestFeatureUrl": "https://go.microsoft.com/fwlink/?LinkID=533482",
+	"reportIssueUrl": "https://go.microsoft.com/fwlink/?LinkId=534872",
+	"privacyStatementUrl": "https://go.microsoft.com/fwlink/?LinkId=786907",
+	"commit": "def9e32467ad6e4f48787d38caf190acbfee5880",
+	"date": "2016-05-13T13:29:20.776Z"
 }

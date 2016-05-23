@@ -7,5 +7,6 @@
 	"パフォーマンスを向上させるには、多数のファイルがあるフォルダーを除外してください。",
 	"除外の構成",
 	"除外の構成",
-	"パフォーマンスを向上させるには、多数のファイルがあるフォルダーを除外します。"
+	"パフォーマンスを向上させるには、多数のファイルがあるフォルダーを除外します。",
+	"// See https://go.microsoft.com/fwlink/?LinkId=759670\n\t// for the documentation about the jsconfig.json format"
 ]

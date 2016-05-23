@@ -7,5 +7,6 @@
 	"Para mejorar el rendimiento, excluya las carpetas con muchos archivos.",
 	"Configurar exclusiones",
 	"Configurar exclusiones",
-	"Para obtener un mejor rendimiento, no incluya las carpetas que contengan muchos archivos."
+	"Para obtener un mejor rendimiento, no incluya las carpetas que contengan muchos archivos.",
+	"// See https://go.microsoft.com/fwlink/?LinkId=759670\n\t// for the documentation about the jsconfig.json format"
 ]

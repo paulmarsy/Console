@@ -1,5 +1,9 @@
 [
+	"eccezione",
 	"voce",
+	"punto di interruzione",
+	"istruzione del debugger",
+	"passaggio",
 	"Tutte le eccezioni",
 	"Eccezioni non rilevate",
 	"Il runtime '{0}' non è stato trovato in PATH.",
@@ -16,8 +20,8 @@
 	"punto di interruzione",
 	"contenuto trasmesso da Node.js",
 	"contenuto trasmesso dall'istanza remota di Node.js",
-	"contenuto inline del mapping di origine",
 	"modulo base",
+	"contenuto inline del mapping di origine",
 	"(funzione anonima)",
 	"Globale",
 	"Locale",
@@ -38,10 +42,5 @@
 	"L'attributo '{0}' non è assoluto ('{1}'). Per renderlo assoluto, provare ad aggiungere '{2}' come prefisso.",
 	"Altre informazioni",
 	"La richiesta '{_request}' è stata annullata perché Node.js non risponde.",
-	"Node.js non ha risposto alla richiesta '{_request}' in un intervallo di tempo appropriato.",
-	"eccezione",
-	"voce",
-	"punto di interruzione",
-	"istruzione del debugger",
-	"passaggio"
+	"Node.js non ha risposto alla richiesta '{_request}' in un intervallo di tempo appropriato."
 ]

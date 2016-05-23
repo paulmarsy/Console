@@ -1,11 +1,15 @@
 {
 	"messages": [
+		"exception",
 		"entry",
+		"breakpoint",
+		"debugger statement",
+		"step",
 		"All Exceptions",
 		"Uncaught Exceptions",
 		"Cannot find runtime '{0}' on PATH.",
 		"Program path uses differently cased character as file on disk; this might result in breakpoints not being hit.",
-		"Cannot launch program '{0}'; enabling '{1}' might help.",
+		"Cannot launch program '{0}'; configuring source maps might help.",
 		"Cannot launch program '{0}'; setting the '{1}' attribute might help.",
 		"Cannot launch debug target in terminal ({0}).",
 		"Cannot launch debug target ({0}).",
@@ -17,8 +21,8 @@
 		"breakpoint",
 		"content streamed from Node.js",
 		"content streamed from remote Node.js",
-		"inlined content from source map",
 		"core module",
+		"inlined content from source map",
 		"(anonymous function)",
 		"Global",
 		"Local",
@@ -39,18 +43,37 @@
 		"Attribute '{0}' is not absolute ('{1}'); consider adding '{2}' as a prefix to make it absolute.",
 		"More Information",
 		"Request '{_request}' was cancelled because Node.js is unresponsive.",
-		"Node.js did not repond to request '{_request}' in a reasonable amount of time.",
-		"exception",
-		"entry",
-		"breakpoint",
-		"debugger statement",
-		"step"
+		"Node.js did not repond to request '{_request}' in a reasonable amount of time."
 	],
 	"keys": [
 		{
+			"key": "reason.exception",
+			"comment": [
+				"https://github.com/Microsoft/vscode/issues/4568"
+			]
+		},
+		{
 			"key": "reason.entry",
 			"comment": [
-				"see https://github.com/Microsoft/vscode/issues/4568"
+				"https://github.com/Microsoft/vscode/issues/4568"
+			]
+		},
+		{
+			"key": "reason.breakpoint",
+			"comment": [
+				"https://github.com/Microsoft/vscode/issues/4568"
+			]
+		},
+		{
+			"key": "reason.debugger_statement",
+			"comment": [
+				"https://github.com/Microsoft/vscode/issues/4568"
+			]
+		},
+		{
+			"key": "reason.step",
+			"comment": [
+				"https://github.com/Microsoft/vscode/issues/4568"
 			]
 		},
 		"exceptions.all",
@@ -79,8 +102,8 @@
 		},
 		"content.streamed.from.node",
 		"content.streamed.from.remote.node",
-		"content.from.source.map",
 		"core.module",
+		"content.from.source.map",
 		"anonymous.function",
 		{
 			"key": "scope.global",
@@ -146,36 +169,6 @@
 		"attribute.path.not.absolute",
 		"more.information",
 		"VSND2015",
-		"VSND2016",
-		{
-			"key": "reason.exception",
-			"comment": [
-				"https://github.com/Microsoft/vscode/issues/4568"
-			]
-		},
-		{
-			"key": "reason.entry",
-			"comment": [
-				"https://github.com/Microsoft/vscode/issues/4568"
-			]
-		},
-		{
-			"key": "reason.breakpoint",
-			"comment": [
-				"https://github.com/Microsoft/vscode/issues/4568"
-			]
-		},
-		{
-			"key": "reason.debugger_statement",
-			"comment": [
-				"https://github.com/Microsoft/vscode/issues/4568"
-			]
-		},
-		{
-			"key": "reason.step",
-			"comment": [
-				"https://github.com/Microsoft/vscode/issues/4568"
-			]
-		}
+		"VSND2016"
 	]
 }

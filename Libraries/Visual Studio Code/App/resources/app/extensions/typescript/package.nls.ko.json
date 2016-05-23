@@ -4,6 +4,7 @@
 	"configuration.typescript": "TypeScript 구성",
 	"typescript.useCodeSnippetsOnMethodSuggest.dec": "매개 변수 서명으로 함수를 완료하세요.",
 	"typescript.tsdk.desc": "사용할 tsserver 및 lib*.d.ts 파일이 들어 있는 폴더 경로를 지정합니다.",
+	"typescript.tsserver.trace": "Enables tracing of messages send to the TS server",
 	"typescript.validate.enable": "TypeScript 유효성 검사 사용/사용 안 함",
 	"format.insertSpaceAfterCommaDelimiter": "쉼표 구분 기호 뒤에 오는 공백 처리를 정의합니다.",
 	"format.insertSpaceAfterSemicolonInForStatements": " for 문에서 세미콜론 뒤에 오는 공백 처리를 정의합니다.",

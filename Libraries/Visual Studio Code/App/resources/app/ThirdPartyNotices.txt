@@ -7,143 +7,146 @@ The original copyright notices and the licenses under which Microsoft received s
 
 1.	agent-base version 1.0.2 (https://github.com/TooTallNate/node-agent-base)
 2.	amdefine version 1.0.0 (https://github.com/jrburke/amdefine)
-3.	ansi-green version 0.1.1 (https://github.com/jonschlinkert/ansi-green)
-4.	ansi-wrap version 0.1.0 (https://github.com/jonschlinkert/ansi-wrap)
-5.	anymatch version 1.3.0 (https://github.com/es128/anymatch)
-6.	applicationinsights version 0.15.6 (https://github.com/Microsoft/ApplicationInsights-node.js)
-7.	array-slice version 0.2.3 (https://github.com/jonschlinkert/array-slice)
-8.	array-unique version 0.2.1 (https://github.com/jonschlinkert/array-unique)
-9.	arr-diff version 1.1.0 (https://github.com/jonschlinkert/arr-diff)
-10.	arr-flatten version 1.0.1 (https://github.com/jonschlinkert/arr-flatten)
-11.	arrify version 1.0.0 (https://github.com/sindresorhus/arrify)
-12.	async-each version 0.1.6 (https://github.com/paulmillr/async-each)
-13.	atom-brightray (https://github.com/atom/brightray)
-14.	Benvie/JavaScriptNext.tmLanguage (https://github.com/Benvie/JavaScriptNext.tmLanguage)
-15.	binary-extensions version 1.3.1 (https://github.com/sindresorhus/binary-extensions)
-16.	bindings version 1.2.1 (https://github.com/TooTallNate/node-bindings)
-17.	braces version 1.8.1 (https://github.com/jonschlinkert/braces)
-18.	chjj-marked version 0.3.2 (https://github.com/npmcomponent/chjj-marked)
-19.	chokidar version 1.0.5 (https://github.com/paulmillr/chokidar)
-20.	chromium version 45.0.2454.85 (http://www.chromium.org/Home)
-21.	Colorsublime-Themes version 0.1.0 (https://github.com/Colorsublime/Colorsublime-Themes)
-22.	core-util-is version 1.0.1 (https://github.com/isaacs/core-util-is)
-23.	davidrios/jade-tmbundle (https://github.com/davidrios/jade-tmbundle)
-24.	debug version 2.2.0 (https://github.com/visionmedia/debug)
-25.	electron version 0.35.6 (https://github.com/atom/electron)
-26.	emmet version 1.3.1 (https://github.com/emmetio/emmet)
-27.	expand-brackets version 0.1.4 (https://github.com/jonschlinkert/expand-brackets)
-28.	expand-range version 1.8.1 (https://github.com/jonschlinkert/expand-range)
-29.	extend version 3.0.0 (https://github.com/justmoon/node-extend)
-30.	extglob version 0.3.1 (https://github.com/jonschlinkert/extglob)
-31.	extract-opts version 2.2.0 (https://github.com/bevry/extract-opts)
-32.	fd-slicer version 1.0.1 (https://github.com/andrewrk/node-fd-slicer)
-33.	filename-regex version 2.0.0 (https://github.com/regexhq/filename-regex)
-34.	fill-range version 2.2.2 (https://github.com/jonschlinkert/fill-range)
-35.	for-in version 0.1.4 (https://github.com/jonschlinkert/for-in)
-36.	for-own version 0.1.3 (https://github.com/jonschlinkert/for-own)
-37.	freebroccolo/atom-language-swift (https://github.com/freebroccolo/atom-language-swift)
-38.	fsevents version 0.3.8 (https://github.com/strongloop/fsevents)
-39.	getmac version 1.0.7 (https://github.com/bevry/getmac)
-40.	glob-base version 0.2.0 (https://github.com/jonschlinkert/glob-base)
-41.	glob-parent version 1.2.0 (https://github.com/es128/glob-parent)
-42.	graceful-fs version 4.1.2 (https://github.com/isaacs/node-graceful-fs)
-43.	HTML 5.1 W3C Working Draft version 08 October 2015 (http://www.w3.org/TR/2015/WD-html51-20151008/)
-44.	http-proxy-agent version 0.2.7 (https://github.com/TooTallNate/node-http-proxy-agent)
-45.	https-proxy-agent version 0.3.6 (https://github.com/TooTallNate/node-https-proxy-agent)
-46.	iconv-lite version 0.4.13 (https://github.com/ashtuchkin/iconv-lite)
-47.	inherits version 2.0.1 (https://github.com/isaacs/inherits)
-48.	inno setup version 5.5.6 (https://github.com/jrsoftware/issrc)
-49.	Ionic documentation version 1.2.4 (https://github.com/driftyco/ionic-site)
-50.	ionide/ionide-fsharp (https://github.com/ionide/ionide-fsharp)
+3.	anymatch version 1.3.0 (https://github.com/es128/anymatch)
+4.	applicationinsights version 0.15.6 (https://github.com/Microsoft/ApplicationInsights-node.js)
+5.	array-unique version 0.2.1 (https://github.com/jonschlinkert/array-unique)
+6.	arr-diff version 2.0.0 (https://github.com/jonschlinkert/arr-diff)
+7.	arr-flatten version 1.0.1 (https://github.com/jonschlinkert/arr-flatten)
+8.	arrify version 1.0.1 (https://github.com/sindresorhus/arrify)
+9.	async-each version 0.1.6 (https://github.com/paulmillr/async-each)
+10.	atom-brightray (https://github.com/electron/brightray)
+11.	Benvie/JavaScriptNext.tmLanguage (https://github.com/Benvie/JavaScriptNext.tmLanguage)
+12.	binary-extensions version 1.4.0 (https://github.com/sindresorhus/binary-extensions)
+13.	bindings version 1.2.1 (https://github.com/TooTallNate/node-bindings)
+14.	braces version 1.8.3 (https://github.com/jonschlinkert/braces)
+15.	chjj-marked version 0.3.2 (https://github.com/npmcomponent/chjj-marked)
+16.	chokidar version 1.0.5 (https://github.com/paulmillr/chokidar)
+17.	chromium version 49.0.2623.75 (http://www.chromium.org/Home)
+18.	Colorsublime-Themes version 0.1.0 (https://github.com/Colorsublime/Colorsublime-Themes)
+19.	core-util-is version 1.0.2 (https://github.com/isaacs/core-util-is)
+20.	davidrios/jade-tmbundle (https://github.com/davidrios/jade-tmbundle)
+21.	debug version 2.2.0 (https://github.com/visionmedia/debug)
+22.	electron version 0.37.6 (https://github.com/electron/electron)
+23.	emmet version 1.3.1 (https://github.com/emmetio/emmet)
+24.	expand-brackets version 0.1.5 (https://github.com/jonschlinkert/expand-brackets)
+25.	expand-range version 1.8.1 (https://github.com/jonschlinkert/expand-range)
+26.	extend version 3.0.0 (https://github.com/justmoon/node-extend)
+27.	extglob version 0.3.2 (https://github.com/jonschlinkert/extglob)
+28.	extract-opts version 2.2.0 (https://github.com/bevry/extract-opts)
+29.	fd-slicer version 1.0.1 (https://github.com/andrewrk/node-fd-slicer)
+30.	filename-regex version 2.0.0 (https://github.com/regexhq/filename-regex)
+31.	fill-range version 2.2.3 (https://github.com/jonschlinkert/fill-range)
+32.	for-in version 0.1.5 (https://github.com/jonschlinkert/for-in)
+33.	for-own version 0.1.4 (https://github.com/jonschlinkert/for-own)
+34.	freebroccolo/atom-language-swift (https://github.com/freebroccolo/atom-language-swift)
+35.	fsevents version 0.3.8 (https://github.com/strongloop/fsevents)
+36.	getmac version 1.0.7 (https://github.com/bevry/getmac)
+37.	glob-base version 0.3.0 (https://github.com/jonschlinkert/glob-base)
+38.	glob-parent version 2.0.0 (https://github.com/es128/glob-parent)
+39.	glob-parent version 1.3.0 (https://github.com/es128/glob-parent)
+40.	graceful-fs version 4.1.2 (https://github.com/isaacs/node-graceful-fs)
+41.	HTML 5.1 W3C Working Draft version 08 October 2015 (http://www.w3.org/TR/2015/WD-html51-20151008/)
+42.	http-proxy-agent version 0.2.7 (https://github.com/TooTallNate/node-http-proxy-agent)
+43.	https-proxy-agent version 0.3.6 (https://github.com/TooTallNate/node-https-proxy-agent)
+44.	iconv-lite version 0.4.13 (https://github.com/ashtuchkin/iconv-lite)
+45.	inherits version 2.0.1 (https://github.com/isaacs/inherits)
+46.	inno setup version 5.5.6 (https://github.com/jrsoftware/issrc)
+47.	Ionic documentation version 1.2.4 (https://github.com/driftyco/ionic-site)
+48.	ionide/ionide-fsharp (https://github.com/ionide/ionide-fsharp)
+49.	is-binary-path version 1.0.1 (https://github.com/sindresorhus/is-binary-path)
+50.	is-buffer version 1.1.3 (https://github.com/feross/is-buffer)
 51.	isarray version 0.0.1 (https://github.com/juliangruber/isarray)
-52.	is-binary-path version 1.0.1 (https://github.com/sindresorhus/is-binary-path)
-53.	is-dotfile version 1.0.1 (https://github.com/jonschlinkert/is-dotfile)
-54.	is-equal-shallow version 0.1.3 (https://github.com/jonschlinkert/is-equal-shallow)
+52.	is-dotfile version 1.0.2 (https://github.com/jonschlinkert/is-dotfile)
+53.	is-equal-shallow version 0.1.3 (https://github.com/jonschlinkert/is-equal-shallow)
+54.	is-extendable version 0.1.1 (https://github.com/jonschlinkert/is-extendable)
 55.	is-extglob version 1.0.0 (https://github.com/jonschlinkert/is-extglob)
 56.	is-glob version 1.1.3 (https://github.com/jonschlinkert/is-glob)
-57.	is-number version 1.1.2 (https://github.com/jonschlinkert/is-number)
-58.	isobject version 1.0.2 (https://github.com/jonschlinkert/isobject)
-59.	is-primitive version 2.0.0 (https://github.com/jonschlinkert/is-primitive)
-60.	js-beautify version 1.6.2 (https://github.com/beautify-web/js-beautify)
-61.	kind-of version 1.1.0 (https://github.com/jonschlinkert/kind-of)
-62.	language-docker (https://github.com/docker/docker)
-63.	language-go version 0.39.0 (https://github.com/atom/language-go)
-64.	language-php version 0.29.0 (https://github.com/atom/language-php)
-65.	language-rust version 0.4.4 (https://github.com/zargony/atom-language-rust)
-66.	lazy-cache version 0.2.3 (https://github.com/jonschlinkert/lazy-cache)
-67.	libchromiumcontent version 45.0.2454.85  (https://github.com/atom/libchromiumcontent)
-68.	lib-oniguruma version 5.9.3 (https://github.com/kkos/oniguruma)
-69.	lru-cache version 2.6.5 (https://github.com/isaacs/node-lru-cache)
-70.	micromatch version 2.2.0 (https://github.com/jonschlinkert/micromatch)
-71.	Microsoft/TypeScript-TmLanguage version 0.0.1 (https://github.com/Microsoft/TypeScript-TmLanguage)
-72.	minimatch version 0.2.14 (https://github.com/isaacs/minimatch)
-73.	mmcgrana/textmate-clojure (https://github.com/mmcgrana/textmate-clojure)
-74.	ms version 0.7.1 (https://github.com/rauchg/ms.js)
-75.	nan version 2.1.0 (https://github.com/nodejs/nan)
-76.	nan version 2.2.0 (https://github.com/nodejs/nan)
-77.	nan version 2.0.8 (https://github.com/nodejs/nan)
-78.	nan version 2.0.9 (https://github.com/nodejs/nan)
-79.	native-keymap version 0.1.2 (https://github.com/Microsoft/node-native-keymap)
-80.	nodejs version 4.1.1 (https://github.com/nodejs/node)
-81.	object.omit version 1.1.0 (https://github.com/jonschlinkert/object.omit)
-82.	octicons-code version 3.1.0 (https://octicons.github.com)
-83.	octicons-font version 3.1.0 (https://octicons.github.com)
-84.	oniguruma version 6.0.1 (https://github.com/atom/node-oniguruma)
-85.	parse-glob version 3.0.2 (https://github.com/jonschlinkert/parse-glob)
-86.	path-is-absolute version 1.0.0 (https://github.com/sindresorhus/path-is-absolute)
-87.	pend version 1.2.0 (https://github.com/andrewrk/node-pend)
-88.	preserve version 0.2.0 (https://github.com/jonschlinkert/preserve)
-89.	randomatic version 1.1.0 (https://github.com/jonschlinkert/randomatic)
-90.	readable-stream version 1.0.33 (https://github.com/nodejs/readable-stream)
-91.	readdirp version 1.4.0 (https://github.com/thlorenz/readdirp)
-92.	regex-cache version 0.4.2 (https://github.com/jonschlinkert/regex-cache)
-93.	repeat-element version 1.1.2 (https://github.com/jonschlinkert/repeat-element)
-94.	repeat-string version 1.5.2 (https://github.com/jonschlinkert/repeat-string)
-95.	sax version 1.1.2 (https://github.com/isaacs/sax-js)
-96.	semver version 4.3.6 (https://github.com/npm/node-semver)
-97.	sigmund version 1.0.1 (https://github.com/isaacs/sigmund)
-98.	source-map version 0.4.4 (https://github.com/mozilla/source-map)
-99.	string_decoder version 0.10.31 (https://github.com/rvagg/string_decoder)
-100.	string_scorer version 0.1.20 (https://github.com/joshaven/string_score)
-101.	sublimehq/Packages (https://github.com/sublimehq/Packages)
-102.	SublimeText/PowerShell (https://github.com/SublimeText/PowerShell)
-103.	success-symbol version 0.1.0 (https://github.com/jonschlinkert/success-symbol)
-104.	textmate/asp.vb.net.tmbundle (https://github.com/textmate/asp.vb.net.tmbundle)
-105.	textmate/c.tmbundle (https://github.com/textmate/c.tmbundle)
-106.	textmate/coffee-script.tmbundle (https://github.com/textmate/coffee-script.tmbundle)
-107.	textmate/css.tmbundle (https://github.com/textmate/css.tmbundle)
-108.	textmate/diff.tmbundle (https://github.com/textmate/diff.tmbundle)
-109.	textmate/git.tmbundle (https://github.com/textmate/git.tmbundle)
-110.	textmate/groovy.tmbundle (https://github.com/textmate/groovy.tmbundle)
-111.	textmate/html.tmbundle (https://github.com/textmate/html.tmbundle)
-112.	textmate/ini.tmbundle (https://github.com/textmate/ini.tmbundle)
-113.	textmate/java.tmbundle (https://github.com/textmate/java.tmbundle)
-114.	textmate/javascript.tmbundle (https://github.com/textmate/javascript.tmbundle)
-115.	textmate/less.tmbundle (https://github.com/textmate/less.tmbundle)
-116.	textmate/lua.tmbundle (https://github.com/textmate/lua.tmbundle)
-117.	textmate/make.tmbundle (https://github.com/textmate/make.tmbundle)
-118.	textmate/objective-c.tmbundle (https://github.com/textmate/objective-c.tmbundle)
-119.	textmate/perl.tmbundle (https://github.com/textmate/perl.tmbundle)
-120.	textmate/php.tmbundle (https://github.com/textmate/php.tmbundle)
-121.	textmate/python.tmbundle (https://github.com/textmate/python.tmbundle)
-122.	textmate/r.tmbundle (https://github.com/textmate/r.tmbundle)
-123.	textmate/ruby.tmbundle (https://github.com/textmate/ruby.tmbundle)
-124.	textmate/shellscript.tmbundle (https://github.com/textmate/shellscript.tmbundle)
-125.	textmate/sql.tmbundle (https://github.com/textmate/sql.tmbundle)
-126.	textmate/xml.tmbundle (https://github.com/textmate/xml.tmbundle)
-127.	textmate/yaml.tmbundle (https://github.com/textmate/yaml.tmbundle)
-128.	typechecker version 2.0.8 (https://github.com/bevry/typechecker)
-129.	typescript version 1.5 (https://github.com/Microsoft/TypeScript)
-130.	typescript version 1.8.2 (https://github.com/Microsoft/TypeScript)
-131.	typescript-sublime-plugin version 0.1.8 (https://github.com/Microsoft/TypeScript-TmLanguage)
-132.	unity-shader-files version 0.1.0 (https://github.com/nashella/unity-shader-files)
-133.	vscode-debugprotocol version 1.6.1 (https://github.com/Microsoft/vscode-debugadapter-node)
-134.	vscode-swift version 0.0.1 (https://github.com/owensd/vscode-swift)
-135.	vscode-textmate version 1.0.11 (https://github.com/Microsoft/vscode-textmate)
-136.	weak version 1.0.1 (https://github.com/TooTallNate/node-weak)
-137.	windows-mutex version 0.2.0 (https://github.com/Microsoft/node-windows-mutex)
-138.	winreg version 0.0.12 (https://github.com/fresc81/node-winreg)
-139.	yauzl version 2.3.1 (https://github.com/thejoshwolfe/yauzl)
+57.	is-glob version 2.0.1 (https://github.com/jonschlinkert/is-glob)
+58.	is-number version 2.1.0 (https://github.com/jonschlinkert/is-number)
+59.	is-posix-bracket version 0.1.1 (https://github.com/jonschlinkert/is-posix-bracket)
+60.	isobject version 2.0.0 (https://github.com/jonschlinkert/isobject)
+61.	is-primitive version 2.0.0 (https://github.com/jonschlinkert/is-primitive)
+62.	js-beautify version 1.6.2 (https://github.com/beautify-web/js-beautify)
+63.	kind-of version 3.0.2 (https://github.com/jonschlinkert/kind-of)
+64.	language-c version 0.51.3 (https://github.com/atom/language-c)
+65.	language-docker (https://github.com/docker/docker)
+66.	language-go version 0.39.0 (https://github.com/atom/language-go)
+67.	language-php version 0.29.0 (https://github.com/atom/language-php)
+68.	language-rust version 0.4.4 (https://github.com/zargony/atom-language-rust)
+69.	libchromiumcontent version 49.0.2623.75 (https://github.com/electron/libchromiumcontent)
+70.	lib-oniguruma version 5.9.3 (https://github.com/kkos/oniguruma)
+71.	lru-cache version 2.7.3 (https://github.com/isaacs/node-lru-cache)
+72.	micromatch version 2.3.7 (https://github.com/jonschlinkert/micromatch)
+73.	Microsoft/node-jsonc-parser (https://github.com/Microsoft/node-jsonc-parser)
+74.	Microsoft/node-request-light (https://github.com/Microsoft/node-request-light)
+75.	Microsoft/TypeScript-TmLanguage version 0.0.1 (https://github.com/Microsoft/TypeScript-TmLanguage)
+76.	Microsoft/vscode-extension-telemetry (https://github.com/Microsoft/vscode-extension-telemetry)
+77.	Microsoft/vscode-languageserver-node (https://github.com/Microsoft/vscode-languageserver-node)
+78.	Microsoft/vscode-nls (https://github.com/Microsoft/vscode-nls)
+79.	minimatch version 0.2.14 (https://github.com/isaacs/minimatch)
+80.	minimist version 1.2.0 (https://github.com/substack/minimist)
+81.	mmcgrana/textmate-clojure (https://github.com/mmcgrana/textmate-clojure)
+82.	ms version 0.7.1 (https://github.com/rauchg/ms.js)
+83.	nan version 2.2.1 (https://github.com/nodejs/nan)
+84.	native-keymap version 0.1.2 (https://github.com/Microsoft/node-native-keymap)
+85.	nodejs version 5.10.0 (https://github.com/nodejs/node)
+86.	normalize-path version 2.0.1 (https://github.com/jonschlinkert/normalize-path)
+87.	object.omit version 2.0.0 (https://github.com/jonschlinkert/object.omit)
+88.	octicons-code version 3.1.0 (https://octicons.github.com)
+89.	octicons-font version 3.1.0 (https://octicons.github.com)
+90.	oniguruma version 6.0.1 (https://github.com/atom/node-oniguruma)
+91.	parse-glob version 3.0.4 (https://github.com/jonschlinkert/parse-glob)
+92.	path-is-absolute version 1.0.0 (https://github.com/sindresorhus/path-is-absolute)
+93.	pend version 1.2.0 (https://github.com/andrewrk/node-pend)
+94.	preserve version 0.2.0 (https://github.com/jonschlinkert/preserve)
+95.	randomatic version 1.1.5 (https://github.com/jonschlinkert/randomatic)
+96.	readable-stream version 1.0.34 (https://github.com/nodejs/readable-stream)
+97.	readdirp version 1.4.0 (https://github.com/thlorenz/readdirp)
+98.	regex-cache version 0.4.3 (https://github.com/jonschlinkert/regex-cache)
+99.	repeat-element version 1.1.2 (https://github.com/jonschlinkert/repeat-element)
+100.	repeat-string version 1.5.4 (https://github.com/jonschlinkert/repeat-string)
+101.	sax version 1.1.2 (https://github.com/isaacs/sax-js)
+102.	semver version 4.3.6 (https://github.com/npm/node-semver)
+103.	sigmund version 1.0.1 (https://github.com/isaacs/sigmund)
+104.	source-map version 0.4.4 (https://github.com/mozilla/source-map)
+105.	string_decoder version 0.10.31 (https://github.com/rvagg/string_decoder)
+106.	string_scorer version 0.1.20 (https://github.com/joshaven/string_score)
+107.	sublimehq/Packages (https://github.com/sublimehq/Packages)
+108.	SublimeText/PowerShell (https://github.com/SublimeText/PowerShell)
+109.	textmate/asp.vb.net.tmbundle (https://github.com/textmate/asp.vb.net.tmbundle)
+110.	textmate/coffee-script.tmbundle (https://github.com/textmate/coffee-script.tmbundle)
+111.	textmate/css.tmbundle (https://github.com/textmate/css.tmbundle)
+112.	textmate/diff.tmbundle (https://github.com/textmate/diff.tmbundle)
+113.	textmate/git.tmbundle (https://github.com/textmate/git.tmbundle)
+114.	textmate/groovy.tmbundle (https://github.com/textmate/groovy.tmbundle)
+115.	textmate/html.tmbundle (https://github.com/textmate/html.tmbundle)
+116.	textmate/ini.tmbundle (https://github.com/textmate/ini.tmbundle)
+117.	textmate/java.tmbundle (https://github.com/textmate/java.tmbundle)
+118.	textmate/javascript.tmbundle (https://github.com/textmate/javascript.tmbundle)
+119.	textmate/less.tmbundle (https://github.com/textmate/less.tmbundle)
+120.	textmate/lua.tmbundle (https://github.com/textmate/lua.tmbundle)
+121.	textmate/make.tmbundle (https://github.com/textmate/make.tmbundle)
+122.	textmate/objective-c.tmbundle (https://github.com/textmate/objective-c.tmbundle)
+123.	textmate/perl.tmbundle (https://github.com/textmate/perl.tmbundle)
+124.	textmate/php.tmbundle (https://github.com/textmate/php.tmbundle)
+125.	textmate/python.tmbundle (https://github.com/textmate/python.tmbundle)
+126.	textmate/r.tmbundle (https://github.com/textmate/r.tmbundle)
+127.	textmate/ruby.tmbundle (https://github.com/textmate/ruby.tmbundle)
+128.	textmate/shellscript.tmbundle (https://github.com/textmate/shellscript.tmbundle)
+129.	textmate/sql.tmbundle (https://github.com/textmate/sql.tmbundle)
+130.	textmate/xml.tmbundle (https://github.com/textmate/xml.tmbundle)
+131.	textmate/yaml.tmbundle (https://github.com/textmate/yaml.tmbundle)
+132.	typechecker version 2.0.8 (https://github.com/bevry/typechecker)
+133.	typescript version 1.8.2 (https://github.com/Microsoft/TypeScript)
+134.	typescript version 1.8.9 (https://github.com/Microsoft/TypeScript)
+135.	typescript-sublime-plugin version 0.1.8 (https://github.com/Microsoft/TypeScript-TmLanguage)
+136.	unity-shader-files version 0.1.0 (https://github.com/nashella/unity-shader-files)
+137.	vscode-debugprotocol version 1.8.0-pre.3 (https://github.com/Microsoft/vscode-debugadapter-node)
+138.	vscode-swift version 0.0.1 (https://github.com/owensd/vscode-swift)
+139.	vscode-textmate version 1.0.11 (https://github.com/Microsoft/vscode-textmate)
+140.	windows-mutex version 0.2.0 (https://github.com/Microsoft/node-windows-mutex)
+141.	winreg version 1.2.0 (https://github.com/fresc81/node-winreg)
+142.	yauzl version 2.3.1 (https://github.com/thejoshwolfe/yauzl)
 
 
 %% agent-base NOTICES AND INFORMATION BEGIN HERE
@@ -236,58 +239,6 @@ THE SOFTWARE.
 =========================================
 END OF amdefine NOTICES AND INFORMATION
 
-%% ansi-green NOTICES AND INFORMATION BEGIN HERE
-=========================================
-The MIT License (MIT)
-
-Copyright (c) 2015, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-=========================================
-END OF ansi-green NOTICES AND INFORMATION
-
-%% ansi-wrap NOTICES AND INFORMATION BEGIN HERE
-=========================================
-The MIT License (MIT)
-
-Copyright (c) 2015, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-=========================================
-END OF ansi-wrap NOTICES AND INFORMATION
-
 %% anymatch NOTICES AND INFORMATION BEGIN HERE
 =========================================
 The ISC License
@@ -320,32 +271,6 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 =========================================
 END OF applicationinsights NOTICES AND INFORMATION
-
-%% array-slice NOTICES AND INFORMATION BEGIN HERE
-=========================================
-The MIT License (MIT)
-
-Copyright (c) 2014-2015, Jon Schlinkert.Copyright (c) 2012-2015, The Dojo Foundation.copyright (c) 2009-2015, Jeremy Ashkenas.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-=========================================
-END OF array-slice NOTICES AND INFORMATION
 
 %% array-unique NOTICES AND INFORMATION BEGIN HERE
 =========================================
@@ -586,28 +511,25 @@ END OF bindings NOTICES AND INFORMATION
 =========================================
 The MIT License (MIT)
 
-Copyright (c) 2014-2015, Jon Schlinkert.
+Copyright (c) 2014-2016, Jon Schlinkert.
 
-Permission is hereby granted, free of charge, to any person
-obtaining a copy of this software and associated documentation
-files (the "Software"), to deal in the Software without
-restriction, including without limitation the rights to use,
-copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the
-Software is furnished to do so, subject to the following
-conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 =========================================
 END OF braces NOTICES AND INFORMATION
 
@@ -667,7 +589,7 @@ END OF chokidar NOTICES AND INFORMATION
 =========================================
 BSD License
 
-Copyright 2014 The Chromium Authors. All rights reserved.
+Copyright 2015 The Chromium Authors. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -724,26 +646,25 @@ END OF Colorsublime-Themes NOTICES AND INFORMATION
 =========================================
 The MIT License (MIT)
 
-Copyright Joyent, Inc. and other Node contributors.
+Copyright Node.js contributors. All rights reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a
-copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to permit
-persons to whom the Software is furnished to do so, subject to the
-following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included
-in all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
 =========================================
 END OF core-util-is NOTICES AND INFORMATION
 
@@ -846,7 +767,7 @@ END OF emmet NOTICES AND INFORMATION
 =========================================
 The MIT License (MIT)
 
-Copyright (c) 2015 Jon Schlinkert
+Copyright (c) 2015-2016, Jon Schlinkert.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -1058,7 +979,7 @@ END OF fill-range NOTICES AND INFORMATION
 =========================================
 The MIT License (MIT)
 
-Copyright (c) 2014-2015, Jon Schlinkert.
+Copyright (c) 2014-2016, Jon Schlinkert.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -1202,6 +1123,26 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 =========================================
 END OF glob-base NOTICES AND INFORMATION
+
+%% glob-parent NOTICES AND INFORMATION BEGIN HERE
+=========================================
+The ISC License
+
+Copyright (c) 2015 Elan Shanker
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
+IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+=========================================
+END OF glob-parent NOTICES AND INFORMATION
 
 %% glob-parent NOTICES AND INFORMATION BEGIN HERE
 =========================================
@@ -1492,32 +1433,6 @@ THE SOFTWARE.
 =========================================
 END OF ionide/ionide-fsharp NOTICES AND INFORMATION
 
-%% isarray NOTICES AND INFORMATION BEGIN HERE
-=========================================
-(MIT)
-
-Copyright (c) 2013 Julian Gruber <julian@juliangruber.com>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
-of the Software, and to permit persons to whom the Software is furnished to do
-so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-=========================================
-END OF isarray NOTICES AND INFORMATION
-
 %% is-binary-path NOTICES AND INFORMATION BEGIN HERE
 =========================================
 The MIT License (MIT)
@@ -1543,6 +1458,58 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 =========================================
 END OF is-binary-path NOTICES AND INFORMATION
+
+%% is-buffer NOTICES AND INFORMATION BEGIN HERE
+=========================================
+The MIT License (MIT)
+
+Copyright (c) Feross Aboukhadijeh
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+=========================================
+END OF is-buffer NOTICES AND INFORMATION
+
+%% isarray NOTICES AND INFORMATION BEGIN HERE
+=========================================
+(MIT)
+
+Copyright (c) 2013 Julian Gruber <julian@juliangruber.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+=========================================
+END OF isarray NOTICES AND INFORMATION
 
 %% is-dotfile NOTICES AND INFORMATION BEGIN HERE
 =========================================
@@ -1596,6 +1563,32 @@ THE SOFTWARE.
 =========================================
 END OF is-equal-shallow NOTICES AND INFORMATION
 
+%% is-extendable NOTICES AND INFORMATION BEGIN HERE
+=========================================
+The MIT License (MIT)
+
+Copyright (c) 2015, Jon Schlinkert.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+=========================================
+END OF is-extendable NOTICES AND INFORMATION
+
 %% is-extglob NOTICES AND INFORMATION BEGIN HERE
 =========================================
 The MIT License (MIT)
@@ -1621,6 +1614,32 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 =========================================
 END OF is-extglob NOTICES AND INFORMATION
+
+%% is-glob NOTICES AND INFORMATION BEGIN HERE
+=========================================
+The MIT License (MIT)
+
+Copyright (c) 2014-2015, Jon Schlinkert.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+=========================================
+END OF is-glob NOTICES AND INFORMATION
 
 %% is-glob NOTICES AND INFORMATION BEGIN HERE
 =========================================
@@ -1674,11 +1693,37 @@ THE SOFTWARE.
 =========================================
 END OF is-number NOTICES AND INFORMATION
 
+%% is-posix-bracket NOTICES AND INFORMATION BEGIN HERE
+=========================================
+The MIT License (MIT)
+
+Copyright (c) 2015-2016, Jon Schlinkert.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+=========================================
+END OF is-posix-bracket NOTICES AND INFORMATION
+
 %% isobject NOTICES AND INFORMATION BEGIN HERE
 =========================================
 The MIT License (MIT)
 
-Copyright (c) 2014-2015, Jon Schlinkert.
+Copyright (c) 2014-2016, Jon Schlinkert.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -1765,6 +1810,43 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 =========================================
 END OF kind-of NOTICES AND INFORMATION
+
+%% language-c NOTICES AND INFORMATION BEGIN HERE
+=========================================
+The MIT License (MIT)
+
+Copyright (c) 2014 GitHub Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+This package was derived from a TextMate bundle located at
+https://github.com/textmate/c.tmbundle and distributed under the following
+license, located in `README.mdown`:
+
+Permission to copy, use, modify, sell and distribute this
+software is granted. This software is provided "as is" without
+express or implied warranty, and with no claim as to its
+suitability for any purpose.
+=========================================
+END OF language-c NOTICES AND INFORMATION
 
 %% language-docker NOTICES AND INFORMATION BEGIN HERE
 =========================================
@@ -2100,32 +2182,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 =========================================
 END OF language-rust NOTICES AND INFORMATION
 
-%% lazy-cache NOTICES AND INFORMATION BEGIN HERE
-=========================================
-The MIT License (MIT)
-
-Copyright (c) 2015, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-=========================================
-END OF lazy-cache NOTICES AND INFORMATION
-
 %% libchromiumcontent NOTICES AND INFORMATION BEGIN HERE
 =========================================
 The MIT License (MIT)
@@ -2228,6 +2284,58 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 =========================================
 END OF micromatch NOTICES AND INFORMATION
+
+%% Microsoft/node-jsonc-parser NOTICES AND INFORMATION BEGIN HERE
+=========================================
+The MIT License (MIT)
+
+Copyright (c) Microsoft
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+=========================================
+END OF Microsoft/node-jsonc-parser NOTICES AND INFORMATION
+
+%% Microsoft/node-request-light NOTICES AND INFORMATION BEGIN HERE
+=========================================
+The MIT License (MIT)
+
+Copyright (c) Microsoft
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+=========================================
+END OF Microsoft/node-request-light NOTICES AND INFORMATION
 
 %% Microsoft/TypeScript-TmLanguage NOTICES AND INFORMATION BEGIN HERE
 =========================================
@@ -2412,6 +2520,78 @@ Copyright (c) Microsoft Corporation.  All rights reserved.
 =========================================
 END OF Microsoft/TypeScript-TmLanguage NOTICES AND INFORMATION
 
+%% Microsoft/vscode-extension-telemetry NOTICES AND INFORMATION BEGIN HERE
+=========================================
+vscode-extension-telemetry
+
+The MIT License (MIT)
+
+Copyright (c) Microsoft Corporation
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+=========================================
+END OF Microsoft/vscode-extension-telemetry NOTICES AND INFORMATION
+
+%% Microsoft/vscode-languageserver-node NOTICES AND INFORMATION BEGIN HERE
+=========================================
+Copyright (c) Microsoft Corporation
+
+All rights reserved.
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy,
+modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software
+is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED *AS IS*, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT
+OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+=========================================
+END OF Microsoft/vscode-languageserver-node NOTICES AND INFORMATION
+
+%% Microsoft/vscode-nls NOTICES AND INFORMATION BEGIN HERE
+=========================================
+The MIT License (MIT)
+
+Copyright (c) Microsoft Corporation
+
+All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy,
+modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software
+is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED *AS IS*, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT
+OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+=========================================
+END OF Microsoft/vscode-nls NOTICES AND INFORMATION
+
 %% minimatch NOTICES AND INFORMATION BEGIN HERE
 =========================================
 The ISC License
@@ -2431,6 +2611,29 @@ ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
 IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 =========================================
 END OF minimatch NOTICES AND INFORMATION
+
+%% minimist NOTICES AND INFORMATION BEGIN HERE
+=========================================
+This software is released under the MIT license:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+=========================================
+END OF minimist NOTICES AND INFORMATION
 
 %% mmcgrana/textmate-clojure NOTICES AND INFORMATION BEGIN HERE
 =========================================
@@ -2482,54 +2685,6 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 =========================================
 END OF ms NOTICES AND INFORMATION
-
-%% nan NOTICES AND INFORMATION BEGIN HERE
-=========================================
-The MIT License (MIT)
-
-Copyright (c) 2016 NAN contributors
-
-*NAN contributors listed at <https://github.com/nodejs/nan#contributors>*
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-=========================================
-END OF nan NOTICES AND INFORMATION
-
-%% nan NOTICES AND INFORMATION BEGIN HERE
-=========================================
-The MIT License (MIT)
-
-Copyright (c) 2016 NAN contributors
-
-*NAN contributors listed at <https://github.com/nodejs/nan#contributors>*
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-=========================================
-END OF nan NOTICES AND INFORMATION
-
-%% nan NOTICES AND INFORMATION BEGIN HERE
-=========================================
-The MIT License (MIT)
-
-Copyright (c) 2016 NAN contributors
-
-*NAN contributors listed at <https://github.com/nodejs/nan#contributors>*
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-=========================================
-END OF nan NOTICES AND INFORMATION
 
 %% nan NOTICES AND INFORMATION BEGIN HERE
 =========================================
@@ -2675,44 +2830,51 @@ The externally maintained libraries used by Node.js are:
 
     COPYRIGHT AND PERMISSION NOTICE
 
-    Copyright (c) 1995-2015 International Business Machines Corporation and others
+    Copyright (c) 1995-2016 International Business Machines Corporation and others
 
     All rights reserved.
 
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"),
-    to deal in the Software without restriction, including without limitation
-    the rights to use, copy, modify, merge, publish, distribute, and/or sell
-    copies of the Software, and to permit persons
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, and/or sell copies of the Software, and to permit persons
     to whom the Software is furnished to do so, provided that the above
-    copyright notice(s) and this permission notice appear in all copies
-    of the Software and that both the above copyright notice(s) and this
+    copyright notice(s) and this permission notice appear in all copies of
+    the Software and that both the above copyright notice(s) and this
     permission notice appear in supporting documentation.
 
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
-    PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL
-    THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM,
-    OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER
-    RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT,
-    NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE
-    USE OR PERFORMANCE OF THIS SOFTWARE.
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+    OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+    HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY
+    SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER
+    RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF
+    CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN
+    CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-    Except as contained in this notice, the name of a copyright holder shall not be
-    used in advertising or otherwise to promote the sale, use or other dealings in
-    this Software without prior written authorization of the copyright holder.
+    Except as contained in this notice, the name of a copyright holder
+    shall not be used in advertising or otherwise to promote the sale, use
+    or other dealings in this Software without prior written authorization
+    of the copyright holder.
 
-    All trademarks and registered trademarks mentioned herein are the property of their respective owners.
+    All trademarks and registered trademarks mentioned herein are the
+    property of their respective owners.
+
+    ---------------------
 
     Third-Party Software Licenses
-    This section contains third-party software notices and/or additional terms for licensed
-    third-party software components included within ICU libraries.
+
+    This section contains third-party software notices and/or additional
+    terms for licensed third-party software components included within ICU
+    libraries.
 
     1. Unicode Data Files and Software
 
     COPYRIGHT AND PERMISSION NOTICE
 
-    Copyright © 1991-2015 Unicode, Inc. All rights reserved.
+    Copyright © 1991-2016 Unicode, Inc. All rights reserved.
     Distributed under the Terms of Use in
     http://www.unicode.org/copyright.html.
 
@@ -2750,281 +2912,312 @@ The externally maintained libraries used by Node.js are:
 
     2. Chinese/Japanese Word Break Dictionary Data (cjdict.txt)
 
-     #    The Google Chrome software developed by Google is licensed under the BSD license. Other software included in this distribution is provided under other licenses, as set forth below.
+     #     The Google Chrome software developed by Google is licensed under
+     # the BSD license. Other software included in this distribution is
+     # provided under other licenses, as set forth below.
      #
-     # The BSD License
-     # http://opensource.org/licenses/bsd-license.php
-     # Copyright (C) 2006-2008, Google Inc.
+     #  The BSD License
+     #  http://opensource.org/licenses/bsd-license.php
+     #  Copyright (C) 2006-2008, Google Inc.
      #
-     # All rights reserved.
+     #  All rights reserved.
      #
-     # Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+     #  Redistribution and use in source and binary forms, with or without
+     # modification, are permitted provided that the following conditions are met:
      #
-     # Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-     # Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-     # Neither the name of  Google Inc. nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
-     #
-     #
-     # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-     #
-     #
-     # The word list in cjdict.txt are generated by combining three word lists listed
-     # below with further processing for compound word breaking. The frequency is generated
-     # with an iterative training against Google web corpora.
-     #
-     # * Libtabe (Chinese)
-     #   - https://sourceforge.net/project/?group_id=1519
-     #   - Its license terms and conditions are shown below.
-     #
-     # * IPADIC (Japanese)
-     #   - http://chasen.aist-nara.ac.jp/chasen/distribution.html
-     #   - Its license terms and conditions are shown below.
-     #
-     # ---------COPYING.libtabe ---- BEGIN--------------------
-     #
-     # /*
-     #  * Copyrighy (c) 1999 TaBE Project.
-     #  * Copyright (c) 1999 Pai-Hsiang Hsiao.
-     #  * All rights reserved.
-     #  *
-     #  * Redistribution and use in source and binary forms, with or without
-     #  * modification, are permitted provided that the following conditions
-     #  * are met:
-     #  *
-     #  * . Redistributions of source code must retain the above copyright
-     #  *   notice, this list of conditions and the following disclaimer.
-     #  * . Redistributions in binary form must reproduce the above copyright
-     #  *   notice, this list of conditions and the following disclaimer in
-     #  *   the documentation and/or other materials provided with the
-     #  *   distribution.
-     #  * . Neither the name of the TaBE Project nor the names of its
-     #  *   contributors may be used to endorse or promote products derived
-     #  *   from this software without specific prior written permission.
-     #  *
-     #  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-     #  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-     #  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
-     #  * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
-     #  * REGENTS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-     #  * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-     #  * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-     #  * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
-     #  * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-     #  * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-     #  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
-     #  * OF THE POSSIBILITY OF SUCH DAMAGE.
-     #  */
-     #
-     # /*
-     #  * Copyright (c) 1999 Computer Systems and Communication Lab,
-     #  *                    Institute of Information Science, Academia Sinica.
-     #  * All rights reserved.
-     #  *
-     #  * Redistribution and use in source and binary forms, with or without
-     #  * modification, are permitted provided that the following conditions
-     #  * are met:
-     #  *
-     #  * . Redistributions of source code must retain the above copyright
-     #  *   notice, this list of conditions and the following disclaimer.
-     #  * . Redistributions in binary form must reproduce the above copyright
-     #  *   notice, this list of conditions and the following disclaimer in
-     #  *   the documentation and/or other materials provided with the
-     #  *   distribution.
-     #  * . Neither the name of the Computer Systems and Communication Lab
-     #  *   nor the names of its contributors may be used to endorse or
-     #  *   promote products derived from this software without specific
-     #  *   prior written permission.
-     #  *
-     #  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-     #  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-     #  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
-     #  * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
-     #  * REGENTS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-     #  * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-     #  * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-     #  * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
-     #  * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-     #  * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-     #  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
-     #  * OF THE POSSIBILITY OF SUCH DAMAGE.
-     #  */
-     #
-     # Copyright 1996 Chih-Hao Tsai @ Beckman Institute, University of Illinois
-     # c-tsai4@uiuc.edu  http://casper.beckman.uiuc.edu/~c-tsai4
-     #
-     # ---------------COPYING.libtabe-----END------------------------------------
+     #  Redistributions of source code must retain the above copyright notice,
+     # this list of conditions and the following disclaimer.
+     #  Redistributions in binary form must reproduce the above
+     # copyright notice, this list of conditions and the following
+     # disclaimer in the documentation and/or other materials provided with
+     # the distribution.
+     #  Neither the name of  Google Inc. nor the names of its
+     # contributors may be used to endorse or promote products derived from
+     # this software without specific prior written permission.
      #
      #
-     # ---------------COPYING.ipadic-----BEGIN------------------------------------
+     #  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+     # CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+     # INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+     # MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+     # DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+     # LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+     # CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+     # SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+     # BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+     # LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+     # NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+     # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
      #
-     # Copyright 2000, 2001, 2002, 2003 Nara Institute of Science
-     # and Technology.  All Rights Reserved.
      #
-     # Use, reproduction, and distribution of this software is permitted.
-     # Any copy of this software, whether in its original form or modified,
-     # must include both the above copyright notice and the following
-     # paragraphs.
+     #  The word list in cjdict.txt are generated by combining three word lists
+     # listed below with further processing for compound word breaking. The
+     # frequency is generated with an iterative training against Google web
+     # corpora.
      #
-     # Nara Institute of Science and Technology (NAIST),
-     # the copyright holders, disclaims all warranties with regard to this
-     # software, including all implied warranties of merchantability and
-     # fitness, in no event shall NAIST be liable for
-     # any special, indirect or consequential damages or any damages
-     # whatsoever resulting from loss of use, data or profits, whether in an
-     # action of contract, negligence or other tortuous action, arising out
-     # of or in connection with the use or performance of this software.
+     #  * Libtabe (Chinese)
+     #    - https://sourceforge.net/project/?group_id=1519
+     #    - Its license terms and conditions are shown below.
      #
-     # A large portion of the dictionary entries
-     # originate from ICOT Free Software.  The following conditions for ICOT
-     # Free Software applies to the current dictionary as well.
+     #  * IPADIC (Japanese)
+     #    - http://chasen.aist-nara.ac.jp/chasen/distribution.html
+     #    - Its license terms and conditions are shown below.
      #
-     # Each User may also freely distribute the Program, whether in its
-     # original form or modified, to any third party or parties, PROVIDED
-     # that the provisions of Section 3 ("NO WARRANTY") will ALWAYS appear
-     # on, or be attached to, the Program, which is distributed substantially
-     # in the same form as set out herein and that such intended
-     # distribution, if actually made, will neither violate or otherwise
-     # contravene any of the laws and regulations of the countries having
-     # jurisdiction over the User or the intended distribution itself.
+     #  ---------COPYING.libtabe ---- BEGIN--------------------
      #
-     # NO WARRANTY
+     #  /*
+     #   * Copyrighy (c) 1999 TaBE Project.
+     #   * Copyright (c) 1999 Pai-Hsiang Hsiao.
+     #   * All rights reserved.
+     #   *
+     #   * Redistribution and use in source and binary forms, with or without
+     #   * modification, are permitted provided that the following conditions
+     #   * are met:
+     #   *
+     #   * . Redistributions of source code must retain the above copyright
+     #   *   notice, this list of conditions and the following disclaimer.
+     #   * . Redistributions in binary form must reproduce the above copyright
+     #   *   notice, this list of conditions and the following disclaimer in
+     #   *   the documentation and/or other materials provided with the
+     #   *   distribution.
+     #   * . Neither the name of the TaBE Project nor the names of its
+     #   *   contributors may be used to endorse or promote products derived
+     #   *   from this software without specific prior written permission.
+     #   *
+     #   * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+     #   * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+     #   * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+     #   * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+     #   * REGENTS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+     #   * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+     #   * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+     #   * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+     #   * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+     #   * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+     #   * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+     #   * OF THE POSSIBILITY OF SUCH DAMAGE.
+     #   */
      #
-     # The program was produced on an experimental basis in the course of the
-     # research and development conducted during the project and is provided
-     # to users as so produced on an experimental basis.  Accordingly, the
-     # program is provided without any warranty whatsoever, whether express,
-     # implied, statutory or otherwise.  The term "warranty" used herein
-     # includes, but is not limited to, any warranty of the quality,
-     # performance, merchantability and fitness for a particular purpose of
-     # the program and the nonexistence of any infringement or violation of
-     # any right of any third party.
+     #  /*
+     #   * Copyright (c) 1999 Computer Systems and Communication Lab,
+     #   *                    Institute of Information Science, Academia
+     #       *                    Sinica. All rights reserved.
+     #   *
+     #   * Redistribution and use in source and binary forms, with or without
+     #   * modification, are permitted provided that the following conditions
+     #   * are met:
+     #   *
+     #   * . Redistributions of source code must retain the above copyright
+     #   *   notice, this list of conditions and the following disclaimer.
+     #   * . Redistributions in binary form must reproduce the above copyright
+     #   *   notice, this list of conditions and the following disclaimer in
+     #   *   the documentation and/or other materials provided with the
+     #   *   distribution.
+     #   * . Neither the name of the Computer Systems and Communication Lab
+     #   *   nor the names of its contributors may be used to endorse or
+     #   *   promote products derived from this software without specific
+     #   *   prior written permission.
+     #   *
+     #   * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+     #   * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+     #   * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+     #   * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+     #   * REGENTS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+     #   * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+     #   * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+     #   * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+     #   * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+     #   * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+     #   * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+     #   * OF THE POSSIBILITY OF SUCH DAMAGE.
+     #   */
      #
-     # Each user of the program will agree and understand, and be deemed to
-     # have agreed and understood, that there is no warranty whatsoever for
-     # the program and, accordingly, the entire risk arising from or
-     # otherwise connected with the program is assumed by the user.
+     #  Copyright 1996 Chih-Hao Tsai @ Beckman Institute,
+     #      University of Illinois
+     #  c-tsai4@uiuc.edu  http://casper.beckman.uiuc.edu/~c-tsai4
      #
-     # Therefore, neither ICOT, the copyright holder, or any other
-     # organization that participated in or was otherwise related to the
-     # development of the program and their respective officials, directors,
-     # officers and other employees shall be held liable for any and all
-     # damages, including, without limitation, general, special, incidental
-     # and consequential damages, arising out of or otherwise in connection
-     # with the use or inability to use the program or any product, material
-     # or result produced or otherwise obtained by using the program,
-     # regardless of whether they have been advised of, or otherwise had
-     # knowledge of, the possibility of such damages at any time during the
-     # project or thereafter.  Each user will be deemed to have agreed to the
-     # foregoing by his or her commencement of use of the program.  The term
-     # "use" as used herein includes, but is not limited to, the use,
-     # modification, copying and distribution of the program and the
-     # production of secondary products from the program.
+     #  ---------------COPYING.libtabe-----END--------------------------------
      #
-     # In the case where the program, whether in its original form or
-     # modified, was distributed or delivered to or received by a user from
-     # any person, organization or entity other than ICOT, unless it makes or
-     # grants independently of ICOT any specific warranty to the user in
-     # writing, such person, organization or entity, will also be exempted
-     # from and not be held liable to the user for any such damages as noted
-     # above as far as the program is concerned.
      #
-     # ---------------COPYING.ipadic-----END------------------------------------
+     #  ---------------COPYING.ipadic-----BEGIN-------------------------------
+     #
+     #  Copyright 2000, 2001, 2002, 2003 Nara Institute of Science
+     #  and Technology.  All Rights Reserved.
+     #
+     #  Use, reproduction, and distribution of this software is permitted.
+     #  Any copy of this software, whether in its original form or modified,
+     #  must include both the above copyright notice and the following
+     #  paragraphs.
+     #
+     #  Nara Institute of Science and Technology (NAIST),
+     #  the copyright holders, disclaims all warranties with regard to this
+     #  software, including all implied warranties of merchantability and
+     #  fitness, in no event shall NAIST be liable for
+     #  any special, indirect or consequential damages or any damages
+     #  whatsoever resulting from loss of use, data or profits, whether in an
+     #  action of contract, negligence or other tortuous action, arising out
+     #  of or in connection with the use or performance of this software.
+     #
+     #  A large portion of the dictionary entries
+     #  originate from ICOT Free Software.  The following conditions for ICOT
+     #  Free Software applies to the current dictionary as well.
+     #
+     #  Each User may also freely distribute the Program, whether in its
+     #  original form or modified, to any third party or parties, PROVIDED
+     #  that the provisions of Section 3 ("NO WARRANTY") will ALWAYS appear
+     #  on, or be attached to, the Program, which is distributed substantially
+     #  in the same form as set out herein and that such intended
+     #  distribution, if actually made, will neither violate or otherwise
+     #  contravene any of the laws and regulations of the countries having
+     #  jurisdiction over the User or the intended distribution itself.
+     #
+     #  NO WARRANTY
+     #
+     #  The program was produced on an experimental basis in the course of the
+     #  research and development conducted during the project and is provided
+     #  to users as so produced on an experimental basis.  Accordingly, the
+     #  program is provided without any warranty whatsoever, whether express,
+     #  implied, statutory or otherwise.  The term "warranty" used herein
+     #  includes, but is not limited to, any warranty of the quality,
+     #  performance, merchantability and fitness for a particular purpose of
+     #  the program and the nonexistence of any infringement or violation of
+     #  any right of any third party.
+     #
+     #  Each user of the program will agree and understand, and be deemed to
+     #  have agreed and understood, that there is no warranty whatsoever for
+     #  the program and, accordingly, the entire risk arising from or
+     #  otherwise connected with the program is assumed by the user.
+     #
+     #  Therefore, neither ICOT, the copyright holder, or any other
+     #  organization that participated in or was otherwise related to the
+     #  development of the program and their respective officials, directors,
+     #  officers and other employees shall be held liable for any and all
+     #  damages, including, without limitation, general, special, incidental
+     #  and consequential damages, arising out of or otherwise in connection
+     #  with the use or inability to use the program or any product, material
+     #  or result produced or otherwise obtained by using the program,
+     #  regardless of whether they have been advised of, or otherwise had
+     #  knowledge of, the possibility of such damages at any time during the
+     #  project or thereafter.  Each user will be deemed to have agreed to the
+     #  foregoing by his or her commencement of use of the program.  The term
+     #  "use" as used herein includes, but is not limited to, the use,
+     #  modification, copying and distribution of the program and the
+     #  production of secondary products from the program.
+     #
+     #  In the case where the program, whether in its original form or
+     #  modified, was distributed or delivered to or received by a user from
+     #  any person, organization or entity other than ICOT, unless it makes or
+     #  grants independently of ICOT any specific warranty to the user in
+     #  writing, such person, organization or entity, will also be exempted
+     #  from and not be held liable to the user for any such damages as noted
+     #  above as far as the program is concerned.
+     #
+     #  ---------------COPYING.ipadic-----END----------------------------------
 
     3. Lao Word Break Dictionary Data (laodict.txt)
 
-     # Copyright (c) 2013 International Business Machines Corporation
-     # and others. All Rights Reserved.
+     #  Copyright (c) 2013 International Business Machines Corporation
+     #  and others. All Rights Reserved.
      #
-     # Project:    http://code.google.com/p/lao-dictionary/
+     # Project: http://code.google.com/p/lao-dictionary/
      # Dictionary: http://lao-dictionary.googlecode.com/git/Lao-Dictionary.txt
-     # License:    http://lao-dictionary.googlecode.com/git/Lao-Dictionary-LICENSE.txt
-     #             (copied below)
+     # License: http://lao-dictionary.googlecode.com/git/Lao-Dictionary-LICENSE.txt
+     #              (copied below)
      #
-     # This file is derived from the above dictionary, with slight modifications.
-     # --------------------------------------------------------------------------------
-     # Copyright (C) 2013 Brian Eugene Wilson, Robert Martin Campbell.
-     # All rights reserved.
+     #  This file is derived from the above dictionary, with slight
+     #  modifications.
+     #  ----------------------------------------------------------------------
+     #  Copyright (C) 2013 Brian Eugene Wilson, Robert Martin Campbell.
+     #  All rights reserved.
      #
-     # Redistribution and use in source and binary forms, with or without modification,
-     # are permitted provided that the following conditions are met:
+     #  Redistribution and use in source and binary forms, with or without
+     #  modification,
+     #  are permitted provided that the following conditions are met:
      #
-     #  Redistributions of source code must retain the above copyright notice, this
-     #  list of conditions and the following disclaimer. Redistributions in binary
-     #  form must reproduce the above copyright notice, this list of conditions and
-     #  the following disclaimer in the documentation and/or other materials
-     #  provided with the distribution.
      #
-     # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-     # ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-     # WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-     # DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
-     # ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-     # (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-     # LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
-     # ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-     # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-     # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-     # --------------------------------------------------------------------------------
+     # Redistributions of source code must retain the above copyright notice, this
+     #  list of conditions and the following disclaimer. Redistributions in
+     #  binary form must reproduce the above copyright notice, this list of
+     #  conditions and the following disclaimer in the documentation and/or
+     #  other materials provided with the distribution.
+     #
+     #
+     # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+     # "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+     # LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+     # FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+     # COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+     # INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+     # (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+     # SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+     # HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+     # STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+     # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+     # OF THE POSSIBILITY OF SUCH DAMAGE.
+     #  --------------------------------------------------------------------------
 
     4. Burmese Word Break Dictionary Data (burmesedict.txt)
 
-     # Copyright (c) 2014 International Business Machines Corporation
-     # and others. All Rights Reserved.
+     #  Copyright (c) 2014 International Business Machines Corporation
+     #  and others. All Rights Reserved.
      #
-     # This list is part of a project hosted at:
-     #   github.com/kanyawtech/myanmar-karen-word-lists
+     #  This list is part of a project hosted at:
+     #    github.com/kanyawtech/myanmar-karen-word-lists
      #
-     # --------------------------------------------------------------------------------
-     # Copyright (c) 2013, LeRoy Benjamin Sharon
-     # All rights reserved.
+     #  --------------------------------------------------------------------------
+     #  Copyright (c) 2013, LeRoy Benjamin Sharon
+     #  All rights reserved.
      #
-     # Redistribution and use in source and binary forms, with or without modification,
-     # are permitted provided that the following conditions are met:
+     #  Redistribution and use in source and binary forms, with or without
+     #  modification, are permitted provided that the following conditions
+     #  are met: Redistributions of source code must retain the above
+     #  copyright notice, this list of conditions and the following
+     #  disclaimer.  Redistributions in binary form must reproduce the
+     #  above copyright notice, this list of conditions and the following
+     #  disclaimer in the documentation and/or other materials provided
+     #  with the distribution.
      #
-     #   Redistributions of source code must retain the above copyright notice, this
-     #   list of conditions and the following disclaimer.
+     #    Neither the name Myanmar Karen Word Lists, nor the names of its
+     #    contributors may be used to endorse or promote products derived
+     #    from this software without specific prior written permission.
      #
-     #   Redistributions in binary form must reproduce the above copyright notice, this
-     #   list of conditions and the following disclaimer in the documentation and/or
-     #   other materials provided with the distribution.
-     #
-     #   Neither the name Myanmar Karen Word Lists, nor the names of its
-     #   contributors may be used to endorse or promote products derived from
-     #   this software without specific prior written permission.
-     #
-     # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-     # ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-     # WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-     # DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
-     # ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-     # (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-     # LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
-     # ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-     # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-     # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-     # --------------------------------------------------------------------------------
+     #  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+     #  CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+     #  INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+     #  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+     #  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS
+     #  BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+     #  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+     #  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+     #  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+     #  ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
+     #  TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
+     #  THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+     #  SUCH DAMAGE.
+     #  --------------------------------------------------------------------------
 
     5. Time Zone Database
-    ICU uses the public domain data and code derived from
-    Time Zone Database for its time zone support. The ownership of the TZ database is explained
-    in BCP 175: Procedure for Maintaining the Time Zone
+
+      ICU uses the public domain data and code derived from Time Zone
+    Database for its time zone support. The ownership of the TZ database
+    is explained in BCP 175: Procedure for Maintaining the Time Zone
     Database section 7.
 
-    7.  Database Ownership
-
-       The TZ database itself is not an IETF Contribution or an IETF
-       document.  Rather it is a pre-existing and regularly updated work
-       that is in the public domain, and is intended to remain in the public
-       domain.  Therefore, BCPs 78 [RFC5378] and 79 [RFC3979] do not apply
-       to the TZ Database or contributions that individuals make to it.
-       Should any claims be made and substantiated against the TZ Database,
-       the organization that is providing the IANA Considerations defined in
-       this RFC, under the memorandum of understanding with the IETF,
-       currently ICANN, may act in accordance with all competent court
-       orders.  No ownership claims will be made by ICANN or the IETF Trust
-       on the database or the code.  Any person making a contribution to the
-       database or code waives all rights to future claims in that
-       contribution or in the TZ Database.
+     # 7.  Database Ownership
+     #
+     #    The TZ database itself is not an IETF Contribution or an IETF
+     #    document.  Rather it is a pre-existing and regularly updated work
+     #    that is in the public domain, and is intended to remain in the
+     #    public domain.  Therefore, BCPs 78 [RFC5378] and 79 [RFC3979] do
+     #    not apply to the TZ Database or contributions that individuals make
+     #    to it.  Should any claims be made and substantiated against the TZ
+     #    Database, the organization that is providing the IANA
+     #    Considerations defined in this RFC, under the memorandum of
+     #    understanding with the IETF, currently ICANN, may act in accordance
+     #    with all competent court orders.  No ownership claims will be made
+     #    by ICANN or the IETF Trust on the database or the code.  Any person
+     #    making a contribution to the database or code waives all rights to
+     #    future claims in that contribution or in the TZ Database.
   """
 
 - libuv, located at deps/uv, is licensed as follows:
@@ -3079,7 +3272,7 @@ The externally maintained libraries used by Node.js are:
 
 - OpenSSL, located at deps/openssl, is licensed as follows:
   """
-    Copyright (c) 1998-2011 The OpenSSL Project.  All rights reserved.
+    Copyright (c) 1998-2016 The OpenSSL Project.  All rights reserved.
 
     Redistribution and use in source and binary forms, with or without
     modification, are permitted provided that the following conditions
@@ -3632,6 +3825,32 @@ The externally maintained libraries used by Node.js are:
 =========================================
 END OF nodejs NOTICES AND INFORMATION
 
+%% normalize-path NOTICES AND INFORMATION BEGIN HERE
+=========================================
+The MIT License (MIT)
+
+Copyright (c) 2014-2015, Jon Schlinkert.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+=========================================
+END OF normalize-path NOTICES AND INFORMATION
+
 %% object.omit NOTICES AND INFORMATION BEGIN HERE
 =========================================
 The MIT License (MIT)
@@ -3966,7 +4185,7 @@ END OF readable-stream NOTICES AND INFORMATION
 =========================================
 This software is released under the MIT license:
 
-Copyright (c) Thorsten Lorenz
+Copyright (c) 2012-2015 Thorsten Lorenz
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -3991,7 +4210,7 @@ END OF readdirp NOTICES AND INFORMATION
 =========================================
 The MIT License (MIT)
 
-Copyright (c) 2015 Jon Schlinkert
+Copyright (c) 2015-2016, Jon Schlinkert.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -4270,32 +4489,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 =========================================
 END OF SublimeText/PowerShell NOTICES AND INFORMATION
 
-%% success-symbol NOTICES AND INFORMATION BEGIN HERE
-=========================================
-The MIT License (MIT)
-
-Copyright (c) 2015, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-=========================================
-END OF success-symbol NOTICES AND INFORMATION
-
 %% textmate/asp.vb.net.tmbundle NOTICES AND INFORMATION BEGIN HERE
 =========================================
 Copyright (c) textmate-asp.vb.net.tmbundle project authors
@@ -4313,24 +4506,6 @@ to the base-name name of the original file, and an extension of txt, html, or si
 "tidy" is accompanied by "tidy-license.txt".
 =========================================
 END OF textmate/asp.vb.net.tmbundle NOTICES AND INFORMATION
-
-%% textmate/c.tmbundle NOTICES AND INFORMATION BEGIN HERE
-=========================================
-Copyright (c) textmate-c.tmbundle authors
-
-If not otherwise specified (see below), files in this repository fall under the following license:
-
-Permission to copy, use, modify, sell and distribute this
-software is granted. This software is provided "as is" without
-express or implied warranty, and with no claim as to its
-suitability for any purpose.
-
-An exception is made for files in readable text which contain their own license information,
-or files where an accompanying file exists (in the same directory) with a "-license" suffix added
-to the base-name name of the original file, and an extension of txt, html, or similar. For example
-"tidy" is accompanied by "tidy-license.txt".
-=========================================
-END OF textmate/c.tmbundle NOTICES AND INFORMATION
 
 %% textmate/coffee-script.tmbundle NOTICES AND INFORMATION BEGIN HERE
 =========================================
@@ -5180,31 +5355,13 @@ SOFTWARE.
 =========================================
 END OF vscode-textmate NOTICES AND INFORMATION
 
-%% weak NOTICES AND INFORMATION BEGIN HERE
-=========================================
-The MIT License (MIT)
-
-Copyright (c) 2011, Ben Noordhuis <info@bnoordhuis.nl>
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted, provided that the above
-copyright notice and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
-WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
-MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
-ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
-WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
-ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
-OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-=========================================
-END OF weak NOTICES AND INFORMATION
-
 %% windows-mutex NOTICES AND INFORMATION BEGIN HERE
 =========================================
-The MIT License (MIT)
-
 Copyright (c) Microsoft Corporation
+
+All rights reserved.
+
+MIT License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -5213,47 +5370,33 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 =========================================
 END OF windows-mutex NOTICES AND INFORMATION
 
 %% winreg NOTICES AND INFORMATION BEGIN HERE
 =========================================
-Copyright (c) Paul Bottin
+##
 
-The BSD License
+This project is released under [BSD 2-Clause License](http://opensource.org/licenses/BSD-2-Clause).
 
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions
-are met:
+Copyright (c) 2016, Paul Bottin All rights reserved.
 
-1. Redistributions of source code must retain the above copyright
-   notice, this list of conditions and the following disclaimer.
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
-2. Redistributions in binary form must reproduce the above copyright
-   notice, this list of conditions and the following disclaimer in the
-   documentation and/or other materials provided with the distribution.
+ * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
 
-THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
-PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS
-BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
-BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
-IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================
 END OF winreg NOTICES AND INFORMATION
 

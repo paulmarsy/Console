@@ -4,6 +4,7 @@
 	"configuration.typescript": "Configurazione di TypeScript",
 	"typescript.useCodeSnippetsOnMethodSuggest.dec": "Completare le funzioni con la relativa firma del parametro.",
 	"typescript.tsdk.desc": "Specifica il percorso della cartella che contiene i file tsserver e lib*.d.ts da usare.",
+	"typescript.tsserver.trace": "Enables tracing of messages send to the TS server",
 	"typescript.validate.enable": "Abilita/Disabilita la convalida TypeScript",
 	"format.insertSpaceAfterCommaDelimiter": "Consente di definire la gestione dello spazio dopo una virgola di delimitazione",
 	"format.insertSpaceAfterSemicolonInForStatements": " Consente di definire la gestione dello spazio dopo un punto e virgola in un'istruzione for",

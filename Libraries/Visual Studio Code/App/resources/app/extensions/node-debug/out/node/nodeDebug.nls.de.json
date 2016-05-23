@@ -1,5 +1,9 @@
 [
+	"Ausnahme",
 	"Eintrag",
+	"Haltepunkt",
+	"Debuggeranweisung",
+	"Schritt",
 	"Alle Ausnahmen",
 	"Nicht abgefangene Ausnahmen",
 	"Die Laufzeit \"{0}\" wurde in PATH nicht gefunden.",
@@ -16,8 +20,8 @@
 	"Haltepunkt",
 	"Aus Node.js gestreamter Inhalt",
 	"Aus Remote-Node.js gestreamter Inhalt",
-	"Inlineinhalt aus Quellzuordnung",
 	"Kernmodul",
+	"Inlineinhalt aus Quellzuordnung",
 	"(anonyme Funktion)",
 	"Global",
 	"Lokal",
@@ -38,10 +42,5 @@
 	"Das Attribut \"{0}\" ist nicht absolut (\"{1}\"). Fügen Sie ggf. \"{2}\" als Präfix hinzu, um es als absolut zu definieren.",
 	"Weitere Informationen",
 	"Die Anforderung \"{_request}\" wurde abgebrochen, weil Node.js nicht reagiert.",
-	"\"Node.js\" hat auf die Anforderung \"{_request}\" nicht innerhalb einer angemessenen Zeitspanne geantwortet.",
-	"Ausnahme",
-	"Eintrag",
-	"Haltepunkt",
-	"Debuggeranweisung",
-	"Schritt"
+	"\"Node.js\" hat auf die Anforderung \"{_request}\" nicht innerhalb einer angemessenen Zeitspanne geantwortet."
 ]

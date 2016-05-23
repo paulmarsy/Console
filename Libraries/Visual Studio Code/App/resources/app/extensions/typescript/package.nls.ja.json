@@ -4,6 +4,7 @@
 	"configuration.typescript": "TypeScript の構成",
 	"typescript.useCodeSnippetsOnMethodSuggest.dec": "パラメーター シグネチャを含む完全な関数。",
 	"typescript.tsdk.desc": "使用する tsserver と lib*.d.ts ファイルが含まれているフォルダーのパスを指定します。",
+	"typescript.tsserver.trace": "Enables tracing of messages send to the TS server",
 	"typescript.validate.enable": "TypeScript の検証を有効/無効にします",
 	"format.insertSpaceAfterCommaDelimiter": "コンマ区切り記号の後のスペース処理を定義します",
 	"format.insertSpaceAfterSemicolonInForStatements": "for ステートメント内のセミコロンの後のスペース処理を定義します",

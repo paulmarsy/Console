@@ -1,4 +1,5 @@
 [
+	"TypeScript",
 	"La ruta de acceso {0} no apunta a una instalación válida de tsserver. Las características del lenguaje TypeScript se deshabilitan.",
 	"El servidor del lenguaje TypeScript no se pudo iniciar. El mensaje de error es: {0}",
 	"personalizada",

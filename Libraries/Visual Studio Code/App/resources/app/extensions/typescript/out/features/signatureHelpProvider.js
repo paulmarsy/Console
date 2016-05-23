@@ -26,7 +26,13 @@ var TypeScriptSignatureHelpProvider = (function () {
             var result = new vscode_1.SignatureHelp();
             result.activeSignature = info.selectedItemIndex;
             result.activeParameter = info.argumentIndex;
-            info.items.forEach(function (item) {
+            if (info.items[info.selectedItemIndex].isVariadic) {
+            }
+            info.items.forEach(function (item, i) {
+                // keep active parameter in bounds
+                if (i === info.selectedItemIndex && item.isVariadic) {
+                    result.activeParameter = Math.min(info.argumentIndex, item.parameters.length - 1);
+                }
                 var signature = new vscode_1.SignatureInformation('');
                 signature.label += Previewer.plain(item.prefixDisplayParts);
                 item.parameters.forEach(function (p, i, a) {

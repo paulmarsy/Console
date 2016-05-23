@@ -3,8 +3,8 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 'use strict';
-var Json = require('./json-toolbox/json');
-var httpRequest_1 = require('./utils/httpRequest');
+var Json = require('jsonc-parser');
+var request_light_1 = require('request-light');
 var uri_1 = require('./utils/uri');
 var Strings = require('./utils/strings');
 var nls = require('vscode-nls');
@@ -249,7 +249,7 @@ var JSONSchemaService = (function () {
             var errors = jsonErrors.length ? [localize(1, null, toDisplayString(url), jsonErrors[0])] : [];
             return new UnresolvedSchema(schemaContent, errors);
         }, function (error) {
-            var errorMessage = localize(2, null, toDisplayString(url), error.responseText || httpRequest_1.getErrorStatusDescription(error.status) || error.toString());
+            var errorMessage = localize(2, null, toDisplayString(url), error.responseText || request_light_1.getErrorStatusDescription(error.status) || error.toString());
             return new UnresolvedSchema({}, [errorMessage]);
         });
     };
@@ -296,32 +296,64 @@ var JSONSchemaService = (function () {
             var toWalk = [node];
             var seen = [];
             var openPromises = [];
+            var collectEntries = function () {
+                var entries = [];
+                for (var _i = 0; _i < arguments.length; _i++) {
+                    entries[_i - 0] = arguments[_i];
+                }
+                for (var _a = 0, entries_1 = entries; _a < entries_1.length; _a++) {
+                    var entry = entries_1[_a];
+                    if (typeof entry === 'object') {
+                        toWalk.push(entry);
+                    }
+                }
+            };
+            var collectMapEntries = function () {
+                var maps = [];
+                for (var _i = 0; _i < arguments.length; _i++) {
+                    maps[_i - 0] = arguments[_i];
+                }
+                for (var _a = 0, maps_1 = maps; _a < maps_1.length; _a++) {
+                    var map = maps_1[_a];
+                    if (typeof map === 'object') {
+                        for (var key in map) {
+                            var entry = map[key];
+                            toWalk.push(entry);
+                        }
+                    }
+                }
+            };
+            var collectArrayEntries = function () {
+                var arrays = [];
+                for (var _i = 0; _i < arguments.length; _i++) {
+                    arrays[_i - 0] = arguments[_i];
+                }
+                for (var _a = 0, arrays_1 = arrays; _a < arrays_1.length; _a++) {
+                    var array = arrays_1[_a];
+                    if (Array.isArray(array)) {
+                        toWalk.push.apply(toWalk, array);
+                    }
+                }
+            };
             while (toWalk.length) {
                 var next = toWalk.pop();
                 if (seen.indexOf(next) >= 0) {
                     continue;
                 }
                 seen.push(next);
-                if (Array.isArray(next)) {
-                    next.forEach(function (item) {
-                        toWalk.push(item);
-                    });
-                }
-                else if (next) {
-                    if (next.$ref) {
-                        var segments = next.$ref.split('#', 2);
-                        if (segments[0].length > 0) {
-                            openPromises.push(resolveExternalLink(next, segments[0], segments[1]));
-                            continue;
-                        }
-                        else {
-                            resolveLink(next, parentSchema, segments[1]);
-                        }
+                if (next.$ref) {
+                    var segments = next.$ref.split('#', 2);
+                    if (segments[0].length > 0) {
+                        openPromises.push(resolveExternalLink(next, segments[0], segments[1]));
+                        continue;
                     }
-                    for (var key in next) {
-                        toWalk.push(next[key]);
+                    else {
+                        resolveLink(next, parentSchema, segments[1]);
                     }
                 }
+                collectEntries(next.items, next.additionalProperties, next.not);
+                collectMapEntries(next.definitions, next.properties, next.patternProperties, next.dependencies);
+                collectArrayEntries(next.anyOf, next.allOf, next.oneOf, next.items);
             }
             return Promise.all(openPromises);
         };

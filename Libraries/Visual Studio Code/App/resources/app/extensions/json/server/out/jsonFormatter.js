@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 'use strict';
-var Json = require('./json-toolbox/json');
+var Json = require('jsonc-parser');
 var vscode_languageserver_1 = require('vscode-languageserver');
 function format(document, range, options) {
     var documentText = document.getText();
@@ -67,14 +67,15 @@ function format(document, range, options) {
     while (firstToken !== Json.SyntaxKind.EOF) {
         var firstTokenEnd = scanner.getTokenOffset() + scanner.getTokenLength() + rangeOffset;
         var secondToken = scanNext();
+        var replaceContent = '';
         while (!lineBreak && (secondToken === Json.SyntaxKind.LineCommentTrivia || secondToken === Json.SyntaxKind.BlockCommentTrivia)) {
             // comments on the same line: keep them on the same line, but ignore them otherwise
             var commentTokenStart = scanner.getTokenOffset() + rangeOffset;
             addEdit(' ', firstTokenEnd, commentTokenStart);
             firstTokenEnd = scanner.getTokenOffset() + scanner.getTokenLength() + rangeOffset;
+            replaceContent = secondToken === Json.SyntaxKind.LineCommentTrivia ? newLineAndIndent() : '';
             secondToken = scanNext();
         }
-        var replaceContent = '';
         if (secondToken === Json.SyntaxKind.CloseBraceToken) {
             if (firstToken !== Json.SyntaxKind.OpenBraceToken) {
                 indentLevel--;

@@ -1,5 +1,6 @@
 {
 	"messages": [
+		"TypeScript",
 		"The path {0} doesn't point to a valid tsserver install. TypeScript language features will be disabled.",
 		"TypeScript language server couldn't be started. Error message is: {0}",
 		"custom",
@@ -7,6 +8,7 @@
 		"The Typesrript language service died 5 times right after it got started. The service will not be restarted. Please open a bug report."
 	],
 	"keys": [
+		"channelName",
 		"noServerFound",
 		"serverCouldNotBeStarted",
 		"versionNumber.custom",

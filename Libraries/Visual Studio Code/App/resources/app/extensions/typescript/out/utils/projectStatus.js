@@ -6,6 +6,7 @@
 var vscode = require('vscode');
 var vscode_nls_1 = require('vscode-nls');
 var path_1 = require('path');
+var fs_1 = require('fs');
 var localize = vscode_nls_1.loadMessageBundle(__filename);
 var selector = ['javascript', 'javascriptreact'];
 var fileLimit = 500;
@@ -50,35 +51,42 @@ function create(client, isOpen, memento) {
                 if (projectHinted[configFileName] === true) {
                     return;
                 }
-                if (!configFileName) {
-                    currentHint = {
-                        message: localize(0, null),
-                        options: [{
-                                title: localize(1, null),
-                                execute: function () {
-                                    client.logTelemetry('js.hintProjectCreation.ignored');
-                                    projectHinted[configFileName] = true;
-                                    projectHintIgnoreList.push(configFileName);
-                                    memento.update('projectHintIgnoreList', projectHintIgnoreList);
-                                    item.hide();
-                                }
-                            }, {
-                                title: localize(2, null),
-                                execute: function () {
-                                    client.logTelemetry('js.hintProjectCreation.accepted');
-                                    projectHinted[configFileName] = true;
-                                    item.hide();
-                                    return vscode.workspace.openTextDocument(vscode.Uri.parse('untitled:' + path_1.join(vscode.workspace.rootPath, 'jsconfig.json')))
-                                        .then(vscode.window.showTextDocument)
-                                        .then(function (editor) { return editor.edit(function (builder) { return builder.insert(new vscode.Position(0, 0), defaultConfig); }); });
-                                }
-                            }]
-                    };
-                    item.text = '$(light-bulb)';
-                    item.tooltip = localize(3, null);
-                    item.color = '#A5DF3B';
-                    item.show();
-                    client.logTelemetry('js.hintProjectCreation');
+                if (!configFileName && vscode.workspace.rootPath) {
+                    fs_1.exists(path_1.join(vscode.workspace.rootPath, 'jsconfig.json'), function (exists) {
+                        // don't hint if there is a global jsconfig-file. We can get here due
+                        // to TypeScript bugs or jsconfig configurations
+                        if (exists) {
+                            return;
+                        }
+                        currentHint = {
+                            message: localize(0, null),
+                            options: [{
+                                    title: localize(1, null),
+                                    execute: function () {
+                                        client.logTelemetry('js.hintProjectCreation.ignored');
+                                        projectHinted[configFileName] = true;
+                                        projectHintIgnoreList.push(configFileName);
+                                        memento.update('projectHintIgnoreList', projectHintIgnoreList);
+                                        item.hide();
+                                    }
+                                }, {
+                                    title: localize(2, null),
+                                    execute: function () {
+                                        client.logTelemetry('js.hintProjectCreation.accepted');
+                                        projectHinted[configFileName] = true;
+                                        item.hide();
+                                        return vscode.workspace.openTextDocument(vscode.Uri.parse('untitled:' + path_1.join(vscode.workspace.rootPath, 'jsconfig.json')))
+                                            .then(function (doc) { return vscode.window.showTextDocument(doc, vscode.ViewColumn.Three); })
+                                            .then(function (editor) { return editor.edit(function (builder) { return builder.insert(new vscode.Position(0, 0), defaultConfig); }); });
+                                    }
+                                }]
+                        };
+                        item.text = '$(light-bulb)';
+                        item.tooltip = localize(3, null);
+                        item.color = '#A5DF3B';
+                        item.show();
+                        client.logTelemetry('js.hintProjectCreation');
+                    });
                 }
                 else if (fileNames.length > fileLimit) {
                     var largeRoots = computeLargeRoots(configFileName, fileNames).map(function (f) { return ("'/" + f + "/'"); }).join(', ');
@@ -151,5 +159,5 @@ function computeLargeRoots(configFileName, fileNames) {
     }
     return result;
 }
-var defaultConfig = "{\n\t// See http://go.microsoft.com/fwlink/?LinkId=759670\n\t// for the documentation about the jsconfig.json format\n\t\"compilerOptions\": {\n\t\t\"target\": \"es6\"\n\t},\n\t\"exclude\": [\n\t\t\"node_modules\",\n\t\t\"bower_components\",\n\t\t\"jspm_packages\",\n\t\t\"tmp\",\n\t\t\"temp\"\n\t]\n}\n";
+var defaultConfig = "{\n\t" + localize(9, null) + "\n\t\"compilerOptions\": {\n\t\t\"target\": \"es6\",\n\t\t\"module\": \"commonjs\",\n\t\t\"allowSyntheticDefaultImports\": true\n\t},\n\t\"exclude\": [\n\t\t\"node_modules\",\n\t\t\"bower_components\",\n\t\t\"jspm_packages\",\n\t\t\"tmp\",\n\t\t\"temp\"\n\t]\n}\n";
 //# sourceMappingURL=projectStatus.js.map

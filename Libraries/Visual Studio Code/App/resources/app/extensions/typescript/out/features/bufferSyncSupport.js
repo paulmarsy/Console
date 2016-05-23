@@ -60,11 +60,13 @@ var BufferSyncSupport = (function () {
         this.pendingDiagnostics = Object.create(null);
         this.diagnosticDelayer = new async_1.Delayer(100);
         this.syncedBuffers = Object.create(null);
+    }
+    BufferSyncSupport.prototype.listen = function () {
         vscode_1.workspace.onDidOpenTextDocument(this.onDidAddDocument, this, this.disposables);
         vscode_1.workspace.onDidCloseTextDocument(this.onDidRemoveDocument, this, this.disposables);
         vscode_1.workspace.onDidChangeTextDocument(this.onDidChangeDocument, this, this.disposables);
         vscode_1.workspace.textDocuments.forEach(this.onDidAddDocument, this);
-    }
+    };
     Object.defineProperty(BufferSyncSupport.prototype, "validate", {
         get: function () {
             return this._validate;

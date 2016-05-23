@@ -4,6 +4,10 @@
 	"node.sourceMaps.description": "使用 JavaScript 來源對應 (如果存在)。",
 	"node.outDir.description": "如果已啟用來源對應，產生的程式碼就會位於此目錄。如果未指定，產生的程式碼則與其來源位於相同目錄。",
 	"node.stopOnEntry.description": "在啟動後自動停止程式。",
+	"node.port.description": "Debug port to attach to. Default is 5858.",
+	"node.address.description": "TCP/IP address of debug port (for Node.js >= 5.0 only). Default is 'localhost'.",
+	"node.timeout.description": "Retry for this number of milliseconds to connect to Node.js. Default is 10000 ms.",
+	"node.smartStep.description": "Automatically step through generated code that cannot be mapped back to the original source.",
 	"node.launch.program.description": "程式的絕對路徑。",
 	"node.launch.externalConsole.description": "在外部主控台內啟動偵錯目標。",
 	"node.launch.args.description": "傳遞給程式的命令列引數。",
@@ -12,9 +16,6 @@
 	"node.launch.runtimeArgs.description": "傳遞給執行階段可執行檔的選擇性引數。",
 	"node.launch.env.description": "傳遞給程式的環境變數。",
 	"node.launch.config.name": "啟動",
-	"node.attach.port.description": "要附加的偵錯連接埠。預設為 5858。",
-	"node.attach.address.description": "偵錯連接埠的 TCP/IP 位址 (只限 Node.js >= 5.0)。預設為 'localhost'。",
-	"node.attach.timeout.description": "重試此毫秒數以連接至 Node.js。預設為 10000 毫秒。",
 	"node.attach.restart.description": "在 Node.js 終止後重新啟動工作階段。",
 	"node.attach.localRoot.description": "對應至 'remoteRoot' 本機來源根。",
 	"node.attach.remoteRoot.description": "遠端主機的來源根。",
@@ -25,5 +26,6 @@
 	"extensionHost.launch.stopOnEntry.description": "在啟動後自動停止延伸主機。",
 	"extensionHost.launch.sourceMaps.description": "使用 JavaScript 來源對應。",
 	"extensionHost.launch.outDir.description": "如果已啟用來源對應，產生的程式碼就會位於此目錄。如果未指定，產生的程式碼則與其來源位於相同目錄。",
+	"extensionHost.smartStep.description": "Automatically step through generated code that cannot be mapped back to the original source.",
 	"extensionHost.launch.config.name": "啟動擴充功能"
 }

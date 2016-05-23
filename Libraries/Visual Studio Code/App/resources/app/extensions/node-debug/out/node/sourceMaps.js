@@ -28,6 +28,13 @@ var SourceMaps = (function () {
         }
         return null;
     };
+    SourceMaps.prototype.MapPathToSource = function (pathToGenerated, content) {
+        var map = this._findGeneratedToSourceMapping(pathToGenerated, content);
+        if (map) {
+            return map.sources();
+        }
+        return null;
+    };
     SourceMaps.prototype.MapFromSource = function (pathToSource, line, column, bias) {
         var map = this._findSourceToGeneratedMapping(pathToSource);
         if (map) {
@@ -43,8 +50,8 @@ var SourceMaps = (function () {
         }
         return null;
     };
-    SourceMaps.prototype.MapToSource = function (pathToGenerated, line, column, bias) {
-        var map = this._findGeneratedToSourceMapping(pathToGenerated);
+    SourceMaps.prototype.MapToSource = function (pathToGenerated, content, line, column, bias) {
+        var map = this._findGeneratedToSourceMapping(pathToGenerated, content);
         if (map) {
             line += 1; // source map impl is 1 based
             var mr = map.originalPositionFor(line, column, bias);
@@ -151,7 +158,7 @@ var SourceMaps = (function () {
      * This is simple if the generated file has the 'sourceMappingURL' at the end.
      * If not, we are using some heuristics...
      */
-    SourceMaps.prototype._findGeneratedToSourceMapping = function (pathToGenerated) {
+    SourceMaps.prototype._findGeneratedToSourceMapping = function (pathToGenerated, content) {
         if (!pathToGenerated) {
             return null;
         }
@@ -160,7 +167,7 @@ var SourceMaps = (function () {
         }
         // try to find a source map URL in the generated file
         var map_path = null;
-        var uri = this._findSourceMapUrlInFile(pathToGenerated);
+        var uri = this._findSourceMapUrlInFile(pathToGenerated, content);
         if (uri) {
             // if uri is data url source map is inlined in generated file
             if (uri.indexOf('data:application/json') >= 0) {
@@ -204,9 +211,9 @@ var SourceMaps = (function () {
      * try to find the 'sourceMappingURL' in the file with the given path.
      * Returns null in case of errors.
      */
-    SourceMaps.prototype._findSourceMapUrlInFile = function (pathToGenerated) {
+    SourceMaps.prototype._findSourceMapUrlInFile = function (pathToGenerated, content) {
         try {
-            var contents = FS.readFileSync(pathToGenerated).toString();
+            var contents = content || FS.readFileSync(pathToGenerated).toString();
             var lines = contents.split('\n');
             for (var _i = 0, lines_1 = lines; _i < lines_1.length; _i++) {
                 var line = lines_1[_i];
@@ -328,6 +335,9 @@ var SourceMap = (function () {
      */
     SourceMap.prototype.generatedPath = function () {
         return this._generatedFile;
+    };
+    SourceMap.prototype.sources = function () {
+        return this._sources;
     };
     /*
      * Returns true if this source map originates from the given source.

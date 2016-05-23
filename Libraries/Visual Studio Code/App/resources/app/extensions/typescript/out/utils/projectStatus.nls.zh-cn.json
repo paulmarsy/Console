@@ -7,5 +7,6 @@
 	"为了获得更好的性能，排除具有许多文件的文件夹。",
 	"配置排除",
 	"配置排除",
-	"为了提高性能，请排除包含许多文件的文件夹。"
+	"为了提高性能，请排除包含许多文件的文件夹。",
+	"// See https://go.microsoft.com/fwlink/?LinkId=759670\n\t// for the documentation about the jsconfig.json format"
 ]

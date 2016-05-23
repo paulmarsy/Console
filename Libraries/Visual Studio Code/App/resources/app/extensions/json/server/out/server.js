@@ -4,7 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 'use strict';
 var vscode_languageserver_1 = require('vscode-languageserver');
-var httpRequest_1 = require('./utils/httpRequest');
+var request_light_1 = require('request-light');
 var path = require('path');
 var fs = require('fs');
 var uri_1 = require('./utils/uri');
@@ -16,8 +16,6 @@ var jsonHover_1 = require('./jsonHover');
 var jsonDocumentSymbols_1 = require('./jsonDocumentSymbols');
 var jsonFormatter_1 = require('./jsonFormatter');
 var configuration_1 = require('./configuration');
-var bowerJSONContribution_1 = require('./jsoncontributions/bowerJSONContribution');
-var packageJSONContribution_1 = require('./jsoncontributions/packageJSONContribution');
 var projectJSONContribution_1 = require('./jsoncontributions/projectJSONContribution');
 var globPatternContribution_1 = require('./jsoncontributions/globPatternContribution');
 var fileAssociationContribution_1 = require('./jsoncontributions/fileAssociationContribution');
@@ -98,12 +96,10 @@ var request = function (options) {
             };
         });
     }
-    return httpRequest_1.xhr(options);
+    return request_light_1.xhr(options);
 };
 var contributions = [
     new projectJSONContribution_1.ProjectJSONContribution(request),
-    new packageJSONContribution_1.PackageJSONContribution(request),
-    new bowerJSONContribution_1.BowerJSONContribution(request),
     new globPatternContribution_1.GlobPatternContribution(),
     filesAssociationContribution
 ];
@@ -122,7 +118,7 @@ var schemaAssociations = void 0;
 // The settings have changed. Is send on server activation as well.
 connection.onDidChangeConfiguration(function (change) {
     var settings = change.settings;
-    httpRequest_1.configure(settings.http && settings.http.proxy, settings.http && settings.http.proxyStrictSSL);
+    request_light_1.configure(settings.http && settings.http.proxy, settings.http && settings.http.proxyStrictSSL);
     jsonConfigurationSettings = settings.json && settings.json.schemas;
     updateConfiguration();
 });

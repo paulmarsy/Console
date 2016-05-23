@@ -4,6 +4,7 @@
 	"configuration.typescript": "TypeScript 組態",
 	"typescript.useCodeSnippetsOnMethodSuggest.dec": "使用其參數簽章完成函式。",
 	"typescript.tsdk.desc": "指定資料夾路徑，其中包含要使用的 tsserver 和 lib*.d.ts 檔案。",
+	"typescript.tsserver.trace": "Enables tracing of messages send to the TS server",
 	"typescript.validate.enable": "啟用 / 停用 TypeScript 驗證",
 	"format.insertSpaceAfterCommaDelimiter": "定義逗號分隔符號後的空格處理",
 	"format.insertSpaceAfterSemicolonInForStatements": "定義 for 陳述式內分號後的空格處理",

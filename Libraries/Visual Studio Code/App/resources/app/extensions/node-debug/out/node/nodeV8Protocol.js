@@ -134,7 +134,7 @@ var NodeV8Protocol = (function (_super) {
                     delete _this._pendingRequests[request.seq];
                     clb(new NodeV8Response(request, localize(2, null, timeout)));
                     _this._unresponsiveMode = true;
-                    _this.emitEvent(new NodeV8Event('diagnostic', { reason: 'unresponsive ' + command }));
+                    _this.emitEvent(new NodeV8Event('diagnostic', { reason: "request '" + command + "' timed out'" }));
                 }
             }, timeout);
         }
@@ -200,12 +200,12 @@ var NodeV8Protocol = (function (_super) {
                         var pair = lines[i].split(/: +/);
                         switch (pair[0]) {
                             case 'Embedding-Host':
-                                var match = pair[1].match(/node\sv(\d+)\.\d+\.\d+/);
-                                if (match && match.length === 2) {
-                                    this.embeddedHostVersion = parseInt(match[1]);
+                                var match = pair[1].match(/node\sv(\d+)\.(\d+)\.(\d+)/);
+                                if (match && match.length === 4) {
+                                    this.embeddedHostVersion = (parseInt(match[1]) * 100 + parseInt(match[2])) * 100 + parseInt(match[3]);
                                 }
                                 else if (pair[1] === 'Electron') {
-                                    this.embeddedHostVersion = 4;
+                                    this.embeddedHostVersion = 51000; // TODO this needs to be detected in a smarter way by looking at the V8 version in Electron
                                 }
                                 break;
                             case 'Content-Length':

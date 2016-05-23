@@ -4,6 +4,7 @@
 	"configuration.typescript": "TypeScript-Konfiguration",
 	"typescript.useCodeSnippetsOnMethodSuggest.dec": "Vervollständigen Sie Funktionen mit deren Parametersignatur.",
 	"typescript.tsdk.desc": "Gibt den Ordnerpfad mit den zu verwendenden tsserver- und lib*.d.ts-Dateien an.",
+	"typescript.tsserver.trace": "Enables tracing of messages send to the TS server",
 	"typescript.validate.enable": "TypeScript-Überprüfung aktivieren/deaktivieren",
 	"format.insertSpaceAfterCommaDelimiter": "Definiert die Verarbeitung von Leerzeichen nach einem Kommatrennzeichen.",
 	"format.insertSpaceAfterSemicolonInForStatements": " Definiert die Verarbeitung von Leerzeichen nach einem Semikolon in einer for-Anweisung.",

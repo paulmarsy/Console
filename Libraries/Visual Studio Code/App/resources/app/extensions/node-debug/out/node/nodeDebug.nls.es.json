@@ -1,5 +1,9 @@
 [
+	"excepción",
 	"entrada",
+	"punto de interrupción",
+	"instrucción de depurador",
+	"paso",
 	"Todas las excepciones",
 	"Excepciones no detectadas",
 	"No se encuentra el runtime '{0}' en PATH.",
@@ -16,8 +20,8 @@
 	"punto de interrupción",
 	"contenido transmitido desde Node.js",
 	"contenido transmitido desde Node.js remoto",
-	"contenido insertado del mapa de origen",
 	"módulo principal",
+	"contenido insertado del mapa de origen",
 	"(función anónima)",
 	"Global",
 	"Local",
@@ -38,10 +42,5 @@
 	"El atributo '{0}' no es absoluto ('{1}'). Pruebe a agregar '{2}' como prefijo para hacerlo absoluto.",
 	"Más información",
 	"La solicitud '{_request}' se canceló porque Node.js no responde.",
-	"Node.js no respondió a la solicitud '{_request}' en un período de tiempo razonable.",
-	"excepción",
-	"entrada",
-	"punto de interrupción",
-	"instrucción de depurador",
-	"paso"
+	"Node.js no respondió a la solicitud '{_request}' en un período de tiempo razonable."
 ]

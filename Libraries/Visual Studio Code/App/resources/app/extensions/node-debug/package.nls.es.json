@@ -4,6 +4,10 @@
 	"node.sourceMaps.description": "Se usan los mapas de origen de JavaScript (si existen).",
 	"node.outDir.description": "Si los mapas de origen están habilitados, el código generado se espera en este directorio. Si no se especifica, el código generado se espera en el mismo directorio que su origen.",
 	"node.stopOnEntry.description": "El programa se detiene automáticamente tras el inicio.",
+	"node.port.description": "Debug port to attach to. Default is 5858.",
+	"node.address.description": "TCP/IP address of debug port (for Node.js >= 5.0 only). Default is 'localhost'.",
+	"node.timeout.description": "Retry for this number of milliseconds to connect to Node.js. Default is 10000 ms.",
+	"node.smartStep.description": "Automatically step through generated code that cannot be mapped back to the original source.",
 	"node.launch.program.description": "Ruta de acceso absoluta al programa.",
 	"node.launch.externalConsole.description": "El destino de depuración se inicia en una consola externa.",
 	"node.launch.args.description": "Argumentos de la línea de comandos pasados al programa.",
@@ -12,9 +16,6 @@
 	"node.launch.runtimeArgs.description": "Argumentos opcionales pasados al ejecutable del runtime.",
 	"node.launch.env.description": "Variables de entorno pasadas al programa.",
 	"node.launch.config.name": "Iniciar",
-	"node.attach.port.description": "Puerto de depuración al que se va a conectar. El valor predeterminado es 5858.",
-	"node.attach.address.description": "Dirección TCP/IP del puerto de depuración (para Node.js >= 5.0 solo). El valor predeterminado es 'localhost'.",
-	"node.attach.timeout.description": "Pruebe de nuevo con este número de milisegundos para conectarse a Node.js. El valor predeterminado es 10000 ms.",
 	"node.attach.restart.description": "Reinicie la sesión cuando Node.js haya terminado.",
 	"node.attach.localRoot.description": "Raíz de origen local que corresponde a \"remoteRoot\".",
 	"node.attach.remoteRoot.description": "Raíz de origen del host remoto.",
@@ -25,5 +26,6 @@
 	"extensionHost.launch.stopOnEntry.description": "El host de extensiones se detiene automáticamente tras el inicio.",
 	"extensionHost.launch.sourceMaps.description": "Se usan los mapas de origen de JavaScript.",
 	"extensionHost.launch.outDir.description": "Si los mapas de origen están habilitados, el código generado se espera en este directorio. Si no se especifica, el código generado se espera en el mismo directorio que su origen.",
+	"extensionHost.smartStep.description": "Automatically step through generated code that cannot be mapped back to the original source.",
 	"extensionHost.launch.config.name": "Extensión de inicio"
 }

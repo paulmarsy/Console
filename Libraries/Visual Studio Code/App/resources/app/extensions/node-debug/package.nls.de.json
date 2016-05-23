@@ -4,6 +4,10 @@
 	"node.sourceMaps.description": "Verwendet JavaScript-Quellzuordnungen (wenn vorhanden).",
 	"node.outDir.description": "Wenn Quellzuordnungen aktiviert sind, wird der generierte Code in diesem Verzeichnis erwartet. Wenn keine Angabe erfolgt, wird der generierte Code im gleichen Verzeichnis wie seine Quelle erwartet.",
 	"node.stopOnEntry.description": "Beendet das Programm nach dem Start automatisch.",
+	"node.port.description": "Debug port to attach to. Default is 5858.",
+	"node.address.description": "TCP/IP address of debug port (for Node.js >= 5.0 only). Default is 'localhost'.",
+	"node.timeout.description": "Retry for this number of milliseconds to connect to Node.js. Default is 10000 ms.",
+	"node.smartStep.description": "Automatically step through generated code that cannot be mapped back to the original source.",
 	"node.launch.program.description": "Der absolute Pfad zum Programm.",
 	"node.launch.externalConsole.description": "Startet das Debugziel in einer externen Konsole.",
 	"node.launch.args.description": "Befehlszeilenargumente, die an das Programm übergeben werden.",
@@ -12,9 +16,6 @@
 	"node.launch.runtimeArgs.description": "Optionale Argumente, die an die ausführbare Laufzeitdatei übergeben werden.",
 	"node.launch.env.description": "Umgebungsvariablen, die an das Programm übergeben werden.",
 	"node.launch.config.name": "Starten",
-	"node.attach.port.description": "Der Debugport zum Anfügen. Der Standardwert ist 5858.",
-	"node.attach.address.description": "Die TCP/IP-Adresse des Debugports (nur für Node.js >= 5.0). Der Standardwert ist \"localhost\".",
-	"node.attach.timeout.description": "Führt für diese Anzahl von Millisekunden Wiederholungsversuche aus, um eine Verbindung mit Node.js herzustellen. Der Standardwert sind 10.000 Millisekunden.",
 	"node.attach.restart.description": "Startet die Sitzung neu, nachdem Node.js beendet wurde.",
 	"node.attach.localRoot.description": "Der lokale Quellstamm, der dem \"remoteRoot\" entspricht.",
 	"node.attach.remoteRoot.description": "Der Quellstamm des Remotehosts.",
@@ -25,5 +26,6 @@
 	"extensionHost.launch.stopOnEntry.description": "Beendet den Extensionhost nach dem Start automatisch.",
 	"extensionHost.launch.sourceMaps.description": "Verwendet JavaScript-Quellzuordnungen.",
 	"extensionHost.launch.outDir.description": "Wenn Quellzuordnungen aktiviert sind, wird der generierte Code in diesem Verzeichnis erwartet. Wenn keine Angabe erfolgt, wird der generierte Code im gleichen Verzeichnis wie seine Quelle erwartet.",
+	"extensionHost.smartStep.description": "Automatically step through generated code that cannot be mapped back to the original source.",
 	"extensionHost.launch.config.name": "Extension starten"
 }

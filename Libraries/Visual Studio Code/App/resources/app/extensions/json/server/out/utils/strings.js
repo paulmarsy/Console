@@ -21,7 +21,7 @@ exports.startsWith = startsWith;
 function endsWith(haystack, needle) {
     var diff = haystack.length - needle.length;
     if (diff > 0) {
-        return haystack.lastIndexOf(needle) === haystack.length - needle.length;
+        return haystack.lastIndexOf(needle) === diff;
     }
     else if (diff === 0) {
         return haystack === needle;

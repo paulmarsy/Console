@@ -7,5 +7,6 @@
 	"성능 개선을 위해 파일이 많은 폴더를 제외하세요.",
 	"제외 구성",
 	"제외 구성",
-	"성능을 향상하려면 많은 파일이 포함된 폴더를 제외하세요."
+	"성능을 향상하려면 많은 파일이 포함된 폴더를 제외하세요.",
+	"// See https://go.microsoft.com/fwlink/?LinkId=759670\n\t// for the documentation about the jsconfig.json format"
 ]

@@ -1,4 +1,5 @@
 [
+	"TypeScript",
 	"Der Pfad \"{0}\" verweist nicht auf eine gültige Tsserver-Installation. TypeScript-Sprachfeatures werden deaktiviert.",
 	"Der TypeScript-Sprachserver konnte nicht gestartet werden. Fehlermeldung: {0}",
 	"benutzerdefiniert",

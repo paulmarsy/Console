@@ -71,6 +71,7 @@ var LanguageProvider = (function () {
         this.configurationChanged();
         client.onReady().then(function () {
             _this.registerProviders(client);
+            _this.bufferSyncSupport.listen();
         }, function () {
             // Nothing to do here. The client did show a message;
         });
@@ -90,16 +91,17 @@ var LanguageProvider = (function () {
         this.formattingProvider = new formattingProvider_1.default(client);
         this.formattingProvider.updateConfiguration(config);
         this.description.modeIds.forEach(function (modeId) {
-            vscode_1.languages.registerCompletionItemProvider(modeId, _this.completionItemProvider, '.');
-            vscode_1.languages.registerHoverProvider(modeId, hoverProvider);
-            vscode_1.languages.registerDefinitionProvider(modeId, definitionProvider);
-            vscode_1.languages.registerDocumentHighlightProvider(modeId, documentHighlightProvider);
-            vscode_1.languages.registerReferenceProvider(modeId, referenceProvider);
-            vscode_1.languages.registerDocumentSymbolProvider(modeId, documentSymbolProvider);
-            vscode_1.languages.registerSignatureHelpProvider(modeId, signatureHelpProvider, '(', ',');
-            vscode_1.languages.registerRenameProvider(modeId, renameProvider);
-            vscode_1.languages.registerDocumentRangeFormattingEditProvider(modeId, _this.formattingProvider);
-            vscode_1.languages.registerOnTypeFormattingEditProvider(modeId, _this.formattingProvider, ';', '}', '\n');
+            var selector = { scheme: 'file', language: modeId };
+            vscode_1.languages.registerCompletionItemProvider(selector, _this.completionItemProvider, '.');
+            vscode_1.languages.registerHoverProvider(selector, hoverProvider);
+            vscode_1.languages.registerDefinitionProvider(selector, definitionProvider);
+            vscode_1.languages.registerDocumentHighlightProvider(selector, documentHighlightProvider);
+            vscode_1.languages.registerReferenceProvider(selector, referenceProvider);
+            vscode_1.languages.registerDocumentSymbolProvider(selector, documentSymbolProvider);
+            vscode_1.languages.registerSignatureHelpProvider(selector, signatureHelpProvider, '(', ',');
+            vscode_1.languages.registerRenameProvider(selector, renameProvider);
+            vscode_1.languages.registerDocumentRangeFormattingEditProvider(selector, _this.formattingProvider);
+            vscode_1.languages.registerOnTypeFormattingEditProvider(selector, _this.formattingProvider, ';', '}', '\n');
             vscode_1.languages.registerWorkspaceSymbolProvider(new workspaceSymbolProvider_1.default(client, modeId));
             vscode_1.languages.setLanguageConfiguration(modeId, {
                 indentationRules: {

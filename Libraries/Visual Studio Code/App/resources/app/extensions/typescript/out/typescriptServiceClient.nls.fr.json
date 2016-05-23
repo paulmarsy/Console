@@ -1,4 +1,5 @@
 [
+	"TypeScript",
 	"Le chemin {0} ne pointe pas vers une installation valide de tsserver. Les fonctionnalités du langage TypeScript vont être désactivées.",
 	"Impossible de démarrer le serveur de langage TypeScript. Message d'erreur : {0}",
 	"personnalisé",

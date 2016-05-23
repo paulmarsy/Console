@@ -1,7 +1,7 @@
 {
 	"name": "node-debug",
 	"displayName": "Node Debug",
-	"version": "0.10.13",
+	"version": "0.10.12",
 	"publisher": "ms-vscode",
 	"description": "%extension.description%",
 	"categories": [
@@ -23,8 +23,8 @@
 		"vscode": "^0.10.1"
 	},
 	"dependencies": {
-		"vscode-debugprotocol": "^1.7.0",
-		"vscode-debugadapter": "^1.7.0",
+		"vscode-debugprotocol": "1.8.0-pre.3",
+		"vscode-debugadapter": "1.8.0-pre.2",
 		"source-map": "^0.5.3",
 		"vscode-nls": "^1.0.4"
 	},
@@ -50,13 +50,21 @@
 		"gulp-vinyl-zip": "*",
 		"mocha": "^2.4.5",
 		"tslint": "^3.5.0",
-		"typescript": "^1.8.2",
+		"typescript": "^1.8.5",
 		"vscode-nls-dev": "^1.0.3",
-		"vscode-debugadapter-testsupport": "^1.7.0",
+		"vscode-debugadapter-testsupport": "1.8.0-pre.3",
 		"event-stream": "^3.3.2",
 		"nodemon": "^1.9.1"
 	},
 	"contributes": {
+		"languages": [
+			{
+				"id": "javascript",
+				"extensions": [
+					".js!transpiled"
+				]
+			}
+		],
 		"debuggers": [
 			{
 				"type": "node",
@@ -152,6 +160,26 @@
 								"type": ["string", "null"],
 								"description": "%node.outDir.description%",
 								"default": null
+							},
+							"port": {
+								"type": "number",
+								"description": "%node.port.description%",
+								"default": 5858
+							},
+							"address": {
+								"type": "string",
+								"description": "%node.address.description%",
+								"default": "localhost"
+							},
+							"timeout": {
+								"type": "number",
+								"description": "%node.timeout.description%",
+								"default": 10000
+							},
+							"smartStep": {
+								"type": "boolean",
+								"description": "%node.smartStep.description%",
+								"default": true
 							}
 						}
 					},
@@ -159,17 +187,17 @@
 						"properties": {
 							"port": {
 								"type": "number",
-								"description": "%node.attach.port.description%",
+								"description": "%node.port.description%",
 								"default": 5858
 							},
 							"address": {
 								"type": "string",
-								"description": "%node.attach.address.description%",
+								"description": "%node.address.description%",
 								"default": "localhost"
 							},
 							"timeout": {
 								"type": "number",
-								"description": "%node.attach.timeout.description%",
+								"description": "%node.timeout.description%",
 								"default": 10000
 							},
 							"restart": {
@@ -201,6 +229,11 @@
 								"type": ["string", "null"],
 								"description": "%node.attach.remoteRoot.description%",
 								"default": null
+							},
+							"smartStep": {
+								"type": "boolean",
+								"description": "%node.smartStep.description%",
+								"default": true
 							}
 						}
 					}
@@ -220,7 +253,7 @@
 					"args": [ "--extensionDevelopmentPath=${workspaceRoot}" ],
 					"stopOnEntry": false,
 					"sourceMaps": true,
-					"outDir": "out",
+					"outDir": "${workspaceRoot}/out",
 					"preLaunchTask": "npm"
 				}],
 				"configurationAttributes": {
@@ -252,6 +285,11 @@
 								"type": ["string", "null"],
 								"description": "%extensionHost.launch.outDir.description%",
 								"default": "out"
+							},
+							"smartStep": {
+								"type": "boolean",
+								"description": "%extensionHost.smartStep.description%",
+								"default": true
 							}
 						}
 					}

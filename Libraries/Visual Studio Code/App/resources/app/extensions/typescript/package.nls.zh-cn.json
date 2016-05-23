@@ -4,6 +4,7 @@
 	"configuration.typescript": "TypeScript 配置",
 	"typescript.useCodeSnippetsOnMethodSuggest.dec": "完成函数的参数签名。",
 	"typescript.tsdk.desc": "指定包含要使用的 tsserver 和 lib*.d.ts 文件的文件夹路径。",
+	"typescript.tsserver.trace": "Enables tracing of messages send to the TS server",
 	"typescript.validate.enable": "启用/禁用 TypeScript 验证",
 	"format.insertSpaceAfterCommaDelimiter": "定义逗号分隔符后面的空格处理",
 	"format.insertSpaceAfterSemicolonInForStatements": "在 For 语句中，定义分号之后的空格处理",

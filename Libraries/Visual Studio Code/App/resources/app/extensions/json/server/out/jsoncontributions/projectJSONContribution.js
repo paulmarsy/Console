@@ -5,7 +5,7 @@
 'use strict';
 var vscode_languageserver_1 = require('vscode-languageserver');
 var Strings = require('../utils/strings');
-var httpRequest_1 = require('../utils/httpRequest');
+var request_light_1 = require('request-light');
 var nls = require('vscode-nls');
 var localize = nls.loadMessageBundle(__filename);
 var FEED_INDEX_URL = 'https://api.nuget.org/v3/index.json';
@@ -106,7 +106,7 @@ var ProjectJSONContribution = (function () {
             }
             return Promise.reject(localize(3, null, url, success.responseText));
         }, function (error) {
-            return Promise.reject(localize(4, null, url, httpRequest_1.getErrorStatusDescription(error.status)));
+            return Promise.reject(localize(4, null, url, request_light_1.getErrorStatusDescription(error.status)));
         });
     };
     ProjectJSONContribution.prototype.collectPropertySuggestions = function (resource, location, currentWord, addValue, isLast, result) {
