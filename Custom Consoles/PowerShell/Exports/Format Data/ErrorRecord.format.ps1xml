@@ -27,22 +27,6 @@
                             	<ScriptBlock>
                                     $PSItemrecord = $PSItem
                                     
-                                    function Limit-MessageLength {
-                                        param($Message)
-                                        
-                                        $Block = [string]::Empty
-                                        do {
-                                            if ($Message.Lengh -gt 80) { $i = 80 }
-                                            else { $i = $Message.Length }
-                                            
-                                            $Block += "{0}{1}" -f $Message.Substring(0, $i), [Environment]::NewLine
-                                            $Message = $Message.Substring($i, ($Message.Length) - $1)
-                                        }
-                                        while ($i -gt 0)
-                                        
-                                        return $Block
-                                    }
-                                    
                                     $callStack = Get-PSCallStack
                                     $callStackSize = $callStack | Measure-Object -Line | Select-Object -ExpandProperty Lines
                                     $errorViewCallerOrigin = $callStack | Select-Object -Skip 1 -First 1 | % InvocationInfo | % CommandOrigin
@@ -52,9 +36,9 @@
                                         switch -wildcard ($PSItemrecord.FullyQualifiedErrorId)
                                         {
                                             "CommandNotFoundException" { "Command not found: {0}" -f $PSItemrecord.TargetObject }
-                                            "System.Security.SecurityException,*" { "You do not have access to perform the requested action ('Run As Administrator'?), error details:{0}{1}" -f ([System.Environment]::NewLine), (Limit-MessageLength $PSItemrecord.Exception.Message) }
-                                            "CannotConvertArgumentNoMessage,*" { "Incorrect argument '{0}', error details:{1}{2}" -f $PSItemrecord.Exception.ParameterName, ([System.Environment]::NewLine), (Limit-MessageLength $PSItemrecord.Exception.Message) }
-                                            "ParameterArgumentValidationError,*" { "Incorrect argument '{0}', error details:{1}{2}" -f $PSItemrecord.Exception.ParameterName, ([System.Environment]::NewLine), (Limit-MessageLength $PSItemrecord.Exception.Message) }
+                                            "System.Security.SecurityException,*" { "You do not have access to perform the requested action ('Run As Administrator'?), error details:{0}{1}" -f ([System.Environment]::NewLine), $PSItemrecord.Exception.Message }
+                                            "CannotConvertArgumentNoMessage,*" { "Incorrect argument '{0}', error details:{1}{2}" -f $PSItemrecord.Exception.ParameterName, ([System.Environment]::NewLine), $PSItemrecord.Exception.Message }
+                                            "ParameterArgumentValidationError,*" { "Incorrect argument '{0}', error details:{1}{2}" -f $PSItemrecord.Exception.ParameterName, ([System.Environment]::NewLine), $PSItemrecord.Exception.Message }
                                             default { $PSItemrecord | Format-All | Out-Default }
                                         }
                                     }
