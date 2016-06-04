@@ -28,7 +28,7 @@
                                     $PSItemrecord = $PSItem
                                     
                                     function Limit-MessageLength {
-                                        para($Message)
+                                        param($Message)
                                         
                                         $Block = [string]::Empty
                                         do {
