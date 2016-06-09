@@ -1,6 +1,6 @@
  ConEmuTh
 
- Timestamp is 5754b6fe (Mon Jun 06 02:34:22 2016)
+ Timestamp is 575754fc (Wed Jun 08 02:13:00 2016)
 
  Preferred load address is 10000000
 
@@ -350,56 +350,56 @@
  0001:0000b82f       ?msprintf@@YAPB_WPA_WIPB_WZZ 1000c82f f   MStrSafe.obj
  0001:0000bbb9       _wmemcmp                   1000cbb9 f i RgnDetect.obj
  0001:0000bbea       ??0CRgnDetect@@QAE@XZ      1000cbea f   RgnDetect.obj
- 0001:0000bcb1       ??1CRgnDetect@@QAE@XZ      1000ccb1 f   RgnDetect.obj
- 0001:0000bcfa       ?GetDetectedDialogsPtr@CRgnDetect@@QBEPBUtag_DetectedDialog@@XZ 1000ccfa f   RgnDetect.obj
- 0001:0000bcfe       ?GetFlags@CRgnDetect@@QBEKXZ 1000ccfe f   RgnDetect.obj
- 0001:0000bd05       ?FindFrameRight_ByBottom@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH22@Z 1000cd05 f   RgnDetect.obj
- 0001:0000bdb5       ?FindFrameLeft_ByBottom@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH22@Z 1000cdb5 f   RgnDetect.obj
- 0001:0000be5e       ?FindFrameTop_ByLeft@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH22@Z 1000ce5e f   RgnDetect.obj
- 0001:0000bee3       ?FindFrameTop_ByRight@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH22@Z 1000cee3 f   RgnDetect.obj
- 0001:0000bf96       ?FindFrameBottom_ByRight@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH22@Z 1000cf96 f   RgnDetect.obj
- 0001:0000c048       ?FindFrameBottom_ByLeft@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH22@Z 1000d048 f   RgnDetect.obj
- 0001:0000c0d2       ?FindDialog_Inner@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH2@Z 1000d0d2 f   RgnDetect.obj
- 0001:0000c1e8       ?FindFrame_TopLeft@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH222@Z 1000d1e8 f   RgnDetect.obj
- 0001:0000c2a8       ?ExpandDialogFrame@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH2HH22@Z 1000d2a8 f   RgnDetect.obj
- 0001:0000c55a       ?FindByBackground@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH222AA_N@Z 1000d55a f   RgnDetect.obj
- 0001:0000c62a       ?MarkDialog@CRgnDetect@@IAEHPA_WPAUtag_CharAttr@@HHHHHHI_NK@Z 1000d62a f   RgnDetect.obj
- 0001:0000cd1c       ?OnWindowSizeChanged@CRgnDetect@@QAEXXZ 1000dd1c f   RgnDetect.obj
- 0001:0000cd24       ?OnWriteConsoleOutput@CRgnDetect@@QAEXPBU_CHAR_INFO@@U_COORD@@1PAU_SMALL_RECT@@PBK@Z 1000dd24 f   RgnDetect.obj
- 0001:0000cf5f       ?SetFarRect@CRgnDetect@@QAEXPAU_SMALL_RECT@@@Z 1000df5f f   RgnDetect.obj
- 0001:0000cff0       ?TextWidth@CRgnDetect@@QAEHXZ 1000dff0 f   RgnDetect.obj
- 0001:0000d015       ?TextHeight@CRgnDetect@@QAEHXZ 1000e015 f   RgnDetect.obj
- 0001:0000d03a       ?GetCharAttr@CRgnDetect@@QAEHHHAA_WAAUtag_CharAttr@@@Z 1000e03a f   RgnDetect.obj
- 0001:0000d0ae       ?FindFrameRight_ByTop@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH22@Z 1000e0ae f   RgnDetect.obj
- 0001:0000d196       ?FindFrameLeft_ByTop@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH22@Z 1000e196 f   RgnDetect.obj
- 0001:0000d2aa       ?FindDialog_TopLeft@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH222AA_N@Z 1000e2aa f   RgnDetect.obj
- 0001:0000d330       ?FindDialog_TopRight@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH222AA_N@Z 1000e330 f   RgnDetect.obj
- 0001:0000d3c3       ?FindDialog_Left@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH222AA_N@Z 1000e3c3 f   RgnDetect.obj
- 0001:0000d508       ?FindDialog_Right@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH222AA_N@Z 1000e508 f   RgnDetect.obj
- 0001:0000d5ce       ?FindDialog_Any@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH222AA_N@Z 1000e5ce f   RgnDetect.obj
- 0001:0000d797       ?DetectDialog@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHHHPAH2@Z 1000e797 f   RgnDetect.obj
- 0001:0000da0b       ?InitializeSBI@CRgnDetect@@QAEHPBK@Z 1000ea0b f   RgnDetect.obj
- 0001:0000dd4e       ?PrepareTransparent@CRgnDetect@@QAEXPBUCEFAR_INFO_MAPPING@@PBKPBU_CONSOLE_SCREEN_BUFFER_INFO@@PA_WPAUtag_CharAttr@@HH@Z 1000ed4e f   RgnDetect.obj
- 0001:0000e3c7       ?PrepareTransparent@CRgnDetect@@QAEXPBUCEFAR_INFO_MAPPING@@PBK@Z 1000f3c7 f   RgnDetect.obj
- 0001:0000e46a       ?SearchAppPaths@@YI_NPB_WAAUCEStr@@_NPAU1@@Z 1000f46a f   WFiles.obj
- 0001:0000e761       ?FileExists@@YI_NPB_WPAK@Z 1000f761 f   WObjects.obj
- 0001:0000e879       ?IsWindows64@@YI_NXZ       1000f879 f   WObjects.obj
- 0001:0000e8df       ?ExpandEnvStr@@YIPA_WPB_W@Z 1000f8df f   WObjects.obj
- 0001:0000e95a       ?GetEnvVar@@YIPA_WPB_W@Z   1000f95a f   WObjects.obj
- 0001:0000e9c9       ?apiTerminateThreadEx@@YIHPAXKPBDH@Z 1000f9c9 f   WThreads.obj
- 0001:0000ea7f       ?SetThreadName@@YIXKPAD@Z  1000fa7f f   WThreads.obj
- 0001:0000eac7       ?apiThreadHelper@@YGKPAX@Z 1000fac7 f   WThreads.obj
- 0001:0000ec2d       ?apiCreateThread@@YIPAXP6GKPAX@Z0PAKPBDH@Z 1000fc2d f   WThreads.obj
- 0001:0000ed1c       ?apiShowWindow@@YI_NPAUHWND__@@H@Z 1000fd1c f   WUser.obj
- 0001:0000ed2a       _Thread32Next@8            1000fd2a f   kernel32:KERNEL32.dll
- 0001:0000ed30       _Thread32First@8           1000fd30 f   kernel32:KERNEL32.dll
- 0001:0000ed36       _CreateToolhelp32Snapshot@8 1000fd36 f   kernel32:KERNEL32.dll
- 0001:0000ed3c       _Process32NextW@8          1000fd3c f   kernel32:KERNEL32.dll
- 0001:0000ed42       _Process32FirstW@8         1000fd42 f   kernel32:KERNEL32.dll
- 0001:0000ed48       _VerQueryValueW@16         1000fd48 f   version:VERSION.dll
- 0001:0000ed4e       _GetFileVersionInfoW@16    1000fd4e f   version:VERSION.dll
- 0001:0000ed54       _GetFileVersionInfoSizeW@8 1000fd54 f   version:VERSION.dll
- 0001:0000ed5a       _wcspbrk                   1000fd5a f   LIBCMT:wcspbrk.obj
+ 0001:0000bcae       ??1CRgnDetect@@QAE@XZ      1000ccae f   RgnDetect.obj
+ 0001:0000bcf7       ?GetDetectedDialogsPtr@CRgnDetect@@QBEPBUtag_DetectedDialog@@XZ 1000ccf7 f   RgnDetect.obj
+ 0001:0000bcfb       ?GetFlags@CRgnDetect@@QBEKXZ 1000ccfb f   RgnDetect.obj
+ 0001:0000bd02       ?FindFrameRight_ByBottom@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH22@Z 1000cd02 f   RgnDetect.obj
+ 0001:0000bdb2       ?FindFrameLeft_ByBottom@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH22@Z 1000cdb2 f   RgnDetect.obj
+ 0001:0000be5b       ?FindFrameTop_ByLeft@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH22@Z 1000ce5b f   RgnDetect.obj
+ 0001:0000bee0       ?FindFrameTop_ByRight@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH22@Z 1000cee0 f   RgnDetect.obj
+ 0001:0000bf93       ?FindFrameBottom_ByRight@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH22@Z 1000cf93 f   RgnDetect.obj
+ 0001:0000c045       ?FindFrameBottom_ByLeft@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH22@Z 1000d045 f   RgnDetect.obj
+ 0001:0000c0cf       ?FindDialog_Inner@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH2@Z 1000d0cf f   RgnDetect.obj
+ 0001:0000c1e5       ?FindFrame_TopLeft@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH222@Z 1000d1e5 f   RgnDetect.obj
+ 0001:0000c2a5       ?ExpandDialogFrame@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH2HH22@Z 1000d2a5 f   RgnDetect.obj
+ 0001:0000c557       ?FindByBackground@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH222AA_N@Z 1000d557 f   RgnDetect.obj
+ 0001:0000c627       ?MarkDialog@CRgnDetect@@IAEHPA_WPAUtag_CharAttr@@HHHHHHI_NK@Z 1000d627 f   RgnDetect.obj
+ 0001:0000cd16       ?OnWindowSizeChanged@CRgnDetect@@QAEXXZ 1000dd16 f   RgnDetect.obj
+ 0001:0000cd1e       ?OnWriteConsoleOutput@CRgnDetect@@QAEXPBU_CHAR_INFO@@U_COORD@@1PAU_SMALL_RECT@@PBK@Z 1000dd1e f   RgnDetect.obj
+ 0001:0000cf59       ?SetFarRect@CRgnDetect@@QAEXPAU_SMALL_RECT@@@Z 1000df59 f   RgnDetect.obj
+ 0001:0000cfea       ?TextWidth@CRgnDetect@@QAEHXZ 1000dfea f   RgnDetect.obj
+ 0001:0000d00f       ?TextHeight@CRgnDetect@@QAEHXZ 1000e00f f   RgnDetect.obj
+ 0001:0000d034       ?GetCharAttr@CRgnDetect@@QAEHHHAA_WAAUtag_CharAttr@@@Z 1000e034 f   RgnDetect.obj
+ 0001:0000d0a8       ?FindFrameRight_ByTop@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH22@Z 1000e0a8 f   RgnDetect.obj
+ 0001:0000d190       ?FindFrameLeft_ByTop@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH22@Z 1000e190 f   RgnDetect.obj
+ 0001:0000d2a4       ?FindDialog_TopLeft@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH222AA_N@Z 1000e2a4 f   RgnDetect.obj
+ 0001:0000d32a       ?FindDialog_TopRight@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH222AA_N@Z 1000e32a f   RgnDetect.obj
+ 0001:0000d3bd       ?FindDialog_Left@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH222AA_N@Z 1000e3bd f   RgnDetect.obj
+ 0001:0000d502       ?FindDialog_Right@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH222AA_N@Z 1000e502 f   RgnDetect.obj
+ 0001:0000d5c8       ?FindDialog_Any@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHAAH222AA_N@Z 1000e5c8 f   RgnDetect.obj
+ 0001:0000d791       ?DetectDialog@CRgnDetect@@IAE_NPA_WPAUtag_CharAttr@@HHHHPAH2@Z 1000e791 f   RgnDetect.obj
+ 0001:0000da05       ?InitializeSBI@CRgnDetect@@QAEHPBK@Z 1000ea05 f   RgnDetect.obj
+ 0001:0000dd48       ?PrepareTransparent@CRgnDetect@@QAEXPBUCEFAR_INFO_MAPPING@@PBKPBU_CONSOLE_SCREEN_BUFFER_INFO@@PA_WPAUtag_CharAttr@@HH@Z 1000ed48 f   RgnDetect.obj
+ 0001:0000e3bd       ?PrepareTransparent@CRgnDetect@@QAEXPBUCEFAR_INFO_MAPPING@@PBK@Z 1000f3bd f   RgnDetect.obj
+ 0001:0000e45f       ?SearchAppPaths@@YI_NPB_WAAUCEStr@@_NPAU1@@Z 1000f45f f   WFiles.obj
+ 0001:0000e756       ?FileExists@@YI_NPB_WPAK@Z 1000f756 f   WObjects.obj
+ 0001:0000e86e       ?IsWindows64@@YI_NXZ       1000f86e f   WObjects.obj
+ 0001:0000e8d4       ?ExpandEnvStr@@YIPA_WPB_W@Z 1000f8d4 f   WObjects.obj
+ 0001:0000e94f       ?GetEnvVar@@YIPA_WPB_W@Z   1000f94f f   WObjects.obj
+ 0001:0000e9be       ?apiTerminateThreadEx@@YIHPAXKPBDH@Z 1000f9be f   WThreads.obj
+ 0001:0000ea74       ?SetThreadName@@YIXKPAD@Z  1000fa74 f   WThreads.obj
+ 0001:0000eabc       ?apiThreadHelper@@YGKPAX@Z 1000fabc f   WThreads.obj
+ 0001:0000ec22       ?apiCreateThread@@YIPAXP6GKPAX@Z0PAKPBDH@Z 1000fc22 f   WThreads.obj
+ 0001:0000ed11       ?apiShowWindow@@YI_NPAUHWND__@@H@Z 1000fd11 f   WUser.obj
+ 0001:0000ed20       _Thread32Next@8            1000fd20 f   kernel32:KERNEL32.dll
+ 0001:0000ed26       _Thread32First@8           1000fd26 f   kernel32:KERNEL32.dll
+ 0001:0000ed2c       _CreateToolhelp32Snapshot@8 1000fd2c f   kernel32:KERNEL32.dll
+ 0001:0000ed32       _Process32NextW@8          1000fd32 f   kernel32:KERNEL32.dll
+ 0001:0000ed38       _Process32FirstW@8         1000fd38 f   kernel32:KERNEL32.dll
+ 0001:0000ed3e       _VerQueryValueW@16         1000fd3e f   version:VERSION.dll
+ 0001:0000ed44       _GetFileVersionInfoW@16    1000fd44 f   version:VERSION.dll
+ 0001:0000ed4a       _GetFileVersionInfoSizeW@8 1000fd4a f   version:VERSION.dll
+ 0001:0000ed50       _wcspbrk                   1000fd50 f   LIBCMT:wcspbrk.obj
  0001:0000eda0       _memmove                   1000fda0 f   LIBCMT:memmove.obj
  0001:0000f105       _wcschr                    10010105 f   LIBCMT:wcschr.obj
  0001:0000f12b       _wcsrchr                   1001012b f   LIBCMT:wcsrchr.obj
