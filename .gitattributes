@@ -1,1 +1,2 @@
 *.asar filter=lfs diff=lfs merge=lfs -text
+* -crlf
