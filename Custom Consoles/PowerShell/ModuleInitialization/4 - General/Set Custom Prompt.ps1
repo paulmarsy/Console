@@ -8,6 +8,8 @@ if (Test-Path -Path Function:Global:prompt) {
     Remove-Item -Path Function:Global:prompt -Force
 }
 
+$promptCache = @{ Path = $null; Prompt = $null; IsGitRepo = $false }
+
 New-Item -Path Function:Global:prompt -Force -Value ([ScriptBlock]::Create({
     [CmdletBinding()]
     param ()
@@ -15,16 +17,30 @@ New-Item -Path Function:Global:prompt -Force -Value ([ScriptBlock]::Create({
     if ($PSCmdlet.GetVariableValue("PSDebugContext")) {
         Write-Host -ForegroundColor $promptSecurityContext -NoNewLine "[DBG] "
     }
-
+    
     if ($PWD.Provider.Name -eq 'FileSystem') {
-        if ([System.IO.Path]::GetDirectoryName($PWD.ProviderPath)) {
-            Write-Host -ForegroundColor $promptSecurityContext -NoNewLine ((Get-ChildItem -Path ([System.IO.Path]::GetDirectoryName($PWD.ProviderPath)) -Name ([System.IO.Path]::GetFileName($PWD.ProviderPath)) -Force).PSChildName)
-        } else {
-            Write-Host -ForegroundColor $promptSecurityContext -NoNewLine ([System.IO.Path]::GetPathRoot($PWD.ProviderPath))
-        }
-        if (Test-Path Function:\Write-VcsStatus) { Write-VcsStatus }
+        $path = $PWD.ProviderPath.TrimEnd('\')
     } else {
-        Write-Host -ForegroundColor $promptSecurityContext -NoNewLine $PWD.ProviderPath
+        $path = $PWD.Path.TrimEnd('\')       
+    }
+    if ($promptCache.Path -ne $path) {
+        $directory = [System.IO.Path]::GetDirectoryName($path)
+        if ([string]::IsNullOrWhiteSpace($directory)) {
+            $promptCache.Prompt = $path
+        } else { 
+            $promptCache.Prompt = (Get-ChildItem -Path $directory -Name ([System.IO.Path]::GetFileName($path)) -Directory -Force).PSChildName
+            if (Get-GitDirectory) {
+                $promptCache.IsGitRepo = $true
+            } else {
+                $promptCache.IsGitRepo = $false
+            }
+        }
+        $promptCache.Path = $path
+    }
+
+    Write-Host -ForegroundColor $promptSecurityContext -NoNewLine $promptCache.Prompt
+    if ($promptCache.IsGitRepo -and (Test-Path Function:\Write-VcsStatus)) {
+        Write-VcsStatus
     }
 
     if ($NestedPromptLevel -ne 0) {
