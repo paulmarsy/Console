@@ -12,39 +12,24 @@ New-Item -Path Function:Global:prompt -Force -Value ([ScriptBlock]::Create({
     [CmdletBinding()]
     param ()
     
-    $originalLASTEXITCODE = $Global:LASTEXITCODE
-    try {
-        if ($PSCmdlet.GetVariableValue("PSDebugContext")) {
-           Write-Host -ForegroundColor $promptSecurityContext -NoNewLine "[DBG] "
-        }
+    if ($PSCmdlet.GetVariableValue("PSDebugContext")) {
+        Write-Host -ForegroundColor $promptSecurityContext -NoNewLine "[DBG] "
+    }
 
-        $currentPath = $PWD.Path
-        $parentPath = Split-Path -Path $currentPath -Parent
-        if ([string]::IsNullOrWhiteSpace($parentPath)) {
-            $path = $PWD.Drive
-        }  else {
-            $currentBaseName = Split-Path $currentPath -Leaf
-            $path = Get-ChildItem -Path $parentPath -Force -ErrorAction Ignore | ? PSChildName -eq $currentBaseName | Select-Object -ExpandProperty PSChildName -First 1
-        }
-        
-        if ([string]::IsNullOrWhiteSpace($path)) {
-            Write-Host -ForegroundColor $promptSecurityContext -NoNewLine "<Invalid Path>"
+    if ($PWD.Provider.Name -eq 'FileSystem') {
+        if ([System.IO.Path]::GetDirectoryName($PWD.ProviderPath)) {
+            Write-Host -ForegroundColor $promptSecurityContext -NoNewLine ((Get-ChildItem -Path ([System.IO.Path]::GetDirectoryName($PWD.ProviderPath)) -Name ([System.IO.Path]::GetFileName($PWD.ProviderPath)) -Force).PSChildName)
         } else {
-            Write-Host -ForegroundColor $promptSecurityContext -NoNewLine $path
-            if (Test-Path Function:\Write-VcsStatus) { Write-VcsStatus }
-            Start-Process -FilePath $PowerShellConsoleConstants.Executables.ConEmuC -ArgumentList "-StoreCWD `"$path`"" -WindowStyle Hidden
+            Write-Host -ForegroundColor $promptSecurityContext -NoNewLine ([System.IO.Path]::GetPathRoot($PWD.ProviderPath))
         }
-
-        if ($NestedPromptLevel -ne 0) {
-            Write-Host -ForegroundColor $promptSecurityContext -NoNewLine " ($NestedPromptLevel)"
-        }
-
-        return "$ "
+        if (Test-Path Function:\Write-VcsStatus) { Write-VcsStatus }
+    } else {
+        Write-Host -ForegroundColor $promptSecurityContext -NoNewLine $PWD.ProviderPath
     }
-    finally {
-        # Make sure the exit code is preserved
-        if ($Global:LASTEXITCODE -ne $originalLASTEXITCODE) {
-            Set-Variable -Name LASTEXITCODE -Scope Global -Value $originalLASTEXITCODE -Force
-        }
+
+    if ($NestedPromptLevel -ne 0) {
+        Write-Host -ForegroundColor $promptSecurityContext -NoNewLine " ($NestedPromptLevel)"
     }
+
+    return "$ "
 }).GetNewClosure())
