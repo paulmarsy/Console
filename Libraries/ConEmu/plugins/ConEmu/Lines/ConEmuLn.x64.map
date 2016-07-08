@@ -1,6 +1,6 @@
  ConEmuLn.x64
 
- Timestamp is 576741d9 (Mon Jun 20 04:07:37 2016)
+ Timestamp is 577ef559 (Fri Jul  8 03:35:37 2016)
 
  Preferred load address is 0000000180000000
 
@@ -113,21 +113,21 @@
  0001:00003a20       ?SettingsLoadW2800@@YAXXZ  0000000180004a20 f   ConEmuLn2800.obj
  0001:00003b68       ?SettingsSaveW2800@@YAXXZ  0000000180004b68 f   ConEmuLn2800.obj
  0001:00003c84       GetGlobalInfoW             0000000180004c84 f   ConEmuLn2800.obj
- 0001:000046e8       ?SettingsLoadA@@YAXXZ      00000001800056e8 f   ConEmuLnA.obj
- 0001:000046f4       ?SettingsSaveA@@YAXXZ      00000001800056f4 f   ConEmuLnA.obj
- 0001:00004700       Configure                  0000000180005700 f   ConEmuLnA.obj
- 0001:00004714       ExitFAR                    0000000180005714 f   ConEmuLnA.obj
- 0001:00004770       GetMinFarVersion           0000000180005770 f   ConEmuLnA.obj
- 0001:000047a8       GetPluginInfo              00000001800057a8 f   ConEmuLnA.obj
- 0001:00004830       OpenPlugin                 0000000180005830 f   ConEmuLnA.obj
- 0001:00004850       SetStartupInfo             0000000180005850 f   ConEmuLnA.obj
- 0001:00004a18       ?HeapDeinitialize@@YAXXZ   0000000180005a18 f   Memory.obj
- 0001:00004a3c       ?HeapInitialize@@YA_NXZ    0000000180005a3c f   Memory.obj
- 0001:00004a74       ?xf_calloc@@YAPEAX_K0@Z    0000000180005a74 f   Memory.obj
- 0001:00004a90       ?xf_free@@YAXPEAX@Z        0000000180005a90 f   Memory.obj
- 0001:00004ab6       GetFileVersionInfoSizeW    0000000180005ab6 f   version:VERSION.dll
- 0001:00004abc       GetFileVersionInfoW        0000000180005abc f   version:VERSION.dll
- 0001:00004ac2       VerQueryValueW             0000000180005ac2 f   version:VERSION.dll
+ 0001:000046e4       ?SettingsLoadA@@YAXXZ      00000001800056e4 f   ConEmuLnA.obj
+ 0001:000046f0       ?SettingsSaveA@@YAXXZ      00000001800056f0 f   ConEmuLnA.obj
+ 0001:000046fc       Configure                  00000001800056fc f   ConEmuLnA.obj
+ 0001:00004710       ExitFAR                    0000000180005710 f   ConEmuLnA.obj
+ 0001:0000476c       GetMinFarVersion           000000018000576c f   ConEmuLnA.obj
+ 0001:000047a4       GetPluginInfo              00000001800057a4 f   ConEmuLnA.obj
+ 0001:0000482c       OpenPlugin                 000000018000582c f   ConEmuLnA.obj
+ 0001:0000484c       SetStartupInfo             000000018000584c f   ConEmuLnA.obj
+ 0001:00004a14       ?HeapDeinitialize@@YAXXZ   0000000180005a14 f   Memory.obj
+ 0001:00004a38       ?HeapInitialize@@YA_NXZ    0000000180005a38 f   Memory.obj
+ 0001:00004a70       ?xf_calloc@@YAPEAX_K0@Z    0000000180005a70 f   Memory.obj
+ 0001:00004a8c       ?xf_free@@YAXPEAX@Z        0000000180005a8c f   Memory.obj
+ 0001:00004ab2       GetFileVersionInfoSizeW    0000000180005ab2 f   version:VERSION.dll
+ 0001:00004ab8       GetFileVersionInfoW        0000000180005ab8 f   version:VERSION.dll
+ 0001:00004abe       VerQueryValueW             0000000180005abe f   version:VERSION.dll
  0001:00004ae0       _alloca_probe              0000000180005ae0 f   LIBCMT:_chkstk_.obj
  0001:00004ae0       __chkstk                   0000000180005ae0 f   LIBCMT:_chkstk_.obj
  0001:00004ea4       _DllMainCRTStartup         0000000180005ea4 f   LIBCMT:dll_dllmain.obj
@@ -1325,8 +1325,8 @@
  0001:00001fcc       ?ConfigureProc@@YAHH@Z     0000000180002fcc f   ConEmuLn1900.obj
  0001:00002d08       ?ConfigDlgProc@@YA_JPEAX_J10@Z 0000000180003d08 f   ConEmuLn2800.obj
  0001:00002e60       ?ConfigureProc@@YAHH@Z     0000000180003e60 f   ConEmuLn2800.obj
- 0001:00003d1c       ?ConfigDlgProc@@YA_JPEAXHH_J@Z 0000000180004d1c f   ConEmuLnA.obj
- 0001:00003e6c       ?ConfigureProc@@YAHH@Z     0000000180004e6c f   ConEmuLnA.obj
+ 0001:00003d18       ?ConfigDlgProc@@YA_JPEAXHH_J@Z 0000000180004d18 f   ConEmuLnA.obj
+ 0001:00003e68       ?ConfigureProc@@YAHH@Z     0000000180004e68 f   ConEmuLnA.obj
  0001:00004ad0       $$000000                   0000000180005ad0     LIBCMT:_chkstk_.obj
  0001:00004b34       ?dllmain_crt_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z 0000000180005b34 f   LIBCMT:dll_dllmain.obj
  0001:00004b84       ?dllmain_crt_process_attach@@YAHQEAUHINSTANCE__@@QEAX@Z 0000000180005b84 f   LIBCMT:dll_dllmain.obj
