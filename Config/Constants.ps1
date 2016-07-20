@@ -35,8 +35,8 @@ $Constants = @{
 	MutexGuid = "edb1fbff-b83d-4d5b-9a03-cc535ee29155"
 }
 
-& (Join-Path $InstallPath "Libraries\Misc\IsAdmin.exe") -q
-$Constants.IsAdmin = $LASTEXITCODE
+$admin = Start-Process -FilePath (Join-Path $InstallPath "Libraries\Misc\IsAdmin.exe") -ArgumentList "-q" -Wait -PassThru -NoNewWindow
+$Constants.IsAdmin = $admin.ExitCode
 
 $version = $Constants.Version
 $Constants.Version.Update = {
