@@ -1,15 +1,6 @@
 [submodule "Libraries/PowerShell Modules/posh-git"]
 	path = Libraries/PowerShell Modules/posh-git
 	url = https://github.com/dahlbyk/posh-git
-[submodule "Libraries/PowerShell Modules/SnippetPx"]
-	path = Libraries/PowerShell Modules/SnippetPx
-	url = https://github.com/KirkMunro/SnippetPx
-[submodule "Libraries/PowerShell Modules/HistoryPx"]
-	path = Libraries/PowerShell Modules/HistoryPx
-	url = https://github.com/KirkMunro/HistoryPx
-[submodule "Libraries/PowerShell Modules/DebugPx"]
-	path = Libraries/PowerShell Modules/DebugPx
-	url = https://github.com/KirkMunro/DebugPx
 [submodule "Libraries/PowerShell Modules/poke"]
 	path = Libraries/PowerShell Modules/poke
 	url = https://github.com/oising/poke
@@ -19,12 +10,6 @@
 [submodule "Libraries/PowerShell Modules/Pester"]
 	path = Libraries/PowerShell Modules/Pester
 	url = https://github.com/pester/Pester
-[submodule "Libraries/PowerShell Modules/Everything"]
-	path = Libraries/PowerShell Modules/Everything
-	url = https://github.com/paulmarsy/Everything-PowerShell-Module.git
-[submodule "Libraries/PowerShell Modules/PowerForensics"]
-	path = Libraries/PowerShell Modules/PowerForensics
-	url = https://github.com/Invoke-IR/PowerForensics
 [submodule "Libraries/PowerShell Modules/TabExpansionPlusPlus"]
 	path = Libraries/PowerShell Modules/TabExpansionPlusPlus
 	url = https://github.com/lzybkr/TabExpansionPlusPlus
