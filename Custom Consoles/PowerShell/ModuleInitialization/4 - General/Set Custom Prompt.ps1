@@ -11,7 +11,7 @@ if (Test-Path -Path Function:Global:prompt) {
 New-Item -Path Function:Global:prompt -Force -Value ([ScriptBlock]::Create({
     [CmdletBinding()]
     param()
-    measure-command {
+
     $promptText = New-Object -TypeName System.Text.StringBuilder
     
     if ($PSCmdlet.GetVariableValue("PSDebugContext")) {
@@ -41,6 +41,6 @@ New-Item -Path Function:Global:prompt -Force -Value ([ScriptBlock]::Create({
     [System.Console]::ForegroundColor = $promptCache.ForegroundColor
     [System.Console]::Write($promptText)
     [System.Console]::ResetColor()
-    } | out-host
+
     return "$ "
 }).GetNewClosure())
