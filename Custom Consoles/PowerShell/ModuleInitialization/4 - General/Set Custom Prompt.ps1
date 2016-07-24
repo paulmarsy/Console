@@ -1,21 +1,21 @@
 param([switch]$GetModuleStepDetails)
 if ($GetModuleStepDetails) { return (@{RunLevel = 3; Critical = $false}) }
 
-if ($ProfileConfig.General.IsAdmin) { $promptSecurityContext = "Red" }
-else { $promptSecurityContext = "Green" }
+$promptCache = @{ Path = $null; Prompt = $null }
+if ($ProfileConfig.General.IsAdmin) { $promptCache.ForegroundColor = [System.ConsoleColor]::Red }
+else { $promptCache.ForegroundColor = [System.ConsoleColor]::Green }
 
 if (Test-Path -Path Function:Global:prompt) {
     Remove-Item -Path Function:Global:prompt -Force
 }
-
-$promptCache = @{ Path = $null; Prompt = $null; IsGitRepo = $false }
-
 New-Item -Path Function:Global:prompt -Force -Value ([ScriptBlock]::Create({
     [CmdletBinding()]
-    param ()
+    param()
+    measure-command {
+    $promptText = New-Object -TypeName System.Text.StringBuilder
     
     if ($PSCmdlet.GetVariableValue("PSDebugContext")) {
-        Write-Host -ForegroundColor $promptSecurityContext -NoNewLine "[DBG] "
+        [void]$promptText.Append("[DBG] ")
     }
     
     if ($PWD.Provider.Name -eq 'FileSystem') {
@@ -29,23 +29,18 @@ New-Item -Path Function:Global:prompt -Force -Value ([ScriptBlock]::Create({
             $promptCache.Prompt = $path
         } else { 
             $promptCache.Prompt = (Get-ChildItem -Path $directory -Name ([System.IO.Path]::GetFileName($path)) -Directory -Force).PSChildName
-            if (Get-GitDirectory) {
-                $promptCache.IsGitRepo = $true
-            } else {
-                $promptCache.IsGitRepo = $false
-            }
         }
         $promptCache.Path = $path
     }
-
-    Write-Host -ForegroundColor $promptSecurityContext -NoNewLine $promptCache.Prompt
-    if ($promptCache.IsGitRepo -and (Test-Path Function:\Write-VcsStatus)) {
-        Write-VcsStatus
-    }
+    [void]$promptText.Append($promptCache.Prompt)
 
     if ($NestedPromptLevel -ne 0) {
-        Write-Host -ForegroundColor $promptSecurityContext -NoNewLine " ($NestedPromptLevel)"
+        [void]$promptText.Append(" ($NestedPromptLevel)")
     }
-
+    
+    [System.Console]::ForegroundColor = $promptCache.ForegroundColor
+    [System.Console]::Write($promptText)
+    [System.Console]::ResetColor()
+    } | out-host
     return "$ "
 }).GetNewClosure())
