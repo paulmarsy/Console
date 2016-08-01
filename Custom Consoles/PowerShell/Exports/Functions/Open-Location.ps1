@@ -2,6 +2,7 @@ function Open-Location {
     [CmdletBinding()]
     param(
         [ValidateSet(
+            'PackageWarehouse',
             "PowerShellProfile",
             
             "Home",
@@ -67,6 +68,7 @@ function Open-Location {
         $type = "Folder"
         $Path = switch ($Location)
         {
+            'PackageWarehouse' { '\\Mac\Home\Git\PackageWarehouse' }
             "PowerShellProfile" { Split-Path $PROFILE.CurrentUserAllHosts -Parent }
 
             "Home" { $ProfileConfig.General.UserFolder }
